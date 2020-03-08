@@ -23,12 +23,16 @@
               "src/assets"
             ],
             "styles": [
+             
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
 
+              "./node_modules/mdbootstrap/js/jquery.js",
+         
+              "./node_modules/mdbootstrap/js/bootstrap.js",
+              "./node_modules/mdbootstrap/js/mdb.js"
             ],
             "es5BrowserSupport": true
           },
@@ -88,8 +92,10 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
-
+              "./node_modules/mdbootstrap/js/jquery.js",
+         
+              "./node_modules/mdbootstrap/js/bootstrap.js",
+              "./node_modules/mdbootstrap/js/mdb.js"
             ],
             "assets": [
               "src/favicon.ico",

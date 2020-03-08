@@ -56,6 +56,9 @@
  * Zone JS is required by default for Angular itself.
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
+// import 'mdbootstrap/js/mdb.js';
+// import '~mdbootstrap/js/bootstrap.js';
+// import '~mdbootstrap/js/jquery-3.1.1.js';
 
 
 /***************************************************************************************************
