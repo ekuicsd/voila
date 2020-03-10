@@ -8,6 +8,8 @@ import { TopCitiesComponent } from './top-cities/top-cities.component';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FeaturesComponent } from './features/features.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 // import { NavbarModule, WavesModule, ModalModule, ButtonsModule } from 'angular-bootstrap-md';
 // import { DropdownModule } from 'angular-bootstrap-md';
 
@@ -22,6 +24,7 @@ const routes: Routes = [
     FilterFormComponent,
     MapComponent,
     TopCitiesComponent,
+    FeaturesComponent,
 
   ],
   imports: [
@@ -29,6 +32,7 @@ const routes: Routes = [
       CommonModule,
       CarouselModule,
       BrowserAnimationsModule,
+      MDBBootstrapModule.forRoot(),
       // NavbarModule,
       // WavesModule, 
       // ButtonsModule,
