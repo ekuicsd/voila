@@ -60,7 +60,7 @@ const routes: Routes = [
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [NO_ERRORS_SCHEMA]
-
+  schemas: [NO_ERRORS_SCHEMA],
+  exports: []
 })
 export class AppModule { }

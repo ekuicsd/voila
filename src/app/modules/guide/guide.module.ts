@@ -11,11 +11,12 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { EditPreferencesComponent } from './components/edit-preferences/edit-preferences.component';
 import { DealsComponent } from './components/deals/deals.component';
+import { BookingsComponent } from './components/bookings/bookings.component';
 
 const routes: Routes = [
     // {path: '', redirectTo: 'register', pathMatch: 'full'},
     {path: 'register', component: RegisterComponent},
-    {path: 'home', component: GuideHomeComponent, children: [
+    {path: 'guidehome', component: GuideHomeComponent, children: [
       {
         path: '', redirectTo: 'dashboard', pathMatch: 'full'
       },
@@ -37,6 +38,9 @@ const routes: Routes = [
       },
       {
         path: 'messages', component: MessagesComponent
+      },
+      {
+        path: 'bookings', component: BookingsComponent
       }
     ]},
     // ]},
@@ -52,7 +56,8 @@ const routes: Routes = [
     MessagesComponent,
     ActivitiesComponent,
     EditPreferencesComponent,
-    DealsComponent
+    DealsComponent,
+    BookingsComponent
     ],
   imports: [
     //   BrowserModule,
