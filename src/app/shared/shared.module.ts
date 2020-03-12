@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeModule } from '../modules/home/home.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CommonModule } from '@angular/common';
 
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
@@ -34,6 +35,7 @@ const routes: Routes = [
     ],
     imports: [
         BrowserModule,
+        CommonModule,
         HomeModule,
         ReactiveFormsModule,
         MDBBootstrapModule.forRoot(),

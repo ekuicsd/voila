@@ -1,17 +1,62 @@
-<div class="row">
-  <div class="col-md-4">
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-          aria-controls="nav-home" aria-selected="true">Home</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-          aria-controls="nav-profile" aria-selected="false">Profile</a>
-        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-          aria-controls="nav-contact" aria-selected="false">Contact</a>
+<div class="row" style="margin: 50px;">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        This is some text within a panel body.
       </div>
-    </nav>
-  </div>
-  <div class="col-md-8">
+    </div><br>
 
+    <div class="row" >
+      <div class="col-md-4 col-sm-3">
+        <div class="row">
+          <div class="col-md-12 text-center">
+              <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" class="img-fluid z-depth-1 rounded-circle"
+            alt="Responsive image">
+            <br>
+
+            <div class="btn-group" mdbDropdown style="margin-top: 10px;">
+              <button mdbDropdownToggle type="button" mdbBtn color="default" outline="true" class="dropdown-toggle waves-light"
+                mdbWavesEffect>
+                <b>Name</b>
+              </button>
+            
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" >EditProfile</a>
+                <a class="dropdown-item" >Manage</a>
+                <a class="dropdown-item" >Logout</a>
+              </div>
+            </div>
+            <br><br>
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-md-12">
+            
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['dashboard']" routerLinkActive="active"  role="tab"
+                aria-controls="v-pills-home" aria-selected="true">DashBoard</a>
+              <a class="nav-link" id="v-pills-bookings-tab" data-toggle="pill" [routerLink]="['bookings']" routerLinkActive="active"  role="tab"
+                aria-controls="v-pills-bookings" aria-selected="true">Bookings</a>
+              <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" [routerLink]="['messages']" routerLinkActive="active" role="tab"
+                aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+              <a class="nav-link" id="v-pills-activities-tab" data-toggle="pill" [routerLink]="['activities']" routerLinkActive="active" role="tab"
+                aria-controls="v-pills-activities" aria-selected="false">Recent Activities</a>
+              <a class="nav-link" id="v-pills-deals-tab" data-toggle="pill" [routerLink]="['deals']" routerLinkActive="active" role="tab"
+                aria-controls="v-pills-deals" aria-selected="false">Your Deals</a>
+              <a class="nav-link" id="v-pills-edit-tab" data-toggle="pill" [routerLink]="['interests']" routerLinkActive="active" role="tab"
+                aria-controls="v-pills-edit" aria-selected="false">Edit Interests</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" [routerLink]="['editProfile']" routerLinkActive="active" role="tab"
+                aria-controls="v-pills-profile" aria-selected="false">Edit Profile</a>
+            </div>
+            
+          </div>
+      </div>
+    </div>
+      <div class="col-md-8 col-sm-9">
+        <router-outlet></router-outlet>
+      </div>
+    
   </div>
+</div>
 </div>
