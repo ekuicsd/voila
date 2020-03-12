@@ -14,6 +14,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeModule } from '../home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RequestsComponent } from './components/requests/requests.component';
+import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: 'register', pathMatch: 'full'},
@@ -43,7 +44,10 @@ const routes: Routes = [
     },
     {
       path: 'requests', component: RequestsComponent
-    }
+    },
+    {
+      path: 'searchResult', component: SearchResultPageComponent
+    },
   ]},
 ]; 
 
@@ -57,7 +61,8 @@ const routes: Routes = [
     EditProfileComponent,
     FavouritesComponent,
     BookingsComponent,
-    RequestsComponent
+    RequestsComponent,
+    SearchResultPageComponent
   ],
   imports: [
     // BrowserModule,
