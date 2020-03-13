@@ -41,8 +41,8 @@ export class HeaderComponent implements OnInit {
       if(this.loginForm.value.email === '1' && this.loginForm.value.password === '1') {
         console.log("correct!");
         this.modal.hide();
-        // this.router.navigateByUrl('guide/guidehome');
-        this.router.navigateByUrl('tourists/touristshome');
+        this.router.navigateByUrl('guide/guidehome');
+        // this.router.navigateByUrl('tourists/touristshome');
       }
     } else {
       this.toastr.error("Error! Invalid email or password.")
