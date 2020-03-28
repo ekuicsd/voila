@@ -1,52 +1,45 @@
 <div class="row" style="margin: 50px;">
-  <div class="col-md-12">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link " id="home-tab" data-toggle="tab" [routerLink]="['dashboard']" routerLinkActive="active" role="tab" aria-controls="home"
-          aria-selected="true">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " id="bookings-tab" data-toggle="tab" [routerLink]="['bookings']" routerLinkActive="active" role="tab" aria-controls="bookings"
-          aria-selected="true">Your Bookings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " id="requests-tab" data-toggle="tab" [routerLink]="['requests']" routerLinkActive="active" role="tab" aria-controls="requests"
-          aria-selected="true">Your Requests</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " id="messages-tab" data-toggle="tab" [routerLink]="['messages']" routerLinkActive="active" role="tab" aria-controls="messages"
-          aria-selected="true">Messages</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " id="histories-tab" data-toggle="tab" [routerLink]="['histories']" routerLinkActive="active" role="tab" aria-controls="histories"
-          aria-selected="true">Histories</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="favourites-tab" data-toggle="tab" [routerLink]="['favourites']" routerLinkActive="active" role="tab" aria-controls="favourites"
-          aria-selected="false">Favourites</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="editProfile-tab" data-toggle="tab" [routerLink]="['editProfile']" routerLinkActive="active" role="tab" aria-controls="editProfile"
-          aria-selected="false">Edit Profiles</a>
-      </li>
-      <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle  role="button" class="nav-link dropdown-toggle waves-light">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link " id="home-tab" data-toggle="tab" [routerLink]="['dashboard']" routerLinkActive="active" role="tab" aria-controls="home" aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="bookings-tab" data-toggle="tab" [routerLink]="['bookings']" routerLinkActive="active" role="tab" aria-controls="bookings" aria-selected="true">Your Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="requests-tab" data-toggle="tab" [routerLink]="['requests']" routerLinkActive="active" role="tab" aria-controls="requests" aria-selected="true">Your Requests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="messages-tab" data-toggle="tab" [routerLink]="['messages']" routerLinkActive="active" role="tab" aria-controls="messages" aria-selected="true">Messages</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="histories-tab" data-toggle="tab" [routerLink]="['histories']" routerLinkActive="active" role="tab" aria-controls="histories" aria-selected="true">Previous Trips</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="favourites-tab" data-toggle="tab" [routerLink]="['favourites']" routerLinkActive="active" role="tab" aria-controls="favourites" aria-selected="false">Favourites</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="editProfile-tab" data-toggle="tab" [routerLink]="['editProfile']" routerLinkActive="active" role="tab" aria-controls="editProfile" aria-selected="false">Edit Profiles</a>
+            </li>
+            <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle role="button" class="nav-link dropdown-toggle waves-light">
         More Options<span class="caret"></span></a>
-        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-            <a class="dropdown-item waves-light" mdbWavesEffect>Manage</a>
-            <a class="dropdown-item waves-light" mdbWavesEffect>Help!</a>
-            <div class="divider dropdown-divider"></div>
-            <a class="dropdown-item waves-light" mdbWavesEffect>Logout</a>
-        </div>
-    </li>
-    </ul>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect>Manage</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect>Help!</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbWavesEffect>Logout</a>
+                </div>
+            </li>
+        </ul>
 
-    <div class="row" style="margin: 40px 10px;">
-      <div class="col-md-12">
-        <div class="tab-content" id="myTabContent">
-          <router-outlet></router-outlet>
+        <div class="row" style="margin: 40px 10px;">
+            <div class="col-md-12">
+                <div class="tab-content" id="myTabContent">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
