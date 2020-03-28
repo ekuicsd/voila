@@ -1,0 +1,21 @@
+.container1 img {
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    margin: 14px;
+}
+
+.container1 {
+    display: flex;
+}
+
+mdb-card-text,
+mdb-card-text div {
+    font-size: medium !important;
+}
+.requests{
+    display: flex;
+}
+.request-card{
+    margin-top: 50px;
+}
