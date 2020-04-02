@@ -11,6 +11,9 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { FeaturesComponent } from './features/features.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TopDealsComponent } from './top-deals/top-deals.component';
+import { MyDatePickerModule } from 'mydatepicker';
+// import { NgbInputDatepicker } from  '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // import { NavbarModule, WavesModule, ModalModule, ButtonsModule } from 'angular-bootstrap-md';
 // import { DropdownModule } from 'angular-bootstrap-md';
 
@@ -36,6 +39,8 @@ const routes: Routes = [
       // BrowserAnimationsModule,
       // NoopAnimationsModule,
       MDBBootstrapModule.forRoot(),
+      NgbModule,
+      MyDatePickerModule,
       // NavbarModule,
       // WavesModule, 
       // ButtonsModule,

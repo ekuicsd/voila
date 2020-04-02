@@ -21,7 +21,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { CarouselModule } from 'ngx-owl-carousel-o';
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
 

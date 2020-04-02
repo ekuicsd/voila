@@ -34,15 +34,18 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  submitLogin() {
+  submitLogin(role: string) {
     if(this.loginForm.valid) {
       console.log(this.loginForm.value);
       // if(this.loginForm.value.email === 'icsd@gmail.com' && this.loginForm.value.password === 'icsd') {
-      if(this.loginForm.value.email === '1' && this.loginForm.value.password === '1') {
+      if(this.loginForm.value.email === 'i' && this.loginForm.value.password === 'i') {
         console.log("correct!");
         this.modal.hide();
+        if(role === 'tourists') {
+          this.router.navigateByUrl('tourists/touristshome');
+        } else {
         this.router.navigateByUrl('guide/guidehome');
-        // this.router.navigateByUrl('tourists/touristshome');
+        }
       }
     } else {
       this.toastr.error("Error! Invalid email or password.")

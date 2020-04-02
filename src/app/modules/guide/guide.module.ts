@@ -12,6 +12,9 @@ import { ActivitiesComponent } from './components/activities/activities.componen
 import { EditPreferencesComponent } from './components/edit-preferences/edit-preferences.component';
 import { DealsComponent } from './components/deals/deals.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
+import { ArchwizardModule } from 'ng2-archwizard';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 const routes: Routes = [
     // {path: '', redirectTo: 'register', pathMatch: 'full'},
@@ -63,7 +66,9 @@ const routes: Routes = [
     //   BrowserModule,
       CommonModule,
       RouterModule.forChild(routes),
+      NgbModule,
       MDBBootstrapModule.forRoot(),
+      ArchwizardModule,
   ],
   exports: [
       
