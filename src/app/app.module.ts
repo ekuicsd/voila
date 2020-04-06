@@ -20,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // import { ArchwizardModule } from 'ng2-archwizard/dist';
 // import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginPageComponent } from './shared/components/login-page/login-page.component';
 // import { CarouselModule } from 'ngx-owl-carousel-o';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -28,8 +29,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/home/home.module').then(module => module.HomeModule)
 
   },
-
-
 ];
 
 @NgModule({

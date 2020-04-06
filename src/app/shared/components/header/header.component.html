@@ -44,6 +44,11 @@
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     LogIn</a>
             </li>
+            <li class="nav-item" *ngIf="!token">
+              <a class="nav-link waves-light"  [routerLink]="['/login']" mdbWavesEffect>
+                  <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                  LogIn2</a>
+          </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown" dropdown *ngIf="!token">
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
@@ -131,7 +136,7 @@
                                     <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
                                 </div>
                                 <div class="text-center mt-2">
-                                    <button type="submit" (click)="submitLogin()" class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
+                                    <button type="submit" (click)="submitLogin('tourists')" class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
                                 </div>
                             </div>
                         </form>
