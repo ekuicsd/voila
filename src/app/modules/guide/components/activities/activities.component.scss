@@ -1,0 +1,10 @@
+.to-right{
+    text-align: center;
+    justify-content: right;
+    align-items: right;
+}
+@media only screen and (max-width: 600px){
+.img-fluid{
+    display: none;
+}
+}

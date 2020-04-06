@@ -18,4 +18,13 @@ mdb-card-text div {
 }
 .request-card{
     margin-top: 50px;
+    // width: 455px;
+}
+@media only screen and (max-width: 600px){
+
+    .request-card{
+        width: 360px;
+        margin-left: -30px;
+        // height: 250px;
+    }
 }
