@@ -8,9 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
 import { DealsComponent } from './components/deals/deals.component';
+import { GuideProfileComponent } from './components/guide-profile/guide-profile.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+
+
+// import { NavbarModule, WavesModule, PopoverModule, IconsModule,
+//      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
 
 const routes: Routes = [
-    // {path: 'login', component: LoginComponent},
+    
     {
         path: 'touristsRegister', redirectTo: 'tourists/register', pathMatch: 'full'
     },
@@ -23,6 +29,12 @@ const routes: Routes = [
     {path: 'guide', 
         loadChildren: () => import('../modules/guide/guide.module').then(module => module.GuideModule)
     },
+    {
+        path: 'login', component: LoginPageComponent
+    },
+    {
+        path: 'guideprofile', component: GuideProfileComponent
+    }
     
     
 ];
@@ -31,6 +43,8 @@ const routes: Routes = [
         FooterComponent,
         HeaderComponent,
         DealsComponent,
+        GuideProfileComponent,
+        LoginPageComponent,
     ],
     imports: [
         BrowserModule,
@@ -42,7 +56,8 @@ const routes: Routes = [
     ],
     exports: [
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+        LoginPageComponent
     ]
 }) 
 
