@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
 import { GuideProfileComponent } from './components/guide-profile/guide-profile.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
@@ -37,6 +39,7 @@ const routes: Routes = [
         FooterComponent,
         HeaderComponent,
         GuideProfileComponent,
+        LoginComponent,
     ],
     imports: [
         BrowserModule,
