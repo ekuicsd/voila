@@ -7,9 +7,7 @@ import { HomeModule } from '../modules/home/home.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
-
-// import { NavbarModule, WavesModule, PopoverModule, IconsModule,
-//      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
+import { DealsComponent } from './components/deals/deals.component';
 
 const routes: Routes = [
     // {path: 'login', component: LoginComponent},
@@ -32,6 +30,7 @@ const routes: Routes = [
     declarations: [
         FooterComponent,
         HeaderComponent,
+        DealsComponent,
     ],
     imports: [
         BrowserModule,
@@ -39,15 +38,6 @@ const routes: Routes = [
         HomeModule,
         ReactiveFormsModule,
         MDBBootstrapModule.forRoot(),
-
-        // NavbarModule,
-        // WavesModule, 
-        // ButtonsModule,
-        // ModalModule.forRoot(),
-        // PopoverModule, 
-        // TooltipModule,
-        // IconsModule,
-        // DropdownModule.forRoot(),
         RouterModule.forChild(routes),
     ],
     exports: [
