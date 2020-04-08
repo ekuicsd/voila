@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from '../app/shared/shared.module';
@@ -14,6 +14,16 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpInterceptorService } from './shared/service/http-interceptor.service';
 
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+
+  { path: 'home',
+    loadChildren: () => import('./modules/home/home.module').then(module => module.HomeModule)
+
+  },
+
+
+];
 
 
 @NgModule({
@@ -30,7 +40,7 @@ import { HttpInterceptorService } from './shared/service/http-interceptor.servic
     TouristsModule,
     HomeModule,
     HttpClientModule,
-    // RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes),
     GuideModule,
     ToastrModule.forRoot(),
     
