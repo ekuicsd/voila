@@ -9,10 +9,10 @@ export class FilterFormComponent implements OnInit {
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'dd.mm.yyyy',
-};
+  };
 
-// Initialized to specific date (09.10.2018).
-// public model: any = { date: { year: 2018, month: 10, day: 9 } };
+ // Initialized to specific date (09.10.2018).
+ // public model: any = { date: { year: 2018, month: 10, day: 9 } };
 
   constructor() { }
 

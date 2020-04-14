@@ -1,3 +1,259 @@
 <p>
-  guide-profile works!
+    guide-profile works!
 </p>
+<div class="container guide-contain">
+    <div class="row">
+        <div class="col-md-4 pr-4">
+            <!--Card-->
+            <!-- cascade="true" -->
+            <mdb-card class="sticky">
+                <div class="container mt-4">
+                    <div class="row">
+
+                        <!--Card image-->
+                        <div class="col-md-4 view overlay waves-light " mdbWavesEffect>
+                            <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class="img-fluid rounded-circle z-depth-0" style="height:80px; width:80px;">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                            <!--/Card image-->
+                        </div>
+                        <div class="col-md-8">
+                            <h2>Barkha Joshi</h2>
+                            <div>
+                                <mdb-icon fas icon="star"></mdb-icon>
+                                <mdb-icon fas icon="star"></mdb-icon>
+                                <mdb-icon fas icon="star"></mdb-icon>
+                                <mdb-icon fas icon="star"></mdb-icon>
+                                <mdb-icon fas icon="star"></mdb-icon>
+                                <strong> 22 Reviews</strong>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <hr class="myt-4 ml-3 mr-3 mb-0">
+                <!-- cascade="true" -->
+
+                <mdb-card-body>
+                    <!--Card content-->
+                    <!-- <h4 class="card-title">
+                        <strong>Billy Cullen</strong>
+                    </h4> -->
+                    <!-- Guide biodata -->
+                    <div>
+                        <mdb-icon fas icon="check-circle" class="purple-text pr-1"></mdb-icon>Verified <strong>Local Tour Guide</strong>
+                    </div>
+                    <div>
+                        <mdb-icon fas icon="map-marker-alt" class="purple-text pr-1"></mdb-icon>Lives in <strong>Pune</strong>
+                    </div>
+                    <div>
+                        <mdb-icon fas icon="birthday-cake" class="purple-text pr-1"></mdb-icon><strong>27 years old</strong>
+                    </div>
+                    <div>
+                        <mdb-icon fas icon="globe" class="purple-text pr-1"></mdb-icon>Speaks <strong>English, Hindi & French</strong>
+                    </div>
+                    <div>
+                        <mdb-icon fas icon="heart" class="purple-text pr-1"></mdb-icon>Loves <strong>Photography, Nature & Street Food</strong>
+                    </div>
+
+                    <!-- Guide biodata -->
+                    <!-- <mdb-card-text>
+                        Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+                    </mdb-card-text> -->
+                    <div class="text-center py-2">
+                        <button mdbBtn type="button" class="pink darken-3 white-text" rounded="true" mdbWavesEffect><b>Contact Me</b></button>
+                    </div>
+                </mdb-card-body>
+                <!--/.Card content-->
+
+            </mdb-card>
+            <!--/.Card-->
+        </div>
+        <div class="col-md-8">
+            <h2>hello people</h2>
+            <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class="img-fluid z-depth-2" style="height:430px; width:750px">
+            <br>
+            <br>
+            <div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+                pretium quis, sem. Nulla consequat massa quis enim.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede
+            </div>
+            <!-- Card -->
+            <div class="card my-4 bgclass">
+
+                <!--Card image-->
+                <div class="view overlay mx-auto pt-5">
+                    <img class="card-img rounded-circle " src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:100px; height:100px;" alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body text-center white-text">
+
+                    <!--Title-->
+                    <h3 class="card-title">Hi, I can personalize your experience!</h3>
+                    <!--Text-->
+                    <h6>Just let me know your preferences for a private and personalized experience!
+                    </h6>
+                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                    <!-- <button type="button" class="btn  pink darken-3 btn-md" data-toggle="modal" data-target="#modalLoginAvatar">Request a personalized Tour</button> -->
+                    <!--Modal: Login with Avatar Form-->
+                    <div class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog cascading-modal modal-avatar " role="document">
+                            <!--Content-->
+                            <div class="modal-content">
+
+                                <!--Header-->
+                                <div class="modal-header">
+                                    <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
+                                </div>
+                                <!--Body-->
+                                <div class="modal-body text-center mb-1">
+
+                                    <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>
+                                    <hr mx-3>
+                                    <h5 class="text-left black-text">Tell me your preferred Date</h5>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-0 text-left">From</div>
+                                            <my-date-picker name="mydate" mdbInput placeholder="dd-mm-yyyy" [options]="myDatePickerOptions"></my-date-picker>
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-0 text-left">To</div>
+                                            <my-date-picker name="mydate" mdbInput placeholder="dd-mm-yyyy" id="input" [options]="myDatePickerOptions"></my-date-picker>
+                                        </div>
+
+                                    </div>
+                                    <div class="font-small text-left mt-0">You can opt for a single day tour as well as multiple days' tours.</div>
+                                    <h5 class="text-left black-text mt-2">So how many Travellers are you?</h5>
+                                    <div class="row">
+                                        <div class="col">
+
+                                            <input type="number" mdbInput class="form-control" placeholder="Adults">
+                                        </div>
+                                        <div class="col">
+
+                                            <input type="number" mdbInput class="form-control" placeholder="Children">
+                                        </div>
+                                    </div>
+
+
+                                    <!-- <div class="md-form ml-0 mr-0">
+                                        <input type="password" type="text" id="form29" class="form-control form-control-sm validate ml-0">
+                                        <label data-error="wrong" data-success="right" for="form29" class="ml-0">Enter password</label>
+                                    </div> -->
+
+                                    <div class="text-center mt-4">
+                                        <button class="btn btn-cyan mt-1">Request a personalized Tour<i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--/.Content-->
+                        </div>
+                    </div>
+                    <!--Modal: Login with Avatar Form-->
+
+                    <div class="text-center">
+                        <a href="" class="btn pink darken-3 btn-rounded " data-toggle="modal" data-target="#modalLoginAvatar">Request a personalized Tour</a>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Card -->
+            <div>
+                <h1 my-2>My Tour Deals in Pune</h1>
+                <div class="d-flex flex-wrap my-4">
+                    <div class="w-50 p-2">
+                        <mdb-card>
+                            <!--Card image-->
+                            <mdb-card-img src="https://images.thrillophilia.com/image/upload/s--8pyG_oK_--/c_fill,dpr_1.0,f_auto,fl_strip_profile,g_center,h_450,q_auto,w_753/v1/images/photos/000/113/476/original/1501063349_Pune_Palace.jpg.jpg" alt="Card image cap"></mdb-card-img>
+                            <!--Card content-->
+                            <mdb-card-body>
+
+                                <!--Title-->
+                                <mdb-card-title>
+                                    <h4>The Royal Heritage Tour</h4>
+                                </mdb-card-title>
+
+                                <!--Text-->
+                                <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's content.
+                                </mdb-card-text>
+
+                                <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+                            </mdb-card-body>
+                        </mdb-card>
+                    </div>
+                    <div class="w-50 p-2">
+                        <mdb-card>
+                            <!--Card image-->
+                            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap"></mdb-card-img>
+                            <!--Card content-->
+                            <mdb-card-body>
+
+                                <!--Title-->
+                                <mdb-card-title>
+                                    <h4>Card Title</h4>
+                                </mdb-card-title>
+
+                                <!--Text-->
+                                <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's content.
+                                </mdb-card-text>
+
+                                <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+                            </mdb-card-body>
+                        </mdb-card>
+                    </div>
+                    <div class="w-50 p-2">
+                        <mdb-card>
+                            <!--Card image-->
+                            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap"></mdb-card-img>
+                            <!--Card content-->
+                            <mdb-card-body>
+
+                                <!--Title-->
+                                <mdb-card-title>
+                                    <h4>Card Title</h4>
+                                </mdb-card-title>
+
+                                <!--Text-->
+                                <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's content.
+                                </mdb-card-text>
+
+                                <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+                            </mdb-card-body>
+                        </mdb-card>
+                    </div>
+                    <div class="w-50 p-2">
+                        <mdb-card>
+                            <!--Card image-->
+                            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap"></mdb-card-img>
+                            <!--Card content-->
+                            <mdb-card-body>
+
+                                <!--Title-->
+                                <mdb-card-title>
+                                    <h4>Card Title</h4>
+                                </mdb-card-title>
+
+                                <!--Text-->
+                                <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's content.
+                                </mdb-card-text>
+
+                                <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+                            </mdb-card-body>
+                        </mdb-card>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
