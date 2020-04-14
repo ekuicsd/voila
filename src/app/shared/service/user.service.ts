@@ -47,10 +47,11 @@ export class UserService {
 
     AttemptTouristLogin(credentials) {
         let url = '/login/tourist';
-        this.apiService.post(url, credentials).pipe(
+        return this.apiService.post(url, credentials).pipe(
             map(data => {
-            this.setAuth(data.get('token'));
-            this.saveUser(data.get('Tourist'));
+                console.log(data);
+            // this.setAuth(data.get('token'));
+            // this.saveUser(data.get('Tourist'));
             //   console.log("login res",data.headers.get('authorization'));
             //   this.setAuth(data.headers.get('authorization'));
             //   this.getUserById(data.headers.get('ID'));
@@ -61,10 +62,13 @@ export class UserService {
 
     AttemptGuideLogin(credentials) {
         let url = '/login/guide';
-        this.apiService.post(url, credentials).pipe(
+        return this.apiService.post(url, credentials).pipe(
             map(data => {
-            this.setAuth(data.get('token'));
-            this.saveUser(data.get('guide'));
+                console.log(data);
+                // console.log(data.body.token);
+                // console.log(data.body.guide);
+            this.setAuth(data.body.token);
+            this.saveUser(data.body.guide);
             //   console.log("login res",data.headers.get('authorization'));
             //   this.setAuth(data.headers.get('authorization'));
             //   this.getUserById(data.headers.get('ID'));

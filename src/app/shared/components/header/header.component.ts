@@ -40,12 +40,12 @@ export class HeaderComponent implements OnInit {
       // if(this.loginForm.value.email === 'icsd@gmail.com' && this.loginForm.value.password === 'icsd') {
       if(this.loginForm.value.email === 'i' && this.loginForm.value.password === 'i') {
         console.log("correct!");
-        this.modal.hide();
-        if(role === 'tourists') {
-          this.router.navigateByUrl('tourists/touristshome');
-        } else {
+        // this.modal.hide();
+        // if(role === 'tourists') {
+        //   this.router.navigateByUrl('tourists/touristshome');
+        // } else {
         this.router.navigateByUrl('guide/guidehome');
-        }
+        // }
       }
     } else {
       this.toastr.error("Error! Invalid email or password.")
