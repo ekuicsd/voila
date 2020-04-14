@@ -9,7 +9,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
 import { GuideProfileComponent } from './components/guide-profile/guide-profile.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-
+import { MyDatePickerModule } from 'mydatepicker';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
@@ -49,6 +50,8 @@ const routes: Routes = [
         CommonModule,
         HomeModule,
         ReactiveFormsModule,
+        MyDatePickerModule,
+        NgbModule,
         MDBBootstrapModule.forRoot(),
 
         // NavbarModule,
