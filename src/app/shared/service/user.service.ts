@@ -52,6 +52,8 @@ export class UserService {
                 console.log(data);
             // this.setAuth(data.get('token'));
             // this.saveUser(data.get('Tourist'));
+            this.setAuth(data.body.token);
+            this.saveUser(data.body.guide, 'tourist');
             //   console.log("login res",data.headers.get('authorization'));
             //   this.setAuth(data.headers.get('authorization'));
             //   this.getUserById(data.headers.get('ID'));
@@ -68,7 +70,7 @@ export class UserService {
                 // console.log(data.body.token);
                 // console.log(data.body.guide);
             this.setAuth(data.body.token);
-            this.saveUser(data.body.guide);
+            this.saveUser(data.body.guide, 'guide');
             //   console.log("login res",data.headers.get('authorization'));
             //   this.setAuth(data.headers.get('authorization'));
             //   this.getUserById(data.headers.get('ID'));
@@ -77,10 +79,18 @@ export class UserService {
         ));
     }
 
-    logout() {
-        console.log('logout');
-        this.purgeAuth();
-        this.router.navigate(['/']);
+    logout(role: string) {
+        let url = '/'+ role + '/logout';
+        this.apiService.get(url).subscribe(
+            res=> {
+                console.log('logout');
+                this.purgeAuth();
+                this.router.navigate(['/']);
+            }, error => {
+                console.log(error);
+            }
+        )
+        
     }
 
     purgeAuth() {
@@ -92,16 +102,18 @@ export class UserService {
         this.destroyUser();
     }
 
-    getUser(): string {
-        return window.localStorage['user'];
+    getUser(role: string): string {
+        return window.localStorage[role];
     }
 
     destroyUser() {
-        window.localStorage.removeItem('user');
+        window.localStorage.removeItem('guide');
+        window.localStorage.removeItem('tourist');
+        
     }
 
-    saveUser(user) {
-        window.localStorage['user'] = JSON.stringify(user);
+    saveUser(user, role: string) {
+        window.localStorage[role] = JSON.stringify(user);
     }
 
     getCurrentUser(): any {

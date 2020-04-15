@@ -12,4 +12,5 @@ export interface Deals {
     startDate?: Date;
     endDate?: Date;
     city?: string;
+    peopleLimit?: number; // added
 }

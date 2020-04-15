@@ -1,78 +1,123 @@
-<div class="deal-text">
-  <h1>Create Your Deal</h1>
+<div *ngIf="!createDeal" class="row">
+  <div class="col-md-12">
+    <button type="button" mdbBtn (click)="create()" color="default" class="btn  float-right btn-lg">Create Deal</button>
+  </div>
 </div>
 
-
-
-<div class="deal-form">
-
-  <div class="row">
-    <div class="col">
-    
-      <div class="md-form">
-      <mdb-icon fas icon="city" class="prefix"></mdb-icon>
-      <input mdbInput type="text" id="form2" class="form-control">
-      <label for="form2">Destination Name</label>
-    </div> 
-    </div>
-     
-    <div class="col">
-    <div class="md-form">
-      <mdb-icon fas icon="dollar-sign" class="prefix"></mdb-icon>
-      <input mdbInput type="text" id="form2" class="form-control">
-      <label for="form2">Price</label>
-    </div>
-    
-    </div>
-     </div>
-    
-     <div class="md-form">
-      <mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon>
-      <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
-      <label for="form7">List the locations</label>
-    </div>
-    
-    <div class="row">
+<div *ngIf="createDeal" class="card">
+  <div class="card-body pb-0">
+    <h1 class="card-title">Create Your Deal</h1>
+  </div>
+  <hr class="mt-0 mx-3">
+  
+  <form [formGroup]="dealForm" (ngSubmit)="submitDeal()">
+  
+    <div class="row card-body pb-0">
       <div class="col">
-        <div class="row">
-          <div class="col-6">
-             <div class="md-form">
-        <mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon>
-        <input mdbInput type="date" id="form1" class="form-control">
-        <label for="form2">From</label>
+      
+        <div class="form-group">
+        <!-- <mdb-icon fas icon="city" class="prefix"></mdb-icon> -->
+        <!-- <input mdbInput type="text" id="form0" class="form-control"> -->
+        <label for="form0"><mdb-icon fas icon="city" class="prefix"></mdb-icon> State</label><br>
+        <select class="form-control" id="form0" class="browser-default custom-select" #state
+          (change)="getAllCity(state.value)">
+          <option value="" disabled>Select State</option>
+          <option *ngFor="let item of stateList" [value]="item.id"> {{ item?.name }}</option>
+        </select>
+
       </div> 
-          </div>
-          <div class="col-6">
-            <div class="md-form">
-       <mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon>
-       <input mdbInput type="date" id="form1" class="form-control">
-       <label for="form2">To</label>
-     </div> 
-         </div>
-        </div>
-    
-       
       </div>
        
       <div class="col">
-      <div class="md-form">
-        <mdb-icon fas icon="users" class="prefix"></mdb-icon>
-        <input mdbInput type="text" id="form1" class="form-control">
-        <label for="form2">People limit</label>
+      
+        <div class="form-group">
+        <!-- <input mdbInput type="text" id="form1" class="form-control"> -->
+        <label for="form1"><mdb-icon fas icon="city" class="prefix"></mdb-icon> City</label>
+        <select formControlName="city" class="form-control" class="browser-default custom-select" id="form1">
+          <option value="" disabled>Select City</option>
+          <option *ngFor="let item of cityList" [value]="item.id"> {{ item?.name }}</option>
+        </select>
+      </div> 
+      </div>
+
+      <div class="col">
+      <div class="form-group">
+        <!-- <mdb-icon fas icon="dollar-sign" class="prefix"></mdb-icon> -->
+        <label for="form2"><mdb-icon fas icon="dollar-sign" class="prefix"></mdb-icon> Price</label>
+        <input formControlName="price" type="number" placeholder="price " id="form2" class="form-control">
+        <!-- <label for="form2">Price</label> -->
       </div>
       
       </div>
        </div>
-       <div class="md-form">
-        <mdb-icon fas icon="edit" class="prefix"></mdb-icon>
-        <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
-        <label for="form7">Discription</label>
-      </div>
-      <button mdbBtn type="button" color="secondary" rounded="true" mdbWavesEffect class="float-right">Create &nbsp;<mdb-icon fas icon="check"></mdb-icon></button>
-<br>
-<br>
-<br>
+      
+      <div class="row card-body pb-0">
+        <div class="col">
+          <!-- <div class="row"> -->
+            <!-- <div class="col-6"> -->
+               <div class="form-group">
+                <label for="form3"><mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon> From</label>
+                <input formControlName="startDate" type="date" id="form3" class="form-control">
+          
+        </div> 
+            </div>
+            <div class="col">
+              <div class="form-group">
+         <label for="form4"><mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon> To</label>
+         <input formControlName="endDate" type="date" id="form4" class="form-control">
+       </div> 
+           <!-- </div> -->
+          <!-- </div> -->
+      
+         
+        </div>
+         
+        <div class="col">
+        <div class="form-group">
+          
+          <label for="form5"><mdb-icon fas icon="users" class="prefix"></mdb-icon> People limit</label>
+          <input  formControlName="peopleLimit" type="number" placeholder="people limit" id="form5" class="form-control">
+        </div>
+        
+        </div>
+         </div>
+
+         <div class="row card-body pb-0" formArrayName="places">
+           <div class="col-md-7">
+            <label for="form6"><mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Locations</label>
+            <div class="row" *ngFor="let places of dealForm.get('places').controls; let i= index">
+              <div class="col-md-10">
+              <div class="form-group" >
+                <input  [formControlName]="i" placeholder="location" type="text" class="form-control">
+                
+              </div>
+              </div>
+              <div class="col-md-2">
+                <button type="button" (click)="removeLocation(i)" style="margin: auto" class="btn btn-md btn-danger">
+                  <mdb-icon fas icon="cut" class="prefix"></mdb-icon>
+                </button>
+              </div>
+
+              
+            </div>
+            <button class="btn btn-default" type="button" (click)="addLocations()">
+              <mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Add More
+            </button>
+           </div>
+         </div>
+
+         <div class="row pr-3 pb-3">
+           <div class="col-md-12">
+            <button mdbBtn type="submit" color="secondary"  mdbWavesEffect class="float-right">Create &nbsp;<mdb-icon fas icon="check"></mdb-icon></button>
+           </div>
+         </div>
+        </form>
+  
 </div>
+
+<!--  -->
+
+
 <div class="deal-text">
   <h1>Your Deals</h1>
 </div>

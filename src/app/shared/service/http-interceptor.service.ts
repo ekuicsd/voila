@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable } from 'rxjs/internal/Observable';
 import { JwtService } from './jwt.service';
 import { tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { tap } from 'rxjs/operators';
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-    constructor(private jwtService: JwtService) { }
+    constructor(private jwtService: JwtService, private toastr: ToastrService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const token = this.jwtService.getToken();
@@ -30,6 +31,7 @@ export class HttpInterceptorService implements HttpInterceptor {
               (err: any) => {
                   if (err instanceof HttpErrorResponse) {
                       console.log("error",err);
+                    //   this.toastr.error();
                   }
               }
           )
