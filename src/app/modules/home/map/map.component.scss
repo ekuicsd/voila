@@ -10,3 +10,11 @@
 .state:hover{
     fill: #447799;
 }
+.map-detail{
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
