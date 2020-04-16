@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RegisterComponent } from './pages/register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -12,9 +11,10 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeModule } from '../home/home.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RequestsComponent } from './components/requests/requests.component';
 import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';
+import { AllBookingsComponent } from './pages/all-bookings/all-bookings.component';
+
 
 const routes: Routes = [
   // {path: '', redirectTo: 'register', pathMatch: 'full'},
@@ -40,7 +40,17 @@ const routes: Routes = [
       path: 'messages', component: MessagesComponent
     },
     {
-      path: 'bookings', component: BookingsComponent
+      path: 'bookings', component: AllBookingsComponent, children: [
+        {
+          path:'now', component: BookingsComponent 
+        },
+        {
+          path:'requests', component: RequestsComponent
+        },
+        {
+          path: 'histories', component: HistoriesComponent
+        }
+      ]
     },
     {
       path: 'requests', component: RequestsComponent
@@ -62,6 +72,7 @@ const routes: Routes = [
     FavouritesComponent,
     BookingsComponent,
     RequestsComponent,
+    AllBookingsComponent,
     SearchResultPageComponent
   ],
   imports: [
