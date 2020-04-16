@@ -1,9 +1,16 @@
 import { Guide } from './guide.model';
 import { Tousists } from './tourists.model';
+import { Places } from './places.model';
 
-export class Deals {
-    places : string[];
-    price : number;
-    guideId : Guide;
-    favourites : Tousists[]
+export interface Deals {
+    id?: string;
+    places?: Places[];
+    price?: number;
+    guideId?: Guide;
+    daysOfGuiding?:number;
+    favourites?: Tousists[];
+    startDate?: Date;
+    endDate?: Date;
+    city?: string;
+    peopleLimit?: number; // added
 }

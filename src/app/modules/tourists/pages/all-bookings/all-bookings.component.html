@@ -1,0 +1,22 @@
+
+<div class="container-fluid px-5">
+  <div class="card">
+    <div class="row pb-0 card-body">
+      <div class="col-md-2">
+          <a [routerLink]="['now']" routerLinkActive="active"><h5>Bookings</h5></a>
+      </div>
+      <div class="col-md-2">
+          <a [routerLink]="['requests']" routerLinkActive="active"><h5>Requested</h5></a>
+      </div>
+      <div class="col-md-2">
+          <a [routerLink]="['histories']" routerLinkActive="active"><h5>Previous</h5></a>
+      </div>
+  </div>
+  <!-- <hr class="card-body mt-0"> -->
+  <div class="row card-body">
+      <div class="col">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { HomeModule } from '../modules/home/home.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
+import { DealsComponent } from './components/deals/deals.component';
 import { GuideProfileComponent } from './components/guide-profile/guide-profile.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MyDatePickerModule } from 'mydatepicker';
@@ -42,6 +43,7 @@ const routes: Routes = [
     declarations: [
         FooterComponent,
         HeaderComponent,
+        DealsComponent,
         GuideProfileComponent,
         LoginPageComponent,
     ],
@@ -53,15 +55,6 @@ const routes: Routes = [
         MyDatePickerModule,
         NgbModule,
         MDBBootstrapModule.forRoot(),
-
-        // NavbarModule,
-        // WavesModule, 
-        // ButtonsModule,
-        // ModalModule.forRoot(),
-        // PopoverModule, 
-        // TooltipModule,
-        // IconsModule,
-        // DropdownModule.forRoot(),
         RouterModule.forChild(routes),
     ],
     exports: [

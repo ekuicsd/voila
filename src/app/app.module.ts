@@ -1,27 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from '../app/shared/shared.module';
 import { TouristsModule } from '../app/modules/tourists/tourists.module';
 import { HomeModule } from '../app/modules/home/home.module';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http'; 
 import { GuideModule } from '../app/modules/guide/guide.module';
-// import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
-// import { MDBBootstrapModule } from 'angular-bootstrap-md';
-// import { MDBBootstrapModule } from 'mdbootstrap/';
-// import { MDBBootstrapModule } from 'angular-bootstrap-md';
-// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-// import { ArchwizardModule } from 'ng2-archwizard/dist';
-// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginPageComponent } from './shared/components/login-page/login-page.component';
-// import { CarouselModule } from 'ngx-owl-carousel-o';
+import { HttpInterceptorService } from './shared/service/http-interceptor.service';
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
 
@@ -31,6 +23,7 @@ const routes: Routes = [
   },
 ];
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -38,7 +31,6 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    // NoopAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
@@ -47,16 +39,17 @@ const routes: Routes = [
     HomeModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    // NgbAlertModule,
     GuideModule,
     ToastrModule.forRoot(),
-    // MDBBootstrapModule.forRoot()
-    // ArchwizardModule,
-    // CarouselModule,
-    // MDBBootstrapModule.forRoot()
-    // MDBBootstrapModule
+    
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
   exports: []

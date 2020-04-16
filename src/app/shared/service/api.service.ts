@@ -38,7 +38,7 @@ export class ApiService {
   post(path: string, body: Object = {}): Observable<any> {
     return this.http.post(
       `${environment.baseUrl}${path}`, 
-      JSON.stringify(body),
+      body,
       {observe: 'response'}
     ).pipe(
       catchError(this.formatErrors)
