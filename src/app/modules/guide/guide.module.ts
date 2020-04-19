@@ -14,6 +14,7 @@ import { DealsComponent } from './components/deals/deals.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { ArchwizardModule } from 'ng2-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ShowRegisterComponent } from './pages/show-register/show-register.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,9 @@ const routes: Routes = [
       },
       {
         path: 'bookings', component: BookingsComponent
+      },
+      {
+         path: 'show-register', component: ShowRegisterComponent
       }
     ]},
     // ]},
@@ -60,7 +64,8 @@ const routes: Routes = [
     ActivitiesComponent,
     EditPreferencesComponent,
     DealsComponent,
-    BookingsComponent
+    BookingsComponent,
+    ShowRegisterComponent
     ],
   imports: [
     //   BrowserModule,

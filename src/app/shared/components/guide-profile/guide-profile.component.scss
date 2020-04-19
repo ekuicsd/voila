@@ -10,4 +10,31 @@
 
 .guide-contain {
     margin-left: 110px !important;
+    margin-right: 0 !important;
+}
+
+.img-fav {
+    position: relative;
+}
+
+.img-fav .main-img {
+    display: block;
+}
+
+.img-fav .fa-heart {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+.img-fav .card-img {
+    position: absolute;
+    bottom: -17px;
+    left: 15px;
+}
+
+.img-fav .badge {
+    position: absolute;
+    bottom: -2px;
+    left: 70px;
 }
