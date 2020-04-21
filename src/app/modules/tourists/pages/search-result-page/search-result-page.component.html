@@ -32,8 +32,7 @@
     <input type="radio" class="custom-control-input" id="days3" name="days" mdbInput>
     <label class="custom-control-label" for="days3">More than 4</label>
   </div>
-  <br>
-  <br>
+  <hr>
   <br>
   <h6>Price</h6>
   <!-- Default inline 1-->
@@ -53,7 +52,7 @@
     <input type="radio" class="custom-control-input" id="money3" name="inlineDefaultRadiosExample" mdbInput>
     <label class="custom-control-label" for="money3">More than 8000</label>
   </div>
-  <br>
+  <hr>
 <br>
 <h6>Gender</h6>
   <!-- Default inline 1-->
@@ -67,7 +66,7 @@
     <input type="radio" class="custom-control-input" id="gender2" name="gender" mdbInput>
     <label class="custom-control-label" for="gender2">Female</label>
   </div>
-  <br>
+  <hr>
   <br>
 <h6>Language</h6>
 <!-- Default checked -->
@@ -79,7 +78,20 @@
 <mdb-checkbox  [default]="true">French</mdb-checkbox>
 <!-- Default checked -->
 <mdb-checkbox  [default]="true">Spanish</mdb-checkbox>
-<br>
+<div mdbCollapse #test="bs-collapse" >
+  <mdb-checkbox  [default]="true">Hindi</mdb-checkbox>
+  <!-- Default inline 1-->
+  <!-- Default checked -->
+<mdb-checkbox [default]="true">English</mdb-checkbox>
+<!-- Default checked -->
+<mdb-checkbox  [default]="true">French</mdb-checkbox>
+<!-- Default checked -->
+<mdb-checkbox  [default]="true">Spanish</mdb-checkbox></div>
+<div>
+  <a (click)="test.toggle()" style="color: rgb(248, 93, 93); ">more</a>
+</div>
+
+<hr>
 <br>
 <h6>Intreasts</h6>
 <!-- Default checked -->
@@ -92,7 +104,18 @@
 <!-- Default checked -->
 <mdb-checkbox  [default]="true">Music</mdb-checkbox>
 <mdb-checkbox  [default]="true">Dance</mdb-checkbox>
-
+<div mdbCollapse #intrest="bs-collapse" >
+  <mdb-checkbox  [default]="true">Hindi</mdb-checkbox>
+  <!-- Default inline 1-->
+  <!-- Default checked -->
+<mdb-checkbox [default]="true">English</mdb-checkbox>
+<!-- Default checked -->
+<mdb-checkbox  [default]="true">French</mdb-checkbox>
+<!-- Default checked -->
+<mdb-checkbox  [default]="true">Spanish</mdb-checkbox></div>
+<div>
+  <a (click)="intrest.toggle()" style="color: rgb(248, 93, 93); ">more</a>
+</div>
   <br>
   <button mdbBtn type="button" color="indigo" mdbWavesEffect>Apply</button>
 

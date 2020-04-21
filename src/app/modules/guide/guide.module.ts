@@ -16,6 +16,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RequestsComponent } from './components/requests/requests.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ShowRegisterComponent } from './pages/show-register/show-register.component';
+
 
 
 const routes: Routes = [
@@ -49,8 +51,13 @@ const routes: Routes = [
       },
       {
         path: 'changepassword', component: ChangePasswordComponent
-      }
-      
+      },
+      {
+        path: 'bookings', component: BookingsComponent
+      },
+      // {
+      //    path: 'show-register', component: ShowRegisterComponent
+      // }
     ]},
     // ]},
     
@@ -68,7 +75,8 @@ const routes: Routes = [
     DealsComponent,
     BookingsComponent,
     RequestsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ShowRegisterComponent
     ],
   imports: [
     //   BrowserModule,
