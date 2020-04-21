@@ -15,6 +15,8 @@ import { ArchwizardModule } from 'ng2-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RequestsComponent } from './components/requests/requests.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ShowRegisterComponent } from './pages/show-register/show-register.component';
+
 
 
 const routes: Routes = [
@@ -46,7 +48,12 @@ const routes: Routes = [
       {
         path: 'messages', component: MessagesComponent
       },
-      
+      {
+        path: 'bookings', component: BookingsComponent
+      },
+      {
+         path: 'show-register', component: ShowRegisterComponent
+      }
     ]},
     // ]},
     
@@ -63,7 +70,8 @@ const routes: Routes = [
     EditPreferencesComponent,
     DealsComponent,
     BookingsComponent,
-    RequestsComponent
+    RequestsComponent,
+    ShowRegisterComponent
     ],
   imports: [
     //   BrowserModule,
