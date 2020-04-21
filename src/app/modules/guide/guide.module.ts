@@ -15,6 +15,7 @@ import { ArchwizardModule } from 'ng2-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RequestsComponent } from './components/requests/requests.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,9 @@ const routes: Routes = [
       {
         path: 'messages', component: MessagesComponent
       },
+      {
+        path: 'changepassword', component: ChangePasswordComponent
+      }
       
     ]},
     // ]},
@@ -63,7 +67,8 @@ const routes: Routes = [
     EditPreferencesComponent,
     DealsComponent,
     BookingsComponent,
-    RequestsComponent
+    RequestsComponent,
+    ChangePasswordComponent
     ],
   imports: [
     //   BrowserModule,
