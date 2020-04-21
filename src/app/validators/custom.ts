@@ -39,4 +39,20 @@ export class CustomValidators {
         return isValid ? null : message;
     }
 
+    static compondValueValidate(control: AbstractControl): ValidationErrors {
+        // const reg = /^[0-9]\d*(\.\d+)?$/;
+        const reg = /^[0-9]\d*(\.\d+)?$/;
+        if (!control.value) {
+            return null;
+        }
+        const isValid = control.value && reg.test(control.value.toString());
+        const message = {
+            compondValueValidate: {
+                message: 'This field only accepts numbers and this symbol:.'
+            }
+        };
+        return isValid ? null : message;
+    }
+
+
 }

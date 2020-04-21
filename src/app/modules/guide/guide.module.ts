@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RegisterComponent } from './pages/register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -16,17 +15,24 @@ import { ArchwizardModule } from 'ng2-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ShowRegisterComponent } from './pages/show-register/show-register.component';
 
+import { RequestsComponent } from './components/requests/requests.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 const routes: Routes = [
     // {path: '', redirectTo: 'register', pathMatch: 'full'},
     {path: 'register', component: RegisterComponent},
     {path: 'guidehome', component: GuideHomeComponent, children: [
       {
-        path: '', redirectTo: 'dashboard', pathMatch: 'full'
+        path: '', redirectTo: 'bookings', pathMatch: 'full'
       },
     // {path: 'guide', children: [
       {
-        path: 'dashboard', component: DashboardComponent
+        path: 'bookings', component: BookingsComponent
+      },
+      {
+        path: 'requests', component: RequestsComponent
       },
       {
         path: 'editProfile', component: ProfileComponent
@@ -43,12 +49,8 @@ const routes: Routes = [
       {
         path: 'messages', component: MessagesComponent
       },
-      {
-        path: 'bookings', component: BookingsComponent
-      },
-      {
-         path: 'show-register', component: ShowRegisterComponent
-      }
+
+      
     ]},
     // ]},
     
@@ -65,13 +67,15 @@ const routes: Routes = [
     EditPreferencesComponent,
     DealsComponent,
     BookingsComponent,
-    ShowRegisterComponent
+    ShowRegisterComponent,
+    RequestsComponent
     ],
   imports: [
     //   BrowserModule,
       CommonModule,
       RouterModule.forChild(routes),
       NgbModule,
+      ReactiveFormsModule,
       MDBBootstrapModule.forRoot(),
       ArchwizardModule,
   ],

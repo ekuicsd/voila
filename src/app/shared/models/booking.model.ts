@@ -1,19 +1,20 @@
 import { Guide } from './guide.model';
 import { Tousists } from './tourists.model';
 
-export class Booking {
-    guideId: Guide;
-    touristId: Tousists;
-    bookingDate : Date;
-    price: number;
-    noOfPeople: number;
-    startDate : Date;
-    endDate : Date;
-    groupType : string;
-    rating : number;
-    review : string;
-    reviewDate : Date;
-    status : BookingStatus;
+export interface Booking {
+    id?: string;
+    guideId?: Guide;
+    touristId?: Tousists;
+    bookingDate?: Date;
+    price?: number;
+    noOfPeople?: number;
+    startDate?: Date;
+    endDate?: Date;
+    groupType?: string;
+    rating?: number;
+    review?: string;
+    reviewDate?: Date;
+    status?: BookingStatus;
 }
 
 export enum BookingStatus {

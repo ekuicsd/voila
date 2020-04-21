@@ -3,3 +3,18 @@
         height: 210px;
     }
 }
+
+.deal-card {
+    position: relative;
+    width: 460px;
+    height: 200px;
+}
+
+.deal-img {
+    position: absolute;
+    left: 30px;
+    top: -20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}

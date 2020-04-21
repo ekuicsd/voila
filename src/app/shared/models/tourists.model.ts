@@ -1,15 +1,17 @@
-export class Tousists {
-    name: string;
-    gender: string;
-    dob: string;
-    phoneNumber: number;
-    email: string;
-    picUrl: string;
-    nationality : string;
-    password : string;
-    interests: Interests[];
-    languages : string[];
-    statusCurrent : boolean;
+export interface Tousists {
+    id?: string;
+    name?: string;
+    gender?: string;
+    dob?: string;
+    phoneNumber?: number;
+    email?: string;
+    picUrl?: string;
+    nationality?: string;
+    password?: string;
+    interests?: Interests[];
+    languages?: string[];
+    statusCurrent?: boolean;
+    // tokens?: string[];
 }
 
 

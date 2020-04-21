@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// For MDB Angular Free
+import { TooltipModule, ButtonsModule, WavesModule } from 'angular-bootstrap-md'
 
 @Component({
   selector: 'app-map',
