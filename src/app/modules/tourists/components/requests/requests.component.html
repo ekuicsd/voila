@@ -1,7 +1,7 @@
-<p>
+<!-- <p>
     The pending Booking requests sent to the Tourist Guides show up here.
 </p>
-<!-- table -->
+
 <table class="table">
     <thead class="black white-text">
       <tr>
@@ -40,7 +40,7 @@
       </tr>
     </tbody>
   </table>
-<!-- /table -->
+
 <div class="request-card">
     <mdb-card>
         <div class="container1">
@@ -62,4 +62,135 @@
             <button class="float-right footer-btn" style="margin: auto;" color="danger" ng mdbBtn type="button" size="sm" mdbWavesEffect><b>CANCEL REQUEST</b></button>
         </mdb-card-footer>
     </mdb-card>
+</div> -->
+<br>
+    <br>
+    <br>
+   <mdb-card>
+      <mdb-card>
+          <mdb-card-body>
+              <div class="row">
+                  <div class="col-md-10">
+                   <mdb-card-title>
+                <h4><mdb-icon fas icon="lock" style="color: rgba(0, 188, 212, 0.7)" ></mdb-icon> &nbsp; Jhumritaliya with Arjun Kumar</h4>
+              </mdb-card-title> </div>
+              <div class="col-md-2">
+                <button mdbBtn type="button" size="sm" color="cyan" mdbWavesEffect>Cancle Deal</button>
+              </div>
+          
+        </div>
+              <!--Text-->
+              <mdb-card-text> 
+                  Approved booking by the guide under Voils <a href="">terms and condition</a> contact your 
+                  guide for any booking related quary .
+                  <p><a style="color: rgba(0, 188, 212, 0.7)" (click)="test1.toggle()">View more</a></p>
+                  
+              </mdb-card-text> 
+              
+             
+              
+              
+           
+  </mdb-card-body>
+      </mdb-card>
+  <div mdbCollapse [isCollapsed]="true" #test1="bs-collapse">
+      <mdb-card>
+    <mdb-card-body >
+        <!--Text-->
+        <mdb-card-text> 
+            <div class="row">
+                <div class="col-md-4">
+                   <h5>From</h5> 03 Aug'2020
+                </div>
+                <div class="col-md-4">
+                  <h5>To</h5> 08 Aug'2020
+              </div>
+              <div class="col-md-4">
+                   <h5>Deal</h5> Pre-Planed deal
+              </div>
+                
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-4">
+                 <h5>Guide</h5> Arjun Kumar Sing
+              </div>
+              <div class="col-md-4">
+                <h5>Price</h5> 500/person
+            </div>
+            <div class="col-md-4">
+                 <h5>People</h5> <i class="fas fa-user-friends"></i> Anika + 4
+            </div>
+              
+          </div>
+          
+        </mdb-card-text> 
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+    </mdb-card>
+  <br>
+  <br>
+  <mdb-card>
+    <mdb-card>
+        <mdb-card-body>
+            <div class="row">
+                <div class="col-md-10">
+                 <mdb-card-title>
+              <h4><mdb-icon fas icon="lock" style="color: rgba(0, 188, 212, 0.7)" ></mdb-icon> &nbsp; Jaipur with Arjun Kumar</h4>
+            </mdb-card-title> </div>
+            <div class="col-md-2">
+              <button mdbBtn type="button" size="sm" color="cyan" mdbWavesEffect>Cancle Deal</button>
+            </div>
+        
+      </div>
+            <!--Text-->
+            <mdb-card-text> 
+                Approved booking by the guide under Voils <a href="">terms and condition</a> contact your 
+                guide for any booking related quary .
+                <p><a style="color: rgba(0, 188, 212, 0.7)" (click)="test2.toggle()">View more</a></p>
+                
+            </mdb-card-text> 
+            
+           
+            
+            
+         
+</mdb-card-body>
+    </mdb-card>
+<div mdbCollapse [isCollapsed]="true" #test2="bs-collapse">
+    <mdb-card>
+  <mdb-card-body >
+      <!--Text-->
+      <mdb-card-text> 
+          <div class="row">
+              <div class="col-md-4">
+                 <h5>From</h5> 03 Aug'2020
+              </div>
+              <div class="col-md-4">
+                <h5>To</h5> 08 Aug'2020
+            </div>
+            <div class="col-md-4">
+                 <h5>Deal</h5> Pre-Planed deal
+            </div>
+              
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-4">
+               <h5>Guide</h5> Arjun Kumar Sing
+            </div>
+            <div class="col-md-4">
+              <h5>Price</h5> 500/person
+          </div>
+          <div class="col-md-4">
+               <h5>People</h5> <i class="fas fa-user-friends"></i> Anika + 4
+          </div>
+            
+        </div>
+        
+      </mdb-card-text> 
+    </mdb-card-body>
+  </mdb-card>
 </div>
+  </mdb-card>
