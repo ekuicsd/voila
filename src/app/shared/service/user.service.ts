@@ -46,34 +46,26 @@ export class UserService {
     }
 
     AttemptTouristLogin(credentials) {
+        this.destroyUser();
         let url = '/login/tourist';
         return this.apiService.post(url, credentials).pipe(
             map(data => {
                 console.log(data);
-            // this.setAuth(data.get('token'));
-            // this.saveUser(data.get('Tourist'));
             this.setAuth(data.body.token);
             this.saveUser(data.body.guide, 'tourist');
-            //   console.log("login res",data.headers.get('authorization'));
-            //   this.setAuth(data.headers.get('authorization'));
-            //   this.getUserById(data.headers.get('ID'));
               return data;
             }
         ));
     }
 
     AttemptGuideLogin(credentials) {
+        this.destroyUser();
         let url = '/login/guide';
         return this.apiService.post(url, credentials).pipe(
             map(data => {
                 console.log(data);
-                // console.log(data.body.token);
-                // console.log(data.body.guide);
             this.setAuth(data.body.token);
             this.saveUser(data.body.guide, 'guide');
-            //   console.log("login res",data.headers.get('authorization'));
-            //   this.setAuth(data.headers.get('authorization'));
-            //   this.getUserById(data.headers.get('ID'));
               return data;
             }
         ));

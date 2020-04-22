@@ -1,7 +1,7 @@
 import { Interests } from './tourists.model';
 
 export interface Guide {
-    id?: string;
+    _id?: string;
     name?: string;
     gender?: string;
     password?: string;
@@ -16,7 +16,7 @@ export interface Guide {
     picUrl?: string;
     aadhaarNumber?: number;
     interests?: Interests[];
-    languages?: string;
+    languages?: string[];
     city?: string;
     state?: string;
     // tokens?: string[];
@@ -26,7 +26,7 @@ export interface Guide {
 
 export interface Experience {
     work?: string;
-    startYear?: Date;
+    startYear?: number;
     duration?: number;
     profile?: string;
 }

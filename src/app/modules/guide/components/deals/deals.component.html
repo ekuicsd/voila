@@ -1,6 +1,6 @@
 <div *ngIf="!createDeal" class="row">
   <div class="col-md-12">
-    <button type="button" mdbBtn (click)="create()" color="default" class="btn  float-right btn-lg">Create Deal</button>
+    <button type="button" mdbBtn (click)="this.createDeal = true" color="default" class="btn  float-right btn-lg">Create Deal</button>
   </div>
 </div>
 
@@ -19,7 +19,7 @@
         <!-- <mdb-icon fas icon="city" class="prefix"></mdb-icon> -->
         <!-- <input mdbInput type="text" id="form0" class="form-control"> -->
         <label for="form0"><mdb-icon fas icon="city" class="prefix"></mdb-icon> State</label><br>
-        <select class="form-control" id="form0" class="browser-default custom-select" #state
+        <select class="form-control" id="form0" formControlName="state" class="browser-default custom-select" #state
           (change)="getAllCity(state.value)">
           <option value="" disabled>Select State</option>
           <option *ngFor="let item of stateList" [value]="item.id"> {{ item?.name }}</option>
@@ -35,7 +35,7 @@
         <label for="form1"><mdb-icon fas icon="city" class="prefix"></mdb-icon> City</label>
         <select formControlName="city" class="form-control" class="browser-default custom-select" id="form1">
           <option value="" disabled>Select City</option>
-          <option *ngFor="let item of cityList" [value]="item.id"> {{ item?.name }}</option>
+          <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
         </select>
       </div> 
       </div>
@@ -108,6 +108,11 @@
 
          <div class="row pr-3 pb-3">
            <div class="col-md-12">
+            <button mdbBtn type="button" color="unique" 
+              (click)="this.createDeal = false; this.createForm()"  
+              mdbWavesEffect class="float-right">Cancel &nbsp;
+              <mdb-icon fas icon="cut"></mdb-icon>
+            </button>
             <button mdbBtn type="submit" color="secondary"  mdbWavesEffect class="float-right">Create &nbsp;<mdb-icon fas icon="check"></mdb-icon></button>
            </div>
          </div>

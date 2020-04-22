@@ -7,10 +7,11 @@ export interface Deals {
     places?: Places[];
     price?: number;
     guideId?: Guide;
-    daysOfGuiding?:number;
+    // daysOfGuiding?:number;
     favourites?: Tousists[];
     startDate?: Date;
     endDate?: Date;
     city?: string;
+    state?: string;
     peopleLimit?: number; // added
 }

@@ -17,6 +17,7 @@ import { RequestsComponent } from './components/requests/requests.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ShowRegisterComponent } from './pages/show-register/show-register.component';
+import { GuideGuardService } from 'src/app/shared/service/guide-guard.service';
 
 
 
@@ -29,7 +30,8 @@ const routes: Routes = [
       },
     // {path: 'guide', children: [
       {
-        path: 'bookings', component: BookingsComponent
+        path: 'bookings', component: BookingsComponent, 
+        canActivate: [GuideGuardService]
       },
       {
         path: 'requests', component: RequestsComponent

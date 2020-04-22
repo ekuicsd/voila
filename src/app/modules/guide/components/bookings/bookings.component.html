@@ -11,7 +11,7 @@
 </div>
 <!--  -->
 
-<div class="card mt-3">
+<div *ngIf="bookingsList" class="card mt-3">
   <div class="table-responsive card-body">
     <div class="card-title"><h4>Your Bookings</h4></div>
     <table class="table table-hover">
@@ -24,37 +24,24 @@
           <th scope="col">Duration</th>
           <th scope="col">Price</th>
           <th scope="col">People</th>
+          <th scope="col">Group Type</th>
           <th scope="col">Tour</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>11 Aug'2020</td>
-          <td>20 Aug'2020</td>
-          <td>Arjun kumar singh</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
+        <tr *ngFor="let data of bookingsList; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>-</td>
+          <td>-</td>
+          <td>{{data.bookingDate | date: 'dd-MM-yyyy'}}</td>
+          <td>-</td>
+          <td>{{data.price}}</td>
+          <td>{{data.noOfPeople}}</td>
+          <td>{{data.groupType}}</td>
+          <td>-</td>
           <td>
-            <button class="btn" color="info" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
-              <b>CONTACT TOURIST</b>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>11 Aug'2020</td>
-          <td>20 Aug'2020</td>
-          <td>Arjun kumar singh</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>
-            <button class="btn" color="info" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
+            <button class="btn" color="info" style="margin: auto;" (click)="contactTourist(data._id)" mdbBtn type="button" size="sm" mdbWavesEffect>
               <b>CONTACT TOURIST</b>
             </button>
           </td>
