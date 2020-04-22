@@ -13,9 +13,10 @@ import { DealsComponent } from './components/deals/deals.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { ArchwizardModule } from 'ng2-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ShowRegisterComponent } from './pages/show-register/show-register.component';
+
 import { RequestsComponent } from './components/requests/requests.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ShowRegisterComponent } from './pages/show-register/show-register.component';
 
 
 
@@ -54,6 +55,7 @@ const routes: Routes = [
       {
          path: 'show-register', component: ShowRegisterComponent
       }
+      
     ]},
     // ]},
     
@@ -70,8 +72,8 @@ const routes: Routes = [
     EditPreferencesComponent,
     DealsComponent,
     BookingsComponent,
-    RequestsComponent,
-    ShowRegisterComponent
+    ShowRegisterComponent,
+    RequestsComponent
     ],
   imports: [
     //   BrowserModule,
