@@ -25,7 +25,7 @@ const routes: Routes = [
         loadChildren: () => import('../modules/tourists/tourists.module').then(module => module.TouristsModule)
     },
     {
-        path: 'guideRegister', redirectTo: 'guide/register', pathMatch: 'full'
+        path: 'guideRegister', redirectTo: 'guide/show-register', pathMatch: 'full'
     },
     {path: 'guide', 
         loadChildren: () => import('../modules/guide/guide.module').then(module => module.GuideModule)

@@ -16,7 +16,7 @@ export interface Guide {
     picUrl?: string;
     aadhaarNumber?: number;
     interests?: Interests[];
-    languages?: string[];
+    languages?: any[];
     city?: string;
     state?: string;
     // tokens?: string[];

@@ -19,9 +19,12 @@ export class ProfileComponent implements OnInit {
   @ViewChild('editpersonal', { static: false}) modal1: MDBModalService;
   @ViewChild('addlanguage', { static: false}) modal2: MDBModalService;
   @ViewChild('addintrest', { static: false}) modal3: MDBModalService;
+  @ViewChild('editbusiness', { static: false}) modal4: MDBModalService;
+  
   public editExp : boolean = false;
   public userData: Guide;
   public interestList: string[];
+  public selectedExp: Experience;
   // public stateList: any[];
   // public cityList: any[]; 
   // public selectedStateId: any; 
@@ -33,6 +36,7 @@ export class ProfileComponent implements OnInit {
     ) {  }
 
   personalDetails: FormGroup;
+  businessDetails: FormGroup;
   experienceDetails: FormGroup;
   languagesDetails: FormGroup;
   interestsDetails: FormGroup;
@@ -41,6 +45,7 @@ export class ProfileComponent implements OnInit {
     this.getUser();
     // this.getAllState('101');
     this.createPersonalDetailsForm();
+    this.createBusinessDetails();
     this.createExperienceDetailsForm();
     this.createLanguagesForm();
     this.createInterestsForm();
@@ -66,7 +71,13 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  
+  createBusinessDetails() {
+    this.businessDetails = new FormGroup({
+      peopleLimit: new FormControl(this.userData.peopleLimit, [Validators.required]),
+      perHeadCharge: new FormControl(this.userData.perHeadCharge, [Validators.required]),
+      perDayCharge: new FormControl(this.userData.perDayCharge, [Validators.required])
+    })
+  }
 
   createExperienceDetailsForm() {
     this.experienceDetails = new FormGroup({
@@ -91,6 +102,8 @@ export class ProfileComponent implements OnInit {
 
   editExpShow(content, data: Experience) {
     this.editExp = true;
+    this.selectedExp = data;
+    console.log(this.selectedExp);
     this.experienceDetails.patchValue(data);
     this.modal.show(content);
   }
@@ -99,6 +112,37 @@ export class ProfileComponent implements OnInit {
     this.editExp = false;
     this.createExperienceDetailsForm();
     this.modal.show(content);
+  }
+
+  updateExperience() {
+    if(this.experienceDetails.valid) {
+      let index = this.userData.experience.indexOf(this.selectedExp);
+      this.userData.experience[index].duration = this.experienceDetails.value.duration;
+      this.userData.experience[index].profile = this.experienceDetails.value.profile;
+      this.userData.experience[index].startYear = this.experienceDetails.value.startYear;
+      this.userData.experience[index].work = this.experienceDetails.value.work;
+      console.log(this.userData);
+      this.guideService.updateUserDetails(this.userData).subscribe( res => {
+        console.log(res);
+        this.userService.saveUser(res.profile, 'guide');
+        this.getUser();
+        this.modal.hide(0);
+        this.toastr.success("Experience Updated Successfully!");
+      });
+    } else {
+      this.toastr.error("Invalid Details!");
+    }
+  }
+
+  removeExperience(item) {
+    let index = this.userData.experience.indexOf(item);
+    this.userData.experience.splice(index, 1);
+    this.guideService.updateUserDetails(this.userData).subscribe( res => {
+      console.log(res);
+      this.userService.saveUser(res.profile, 'guide');
+      this.getUser();
+      this.toastr.success("Experience Removed Successfully!");
+    });
   }
 
   // getAllState(countryId: string) {
@@ -130,8 +174,27 @@ export class ProfileComponent implements OnInit {
       this.userData.phoneNumber = this.personalDetails.value.phoneNumber;
       this.guideService.updateUserDetails(this.userData).subscribe( res => {
         console.log(res);
+        this.userService.saveUser(res.profile, 'guide');
+        this.getUser();
         this.modal1.hide(0);
         this.toastr.success("Personal Details Updated Successfully!");
+      });
+    } else {
+      this.toastr.error("Invalid Details!");
+    }
+  }
+
+  submitBusinessDetails() {
+    if(this.businessDetails.valid) {
+      this.userData.peopleLimit = this.businessDetails.value.peopleLimit;
+      this.userData.perDayCharge = this.businessDetails.value.perDayCharge;
+      this.userData.perHeadCharge = this.businessDetails.value.perHeadCharge;
+      this.guideService.updateUserDetails(this.userData).subscribe( res => {
+        console.log(res);
+        this.userService.saveUser(res.profile, 'guide');
+        this.getUser();
+        this.modal4.hide(0);
+        this.toastr.success("Business Details Updated Successfully!");
       });
     } else {
       this.toastr.error("Invalid Details!");
@@ -143,6 +206,8 @@ export class ProfileComponent implements OnInit {
       this.userData.experience.push(this.experienceDetails.value);
       this.guideService.updateUserDetails(this.userData).subscribe( res => {
         console.log(res);
+        this.userService.saveUser(res.profile, 'guide');
+        this.getUser();
         this.modal.hide(0);
         this.toastr.success("Experience Added Successfully!");
       });
@@ -156,6 +221,8 @@ export class ProfileComponent implements OnInit {
       this.userData.languages.push(this.languagesDetails.value.language);
       this.guideService.updateUserDetails(this.userData).subscribe( res => {
         console.log(res);
+        this.userService.saveUser(res.profile, 'guide');
+        this.getUser();
         this.modal2.hide(0);
         this.createLanguagesForm();
         this.toastr.success("Language Added Successfully!");
@@ -181,6 +248,8 @@ export class ProfileComponent implements OnInit {
         this.userData.interests.push(this.interestsDetails.value.interest);
         this.guideService.updateUserDetails(this.userData).subscribe( res => {
           console.log(res);
+          this.userService.saveUser(res.profile, 'guide');
+          this.getUser();
           this.modal3.hide(0);
           this.createInterestsForm();
           this.toastr.success("Language Added Successfully!");
@@ -190,5 +259,27 @@ export class ProfileComponent implements OnInit {
       this.toastr.error("Invalid Details!");
     }
 
+  }
+
+  removeLanguage(item) {
+    let index = this.userData.languages.indexOf(item);
+    this.userData.languages.splice(index, 1);
+    this.guideService.updateUserDetails(this.userData).subscribe( res => {
+      console.log(res);
+      this.userService.saveUser(res.profile, 'guide');
+      this.getUser();
+      this.toastr.success("Language Removed Successfully!");
+    });
+  }
+  
+  removeInterests(item) {
+    let index = this.userData.interests.indexOf(item);
+    this.userData.interests.splice(index, 1);
+    this.guideService.updateUserDetails(this.userData).subscribe( res => {
+      console.log(res);
+      this.userService.saveUser(res.profile, 'guide');
+      this.getUser();
+      this.toastr.success("Interest Removed Successfully!");
+    });
   }
 }

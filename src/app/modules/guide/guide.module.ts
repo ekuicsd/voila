@@ -24,6 +24,9 @@ import { GuideGuardService } from 'src/app/shared/service/guide-guard.service';
 const routes: Routes = [
     // {path: '', redirectTo: 'register', pathMatch: 'full'},
     {path: 'register', component: RegisterComponent},
+
+    {path: 'show-register', component: ShowRegisterComponent },
+    
     {path: 'guidehome', component: GuideHomeComponent, children: [
       {
         path: '', redirectTo: 'bookings', pathMatch: 'full'
@@ -34,32 +37,37 @@ const routes: Routes = [
         canActivate: [GuideGuardService]
       },
       {
-        path: 'requests', component: RequestsComponent
+        path: 'requests', component: RequestsComponent,
+        canActivate: [GuideGuardService]
       },
       {
-        path: 'editProfile', component: ProfileComponent
+        path: 'editProfile', component: ProfileComponent,
+        canActivate: [GuideGuardService]
       },
       {
-        path: 'activities', component: ActivitiesComponent
+        path: 'activities', component: ActivitiesComponent,
+        canActivate: [GuideGuardService]
       },
       {
-        path: 'deals', component: DealsComponent
+        path: 'deals', component: DealsComponent,
+        canActivate: [GuideGuardService]
       },
       {
-        path: 'interests', component: EditPreferencesComponent
+        path: 'interests', component: EditPreferencesComponent,
+        canActivate: [GuideGuardService]
       },
       {
-        path: 'messages', component: MessagesComponent
+        path: 'messages', component: MessagesComponent,
+        canActivate: [GuideGuardService]
       },
       {
-        path: 'changepassword', component: ChangePasswordComponent
+        path: 'changepassword', component: ChangePasswordComponent,
+        canActivate: [GuideGuardService]
       },
       {
-        path: 'bookings', component: BookingsComponent
+        path: 'bookings', component: BookingsComponent,
+        canActivate: [GuideGuardService]
       },
-      // {
-      //    path: 'show-register', component: ShowRegisterComponent
-      // }
     ]},
     // ]},
     

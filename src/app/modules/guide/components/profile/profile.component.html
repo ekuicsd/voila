@@ -47,6 +47,37 @@
     </div>
   </div>
   <hr>
+  <!--  -->
+  <div class="row card-body">
+    <div class="col-md-3">
+      <h4 style="color: rgb(3, 168, 244)" >Business Info</h4> 
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+          <div class="row">
+            <div class="col-md-12">
+              <p> <b style="color: rgba(3, 169, 244, 0.7)">People Limit :-</b>  {{userData.peopleLimit}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p> <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Head :-</b>  {{userData.perHeadCharge}}</p> 
+            </div>
+            <div class="col-md-6">
+                  <p> <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Day :-</b>  {{userData.perDayCharge}}</p>  
+            </div>
+             
+          </div>
+        </div>
+        <div class="col-md-1 edit-btn">
+          <a (click)="editbusiness.show()" ><mdb-icon fas icon="edit"></mdb-icon></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <!--  -->
   <div class="row card-body">
     <div class="col-md-3">
       <h4 style="color: rgb(233, 30, 98)" >Experiences</h4>
@@ -72,7 +103,7 @@
           </div>    
            </div>
         <div class="col-md-2">
-          <a class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+          <a (click)="removeExperience(item)" class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
           <a class="float-right" (click)="editExpShow(editexperience, item)" ><mdb-icon fas icon="edit"></mdb-icon></a>
           <!-- <a class="float-right" (click)="editexperienceWithData.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
         </div>
@@ -92,7 +123,7 @@
           <p><b style="color: rgba(76, 175, 80, 0.7)">{{item}}</b></p>
         </div>
         <div class="col-md-2">
-          <a class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+          <a (click)="removeLanguage(item)" class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
           <!-- <a class="float-right" (click)="addlanguage.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
         </div>
       </div>
@@ -111,7 +142,7 @@
           <p><b style="color: rgba(255, 152, 0, 0.7) ">{{item}}</b></p>
         </div>
         <div class="col-md-2">
-          <a class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+          <a (click)="removeInterests(item)" class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
           <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
         </div>
       </div>
@@ -230,6 +261,52 @@
     </div>
   </div>
 </div>
+<!-- add business modal -->
+<div mdbModal #editbusiness="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditbusinessLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgba(233, 30, 99, 0.7); color: white; ">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="editbusiness.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Edit Business Details</h4>
+      </div>
+      <form [formGroup]="businessDetails">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+           <div class="form-group">
+             <label for="form1" class="">People Limit</label>
+             <input type="number" id="form1" formControlName="peopleLimit" class="form-control">
+           </div>
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="form1" class="">Charges Per Head</label>
+              <input type="number" id="form1" formControlName="perHeadCharge" class="form-control">
+              
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="form1" class="">Charges Per Day</label>
+              <input type="number" id="form1" formControlName="perDayCharge" class="form-control">
+              
+            </div>
+          </div>
+        </div>  
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editbusiness.hide()" mdbWavesEffect>Close</button>
+        <button type="submit" (click)="submitBusinessDetails()" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
 <!-- add experience modal -->
 <div mdbModal #editexperience="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditexperienceLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -277,8 +354,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editexperience.hide()" mdbWavesEffect>Close</button>
-        <button type="submit" mdbBtn color="primary" (click)="addExperience()" class="relative waves-light" mdbWavesEffect>Save!</button>
-        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Update!</button>
+        <button type="submit" mdbBtn color="primary" *ngIf="!editExp" (click)="addExperience()" class="relative waves-light" mdbWavesEffect>Save!</button>
+        <button type="submit" mdbBtn color="primary" (click)="updateExperience()" *ngIf="editExp" class="relative waves-light" mdbWavesEffect>Update!</button>
       </div>
     </form>
     </div>
