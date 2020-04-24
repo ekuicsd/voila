@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-md-3">
+      <h4 style="color: rgb(73, 207, 73)" >Personal Info</h4> 
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+  <h5 style="color: rgba(73, 207, 73, 0.705)" >Arjun Kumar Singh</h5>
+   </div>
+  <div class="col-md-1 edit-btn">
+    <a (click)="editpersonal.show()" ><mdb-icon fas icon="edit"></mdb-icon></a>
+  </div>
+       
+      </div>
+      
+      <div class="row">
+       
+        <div class="col-md-5">
+              <p> <b style="color: rgba(73, 207, 73, 0.705)">Date of birth :-</b>  03-05-2000</p>  
+        </div>
+         <div class="col-md-7">
+          <p> <b style="color: rgba(73, 207, 73, 0.705)">Aadhar Number :-</b>  7589-4564-8428</p> 
+        </div>
+      </div>
+        <p> <b style="color: rgba(73, 207, 73, 0.705)">Email :-</b> architjain808@gmail.com</p>
+        <p> <b style="color: rgba(73, 207, 73, 0.705)"> Phone :-</b> +91-8475848884 , +91-9658741236</p>
+        <div class="row">
+          <div class="col-md-6">
+            <p> <b style="color: rgba(73, 207, 73, 0.705)">State  :-</b>Uttrakhand </p>
+          </div>
+          <div class="col-md-6">
+            <p><b style="color: rgba(73, 207, 73, 0.705)">city :-</b>Rishikesh</p>
+          </div>
+        </div>
+        <p><b style="color: rgba(73, 207, 73, 0.705)">Address :-</b>100, Subhash nagar (bankandi) Rishikesh</p>
+    </div>
+  </div>
+  <!-- model -->
+  <div mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgba(73, 207, 73, 0.705); color: white; ">
+          <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title w-100" id="myModalLabel"  >Personal Details</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-1">
+              <div class="md-form">
+                <input value="Mr." type="text" id="form6" class="form-control" mdbInput>
+                <label for="form6">Mr.</label>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="md-form">
+            <input value="Arjun kumar Singh" type="text" id="form6" class="form-control" mdbInput>
+            <label for="form6">Name</label>
+          </div>
+          </div> 
+          </div>
+                 
+          <div class="row">
+       
+            <div class="col-md-5">
+              <div class="md-form">
+                <input value="03-05-2000" type="date" id="form6" class="form-control" mdbInput>
+                <label for="form6">D.O.B</label>
+              </div>  
+            </div>
+             <div class="col-md-7">
+              <div class="md-form form-sm">
+                <input type="text" id="form11" class="form-control" disabled>
+                <label for="form11" class="disabled">1214-9647-5462</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="md-form form-sm">
+              <input type="text" id="form11" class="form-control" disabled>
+              <label for="form11" class="disabled">architjain8082gmail.com</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="md-form">
+              <input value="+91-8475848884 , +91-9658741236" type="tel" id="form6" class="form-control" mdbInput>
+              <label for="form6">Phone Number</label>
+            </div>
+          </div>          
+            <div class="row">
+              <div class="col-md-6">
+                <div class="md-form">
+                  <input mdbInput placeholder="Uttrakhand" type="text" id="form58" class="form-control">
+                  <label for="form58">State</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form">
+                  <input mdbInput placeholder="Rishikesh" type="text" id="form58" class="form-control">
+                  <label for="form58">City</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="md-form">
+                <input mdbInput placeholder="100,Subhash nagar (bankandi) Rishikesh" type="text" id="form58" class="form-control">
+                <label for="form58">Address</label>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
+          <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+        </div>
+      </div>
+    </div>
+  </div>
