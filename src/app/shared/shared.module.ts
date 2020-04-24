@@ -12,6 +12,7 @@ import { GuideProfileComponent } from './components/guide-profile/guide-profile.
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
@@ -46,6 +47,7 @@ const routes: Routes = [
         DealsComponent,
         GuideProfileComponent,
         LoginPageComponent,
+        ChangePasswordComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,3 +1,153 @@
-<p>
-  tourists register works!
-</p>
+<div class="bg mt-0 pt-0">
+    <div class="card register-card mx-auto my-auto">
+        <div class="row">
+            <div class="col-7 p-5">
+                <!-- Card content -->
+
+
+                <!-- Title -->
+                <h2 class="card-title">Sign up</h2>
+                <div class="card-text">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="md-form">
+                                <mdb-icon fas icon="user-circle" class="prefix"></mdb-icon>
+                                <input mdbInput type="text" id="form1" class="form-control">
+                                <label for="form1">First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Material input -->
+                            <div class="md-form">
+                                <input type="text" id="form2" class="form-control">
+                                <label for="form2">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="md-form">
+                                <mdb-icon far icon="calendar-alt" class="prefix"></mdb-icon>
+                                <input style="margin-top: 0 !important; margin-bottom: 0 !important;" mdbInput type="date" id="form3" class="form-control">
+                                <label style="margin-bottom: 0 !important; padding-bottom: 0 !important;" for="form3">Date of Birth</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="md-form">
+                                <mdb-icon fas icon="phone-alt" class="prefix"></mdb-icon>
+                                <input mdbInput type="text" id="form4" class="form-control">
+                                <label for="form4">Your Phone Number</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select class="browser-default custom-select">
+                        <option selected>Gender</option>
+                        <option value="1">Female</option>
+                        <option value="2">Male</option>
+                        <option value="3">Others</option>
+                      </select>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="browser-default custom-select">
+                      <option selected>Nationality</option>
+                      <option value="1">India</option>
+                      <option value="2">Australia</option>
+                      <option value="3">Russia</option>
+                    </select>
+                        </div>
+
+                    </div>
+                    <div class="md-form mb-0">
+                        <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+                        <input mdbInput type="email" id="form5" class="form-control">
+                        <label for="form5">Email</label>
+                    </div>
+                    <div class="row mt-0 pt-0">
+                        <div class="col-md-6">
+                            <div class="md-form">
+                                <mdb-icon fas icon="key" class="prefix"></mdb-icon>
+                                <input mdbInput type="password" id="form6" class="form-control">
+                                <label for="form6">Create Password</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="md-form">
+                                <mdb-icon fas icon="key" class="prefix"></mdb-icon>
+                                <input mdbInput type="password" id="form7" class="form-control">
+                                <label for="form7">Confirm Password</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Text -->
+                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
+                    </p> -->
+
+                    <div class="text-center">
+                        <a href="#" style="text-transform:none;" class="btn pink darken-3 btn-rounded white-text">Sign up</a>
+                    </div>
+                </div>
+                <!-- style="height: 550px; width:380px;" -->
+            </div>
+            <div class="col-md-5">
+                <div class="justify-content-center d-flex align-self-center">
+                    <img src="https://images.unsplash.com/photo-1576557686977-eda3a3bb1ea2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" style="height: 550px; width:380px; border-radius: 0px 10px 10px 0px" alt="Card image cap">
+                </div>
+                <!-- Card image -->
+
+            </div>
+
+        </div>
+        <!-- Card -->
+    </div>
+
+
+</div>
+<div class="card mx-auto my-3" style="width:950px">
+    <div class=" mx-4 mt-5 font-weight-light">Let us know something about you so that we can provide you suitable recommendations.</div>
+    <h1 class="card-title mx-4 mt-2">Choose your Interests</h1>
+    <div class="d-flex flex-wrap mx-4 my-4">
+        <div class="px-3 py-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">Adventure Sports</mdb-checkbox>
+        </div>
+        <div class="px-3 py-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">Shopping</mdb-checkbox>
+        </div>
+        <div class=" px-3 py-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">History</mdb-checkbox>
+        </div>
+        <!-- Default unchecked -->
+        <div class="px-3 py-2">
+            <mdb-checkbox [default]="true">Art and Culture</mdb-checkbox>
+        </div>
+        <div class=" p-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">Nature</mdb-checkbox>
+        </div>
+        <div class="px-3 py-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">Photography</mdb-checkbox>
+        </div>
+        <div class="px-3 py-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">Technology</mdb-checkbox>
+        </div>
+        <div class="px-3 py-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">Food & Drinks</mdb-checkbox>
+        </div>
+        <div class="px-3 py-2">
+            <!-- Default unchecked -->
+            <mdb-checkbox [default]="true">Wildlife</mdb-checkbox>
+        </div>
+    </div>
+</div>

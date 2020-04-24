@@ -65,9 +65,9 @@ const routes: Routes = [
         canActivate: [GuideGuardService]
       },
       {
-        path: 'bookings', component: BookingsComponent,
-        canActivate: [GuideGuardService]
-      },
+         path: 'show-register', component: ShowRegisterComponent
+      }
+      
     ]},
     // ]},
     
@@ -84,9 +84,8 @@ const routes: Routes = [
     EditPreferencesComponent,
     DealsComponent,
     BookingsComponent,
-    RequestsComponent,
-    ChangePasswordComponent,
-    ShowRegisterComponent
+    ShowRegisterComponent,
+    RequestsComponent
     ],
   imports: [
     //   BrowserModule,
