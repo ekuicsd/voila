@@ -50,7 +50,7 @@ const routes: Routes = [
         ChangePasswordComponent,
     ],
     imports: [
-        BrowserModule,
+        // BrowserModule,
         CommonModule,
         HomeModule,
         ReactiveFormsModule,
@@ -62,7 +62,8 @@ const routes: Routes = [
     exports: [
         FooterComponent,
         HeaderComponent,
-        LoginPageComponent
+        LoginPageComponent,
+        ChangePasswordComponent
     ]
 }) 
 

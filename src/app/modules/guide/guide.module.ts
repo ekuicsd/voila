@@ -15,9 +15,13 @@ import { ArchwizardModule } from 'ng2-archwizard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RequestsComponent } from './components/requests/requests.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ShowRegisterComponent } from './pages/show-register/show-register.component';
 import { GuideGuardService } from 'src/app/shared/service/guide-guard.service';
+import { GuideChangePwdComponent } from './components/guide-change-pwd/guide-change-pwd.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
+import { BussinessDetailsComponent } from './components/bussiness-details/bussiness-details.component';
+import { QuestionDetailsComponent } from './components/question-details/question-details.component';
 
 
 
@@ -61,8 +65,8 @@ const routes: Routes = [
         canActivate: [GuideGuardService]
       },
       {
-        path: 'changepassword', component: ChangePasswordComponent,
-        canActivate: [GuideGuardService]
+        path: 'changepassword', component: GuideChangePwdComponent,
+        // canActivate: [GuideGuardService]
       },
       {
          path: 'show-register', component: ShowRegisterComponent
@@ -85,7 +89,11 @@ const routes: Routes = [
     DealsComponent,
     BookingsComponent,
     ShowRegisterComponent,
-    RequestsComponent
+    RequestsComponent,
+    GuideChangePwdComponent,
+    PersonalDetailsComponent,
+    BussinessDetailsComponent,
+    QuestionDetailsComponent
     ],
   imports: [
     //   BrowserModule,
@@ -95,6 +103,7 @@ const routes: Routes = [
       ReactiveFormsModule,
       MDBBootstrapModule.forRoot(),
       ArchwizardModule,
+      SharedModule
   ],
   exports: [
       

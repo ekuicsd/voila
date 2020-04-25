@@ -2,7 +2,7 @@ import { Guide } from './guide.model';
 import { Tousists } from './tourists.model';
 
 export interface Booking {
-    id?: string;
+    _id?: string;
     guideId?: Guide;
     touristId?: Tousists;
     bookingDate?: Date;
@@ -15,6 +15,9 @@ export interface Booking {
     review?: string;
     reviewDate?: Date;
     status?: BookingStatus;
+    places?: string[];
+    tourType?: string;
+    duration?: number;
 }
 
 export enum BookingStatus {

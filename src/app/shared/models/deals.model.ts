@@ -3,7 +3,7 @@ import { Tousists } from './tourists.model';
 import { Places } from './places.model';
 
 export interface Deals {
-    id?: string;
+    _id?: string;
     places?: Places[];
     price?: number;
     guideId?: Guide;

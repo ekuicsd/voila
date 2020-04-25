@@ -27,7 +27,7 @@ export interface Guide {
 export interface Experience {
     work?: string;
     startYear?: number;
-    duration?: number;
+    duration?: string;
     profile?: string;
 }
 

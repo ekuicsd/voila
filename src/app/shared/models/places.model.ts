@@ -1,5 +1,5 @@
 export interface Places{
-    id?: string;
+    _id?: string;
     place?: string;
     cityId?: number;
     picUrl?: string;

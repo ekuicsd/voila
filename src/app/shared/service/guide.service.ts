@@ -49,11 +49,20 @@ export class GuideService{
     }
 
     updateUserDetails(body) : Observable<any> {
-        let url = '/guide/profile/change';
+        let url = '/guide/profile/update/GUIDE';
         return new Observable<any>( obs => {
             this.apiService.put(url, body).subscribe( res => {
                 obs.next(res);
             })
         });
+    }
+
+    changePwd(newPassword) : Observable<any> {
+        let url = '/guide/profile/changePassword';
+        return new Observable<any>( obs=> {
+            this.apiService.put(url, {"newPassword": newPassword}).subscribe( res => {
+                obs.next(res);
+            })
+        })
     }
 }
