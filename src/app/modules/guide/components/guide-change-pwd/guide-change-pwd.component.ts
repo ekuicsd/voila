@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/shared/service/user.service';
 
 @Component({
   selector: 'app-guide-change-pwd',
@@ -9,7 +10,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class GuideChangePwdComponent implements OnInit {
 
-  constructor(private guideService: GuideService, private toastr: ToastrService) { }
+  constructor(private guideService: GuideService,
+    private userService: UserService,
+     private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -17,6 +20,7 @@ export class GuideChangePwdComponent implements OnInit {
   getChangePwdData(data) {
     this.guideService.changePwd(data.newPassword).subscribe( res => {
       console.log(res);
+      this.userService.saveUser(res.user, 'guide');
       this.toastr.success("Password changed successfully!");
     })
   }

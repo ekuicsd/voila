@@ -8,7 +8,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
-import { EditPreferencesComponent } from './components/edit-preferences/edit-preferences.component';
 import { DealsComponent } from './components/deals/deals.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { ArchwizardModule } from 'ng2-archwizard';
@@ -57,10 +56,6 @@ const routes: Routes = [
         canActivate: [GuideGuardService]
       },
       {
-        path: 'interests', component: EditPreferencesComponent,
-        canActivate: [GuideGuardService]
-      },
-      {
         path: 'messages', component: MessagesComponent,
         canActivate: [GuideGuardService]
       },
@@ -85,7 +80,6 @@ const routes: Routes = [
     ProfileComponent,
     MessagesComponent,
     ActivitiesComponent,
-    EditPreferencesComponent,
     DealsComponent,
     BookingsComponent,
     ShowRegisterComponent,

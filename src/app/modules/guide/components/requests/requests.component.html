@@ -26,14 +26,14 @@
       <tbody>
         <tr *ngFor="let data of requestList; let i = index">
           <th scope="row">{{i+1}}</th>
-          <td>-</td>
-          <td>-</td>
+          <td>{{data.touristId.name}}</td>
+          <td>{{data.places.toString()}}</td>
           <td>{{data.bookingDate | date: 'dd-MM-yyyy'}}</td>
-          <td>-</td>
+          <td>{{data.duration}}</td>
           <td>{{data.price}}</td>
           <td>{{data.noOfPeople}}</td>
           <td>{{data.groupType}}</td>
-          <td>-</td>
+          <td>{{data.tourType}}</td>
           <td>
             <button class="btn" (click)="acceptRequest(data._id)" color="success" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
               <b>ACCEPT</b>

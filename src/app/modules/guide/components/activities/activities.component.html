@@ -1,22 +1,75 @@
+
+<div class="request">
+
+  <!-- requests -->
+  <div class="request-card">
+  
+    <!--  -->
+  
+  <div *ngIf="previousBookingsList" class="card">
+    <div class="table-responsive card-body">
+      <div class="card-title"><h4>Your Previous Bookings</h4></div>
+      <table class="table table-hover">
+        <thead >
+          <tr>
+            <th scope="col">Sr no.</th>
+            <th scope="col">Tourist</th>
+            <th scope="col">Places</th>
+            <th scope="col">Booking Date</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Price</th>
+            <th scope="col">People</th>
+            <th scope="col">Group Type</th>
+            <th scope="col">Tour</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of previousBookingsList; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{data.touristId.name}}</td>
+            <td>{{data.places.toString()}}</td>
+            <td>{{data.bookingDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{data.duration}}</td>
+            <td>{{data.price}}</td>
+            <td>{{data.noOfPeople}}</td>
+            <td>{{data.groupType}}</td>
+            <td>{{data.tourType}}</td>
+            <td>
+              <button class="btn" color="info" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
+                <b>VIEW</b>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>  
+  </div>
+    <!-- /table -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------- -->
+
+<!-- 
 <div class="row">
   <div class="col-md-10">
-<!-- Section: Blog v.1 -->
 <section class="my-5">
 
-  <!-- Section heading -->
-  <!-- <h2 class="h1-responsive font-weight-bold text-center my-5">Recent posts</h2> -->
-  <!-- Section description -->
-  <!-- <p class="text-center w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit
-    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-    qui officia deserunt mollit anim id est laborum.</p> -->
-
-  <!-- Grid row -->
+ 
   <div class="row">
 
-    <!-- Grid column -->
     <div class="col-lg-5">
 
-      <!-- Featured image -->
       <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
         <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="Sample image">
         <a>
@@ -25,39 +78,28 @@
       </div>
 
     </div>
-    <!-- Grid column -->
 
-    <!-- Grid column -->
     <div class="col-lg-7 to-right">
 
-      <!-- Category -->
       <a   class="green-text">
         <h6 class="font-weight-bold mb-3"><mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>Food</h6>
       </a>
-      <!-- Post title -->
       <h3 class="font-weight-bold mb-3"><strong>Tourist name</strong></h3>
-      <!-- Excerpt -->
       
       <div>Duration: 5</div>
       <div>Number of people: 5</div>
       <p>Message By tourist: "Review given"</p>
-      <!-- Post data -->
       <p>by <a><strong>Date</strong></a>, 19/08/2018</p>
-      <!-- Read more button -->
       <a mdbBtn color="success" mdbWavesEffect>Ratings given</a>
 
     </div>
-    <!-- Grid column -->
   </div>
-  <!-- Grid row -->
 
   <hr class="my-5">
 
-  <!-- Grid row -->
   <div class="row">
     <div class="col-lg-5">
 
-      <!-- Featured image -->
       <div class="view overlay rounded z-depth-2 waves-light" mdbWavesEffect>
         <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(34).jpg" alt="Sample image">
         <a>
@@ -66,43 +108,29 @@
       </div>
 
     </div>
-    <!-- Grid column -->
     <div class="col-lg-7 to-right">
 
-      <!-- Category -->
       <a href="#!" class="pink-text">
         <h6 class="font-weight-bold mb-3"><mdb-icon far icon="image" class="pr-2"></mdb-icon>Lifestyle</h6>
       </a>
-      <!-- Post title -->
       <h3 class="font-weight-bold mb-3"><strong>Tourist name</strong></h3>
-      <!-- Excerpt -->
       
       <div>Duration: 5</div>
       <div>Number of people: 5</div>
       <p>Message By tourist: "Review given"</p>
-      <!-- Post data -->
       <p>by <a><strong>Date</strong></a>, 19/08/2018</p>
-      <!-- Read more button -->
       <a mdbBtn color="pink" mdbWavesEffect>Ratings given</a>
     </div>
-    <!-- Grid column -->
 
-    <!-- Grid column -->
-    
-    <!-- Grid column -->
 
   </div>
-  <!-- Grid row -->
 
   <hr class="my-5">
 
-  <!-- Grid row -->
   <div class="row">
 
-    <!-- Grid column -->
     <div class="col-lg-5">
 
-      <!-- Featured image -->
       <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
         <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img (28).jpg" alt="Sample image">
         <a>
@@ -111,34 +139,24 @@
       </div>
 
     </div>
-    <!-- Grid column -->
 
-    <!-- Grid column -->
     <div class="col-lg-7 to-right">
 
-      <!-- Category -->
       <a href="#!" class="indigo-text">
         <h6 class="font-weight-bold mb-3"><mdb-icon fas icon="suitcase" class="pr-2"></mdb-icon>Travels</h6>
       </a>
-      <!-- Post title -->
       <h3 class="font-weight-bold mb-3"><strong>Tourist name</strong></h3>
-      <!-- Excerpt -->
       
       <div>Duration: 5</div>
       <div>Number of people: 5</div>
       <p>Message By tourist: "Review given"</p>
-      <!-- Post data -->
       <p>by <a><strong>Date</strong></a>, 19/08/2018</p>
-      <!-- Read more button -->
       <a mdbBtn color="indigo" mdbWavesEffect>Ratings given</a>
 
     </div>
-    <!-- Grid column -->
 
   </div>
-  <!-- Grid row -->
 
 </section>
-<!-- Section: Blog v.1 -->
   </div>
-</div>
+</div> -->

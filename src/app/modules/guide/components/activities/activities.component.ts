@@ -18,7 +18,7 @@ export class ActivitiesComponent implements OnInit {
   getAllPreviousBookings() {
     this.guideService.getAllBookingsByStatus('COMPLETE').subscribe(
       res => {
-        // this.previousBookingsList = res;
+        this.previousBookingsList = res;
         console.log(res);
       }, error => {
         console.log(error);
