@@ -1,4 +1,4 @@
-export interface Tousists {
+export interface Tourists {
     _id?: string;
     name?: string;
     gender?: string;

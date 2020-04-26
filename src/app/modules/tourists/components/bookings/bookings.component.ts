@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TouristsService } from 'src/app/shared/service/tourists.service';
+import { Booking } from 'src/app/shared/models/booking.model';
 
 @Component({
   selector: 'app-bookings',
@@ -6,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookings.component.scss']
 })
 export class BookingsComponent implements OnInit {
-  
+    public bookingsList: Booking[];
 
-  constructor() { }
+  constructor(private touristService: TouristsService) { }
 
   ngOnInit() {
+    this.getAllBookingsList();
+  }
+
+  getAllBookingsList() {
+    this.touristService.getAllBookingsByStatus('APPROVED').subscribe( res => {
+      console.log(res);
+      this.bookingsList = res;
+    })
   }
 
 }

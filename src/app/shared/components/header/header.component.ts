@@ -4,52 +4,23 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ModalDirective} from 'node_modules/angular-bootstrap-md';
+import { UserService } from '../../service/user.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @ViewChild("frame", {static: false}) modal: ModalDirective;
-  public token: string = '';
-  loginForm: FormGroup;
-
+  
   constructor(
-    private jwtService: JwtService, 
-    private router: Router,
-    private toastr: ToastrService) { }
+    private userService: UserService) { }
 
   ngOnInit() {
-    this.createLoginGForm();
-    this.token = this.jwtService.getToken();
-    console.log(this.token);
 
   }
 
-  createLoginGForm() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
-  });
-
-  }
-
-  submitLogin(role: string) {
-    if(this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      // if(this.loginForm.value.email === 'icsd@gmail.com' && this.loginForm.value.password === 'icsd') {
-      if(this.loginForm.value.email === 'i' && this.loginForm.value.password === 'i') {
-        console.log("correct!");
-        // this.modal.hide();
-        // if(role === 'tourists') {
-        //   this.router.navigateByUrl('tourists/touristshome');
-        // } else {
-        this.router.navigateByUrl('guide/guidehome');
-        // }
-      }
-    } else {
-      this.toastr.error("Error! Invalid email or password.")
-    }
+  logout() {
+    this.userService.logout('tourist');
   }
 
 }

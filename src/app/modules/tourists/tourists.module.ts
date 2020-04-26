@@ -14,6 +14,11 @@ import { HomeModule } from '../home/home.module';
 import { RequestsComponent } from './components/requests/requests.component';
 import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';
 import { AllBookingsComponent } from './pages/all-bookings/all-bookings.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TouristChangePwdComponent } from './components/tourist-change-pwd/tourist-change-pwd.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ChangePasswordComponent } from 'src/app/shared/components/change-password/change-password.component';
+import { TouristGuardService } from 'src/app/shared/service/tourist-guard.service';
 
 
 const routes: Routes = [
@@ -25,36 +30,50 @@ const routes: Routes = [
     },
   // {path: 'guide', children: [
     {
-      path: 'dashboard', component: DashboardComponent
+      path: 'dashboard', component: DashboardComponent,
+      canActivate: [TouristGuardService]
     },
     {
-      path: 'editProfile', component: EditProfileComponent
+      path: 'changePassword', component: TouristChangePwdComponent,
+      canActivate: [TouristGuardService]
     },
     {
-      path: 'favourites', component: FavouritesComponent
+      path: 'editProfile', component: EditProfileComponent,
+      canActivate: [TouristGuardService]
     },
     {
-      path: 'histories', component: HistoriesComponent
+      path: 'favourites', component: FavouritesComponent,
+      canActivate: [TouristGuardService]
     },
+    // {
+    //   path: 'histories', component: HistoriesComponent
+    // },
     {
-      path: 'messages', component: MessagesComponent
+      path: 'messages', component: MessagesComponent,
+      canActivate: [TouristGuardService]
     },
     {
       path: 'bookings', component: AllBookingsComponent, children: [
         {
-          path:'now', component: BookingsComponent 
+          path: '', redirectTo: 'now', pathMatch: 'full'
         },
         {
-          path:'requests', component: RequestsComponent
+          path:'now', component: BookingsComponent,
+          canActivate: [TouristGuardService]
         },
         {
-          path: 'histories', component: HistoriesComponent
+          path:'requests', component: RequestsComponent,
+          canActivate: [TouristGuardService]
+        },
+        {
+          path: 'histories', component: HistoriesComponent,
+          canActivate: [TouristGuardService]
         }
       ]
     },
-    {
-      path: 'requests', component: RequestsComponent
-    },
+    // {
+    //   path: 'requests', component: RequestsComponent
+    // },
     {
       path: 'searchResult', component: SearchResultPageComponent
     },
@@ -73,12 +92,15 @@ const routes: Routes = [
     BookingsComponent,
     RequestsComponent,
     AllBookingsComponent,
-    SearchResultPageComponent
+    SearchResultPageComponent,
+    TouristChangePwdComponent,
   ],
   imports: [
     // BrowserModule,
     CommonModule,
+    SharedModule,
     HomeModule,
+    ReactiveFormsModule,
     // BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forChild(routes)

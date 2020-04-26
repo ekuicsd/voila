@@ -1,5 +1,5 @@
 import { Guide } from './guide.model';
-import { Tousists } from './tourists.model';
+import { Tourists } from './tourists.model';
 import { Places } from './places.model';
 
 export interface Deals {
@@ -8,7 +8,7 @@ export interface Deals {
     price?: number;
     guideId?: Guide;
     // daysOfGuiding?:number;
-    favourites?: Tousists[];
+    favourites?: Tourists[];
     startDate?: Date;
     endDate?: Date;
     city?: string;

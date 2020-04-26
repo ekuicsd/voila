@@ -52,7 +52,7 @@ export class UserService {
             map(data => {
                 console.log(data);
             this.setAuth(data.body.token);
-            this.saveUser(data.body.guide, 'tourist');
+            this.saveUser(data.body.Tourist, 'tourist');
               return data;
             }
         ));

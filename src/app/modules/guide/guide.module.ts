@@ -61,7 +61,7 @@ const routes: Routes = [
       },
       {
         path: 'changepassword', component: GuideChangePwdComponent,
-        // canActivate: [GuideGuardService]
+        canActivate: [GuideGuardService]
       },
       {
          path: 'show-register', component: ShowRegisterComponent
