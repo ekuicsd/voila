@@ -5,6 +5,7 @@ export interface Guide {
     name?: string;
     gender?: string;
     password?: string;
+    // confirmPassword?: string;
     dob?: Date;
     phoneNumber?: number;
     email?: string;
@@ -21,7 +22,7 @@ export interface Guide {
     state?: string;
     // tokens?: string[];
     occupied?: boolean;
-    statusCurrent: CurrentStatus;
+    statusCurrent?: CurrentStatus;
 }
 
 export interface Experience {

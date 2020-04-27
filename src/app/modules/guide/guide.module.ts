@@ -21,6 +21,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
 import { BussinessDetailsComponent } from './components/bussiness-details/bussiness-details.component';
 import { QuestionDetailsComponent } from './components/question-details/question-details.component';
+import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 
 
 
@@ -87,7 +88,8 @@ const routes: Routes = [
     GuideChangePwdComponent,
     PersonalDetailsComponent,
     BussinessDetailsComponent,
-    QuestionDetailsComponent
+    QuestionDetailsComponent,
+    TermsConditionsComponent
     ],
   imports: [
     //   BrowserModule,

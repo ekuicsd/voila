@@ -1,23 +1,21 @@
-<wizard class="arc-wizard background" navBarLayout="large-empty-symbols">
+<wizard #wizard class="arc-wizard background" navBarLayout="large-empty-symbols">
+
   <wizard-step stepTitle="Pertional Details">
-    <br><br><br>
-    <app-personal-details></app-personal-details>
-    <br>
-    <br>
-    <br>
+    <app-personal-details (personalData)="getPersonalData($event)"></app-personal-details>
   </wizard-step>
+
   <wizard-step stepTitle="Title of step 2">
-    <br><br><br>
-    <app-bussiness-details></app-bussiness-details>
-    <br>
-    <br>
-    <br>
+    <app-bussiness-details (basicData)="getBasicData($event)" (languageData)="getLanguageData($event)" 
+      (interestData)="getInterestData($event)" (experienceData)="getExperienceData($event)"
+    ></app-bussiness-details>
   </wizard-step>
-  <wizard-step stepTitle="Title of step 3">
-    <br><br><br>
+
+  <!-- <wizard-step stepTitle="Title of step 3">
     <app-question-details></app-question-details>
-    <br>
-    <br>
-    <br>
+  </wizard-step> -->
+
+  <wizard-step stepTitle="Title of step 3">
+    <app-terms-conditions (tc)="finalSubmit()"></app-terms-conditions>
   </wizard-step>
+
 </wizard>
