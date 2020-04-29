@@ -12,6 +12,7 @@ import { GuideProfileComponent } from './components/guide-profile/guide-profile.
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { BookingProfileComponent } from './components/booking-profile/booking-profile.component';
 
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
@@ -35,6 +36,9 @@ const routes: Routes = [
     },
     {
         path: 'guideprofile', component: GuideProfileComponent
+    },
+    {
+        path: 'bookingprofile', component: BookingProfileComponent
     }
     
     
@@ -46,6 +50,7 @@ const routes: Routes = [
         DealsComponent,
         GuideProfileComponent,
         LoginPageComponent,
+        BookingProfileComponent,
     ],
     imports: [
         BrowserModule,
