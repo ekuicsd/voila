@@ -36,6 +36,7 @@ export class PersonalDetailsComponent implements OnInit {
       aadhaarNumber: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
+      statusCurrent: new FormControl('PENDING')
     })
   }
 

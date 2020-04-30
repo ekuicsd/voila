@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 // import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Guide } from 'src/app/shared/models/guide.model';
 import { WizardComponent } from 'ng2-archwizard/dist';
+import { ToastrService } from 'ngx-toastr';
+import { GuideService } from 'src/app/shared/service/guide.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +16,7 @@ export class RegisterComponent implements OnInit {
   @ViewChild('wizard', {static: false}) wizard: WizardComponent;
   guide: Guide = {};
 
-  constructor() { }
+  constructor(private toastr: ToastrService, private guideService: GuideService) { }
 
   ngOnInit() {
   }
@@ -70,5 +72,14 @@ export class RegisterComponent implements OnInit {
   finalSubmit() {
     console.log("done!");
     console.log(this.guide);
+
+    const formData = new FormData();
+    formData.append("data", JSON.stringify(this.guide));
+
+    this.guideService.guideSignup(formData).subscribe( res => {
+      console.log(res);
+      this.toastr.success("Created Successfully!");
+      this.wizard.navigation.reset();
+    })
   }
 }

@@ -12,9 +12,5 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  navigateOnResultPage() {
-    this.router.navigateByUrl('/tourists/touristshome/searchResult');
-  }
-
+  
 }

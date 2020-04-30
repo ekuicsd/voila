@@ -10,6 +10,15 @@ export class TouristsService {
 
     constructor(private userService: UserService, private apiService: ApiService) {}
 
+    touristsSignup(body) : Observable<any> {
+        let url = '/signup/tourist';
+        return new Observable<any>( obs => {
+            this.apiService.post(url, body).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
+
     getAllBookingsByStatus(status: string) : Observable<any> {
         let url = '/tourist/bookings/' + status;
         return new Observable<any>(obs => {

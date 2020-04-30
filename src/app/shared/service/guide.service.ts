@@ -9,6 +9,15 @@ export class GuideService{
 
     constructor(private apiService: ApiService) {}
 
+    guideSignup(body) : Observable<any> {
+        let url = '/signup/guide';
+        return new Observable<any>( obs => {
+            this.apiService.postWithMedia(url, body).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
+
     getAllBookingsByStatus(status: string) : Observable<any> {
         let url = '/guide/offers/' + status;
         // let url = '/guide/offers';
