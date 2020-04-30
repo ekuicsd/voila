@@ -13,6 +13,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { MyDatePickerModule } from 'mydatepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { DealsCardsComponent } from './components/deals-cards/deals-cards.component';
 
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
@@ -48,22 +49,25 @@ const routes: Routes = [
         GuideProfileComponent,
         LoginPageComponent,
         ChangePasswordComponent,
+        DealsCardsComponent,
     ],
     imports: [
         // BrowserModule,
         CommonModule,
         HomeModule,
         ReactiveFormsModule,
-        MyDatePickerModule,
-        NgbModule,
+        // MyDatePickerModule,
         MDBBootstrapModule.forRoot(),
+        NgbModule,
         RouterModule.forChild(routes),
     ],
     exports: [
         FooterComponent,
         HeaderComponent,
         LoginPageComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        GuideProfileComponent,
+        DealsCardsComponent
     ]
 }) 
 

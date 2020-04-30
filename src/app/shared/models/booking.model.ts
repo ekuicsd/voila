@@ -14,7 +14,7 @@ export interface Booking {
     rating?: number;
     review?: string;
     reviewDate?: Date;
-    status?: BookingStatus;
+    status?: string;
     places?: string[];
     tourType?: string;
     duration?: number;

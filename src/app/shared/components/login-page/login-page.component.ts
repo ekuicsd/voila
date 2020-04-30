@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
@@ -11,7 +12,9 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   public LoginForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService,
+              private location: Location,
+               private router: Router) { }
 
   ngOnInit() {
     this.createLoginForm();
@@ -43,7 +46,8 @@ export class LoginPageComponent implements OnInit {
       this.userService.AttemptTouristLogin(this.LoginForm.value).subscribe(
         res => {
           console.log(res);
-          this.router.navigateByUrl('tourists/touristshome');
+          // this.router.navigateByUrl('tourists/touristshome');
+          this.location.back();
         }, error => {
           console.log(error);
         }

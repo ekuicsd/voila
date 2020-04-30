@@ -19,6 +19,9 @@ import { TouristChangePwdComponent } from './components/tourist-change-pwd/touri
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ChangePasswordComponent } from 'src/app/shared/components/change-password/change-password.component';
 import { TouristGuardService } from 'src/app/shared/service/tourist-guard.service';
+import { GuidesListComponent } from './components/guides-list/guides-list.component';
+import { DealsListComponent } from './components/deals-list/deals-list.component';
+import { GuideProfileComponent } from 'src/app/shared/components/guide-profile/guide-profile.component';
 
 
 const routes: Routes = [
@@ -71,12 +74,22 @@ const routes: Routes = [
         }
       ]
     },
-    // {
-    //   path: 'requests', component: RequestsComponent
-    // },
     {
-      path: 'searchResult', component: SearchResultPageComponent
+      path: 'searchResult', component: SearchResultPageComponent, children: [
+        {
+          path: '', redirectTo: 'guidesList', pathMatch: 'full'
+        },
+        {
+          path: 'guidesList', component: GuidesListComponent
+        },
+        {
+          path: 'dealsList', component: DealsListComponent
+        }
+      ]
     },
+    {
+      path: 'guideProfile/:id', component: GuideProfileComponent
+    }
   ]},
 ]; 
 
@@ -94,6 +107,8 @@ const routes: Routes = [
     AllBookingsComponent,
     SearchResultPageComponent,
     TouristChangePwdComponent,
+    GuidesListComponent,
+    DealsListComponent,
   ],
   imports: [
     // BrowserModule,

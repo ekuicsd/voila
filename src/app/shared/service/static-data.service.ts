@@ -24,5 +24,14 @@ export class StaticDataService {
         ];
         return interests;
     }
+
+    getAllGroupTypes(): string[] {
+        const groupTypes = [
+            'Family',
+            'Friends',
+            'Couples'
+        ];
+        return groupTypes;
+    }
     
 }
