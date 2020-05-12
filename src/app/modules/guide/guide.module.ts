@@ -11,7 +11,7 @@ import { ActivitiesComponent } from './components/activities/activities.componen
 import { DealsComponent } from './components/deals/deals.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { ArchwizardModule } from 'ng2-archwizard';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RequestsComponent } from './components/requests/requests.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShowRegisterComponent } from './pages/show-register/show-register.component';
@@ -58,6 +58,10 @@ const routes: Routes = [
       },
       {
         path: 'messages', component: MessagesComponent,
+        canActivate: [GuideGuardService]
+      },
+      {
+        path: 'chats/:role/:email', component: MessagesComponent,
         canActivate: [GuideGuardService]
       },
       {

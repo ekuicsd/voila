@@ -23,7 +23,8 @@
             <li class="nav-item" >
                 <a class="nav-link waves-light" data-toggle="#" data-target="#basicExample" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                    <mdb-icon fas icon="envelope"></mdb-icon>
+                    <mdb-icon  fas  icon="envelope"></mdb-icon>
+                    <span class="nav-label-icon circle" *ngIf="msgNumber > 0">{{msgNumber}}</span>
                 </a>
             </li>
             <li class="nav-item" >

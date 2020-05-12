@@ -8,11 +8,13 @@ import { Router } from "@angular/router";
 
 import { JwtService } from './jwt.service';
 import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
+
 
   private currentUserSubject = new BehaviorSubject<any>({});
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
@@ -105,11 +107,25 @@ export class UserService {
     }
 
     saveUser(user, role: string) {
-        window.localStorage[role] = JSON.stringify(user);
+       window.localStorage['role'] = role;
+       window.localStorage[role] = JSON.stringify(user);
     }
 
     getCurrentUser(): any {
         return this.currentUserSubject.value;
-      }
+    }
+
+    getUserByEmail(email, role) : Observable<any> {
+        let url = '/getUserByEmail/' + role + '/' + email;
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe(res => {
+                obs.next(res.profile);
+            })
+        });
+    }
+
+    getRole(): string {
+        return window.localStorage['role'];
+    }
 
 }

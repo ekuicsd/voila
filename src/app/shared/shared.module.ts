@@ -4,7 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeModule } from '../modules/home/home.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
 import { DealsComponent } from './components/deals/deals.component';
@@ -14,7 +14,9 @@ import { MyDatePickerModule } from 'mydatepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DealsCardsComponent } from './components/deals-cards/deals-cards.component';
-
+import { ChatsComponent } from './components/chats/chats.component';
+import { NgxAutoScrollModule } from "ngx-auto-scroll";
+import { ChatHistoryListComponent } from './components/chat-history-list/chat-history-list.component';
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
 
@@ -50,12 +52,16 @@ const routes: Routes = [
         LoginPageComponent,
         ChangePasswordComponent,
         DealsCardsComponent,
+        ChatsComponent,
+        ChatHistoryListComponent,
     ],
     imports: [
         // BrowserModule,
         CommonModule,
         HomeModule,
         ReactiveFormsModule,
+        FormsModule,
+        NgxAutoScrollModule,
         // MyDatePickerModule,
         MDBBootstrapModule.forRoot(),
         NgbModule,
@@ -67,7 +73,9 @@ const routes: Routes = [
         LoginPageComponent,
         ChangePasswordComponent,
         GuideProfileComponent,
-        DealsCardsComponent
+        DealsCardsComponent,
+        ChatsComponent,
+        ChatHistoryListComponent
     ]
 }) 
 

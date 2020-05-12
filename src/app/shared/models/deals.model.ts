@@ -8,7 +8,8 @@ export interface Deals {
     price?: number;
     guideId?: Guide;
     // daysOfGuiding?:number;
-    favourites?: Tourists[];
+    favorites?: Tourists[];
+    isFavourite?: boolean;
     startDate?: Date;
     endDate?: Date;
     city?: string;

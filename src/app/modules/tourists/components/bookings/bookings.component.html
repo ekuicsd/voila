@@ -119,7 +119,7 @@
                 <h4><mdb-icon fas icon="suitcase" style="color: rgba(233, 30, 99, 0.7);" ></mdb-icon> &nbsp; {{booking.guideId?.city}}, India with {{booking.guideId?.name}}</h4>
               </mdb-card-title> </div>
               <div class="col-md-2">
-                <button mdbBtn type="button" size="sm" color="pink" mdbWavesEffect>Chat with Guide</button>
+                <button mdbBtn type="button" size="sm" color="pink" (click)="contactGuide(booking.guideId.email)" mdbWavesEffect>Contact Guide</button>
               </div>
           
         </div>

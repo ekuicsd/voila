@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { Booking } from 'src/app/shared/models/booking.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bookings',
@@ -10,7 +11,7 @@ import { Booking } from 'src/app/shared/models/booking.model';
 export class BookingsComponent implements OnInit {
   public bookingsList: Booking[];
 
-  constructor(private guideService: GuideService) { }
+  constructor(private guideService: GuideService, private router: Router) { }
 
   ngOnInit() {
     this.getAllBookings();
@@ -43,8 +44,9 @@ export class BookingsComponent implements OnInit {
   //   return '0';
   // }
 
-  contactTourist(id) {
-    console.log(id);
+  contactTourist(email) {
+    console.log(email);
     //navigate too their chatbox
+    this.router.navigateByUrl('/guide/guidehome/chats/tourist/' + email);
   }
 }

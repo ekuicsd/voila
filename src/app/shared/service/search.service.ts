@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
+import { Deals } from '../models/deals.model';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +17,7 @@ export class SearchService {
     toDate: NgbDate | null;  //ngb
 
     public guidesList: any[];
-    public dealsList: any[];
+    public dealsList: Deals[];
 
 
     constructor(private calendar: NgbCalendar, 

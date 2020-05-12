@@ -17,7 +17,6 @@ import { AllBookingsComponent } from './pages/all-bookings/all-bookings.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { TouristChangePwdComponent } from './components/tourist-change-pwd/tourist-change-pwd.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ChangePasswordComponent } from 'src/app/shared/components/change-password/change-password.component';
 import { TouristGuardService } from 'src/app/shared/service/tourist-guard.service';
 import { GuidesListComponent } from './components/guides-list/guides-list.component';
 import { DealsListComponent } from './components/deals-list/deals-list.component';
@@ -51,8 +50,12 @@ const routes: Routes = [
     // {
     //   path: 'histories', component: HistoriesComponent
     // },
+    // {
+    //   path: 'messages', component: MessagesComponent,
+    //   canActivate: [TouristGuardService]
+    // },
     {
-      path: 'messages', component: MessagesComponent,
+      path: 'chats/:role/:email', component: MessagesComponent,
       canActivate: [TouristGuardService]
     },
     {

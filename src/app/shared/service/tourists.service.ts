@@ -74,4 +74,22 @@ export class TouristsService {
         })
     }
 
+    addToFavourite(id) : Observable<any> {
+        let url = '/tourist/deals/fav/' + id;
+        return new Observable<any>( obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            })
+        })
+    }
+
+    BookingDeal(id, body) : Observable<any> {
+        let url = '/tourist/guides/deals/' + id;
+        return new Observable<any>( obs => {
+            this.apiService.post(url, body).subscribe(res => {
+                obs.next(res);
+            })
+        })
+    }
+
 }

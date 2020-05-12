@@ -1,0 +1,85 @@
+<div class="row">
+  <!-- <div class="col-sm-12">
+    <div class="row">
+      <div class="card">
+          <div class="" style="background-color : grey">
+          <div class="col-sm-2 imgCol">
+            <img src="http://placehold.it/50x50" class="circle">
+          </div>
+          <div class="row">
+            <div class="col-sm-10 nameCol">
+              <span>Username</span>
+              <p class="isOnline">Online</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="col-sm-12">
+    <div class="row py-3 mx-0" style="background-color : grey">
+      <div class="col-sm-1">
+        <img src="http://placehold.it/50x50" class="circle">
+      </div>
+      <div class="col-sm-11">
+        <span style="font-size: 25px;"><b>{{reciever?.name}}</b></span>
+        <p class="isOnline mt-1 mb-0">Online</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 rowDiv" ngx-auto-scroll lock-y-offset="10" observe-attributes>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="message-wrapper" *ngFor="let message of messageArray">
+          <div class="left"  *ngIf="sender._id !== reciever._id && sender._id !== message.senderId">
+            <div class="chat-bubble left slide-left">
+              <div class="message">{{message.body}}</div>
+            </div>
+          </div>
+
+          <div class="right" *ngIf="sender._id === message.senderId">
+            <div class="chat-bubble right slide-right">
+              <div class="message">{{message.body}}</div>
+            </div>
+          </div>
+
+          <div class="cf"></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-10 px-0">
+        <form>
+          <textarea name="message" [(ngModel)]="message" class="form-control"></textarea>
+        </form>
+      </div>
+      <div class="col-sm-2 px-0">
+        <button class="form-control btn btn-success" (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-sm-12 mx-0 my-0">
+    <div class="row">
+      <div class="card" style="height: 55px;">
+        <div class="inputRow">
+          <form>
+            <div class="input-field inputField col-sm-12">
+              <textarea name="message" class="materialize-textarea inputBox">
+              </textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+</div>
