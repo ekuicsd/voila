@@ -1,10 +1,10 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false">
 
     <!-- Navbar brand -->
     <mdb-navbar-brand>
         <a class="navbar-brand" [routerLink]="['/']">
-            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="mdb logo">
+            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="Voila">
         </a>
     </mdb-navbar-brand>
 
@@ -13,44 +13,33 @@
 
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active" *ngIf="token">
-                <a class="nav-link waves-light" mdbWavesEffect>
-                    <!-- <mdb-icon fas icon="envelope"></mdb-icon> -->
-                    Logout
-                    <!-- <span class="sr-only">(current)</span> -->
-                </a>
-            </li>
-
-            <li class="nav-item" *ngIf="!token">
-                <a class="nav-link waves-light" data-toggle="#" data-target="#basicExample" mdbWavesEffect>
+            
+            <li class="nav-item" *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
+                <a [routerLink]="['/tourists/touristshome/favourites']" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="heart"></mdb-icon>
                 </a>
             </li>
-            <li class="nav-item" *ngIf="!token">
-                <a class="nav-link waves-light" data-toggle="#" data-target="#basicExample" mdbWavesEffect>
+            <li class="nav-item" *ngIf="jwtService.getToken()">
+                <a class="nav-link waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                    <mdb-icon fas icon="envelope"></mdb-icon>
+                    <mdb-icon  fas  icon="envelope"></mdb-icon>
+                    <span class="nav-label-icon circle" *ngIf="msgNumber > 0">{{msgNumber}}</span>
                 </a>
             </li>
-            <li class="nav-item" *ngIf="!token">
-                <a class="nav-link waves-light" data-toggle="#" data-target="#basicExample" mdbWavesEffect>
+            <li class="nav-item" *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
+                <a class="nav-link waves-light" [routerLink]="['/tourists/touristshome/bookings']" routerLinkActive="active" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
             </li>
-
-            <li class="nav-item" *ngIf="!token">
-                <a class="nav-link waves-light" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>
-                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                    LogIn</a>
-            </li>
-            <li class="nav-item" *ngIf="!token">
+            <li class="nav-item" 
+                *ngIf="!jwtService.getToken()">
               <a class="nav-link waves-light"  [routerLink]="['/login']" mdbWavesEffect>
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                  LogIn2</a>
+                  LogIn</a>
           </li>
             <!-- Dropdown -->
-            <li class="nav-item dropdown" dropdown *ngIf="!token">
+            <li class="nav-item dropdown" dropdown *ngIf="!jwtService.getToken()" >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     Register<span class="caret"></span></a>
@@ -59,7 +48,7 @@
                     <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['guideRegister']">Guide</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" dropdown *ngIf="!token">
+            <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
@@ -70,16 +59,17 @@
                 </div>
             </li>
 
-            <li class="nav-item avatar dropdown" dropdown>
+            <li class="nav-item avatar dropdown" dropdown  
+                *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
 
                     <!-- More<span class="caret"></span> -->
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/']">Edit Profile</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/']">Your Requests</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/']">Logout</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/changePassword']" routerLinkActive="active">Change Password</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Logout</a>
 
                 </div>
             </li>
@@ -91,109 +81,3 @@
 
 </mdb-navbar>
 <!--/.Navbar-->
-
-
-
-
-<!--Modal: Login / Register Form-->
-<div class="modal fade " mdbModal #frame="mdbModal" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal" role="document">
-        <!--Content-->
-        <div class="modal-content" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');">
-
-            <!--Modal cascading tabs-->
-            <div class="modal-c-tabs">
-
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
-              Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
-              Register</a>
-                    </li>
-                </ul>
-
-                <!-- Tab panels -->
-                <div class="tab-content">
-                    <!--Panel 7-->
-                    <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-                        <!--Body-->
-                        <form [formGroup]="loginForm">
-                            <div class="modal-body mb-1">
-                                <div class="md-form form-sm mb-5">
-                                    <i class="fas fa-envelope prefix"></i>
-                                    <input type="email" id="modalLRInput10" formControlName="email" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                                </div>
-
-                                <div class="md-form form-sm mb-4">
-                                    <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="modalLRInput11" formControlName="password" class="form-control form-control-sm validate">
-                                    <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
-                                </div>
-                                <div class="text-center mt-2">
-                                    <button type="submit" (click)="submitLogin('tourists')" class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <div class="options text-center text-md-right mt-1">
-                                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                            </div>
-                            <button type="button" class="btn btn-outline-info waves-effect ml-auto" (click)="frame.hide()">Close</button>
-                        </div>
-
-                    </div>
-                    <!--/.Panel 7-->
-
-                    <!--Panel 8-->
-                    <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-                        <!--Body-->
-                        <div class="modal-body">
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-envelope prefix"></i>
-                                <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
-                            </div>
-
-                            <div class="md-form form-sm mb-5">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                            </div>
-
-                            <div class="md-form form-sm mb-4">
-                                <i class="fas fa-lock prefix"></i>
-                                <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                                <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
-                            </div>
-
-                            <div class="text-center form-sm mt-2">
-                                <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
-                            </div>
-
-                        </div>
-                        <!--Footer-->
-                        <div class="modal-footer">
-                            <div class="options text-right">
-                                <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-                            </div>
-                            <button type="button" class="btn btn-outline-info waves-effect ml-auto" (click)="frame.hide()" mdbWavesEffect>Close</button>
-                        </div>
-                    </div>
-                    <!--/.Panel 8-->
-                </div>
-
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<!--Modal: Login / Register Form-->

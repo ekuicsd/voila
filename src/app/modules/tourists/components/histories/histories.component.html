@@ -1,4 +1,4 @@
-<table class="table">
+<!-- <table class="table">
     <thead class="black white-text">
       <tr>
         <th scope="col">#</th>
@@ -36,26 +36,17 @@
       </tr>
     </tbody>
   </table>
-<!-- /table -->
+
 <div class="row">
     <div class="col-md-12">
-        <!-- Section: Blog v.1 -->
+        
         <section class="my-5">
 
-            <!-- Section heading -->
-            <!-- <h2 class="h1-responsive font-weight-bold text-center my-5">Recent posts</h2> -->
-            <!-- Section description -->
-            <!-- <p class="text-center w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit
-    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-    qui officia deserunt mollit anim id est laborum.</p> -->
-
-            <!-- Grid row -->
+            
             <div class="row">
 
-                <!-- Grid column -->
                 <div class="col-lg-4">
 
-                    <!-- Featured image -->
                     <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
                         <img class="img-fluid d-none d-sm-block" src="https://www.makemytrip.com/travel-guide/media/dg_image/kovalam/thumb/Light%20House_19_85_kovalam_938_410.jpg" alt="Sample image">
                         <a>
@@ -64,12 +55,9 @@
                     </div>
 
                 </div>
-                <!-- Grid column -->
 
-                <!-- Grid column -->
                 <div class="col-lg-8">
 
-                    <!-- Category -->
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3">
@@ -84,7 +72,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Post title -->
                     <h3 class="font-weight-bold mb-3"><strong>Kovalam, Kerala</strong></h3>
                     <div class="container history">
                         <div class="row fromto">
@@ -123,24 +110,17 @@
                         <mdb-icon far icon="star"></mdb-icon>
                         <mdb-icon far icon="star"></mdb-icon>
                     </div>
-                    <!-- Read more button -->
                     <button mdbBtn type="button" style="color:white; background-color: #aeea00 !important;" mdbWavesEffect>VIEW MORE</button>
 
                 </div>
-                <!-- Grid column -->
 
             </div>
-            <!-- Grid row -->
 
             <hr class="my-5">
 
-            <!-- Grid row -->
             <div class="row">
 
-                <!-- Grid column -->
                 <div class="col-lg-4">
-
-                    <!-- Featured image -->
                     <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
                         <img class="img-fluid" src="https://www.makemytrip.com/travel-guide/media/dg_image/kovalam/thumb/Light%20House_19_85_kovalam_938_410.jpg" alt="Sample image">
                         <a>
@@ -149,12 +129,10 @@
                     </div>
 
                 </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
+                
                 <div class="col-lg-8">
 
-                    <!-- Category -->
+                    
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3">
@@ -169,7 +147,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Post title -->
                     <h3 class="font-weight-bold mb-3"><strong>Kovalam, Kerala</strong></h3>
                     <div class="container ">
                         <div class="row fromto">
@@ -198,24 +175,18 @@
 
                     </div>
                     <p>With Local <a><strong> Harsh Sharma</strong></a></p>
-                    <!-- Read more button -->
                     <button mdbBtn type="button" style="color:white; background-color: #aeea00 !important;" mdbWavesEffect>VIEW MORE</button>
 
                 </div>
-                <!-- Grid column -->
 
             </div>
-            <!-- Grid row -->
 
             <hr class="my-5">
 
-            <!-- Grid row -->
             <div class="row">
 
-                <!-- Grid column -->
                 <div class="col-lg-4">
 
-                    <!-- Featured image -->
                     <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
                         <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img (28).jpg" alt="Sample image">
                         <a>
@@ -224,9 +195,7 @@
                     </div>
 
                 </div>
-                <!-- Grid column -->
 
-                <!-- Grid column -->
                 <div class="col-lg-8">
                     <div class="container">
                         <div class="row">
@@ -242,7 +211,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Post title -->
                     <h3 class="font-weight-bold mb-3"><strong>Kovalam, Kerala</strong></h3>
                     <div class="container ">
                         <div class="row fromto">
@@ -273,16 +241,78 @@
                     <p>
                         With Local <a><strong> Harsh Sharma</strong></a>
                     </p>
-                    <!-- Read more button -->
                     <button mdbBtn type="button" style="color:white; background-color: #aeea00 !important;" mdbWavesEffect>VIEW MORE</button>
 
                 </div>
-                <!-- Grid column -->
 
             </div>
-            <!-- Grid row -->
 
         </section>
-        <!-- Section: Blog v.1 -->
     </div>
-</div>
+</div> -->
+
+   <mdb-card class="mb-3" *ngFor="let booking of previousList">
+      <mdb-card>
+          <mdb-card-body>
+              <div class="row">
+                  <div class="col-md-10">
+                   <mdb-card-title>
+                <h4><mdb-icon fas icon="clipboard-check" style="color: rgba(255, 152, 0, 0.7);" ></mdb-icon> &nbsp; {{booking.guideId?.city}}, India with {{booking.guideId?.name}}</h4>
+              </mdb-card-title> </div>
+              <div class="col-md-2">
+                <button mdbBtn type="button" size="sm" color="amber" mdbWavesEffect>Rate the guide</button>
+              </div>
+          
+        </div>
+              <!--Text-->
+              <mdb-card-text> 
+                  Approved booking by the guide under Voils <a href="">terms and condition</a> contact your 
+                  guide for any booking related quary .
+
+                  <p>{{booking.places.toString()}}</p>
+                  <p class="mb-0"><a style="color: rgba(255, 152, 0, 0.7);" (click)="test1.toggle()">View more</a></p>
+                  
+              </mdb-card-text> 
+              
+         
+  </mdb-card-body>
+      </mdb-card>
+  <div  mdbCollapse [isCollapsed]="true" #test1="bs-collapse">
+      <mdb-card class="more">
+    <mdb-card-body >
+        <!--Text-->
+        <mdb-card-text> 
+            <div class="row">
+                <div class="col-md-4">
+                   <h5>From</h5> {{booking.startDate | date: 'dd-MM-yy'}}
+                </div>
+                <div class="col-md-4">
+                  <h5>To</h5> {{booking.endDate | date: 'dd-MM-yy'}}
+              </div>
+              <div class="col-md-4">
+                   <h5>Tour Type</h5> {{booking.tourType}}
+              </div>
+                
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-4">
+                 <h5>Guide</h5> {{booking.guideId?.name}}
+              </div>
+              <div class="col-md-4">
+                <h5>Price</h5>  INR {{booking.price}}/person
+            </div>
+            <div class="col-md-4">
+                 <h5>People</h5> <i class="fas fa-user-friends"></i> {{booking.noOfPeople}}
+            </div>
+              
+          </div>
+          
+        </mdb-card-text> 
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+    </mdb-card>
+
+    <!--  -->
+  

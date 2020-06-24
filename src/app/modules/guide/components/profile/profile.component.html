@@ -1,169 +1,153 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Edit Profile</h1>
-    <p class="lead">The content displying blow will be display to the tourists under your profile see all <a href="">Terms and conditions</a> to overlay
-    any conflicts and make your experience greate with <b>Voila</b></p>
+<div class="card py-5 px-5">
+  <div class="card-body px-0 py-0">
+    <div class="card-title"><h2><b>Edit Profile</b></h2></div>
   </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-md-3">
-    <h4 style="color: rgb(3, 168, 244)" >Personal Info</h4> 
+  <hr class="mt-0">
+  <div class="row card-body">
+    <div class="col-md-3">
+      <h4 style="color: rgb(3, 168, 244)" >Personal Info</h4> 
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+  <h5 style="color: rgba(3, 169, 244, 0.7)" >{{userData.name}}</h5>
+   </div>
+  <div class="col-md-1 edit-btn">
+    <a (click)="editpersonal.show()" ><mdb-icon fas icon="edit"></mdb-icon></a>
   </div>
-  <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-11">
-<h5 style="color: rgba(3, 169, 244, 0.7)" >Arjun Kumar Singh</h5>
- </div>
-<div class="col-md-1 edit-btn">
-  <a (click)="editpersonal.show()" ><mdb-icon fas icon="edit"></mdb-icon></a>
-</div>
-     
-    </div>
-    
-    <div class="row">
-     
-      <div class="col-md-5">
-            <p> <b style="color: rgba(3, 169, 244, 0.7)">Date of birth :-</b>  03-05-2000</p>  
+       
       </div>
-       <div class="col-md-7">
-        <p> <b style="color: rgba(3, 169, 244, 0.7)">Aadhar Number :-</b>  7589-4564-8428</p> 
-      </div>
-    </div>
-      <p> <b style="color: rgba(3, 169, 244, 0.7)">Email :-</b> architjain808@gmail.com</p>
-      <p> <b style="color: rgba(3, 169, 244, 0.7)"> Phone :-</b> +91-8475848884 , +91-9658741236</p>
+      
       <div class="row">
         <div class="col-md-6">
-          <p> <b style="color: rgba(3, 169, 244, 0.7)">State  :-</b>Uttrakhand </p>
+          <p> <b style="color: rgba(3, 169, 244, 0.7)">Aadhar Number :-</b>  {{userData.aadhaarNumber}}</p> 
         </div>
         <div class="col-md-6">
-          <p><b style="color: rgba(3, 169, 244, 0.7)">city :-</b>Rishikesh</p>
+              <p> <b style="color: rgba(3, 169, 244, 0.7)">Date of birth :-</b>  {{userData.dob | date: 'dd-MM-yyyy'}}</p>  
+        </div>
+         
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p> <b style="color: rgba(3, 169, 244, 0.7)">Email :-</b> {{userData.email}}</p>
+        </div>
+        <div class="col-md-6">
+          <p> <b style="color: rgba(3, 169, 244, 0.7)"> Phone :-</b> {{userData.phoneNumber}}</p>
         </div>
       </div>
-      <p><b style="color: rgba(3, 169, 244, 0.7)">Address :-</b>100, Subhash nagar (bankandi) Rishikesh</p>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-md-3">
-    <h4 style="color: rgb(233, 30, 98)" >Experiences</h4>
-  </div>
-  <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-11">
-         <div class="row">
-           <div class="col-md-6">
-            <p><b style="color: rgba(233, 30, 99, 0.7)">Work-place :-</b> Voila </p>
-           </div>
-           <div class="col-md-6">
-             <p><b style="color: rgba(233, 30, 99, 0.7)">Work-profile :-</b> Guide </p>
-           </div>
-         </div>  
-         <div class="row">
+        <div class="row">
           <div class="col-md-6">
-           <p><b style="color: rgba(233, 30, 99, 0.7)">Starting date :-</b> 12-05-2018 </p>
+            <p> <b style="color: rgba(3, 169, 244, 0.7)">State  :-</b>{{userData.state}}</p>
           </div>
           <div class="col-md-6">
-            <p><b style="color: rgba(233, 30, 99, 0.7)">Duration :-</b> 6 months </p>
+            <p><b style="color: rgba(3, 169, 244, 0.7)">city :-</b>{{userData.city}}</p>
           </div>
-        </div>    
-         </div>
-      <div class="col-md-1">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+        </div>
+        <p><b style="color: rgba(3, 169, 244, 0.7)">Address :-</b>{{userData.address}}</p>
+    </div>
+  </div>
+  <hr>
+  <!--  -->
+  <div class="row card-body">
+    <div class="col-md-3">
+      <h4 style="color: rgb(3, 168, 244)" >Business Info</h4> 
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-11">
+          <div class="row">
+            <div class="col-md-12">
+              <p> <b style="color: rgba(3, 169, 244, 0.7)">People Limit :-</b>  {{userData.peopleLimit}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p> <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Head :-</b>  {{userData.perHeadCharge}}</p> 
+            </div>
+            <div class="col-md-6">
+                  <p> <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Day :-</b>  {{userData.perDayCharge}}</p>  
+            </div>
+             
+          </div>
+        </div>
+        <div class="col-md-1 edit-btn">
+          <a (click)="editbusiness.show()" ><mdb-icon fas icon="edit"></mdb-icon></a>
+        </div>
       </div>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-11">
-         <div class="row">
-           <div class="col-md-6">
-            <p><b style="color: rgba(233, 30, 99, 0.7)">Work-place :-</b> Voila </p>
+  </div>
+  <hr>
+  <!--  -->
+  <div class="row card-body">
+    <div class="col-md-3">
+      <h4 style="color: rgb(233, 30, 98)" >Experiences</h4>
+    </div>
+    <div class="col-md-9">
+      <div class="row" *ngFor="let item of userData.experience" style="border-bottom: 1px solid gray;">
+        <div class="col-md-10">
+           <div class="row">
+             <div class="col-md-6">
+              <p><b style="color: rgba(233, 30, 99, 0.7)">Work-place :-</b> {{item.work}} </p>
+             </div>
+             <div class="col-md-6">
+               <p><b style="color: rgba(233, 30, 99, 0.7)">Work-profile :-</b> {{item.profile}} </p>
+             </div>
+           </div>  
+           <div class="row">
+            <div class="col-md-6">
+             <p><b style="color: rgba(233, 30, 99, 0.7)">Starting date :-</b> {{item.startYear}} </p>
+            </div>
+            <div class="col-md-6">
+              <p><b style="color: rgba(233, 30, 99, 0.7)">Duration :-</b> {{item.duration}} </p>
+            </div>
+          </div>    
            </div>
-           <div class="col-md-6">
-             <p><b style="color: rgba(233, 30, 99, 0.7)">Work-profile :-</b> Guide </p>
-           </div>
-         </div>  
-         <div class="row">
-          <div class="col-md-6">
-           <p><b style="color: rgba(233, 30, 99, 0.7)">Starting date :-</b> 12-05-2018 </p>
-          </div>
-          <div class="col-md-6">
-            <p><b style="color: rgba(233, 30, 99, 0.7)">Duration :-</b> 6 months </p>
-          </div>
-        </div>    
-         </div>
-      <div class="col-md-1">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+        <div class="col-md-2">
+          <a (click)="removeExperience(item)" class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+          <a class="float-right" (click)="editExpShow(editexperience, item)" ><mdb-icon fas icon="edit"></mdb-icon></a>
+          <!-- <a class="float-right" (click)="editexperienceWithData.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
+        </div>
       </div>
+      <a (click)="addExpShow(editexperience)"><b style="color: rgb(233, 30, 98)" >+ Add more</b></a>
+      <!-- <a (click)="editexperience.show()"><b style="color: rgb(233, 30, 98)" >+ Add more</b></a> -->
     </div>
-  
-    <a (click)="editexperience.show()"><b style="color: rgb(233, 30, 98)" >+ Add more</b></a>
   </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-md-3">
-    <h4 style="color: rgb(76, 175, 79)" >Languages</h4>
+  <hr>
+  <div class="row card-body">
+    <div class="col-md-3">
+      <h4 style="color: rgb(76, 175, 79)" >Languages</h4>
+    </div>
+    <div class="col-md-9" >
+      <div class="row" *ngFor="let item of userData.languages" style="border-bottom: 1px solid gray;">
+        <div class="col-md-10">
+          <p><b style="color: rgba(76, 175, 80, 0.7)">{{item}}</b></p>
+        </div>
+        <div class="col-md-2">
+          <a (click)="removeLanguage(item)" class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+          <!-- <a class="float-right" (click)="addlanguage.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
+        </div>
+      </div>
+      <a (click)="addlanguage.show()"> <b style="color: rgb(76, 175, 79)">+Add more</b> </a>
+      
+    </div>
   </div>
-  <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-6">
-        <p><b style="color: rgba(76, 175, 80, 0.7)">Hindi</b></p>
-      </div>
-      <div class="col-md-6">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
-      </div>
+  <hr>
+  <div class="row card-body">
+    <div class="col-md-3">
+      <h4 style="color: rgb(255, 153, 0) " >Intrests</h4>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p><b style="color: rgba(76, 175, 80, 0.7)">English</b></p>
+    <div class="col-md-9" >
+      <div class="row" *ngFor="let item of userData.interests" style="border-bottom: 1px solid gray;">
+        <div class="col-md-10">
+          <p><b style="color: rgba(255, 152, 0, 0.7) ">{{item}}</b></p>
+        </div>
+        <div class="col-md-2">
+          <a (click)="removeInterests(item)" class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
+          <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
+        </div>
       </div>
-      <div class="col-md-6">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
-      </div>
+      <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p><b style="color: rgba(76, 175, 80, 0.7)">spanish</b></p>
-      </div>
-      <div class="col-md-6">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
-      </div>
-    </div>
-    <a (click)="addlanguage.show()"> <b style="color: rgb(76, 175, 79)">+Add more</b> </a>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-md-3">
-    <h4 style="color: rgb(255, 153, 0) " >Intrests</h4>
-  </div>
-  <div class="col-md-9">
-    <div class="row">
-      <div class="col-md-6">
-        <p><b style="color: rgba(255, 152, 0, 0.7) ">Advanture</b></p>
-      </div>
-      <div class="col-md-6">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p><b style="color: rgba(255, 152, 0, 0.7) ">Foodie</b></p>
-      </div>
-      <div class="col-md-6">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p><b style="color: rgba(255, 152, 0, 0.7) ">biking</b></p>
-      </div>
-      <div class="col-md-6">
-        <a href=""><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
-      </div>
-    </div>
-    <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
   </div>
 </div>
 <!-- edit profile modal -->
@@ -174,76 +158,152 @@
         <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title w-100" id="myModalLabel"  >Personal Details</h4>
+        <h4 class="modal-title w-100" id="myModalLabel">Edit Personal Details</h4>
       </div>
+      <form [formGroup]="personalDetails" (ngSubmit)="submitPersonalDetails()">
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-1">
-            <div class="md-form">
-              <input value="Mr." type="text" id="form6" class="form-control" mdbInput>
-              <label for="form6">Mr.</label>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="form6">Gender</label>
+              <select class="form-control browser-default custom-select" formControlName="gender">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+              </select>
           </div>
           </div>
-          <div class="col-md-6">
-          <div class="md-form">
-          <input value="Arjun kumar Singh" type="text" id="form6" class="form-control" mdbInput>
-          <label for="form6">Name</label>
+          <div class="col-md-9">
+          <div class="form-group">
+            <label for="form6">Name</label>
+          <input type="text" id="form6" class="form-control" formControlName="name">
+          
         </div>
         </div> 
         </div>
-               
+        <!--  -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group form-sm">
+              <label for="form11">Email</label>
+              <input type="email" id="form11" class="form-control" formControlName="email" disabled>
+              
+            </div>
+          </div>
+        </div> 
+        <!--  -->
         <div class="row">
      
           <div class="col-md-5">
-            <div class="md-form">
-              <input value="03-05-2000" type="date" id="form6" class="form-control" mdbInput>
-              <label for="form6">D.O.B</label>
+            <div class="form-group">
+              <label for="form6">Date Of Birth</label>
+              <input type="date" id="form6" disabled formControlName="dob" class="form-control">
+              
             </div>  
           </div>
            <div class="col-md-7">
-            <div class="md-form form-sm">
-              <input type="text" id="form11" class="form-control" disabled>
-              <label for="form11" class="disabled">1214-9647-5462</label>
+            <div class="form-group form-sm">
+              <label for="form11">Aadhar Number</label>
+              <input type="text" id="form11" class="form-control" formControlName="aadhaarNumber" disabled>
+              
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="md-form form-sm">
-            <input type="text" id="form11" class="form-control" disabled>
-            <label for="form11" class="disabled">architjain8082gmail.com</label>
-          </div>
+        <!--  -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="form6">Phone Number</label>
+              <input type="tel" id="form6" formControlName="phoneNumber" class="form-control">
+              
+            </div>
+          </div>  
         </div>
-        <div class="col-md-6">
-          <div class="md-form">
-            <input value="+91-8475848884 , +91-9658741236" type="tel" id="form6" class="form-control" mdbInput>
-            <label for="form6">Phone Number</label>
-          </div>
-        </div>          
+        <!--  -->
           <div class="row">
             <div class="col-md-6">
-              <div class="md-form">
-                <input mdbInput placeholder="Uttrakhand" type="text" id="form58" class="form-control">
+              <div class="form-group">
                 <label for="form58">State</label>
+                <input type="text" id="form58" formControlName="state" class="form-control">
+                <!-- <select class="form-control" id="form58" formControlName="state" class="browser-default custom-select" #state
+                  (change)="getAllCity(state.value)">
+                  <option value="" disabled>Select State</option>
+                  <option *ngFor="let item of stateList" [value]="item.id"> {{ item?.name }}</option>
+                </select> -->
               </div>
             </div>
             <div class="col-md-6">
-              <div class="md-form">
-                <input mdbInput placeholder="Rishikesh" type="text" id="form58" class="form-control">
+              <div class="form-group">
                 <label for="form58">City</label>
+                <input type="text" id="form58" formControlName="city" class="form-control">
+                <!-- <select formControlName="city" class="form-control" class="browser-default custom-select" id="form58">
+                  <option value="" disabled>Select City</option>
+                  <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
+                </select> -->
               </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="md-form">
-              <input mdbInput placeholder="100,Subhash nagar (bankandi) Rishikesh" type="text" id="form58" class="form-control">
-              <label for="form58">Address</label>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="form58">Address</label>
+                <textarea id="form58" formControlName="address" class="form-control">
+                </textarea>
+              </div>
             </div>
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
-        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
       </div>
+    </form>
+    </div>
+  </div>
+</div>
+<!-- add business modal -->
+<div mdbModal #editbusiness="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditbusinessLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgba(233, 30, 99, 0.7); color: white; ">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="editbusiness.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Edit Business Details</h4>
+      </div>
+      <form [formGroup]="businessDetails">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+           <div class="form-group">
+             <label for="form1" class="">People Limit</label>
+             <input type="number" id="form1" formControlName="peopleLimit" class="form-control">
+           </div>
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="form1" class="">Charges Per Head</label>
+              <input type="number" id="form1" formControlName="perHeadCharge" class="form-control">
+              
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="form1" class="">Charges Per Day</label>
+              <input type="number" id="form1" formControlName="perDayCharge" class="form-control">
+              
+            </div>
+          </div>
+        </div>  
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editbusiness.hide()" mdbWavesEffect>Close</button>
+        <button type="submit" (click)="submitBusinessDetails()" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+      </div>
+    </form>
     </div>
   </div>
 </div>
@@ -257,40 +317,47 @@
         </button>
         <h4 class="modal-title w-100" id="myModalLabel">Add experience</h4>
       </div>
+      <form [formGroup]="experienceDetails">
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <div class="md-form">
-              <input mdbInput type="text" id="form1" class="form-control">
+            <div class="form-group">
               <label for="form1" class="">Work-place</label>
+              <input type="text" id="form1" formControlName="work" class="form-control">
+              
             </div>
           </div>
           <div class="col-md-6">
-            <div class="md-form">
-              <input mdbInput type="text" id="form1" class="form-control">
+            <div class="form-group">
               <label for="form1" class="">Work-Profile</label>
+              <input type="text" id="form1" formControlName="profile" class="form-control">
+              
             </div>
           </div>
         </div>  
         <div class="row">
          <div class="col-md-6">
-          <div class="md-form">
-            <input mdbInput type="date" id="form1" class="form-control">
+          <div class="form-group">
             <label for="form1" class="">Starting Date</label>
+            <input type="number" id="form1" formControlName="startYear" class="form-control">
+            
           </div>
          </div>
          <div class="col-md-6">
-          <div class="md-form">
-            <input mdbInput type="text" id="form1" class="form-control">
+          <div class="form-group">
             <label for="form1" class="">Duration</label>
+            <input type="text" id="form1" formControlName="duration" class="form-control">
+            
           </div>
          </div>
        </div>  
       </div>
       <div class="modal-footer">
         <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editexperience.hide()" mdbWavesEffect>Close</button>
-        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+        <button type="submit" mdbBtn color="primary" *ngIf="!editExp" (click)="addExperience()" class="relative waves-light" mdbWavesEffect>Save!</button>
+        <button type="submit" mdbBtn color="primary" (click)="updateExperience()" *ngIf="editExp" class="relative waves-light" mdbWavesEffect>Update!</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -304,16 +371,19 @@
         </button>
         <h4 class="modal-title w-100" id="myModalLabel">Add language</h4>
       </div>
+      <form [formGroup]="languagesDetails" (ngSubmit)="addLanguage()">
       <div class="modal-body">
-        <div class="md-form">
-          <input mdbInput type="text" id="form1" class="form-control">
+        <div class="form-group">
           <label for="form1" class="">language</label>
+          <input type="text" id="form1" formControlName="language" class="form-control">
+          
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
-        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -327,16 +397,22 @@
         </button>
         <h4 class="modal-title w-100" id="myModalLabel">Add Intrest</h4>
       </div>
+      <form [formGroup]="interestsDetails" (ngSubmit)="addInterest()">
       <div class="modal-body">
-        <div class="md-form">
-          <input mdbInput type="text" id="form1" class="form-control">
-          <label for="form1" class="">Intrest</label>
+        <div class="form-group">
+          <label for="form1" class="">Interest</label>
+          <!-- <input type="text" id="form1" formControlName="interest" class="form-control"> -->
+          <select formControlName="interest" class="form-control" class="browser-default custom-select" id="form1">
+            <option value="" disabled>Select Interest</option>
+            <option *ngFor="let item of interestList" [value]="item"> {{ item }}</option>
+          </select>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
-        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
       </div>
+    </form>
     </div>
   </div>
 </div>

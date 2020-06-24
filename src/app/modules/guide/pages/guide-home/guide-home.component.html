@@ -1,21 +1,13 @@
+<app-header [loggingIn]="true"></app-header>
+
+
 <div class="row" style="margin: 50px;">
     <div class="col-md-12">
-
-
-
-
-
-
         <!-- <div class="card">
       <div class="card-body">
         This is some text within a panel body.
       </div>
     </div><br> -->
-
-
-
-
-
 
         <div class="row">
             <div class="col-md-3 col-sm-3">
@@ -26,14 +18,6 @@
                         <div class="guid-name">
                             <b>Full Name</b>
                         </div>
-
-
-
-
-
-
-
-
                         <!-- <div class="btn-group" mdbDropdown style="margin-top: 10px;">
               <button mdbDropdownToggle type="button" mdbBtn color="default" outline="true" class="dropdown-toggle waves-light"
                 mdbWavesEffect>
@@ -46,7 +30,7 @@
                 <a class="dropdown-item" >Logout</a>
               </div>
             </div> -->
-                        <br>
+                        <!-- <br> -->
                         <!-- <br> -->
                     </div>
                 </div>
@@ -66,15 +50,14 @@
 
                             <a class="nav-link" id="v-pills-deals-tab" data-toggle="pill" [routerLink]="['deals']" routerLinkActive="active" role="tab" aria-controls="v-pills-deals" aria-selected="false">Your Deals</a>
 
-                            <a class="nav-link" id="v-pills-edit-tab" data-toggle="pill" [routerLink]="['interests']" routerLinkActive="active" role="tab" aria-controls="v-pills-edit" aria-selected="false">Edit Interests</a>
-
                             <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" [routerLink]="['editProfile']" routerLinkActive="active" role="tab" aria-controls="v-pills-profile" aria-selected="false">Edit Profile</a>
 
-                            <a class="nav-link" id="v-pills-changepwd-tab" data-toggle="pill" [routerLink]="['']" routerLinkActive="active" role="tab" aria-controls="v-pills-changepwd" aria-selected="false">Change Password
+                            <a class="nav-link" id="v-pills-changepwd-tab" data-toggle="pill" [routerLink]="['changepassword']" routerLinkActive="active" role="tab" aria-controls="v-pills-changepwd" aria-selected="false">Change Password
             </a>
 
                             <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" role="tab" (click)="logout()" aria-controls="v-pills-profile" aria-selected="false">Logout</a>
                         </div>
+
                     </div>
                 </div>
             </div>

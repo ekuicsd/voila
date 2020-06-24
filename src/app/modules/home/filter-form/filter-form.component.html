@@ -5,25 +5,87 @@
   </div>
 </div>
 
-<div class="row" style="margin: 0 100px 50px 100px;">
-  <div class="col-md-1"></div>
+<form [formGroup]="searchService.searchForm" (ngSubmit)="submitForm()">
+  <div class="row" style="margin: 0 100px 50px 100px;">
 
-  <div class="col-md-3">
-    <input mdbInput type="text" class="form-control" placeholder="First name">
+    
+    <div class="col-md-3">
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="city" placeholder="enter city">
+    </div>
   </div>
-  <div class="col-md-3">
-    <my-date-picker name="mydate" mdbInput placeholder="dd-mm-yyyy" [options]="myDatePickerOptions"></my-date-picker>
+  <!--  -->
+
+  <div class="col-md-6 ">
+    <div class="form-group hidden">
+      <div class="input-group">
+        <input name="datepicker"
+               
+               class="form-control"
+               ngbDatepicker
+               #datepicker="ngbDatepicker"
+               [autoClose]="'outside'"
+               (dateSelect)="onDateSelection($event)"
+               [displayMonths]="2"
+               [dayTemplate]="t"
+               outsideDays="hidden"
+               [startDate]="searchService.fromDate!">
+        <ng-template #t let-date let-focused="focused">
+          <span class="custom-day"
+                [class.focused]="focused"
+                [class.range]="isRange(date)"
+                [class.faded]="isHovered(date) || isInside(date)"
+                (mouseenter)="hoveredDate = date"
+                (mouseleave)="hoveredDate = null">
+            {{ date.day }}
+          </span>
+        </ng-template>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <input #dpFromDate
+               class="form-control" placeholder="yyyy-mm-dd"
+               name="dpFromDate"
+               formControlName="startDate"
+               [value]="formatter.format(searchService.fromDate)"
+               (input)="searchService.fromDate = validateInput(searchService.fromDate, dpFromDate.value)">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group ml-2">
+      <div class="input-group">
+        <input #dpToDate
+               class="form-control" placeholder="yyyy-mm-dd"
+               name="dpToDate"
+               formControlName="endDate"
+               [value]="formatter.format(searchService.toDate)"
+               (input)="searchService.toDate = validateInput(searchService.toDate, dpToDate.value)">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+  
   </div>
-  <div class="col-md-2">
-    <input type="number" mdbInput class="form-control" placeholder="people">
+  
+    <div class="col-md-2">
+  <div class="form-group">
+    <input type="number" class="form-control" formControlName="noOfPeople" placeholder="people">
+    </div>
   </div>
-  <div class="col-md-2">
-    <input type="botton" style="margin: auto;" class="btn btn-success" value="submit">
+  <!--  -->
+
+    <div class="col-md-1">
+  <div class="form-group">
+
+      <button type="submit" style="margin: auto;" class="btn btn-success">Submit</button>
+    </div>
   </div>
-  <div class="col-md-1"></div>
 
 </div>
+</form>
 
 <hr>
-
-

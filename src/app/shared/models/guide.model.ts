@@ -1,10 +1,11 @@
 import { Interests } from './tourists.model';
 
 export interface Guide {
-    id?: string;
+    _id?: string;
     name?: string;
     gender?: string;
     password?: string;
+    // confirmPassword?: string;
     dob?: Date;
     phoneNumber?: number;
     email?: string;
@@ -16,18 +17,18 @@ export interface Guide {
     picUrl?: string;
     aadhaarNumber?: number;
     interests?: Interests[];
-    languages?: string;
+    languages?: any[];
     city?: string;
     state?: string;
     // tokens?: string[];
     occupied?: boolean;
-    statusCurrent: CurrentStatus;
+    statusCurrent?: CurrentStatus;
 }
 
 export interface Experience {
     work?: string;
-    startYear?: Date;
-    duration?: number;
+    startYear?: number;
+    duration?: string;
     profile?: string;
 }
 

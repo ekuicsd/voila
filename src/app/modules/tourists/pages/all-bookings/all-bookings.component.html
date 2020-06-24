@@ -2,14 +2,14 @@
 <div class="container-fluid px-5">
   <div class="card">
     <div class="row pb-0 card-body">
-      <div class="col-md-2">
-          <a [routerLink]="['now']" routerLinkActive="active"><h5>Bookings</h5></a>
+      <div class="col-md-2 booking">
+          <a  [routerLink]="['now']" routerLinkActive="active"><h5> <mdb-icon far icon="calendar-alt"></mdb-icon> &nbsp; Bookings</h5></a>
       </div>
-      <div class="col-md-2">
-          <a [routerLink]="['requests']" routerLinkActive="active"><h5>Requested</h5></a>
+      <div class="col-md-2 request">
+          <a [routerLink]="['requests']" routerLinkActive="active"><h5> <mdb-icon far icon="address-card"></mdb-icon> &nbsp; Requested</h5></a>
       </div>
-      <div class="col-md-2">
-          <a [routerLink]="['histories']" routerLinkActive="active"><h5>Previous</h5></a>
+      <div class="col-md-2 history">
+          <a [routerLink]="['histories']" routerLinkActive="active"><h5><mdb-icon fas    icon="history"></mdb-icon> &nbsp; Previous</h5></a>
       </div>
   </div>
   <!-- <hr class="card-body mt-0"> -->

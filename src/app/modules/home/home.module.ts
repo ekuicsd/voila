@@ -13,7 +13,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TopDealsComponent } from './top-deals/top-deals.component';
 import { MyDatePickerModule } from 'mydatepicker';
 // import { NgbInputDatepicker } from  '@ng-bootstrap/ng-bootstrap';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 // import { NavbarModule, WavesModule, ModalModule, ButtonsModule } from 'angular-bootstrap-md';
 // import { DropdownModule } from 'angular-bootstrap-md';
 
@@ -35,18 +36,14 @@ const routes: Routes = [
   imports: [
       // BrowserModule,
       CommonModule,
+      ReactiveFormsModule,
       CarouselModule,
       // BrowserAnimationsModule,
       // NoopAnimationsModule,
       MDBBootstrapModule.forRoot(),
       NgbModule,
       MyDatePickerModule,
-      // NavbarModule,
-      // WavesModule, 
-      // ButtonsModule,
-      // ModalModule,
-      // DropdownModule,
-      // IconsModule.forRoot(),
+      // NgbDate,
       RouterModule.forChild(routes),
   ],
   exports: [

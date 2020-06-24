@@ -1,6 +1,6 @@
 <div *ngIf="!createDeal" class="row">
   <div class="col-md-12">
-    <button type="button" mdbBtn (click)="create()" color="default" class="btn  float-right btn-lg">Create Deal</button>
+    <button type="button" mdbBtn (click)="this.createDeal = true" color="default" class="btn  float-right btn-lg">Create Deal</button>
   </div>
 </div>
 
@@ -19,7 +19,7 @@
         <!-- <mdb-icon fas icon="city" class="prefix"></mdb-icon> -->
         <!-- <input mdbInput type="text" id="form0" class="form-control"> -->
         <label for="form0"><mdb-icon fas icon="city" class="prefix"></mdb-icon> State</label><br>
-        <select class="form-control" id="form0" class="browser-default custom-select" #state
+        <select class="form-control" id="form0" formControlName="state" class="browser-default custom-select" #state
           (change)="getAllCity(state.value)">
           <option value="" disabled>Select State</option>
           <option *ngFor="let item of stateList" [value]="item.id"> {{ item?.name }}</option>
@@ -35,7 +35,7 @@
         <label for="form1"><mdb-icon fas icon="city" class="prefix"></mdb-icon> City</label>
         <select formControlName="city" class="form-control" class="browser-default custom-select" id="form1">
           <option value="" disabled>Select City</option>
-          <option *ngFor="let item of cityList" [value]="item.id"> {{ item?.name }}</option>
+          <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
         </select>
       </div> 
       </div>
@@ -108,6 +108,11 @@
 
          <div class="row pr-3 pb-3">
            <div class="col-md-12">
+            <button mdbBtn type="button" color="unique" 
+              (click)="this.createDeal = false; this.createForm()"  
+              mdbWavesEffect class="float-right">Cancel &nbsp;
+              <mdb-icon fas icon="cut"></mdb-icon>
+            </button>
             <button mdbBtn type="submit" color="secondary"  mdbWavesEffect class="float-right">Create &nbsp;<mdb-icon fas icon="check"></mdb-icon></button>
            </div>
          </div>
@@ -117,8 +122,47 @@
 
 <!--  -->
 
+<h1>Your Deals</h1>
 
-<div class="deal-text">
+<!-- <div class="w-50 p-2"> -->
+<div class="row">
+  <div class="col-md-4" *ngFor="let deal of DealsList">
+    <mdb-card>
+      <div class="img-fav">
+          <!-- <i class="far fa-heart fa-lg"></i> -->
+          <!--Card image-->
+          <mdb-card-img class="main-img" src="https://images.thrillophilia.com/image/upload/s--8pyG_oK_--/c_fill,dpr_1.0,f_auto,fl_strip_profile,g_center,h_450,q_auto,w_753/v1/images/photos/000/113/476/original/1501063349_Pune_Palace.jpg.jpg" alt="Card image cap"></mdb-card-img>
+          <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
+          <h5><span class="badge badge-default font-weight-normal">{{deal.city}} tour with Barkha Joshi</span></h5>
+      </div>
+      <!--Card content-->
+      <mdb-card-body>
+          <!--Title-->
+          <mdb-card-title>
+              <h5><strong>{{deal.places[0]}} Tour</strong></h5>
+          </mdb-card-title>
+
+          <!--Text-->
+          <mdb-card-text>
+              <div>{{deal.places.toString()}}.</div>
+              <div>&#x20b9;{{deal.price}} pp &#8226; From {{deal.startDate | date: 'dd-MM-yy'}} &#8226; To {{deal.endDate | date: 'dd-MM-yy'}}</div>
+          </mdb-card-text>
+
+          <!-- <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a> -->
+      </mdb-card-body>
+  </mdb-card>
+  </div>
+</div>
+<!-- </div> -->
+
+
+
+
+
+<!--  -->
+
+
+<!-- <div class="deal-text">
   <h1>Your Deals</h1>
 </div>
 <br>
@@ -159,4 +203,4 @@
          <a href="..."> <i class="fas fa-phone-alt float-right"></i> </a> 
     </mdb-card-footer>
   </mdb-card>
-</div>
+</div> -->

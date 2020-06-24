@@ -1,54 +1,84 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { JwtService } from '../../service/jwt.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalDirective} from 'node_modules/angular-bootstrap-md';
+import { UserService } from '../../service/user.service';
+import { MessageService } from '../../service/message.service';
+import { JwtService } from '../../service/jwt.service';
+import io from 'socket.io-client';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  @ViewChild("frame", {static: false}) modal: ModalDirective;
-  public token: string = '';
-  loginForm: FormGroup;
+export class HeaderComponent implements OnInit, OnChanges{
 
+  @Input() loggingIn;
+  msgNumber = 0;
+  public user: any;
+  public recieverRole;
+  public userRole;
+  socket:any;
+  public chatList = [];
+  
   constructor(
-    private jwtService: JwtService, 
     private router: Router,
-    private toastr: ToastrService) { }
+    public jwtService: JwtService,
+    private msgService: MessageService,
+    public userService: UserService) {
+      this.socket = io(environment.baseUrl);
+     }
 
   ngOnInit() {
-    this.createLoginGForm();
-    this.token = this.jwtService.getToken();
-    console.log(this.token);
-
-  }
-
-  createLoginGForm() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
-  });
-
-  }
-
-  submitLogin(role: string) {
-    if(this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      // if(this.loginForm.value.email === 'icsd@gmail.com' && this.loginForm.value.password === 'icsd') {
-      if(this.loginForm.value.email === 'i' && this.loginForm.value.password === 'i') {
-        console.log("correct!");
-        // this.modal.hide();
-        // if(role === 'tourists') {
-        //   this.router.navigateByUrl('tourists/touristshome');
-        // } else {
-        this.router.navigateByUrl('guide/guidehome');
-        // }
+    if(this.jwtService.getToken()) {
+      this.userRole = this.userService.getRole();
+      console.log(this.userRole);
+      if(this.userRole === 'tourist') {
+        this.recieverRole = 'guide';
+      } else {
+        this.recieverRole = 'tourist';
       }
-    } else {
-      this.toastr.error("Error! Invalid email or password.")
+      this.getUser();
+      this.socket.on('refreshPage', () => {
+        this.getUser();
+      })
+    }
+  }
+
+  ngOnChanges() {
+  //   if(this.jwtService.getToken()) {
+  //   this.getUser();
+  // }
+  }
+
+  getUser() {
+    this.userService.getProfile(this.userRole).subscribe( res => {
+      this.user = res;
+      if(this.user) {
+        console.log(this.user);
+        this.chatList = this.user.chatList;
+        console.log(this.chatList);
+        this.checkIfRead(this.chatList);
+        console.log(this.msgNumber);
+      }
+    })
+  }
+
+  logout() {
+    this.userService.logout('tourist');
+  }
+
+  checkIfRead(arr) {
+    const checkArr = [];
+    for(let i=0; i<arr.length; i++) {
+      const reciever = arr[i].msgId.message[arr[i].msgId.message.length - 1];
+      console.log(reciever);
+      if(this.router.url !== `/chats/${this.recieverRole}/${reciever.sendername}`) {
+          if(reciever.isRead === false && reciever.receivername === this.user.name) { 
+          checkArr.push(1);
+          this.msgNumber = checkArr.length;
+          console.log(this.msgNumber);
+        }
+      }
     }
   }
 

@@ -1,17 +1,21 @@
-<wizard class="arc-wizard" navBarLayout="large-empty-symbols">
-  <wizard-step stepTitle="Title of step 1">
-    Content of Step 1
-    <!-- <button type="button" nextStep>Next Step</button> -->
-    <!-- <button type="button" goToStep="2">Go directly to third Step</button> -->
+<wizard #wizard class="arc-wizard background" navBarLayout="large-empty-symbols">
+
+  <wizard-step stepTitle="Pertional Details">
+    <app-personal-details (personalData)="getPersonalData($event)"></app-personal-details>
   </wizard-step>
+
   <wizard-step stepTitle="Title of step 2">
-    Content of Step 2
-    <!-- <button type="button" previousStep>Go to previous step</button> -->
-    <!-- <button type="button" nextStep>Go to next step</button> -->
+    <app-bussiness-details (basicData)="getBasicData($event)" (languageData)="getLanguageData($event)" 
+      (interestData)="getInterestData($event)" (experienceData)="getExperienceData($event)"
+    ></app-bussiness-details>
   </wizard-step>
+
+  <!-- <wizard-step stepTitle="Title of step 3">
+    <app-question-details></app-question-details>
+  </wizard-step> -->
+
   <wizard-step stepTitle="Title of step 3">
-    Content of Step 3
-    <!-- <button type="button" previousStep>Previous Step</button> -->
-    <!-- <button type="button" (click)="finishFunction()">Finish</button> -->
+    <app-terms-conditions (tc)="finalSubmit()"></app-terms-conditions>
   </wizard-step>
+
 </wizard>

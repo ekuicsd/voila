@@ -5,54 +5,40 @@
 
   <!--  -->
 
-  <div class="table-responsive">
+<div *ngIf="requestList" class="card">
+  <div class="table-responsive card-body">
+    <div class="card-title"><h4>Your Requests</h4></div>
     <table class="table table-hover">
       <thead >
         <tr>
           <th scope="col">Sr no.</th>
-          <th scope="col">Places</th>
           <th scope="col">Tourist</th>
+          <th scope="col">Places</th>
           <th scope="col">Booking Date</th>
           <th scope="col">Duration</th>
           <th scope="col">Price</th>
           <th scope="col">People</th>
+          <th scope="col">Group Type</th>
           <th scope="col">Tour</th>
-          <th scope="col">Actions</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>11 Aug'2020</td>
-          <td>20 Aug'2020</td>
-          <td>Arjun kumar singh</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
+        <tr *ngFor="let data of requestList; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{data.touristId.name}}</td>
+          <td>{{data.places.toString()}}</td>
+          <td>{{data.bookingDate | date: 'dd-MM-yyyy'}}</td>
+          <td>{{data.duration}}</td>
+          <td>{{data.price}}</td>
+          <td>{{data.noOfPeople}}</td>
+          <td>{{data.groupType}}</td>
+          <td>{{data.tourType}}</td>
           <td>
-            <button class="btn" color="success" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
+            <button class="btn" (click)="acceptRequest(data._id)" color="success" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
               <b>ACCEPT</b>
             </button>
-            <button class="btn" color="danger" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
-              <b>REJECT</b>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>11 Aug'2020</td>
-          <td>20 Aug'2020</td>
-          <td>Arjun kumar singh</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>2000</td>
-          <td>
-            <button class="btn" color="success" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
-              <b>ACCEPT</b>
-            </button>
-            <button class="btn" color="danger" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
+            <button class="btn" (click)="rejectRequest(data._id)" color="danger" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
               <b>REJECT</b>
             </button>
           </td>
@@ -60,6 +46,7 @@
       </tbody>
     </table>
     </div>  
+</div>
   <!-- /table -->
   
   <!-- <mdb-card >

@@ -8,11 +8,13 @@ import { Router } from "@angular/router";
 
 import { JwtService } from './jwt.service';
 import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
+
 
   private currentUserSubject = new BehaviorSubject<any>({});
   public currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
@@ -46,34 +48,26 @@ export class UserService {
     }
 
     AttemptTouristLogin(credentials) {
+        this.destroyUser();
         let url = '/login/tourist';
         return this.apiService.post(url, credentials).pipe(
             map(data => {
                 console.log(data);
-            // this.setAuth(data.get('token'));
-            // this.saveUser(data.get('Tourist'));
             this.setAuth(data.body.token);
-            this.saveUser(data.body.guide, 'tourist');
-            //   console.log("login res",data.headers.get('authorization'));
-            //   this.setAuth(data.headers.get('authorization'));
-            //   this.getUserById(data.headers.get('ID'));
+            this.saveUser(data.body.Tourist, 'tourist');
               return data;
             }
         ));
     }
 
     AttemptGuideLogin(credentials) {
+        this.destroyUser();
         let url = '/login/guide';
         return this.apiService.post(url, credentials).pipe(
             map(data => {
                 console.log(data);
-                // console.log(data.body.token);
-                // console.log(data.body.guide);
             this.setAuth(data.body.token);
             this.saveUser(data.body.guide, 'guide');
-            //   console.log("login res",data.headers.get('authorization'));
-            //   this.setAuth(data.headers.get('authorization'));
-            //   this.getUserById(data.headers.get('ID'));
               return data;
             }
         ));
@@ -109,15 +103,40 @@ export class UserService {
     destroyUser() {
         window.localStorage.removeItem('guide');
         window.localStorage.removeItem('tourist');
+        window.localStorage.removeItem('role');
         
     }
 
     saveUser(user, role: string) {
-        window.localStorage[role] = JSON.stringify(user);
+       window.localStorage['role'] = role;
+       window.localStorage[role] = JSON.stringify(user);
     }
 
     getCurrentUser(): any {
         return this.currentUserSubject.value;
-      }
+    }
+
+    getUserByEmail(email, role) : Observable<any> {
+        let url = '/getUserByEmail/' + role + '/' + email;
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe(res => {
+                obs.next(res.profile);
+            })
+        });
+    }
+
+    getRole(): string {
+        return window.localStorage['role'];
+    }
+
+    getProfile(role: string) : Observable<any> {
+        console.log(role);
+        let url = '/' + role + '/myProfile';
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe(res => {
+                obs.next(res.user);
+            })
+        });
+    }
 
 }

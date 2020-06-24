@@ -1,10 +1,10 @@
 import { Guide } from './guide.model';
-import { Tousists } from './tourists.model';
+import { Tourists } from './tourists.model';
 
 export interface Booking {
-    id?: string;
+    _id?: string;
     guideId?: Guide;
-    touristId?: Tousists;
+    touristId?: Tourists;
     bookingDate?: Date;
     price?: number;
     noOfPeople?: number;
@@ -14,7 +14,10 @@ export interface Booking {
     rating?: number;
     review?: string;
     reviewDate?: Date;
-    status?: BookingStatus;
+    status?: string;
+    places?: string[];
+    tourType?: string;
+    duration?: number;
 }
 
 export enum BookingStatus {
@@ -22,7 +25,8 @@ export enum BookingStatus {
     APPROVED = 'APPROVED',
     REJECTED = 'REJECTED',
     COMPLETED = 'COMPLETED',
-    ONGOING = 'ONGOING'
+    ONGOING = 'ONGOING',
+    CANCEL = 'CANCEL'
 }
 
 export enum GroupType {

@@ -1,0 +1,27 @@
+.pannel{
+    margin: auto;
+    width: 80%;
+    // height: 80%;
+}
+.center{
+    text-align: center;
+    justify-content: center;
+}
+.svg svg{
+    // height: 80%;
+    width: 350px;
+   
+}
+.svg1{
+    height: 120%;
+}
+.card-body{
+    box-shadow: 0px 3px 41px 2px rgba(252,252,252,1);
+}
+.background{
+   background-image: url(https://images.unsplash.com/photo-1587443270282-176e0bf1fc79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+   background-position: center center; 
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  height: auto; 
+}
