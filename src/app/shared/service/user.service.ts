@@ -103,6 +103,7 @@ export class UserService {
     destroyUser() {
         window.localStorage.removeItem('guide');
         window.localStorage.removeItem('tourist');
+        window.localStorage.removeItem('role');
         
     }
 
@@ -126,6 +127,16 @@ export class UserService {
 
     getRole(): string {
         return window.localStorage['role'];
+    }
+
+    getProfile(role: string) : Observable<any> {
+        console.log(role);
+        let url = '/' + role + '/myProfile';
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe(res => {
+                obs.next(res.user);
+            })
+        });
     }
 
 }

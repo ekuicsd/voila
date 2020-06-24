@@ -31,19 +31,19 @@ export class ChatsComponent implements OnInit {
     this.route.url.subscribe( res => {
       this.email = this.route.snapshot.params.email;
       this.receiverRole = this.route.snapshot.params.role;
-      console.log(this.receiverRole);
+      // console.log(this.receiverRole);
       if(this.receiverRole === 'guide') {
         this.senderRole = 'tourist';
-        console.log(this.senderRole);
+        // console.log(this.senderRole);
         this.sender = JSON.parse(this.userService.getUser('tourist'));
       }
       if(this.receiverRole === 'tourist') {
         this.senderRole = 'guide';
         this.sender = JSON.parse(this.userService.getUser('guide'));
-        console.log(this.senderRole);
+        // console.log(this.senderRole);
       }
-      console.log(this.sender);
-      console.log(this.email, this.receiverRole);
+      console.log("sender" ,this.sender);
+      // console.log(this.reciever);
       this.getUserByEmail(this.email, this.receiverRole);
 
 
@@ -60,10 +60,13 @@ export class ChatsComponent implements OnInit {
   getUserByEmail(email, receiverRole) {
     this.userService.getUserByEmail(email, receiverRole)
     .subscribe( res => {
-      console.log(res);
+      console.log("receiver",res);
       this.reciever = res;
 
       this.getAllMessages(this.sender._id, this.reciever._id);
+
+      this.markMessages(this.sender.email, this.reciever.name);
+
 
       this.params = {
         room1: this.sender._id,
@@ -82,12 +85,19 @@ export class ChatsComponent implements OnInit {
     })
   }
 
+  markMessages(sender, receiver) {
+    this.msgService.markMessages(sender, receiver).subscribe( res => {
+      console.log(res);
+      this.socket.emit('refresh', {});
+    })
+  }
+
   sendMessage() {
     if(this.message) {
       this.msgService.sendMessage(this.sender._id, this.reciever._id, 
         this.reciever.name, this.message, this.senderRole)
         .subscribe(res => {
-        console.log(res);
+        // console.log(res);
         this.socket.emit('refresh', {
           data: "connected with socket"
         })

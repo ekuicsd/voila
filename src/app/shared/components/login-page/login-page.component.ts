@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
+
   public LoginForm: FormGroup;
 
   constructor(private userService: UserService,
@@ -53,6 +54,7 @@ export class LoginPageComponent implements OnInit {
         }
       )
     }
+
   }
 
   get f() {

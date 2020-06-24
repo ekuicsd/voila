@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { MessageService } from '../../service/message.service';
 import { JwtService } from '../../service/jwt.service';
@@ -10,23 +10,33 @@ import { environment } from 'src/environments/environment';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges{
 
+  @Input() loggingIn;
   msgNumber = 0;
   public user: any;
+  public recieverRole;
+  public userRole;
   socket:any;
   public chatList = [];
   
   constructor(
     private router: Router,
-    private jwtService: JwtService,
+    public jwtService: JwtService,
     private msgService: MessageService,
-    private userService: UserService) {
+    public userService: UserService) {
       this.socket = io(environment.baseUrl);
      }
 
   ngOnInit() {
     if(this.jwtService.getToken()) {
+      this.userRole = this.userService.getRole();
+      console.log(this.userRole);
+      if(this.userRole === 'tourist') {
+        this.recieverRole = 'guide';
+      } else {
+        this.recieverRole = 'tourist';
+      }
       this.getUser();
       this.socket.on('refreshPage', () => {
         this.getUser();
@@ -34,35 +44,42 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  ngOnChanges() {
+  //   if(this.jwtService.getToken()) {
+  //   this.getUser();
+  // }
+  }
+
   getUser() {
-    const role = this.userService.getRole();
-    console.log(role);
-    this.user = JSON.parse(this.userService.getUser(role));
-    if(this.user) {
-      console.log(this.user);
-      this.chatList = this.user.chatList;
-      console.log(this.chatList);
-      // this.checkIfRead(this.chatList);
-    }
+    this.userService.getProfile(this.userRole).subscribe( res => {
+      this.user = res;
+      if(this.user) {
+        console.log(this.user);
+        this.chatList = this.user.chatList;
+        console.log(this.chatList);
+        this.checkIfRead(this.chatList);
+        console.log(this.msgNumber);
+      }
+    })
   }
 
   logout() {
     this.userService.logout('tourist');
   }
 
-  // checkIfRead(arr) {
-  //   const checkArr = [];
-  //   for(let i=0; i<arr.length; i++) {
-  //     const reciever = arr[i].msgId.message[arr[i].msgId.message.length - 1]; //incomplete
-  //     console.log(reciever);
-  //     if(this.router.url !== '') { //incomplete
-  //       if(reciever.isRead == false && reciever.receivername === 'this.user.name') { 
-  //         checkArr.push(1);
-  //         this.msgNumber = checkArr.length;
-  //         console.log(this.msgNumber);
-  //       }
-  //     }
-  //   }
-  // }
+  checkIfRead(arr) {
+    const checkArr = [];
+    for(let i=0; i<arr.length; i++) {
+      const reciever = arr[i].msgId.message[arr[i].msgId.message.length - 1];
+      console.log(reciever);
+      if(this.router.url !== `/chats/${this.recieverRole}/${reciever.sendername}`) {
+          if(reciever.isRead === false && reciever.receivername === this.user.name) { 
+          checkArr.push(1);
+          this.msgNumber = checkArr.length;
+          console.log(this.msgNumber);
+        }
+      }
+    }
+  }
 
 }

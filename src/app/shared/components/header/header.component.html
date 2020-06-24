@@ -1,10 +1,10 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false">
 
     <!-- Navbar brand -->
     <mdb-navbar-brand>
         <a class="navbar-brand" [routerLink]="['/']">
-            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="mdb logo">
+            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="Voila">
         </a>
     </mdb-navbar-brand>
 
@@ -14,31 +14,32 @@
         <!-- Links -->
         <ul class="navbar-nav ml-auto">
             
-            <li class="nav-item" >
+            <li class="nav-item" *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
                 <a [routerLink]="['/tourists/touristshome/favourites']" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="heart"></mdb-icon>
                 </a>
             </li>
-            <li class="nav-item" >
-                <a class="nav-link waves-light" data-toggle="#" data-target="#basicExample" mdbWavesEffect>
+            <li class="nav-item" *ngIf="jwtService.getToken()">
+                <a class="nav-link waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon  fas  icon="envelope"></mdb-icon>
                     <span class="nav-label-icon circle" *ngIf="msgNumber > 0">{{msgNumber}}</span>
                 </a>
             </li>
-            <li class="nav-item" >
+            <li class="nav-item" *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
                 <a class="nav-link waves-light" [routerLink]="['/tourists/touristshome/bookings']" routerLinkActive="active" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
             </li>
-            <li class="nav-item" >
+            <li class="nav-item" 
+                *ngIf="!jwtService.getToken()">
               <a class="nav-link waves-light"  [routerLink]="['/login']" mdbWavesEffect>
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                  LogIn2</a>
+                  LogIn</a>
           </li>
             <!-- Dropdown -->
-            <li class="nav-item dropdown" dropdown >
+            <li class="nav-item dropdown" dropdown *ngIf="!jwtService.getToken()" >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     Register<span class="caret"></span></a>
@@ -58,7 +59,8 @@
                 </div>
             </li>
 
-            <li class="nav-item avatar dropdown" dropdown>
+            <li class="nav-item avatar dropdown" dropdown  
+                *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
 
                     <!-- More<span class="caret"></span> -->
