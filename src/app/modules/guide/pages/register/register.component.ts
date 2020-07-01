@@ -4,7 +4,6 @@ import { Guide } from 'src/app/shared/models/guide.model';
 import { WizardComponent } from 'ng2-archwizard/dist';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -19,12 +18,14 @@ export class RegisterComponent implements OnInit {
   constructor(private toastr: ToastrService, private guideService: GuideService) { }
 
   ngOnInit() {
+
+
   }
 
   // createForm() {
   //   this.guideForm = new FormGroup({
   //     name : new FormControl('', [Validators.required]),
-  //     gender : new FormControl('', [Validators.required]), 
+  //     gender : new FormControl('', [Validators.required]),
   //     password : new FormControl('', [Validators.required]),
   //     dob : new FormControl('', [Validators.required]),
   //     phoneNumber : new FormControl('', [Validators.required]),

@@ -94,7 +94,7 @@ const routes: Routes = [
       path: 'guideProfile/:id', component: GuideProfileComponent
     }
   ]},
-]; 
+];
 
 @NgModule({
   declarations: [
@@ -124,9 +124,9 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   exports: [
-      
+
   ]
-}) 
+})
 
 export class TouristsModule {
 

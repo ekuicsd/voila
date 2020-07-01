@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from '../app/shared/shared.module';
 import { TouristsModule } from '../app/modules/tourists/tourists.module';
 import { HomeModule } from '../app/modules/home/home.module';
-import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http'; 
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { GuideModule } from '../app/modules/guide/guide.module';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
@@ -41,7 +41,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     GuideModule,
     ToastrModule.forRoot(),
-    
+
   ],
   providers: [
     {
