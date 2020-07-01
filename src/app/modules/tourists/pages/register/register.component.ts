@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
       })
 
     } else {
-      this.toastr.error("Invalid Deatils!");
+      this.toastr.error("Invalid Details!");
     }
   }
 

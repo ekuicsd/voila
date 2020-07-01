@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -15,10 +15,25 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private userService: UserService,
               private location: Location,
-               private router: Router) { }
+               private router: Router) { 
+
+               }
 
   ngOnInit() {
-    this.createLoginForm();
+    $('#signup').click(function() {
+      $('.pinkbox').css('transform', 'translateX(80%)');
+      $('.signin').addClass('nodisplay');
+      $('.signup').removeClass('nodisplay');
+    });
+    
+    $('#signin').click(function() {
+      $('.pinkbox').css('transform', 'translateX(0%)');
+      $('.signup').addClass('nodisplay');
+      $('.signin').removeClass('nodisplay');
+    });
+
+ this.createLoginForm();
+
   }
 
   createLoginForm() {
@@ -47,8 +62,8 @@ export class LoginPageComponent implements OnInit {
       this.userService.AttemptTouristLogin(this.LoginForm.value).subscribe(
         res => {
           console.log(res);
-          // this.router.navigateByUrl('tourists/touristshome');
-          this.location.back();
+          this.router.navigateByUrl('tourists/touristshome');
+          // this.location.back();
         }, error => {
           console.log(error);
         }
