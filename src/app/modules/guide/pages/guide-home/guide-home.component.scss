@@ -1,5 +1,24 @@
-.guid-name{
+.navside {
+    height: 100%;
+    position: fixed;
+    width: 250px;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+}
+
+.guide-name {
     color: #3AAF;
     margin: 10px;
     padding: 2px;
+}
+
+.all-style {
+    background-color: #b7e8eb !important;
+}
+
+.main {
+    margin-left: 250px;
+    /* Same as the width of the sidebar */
 }

@@ -9,18 +9,18 @@ export class StaticDataService {
 
     getAllInterestList() : string[] {
         const interests = [
-            'Games',
-            'Bars',
-            'Religious Places',
-            'Foody',
-            'Movies',
-            'Museum',
             'Shopping',
-            'Monumnets',
+            'Sports',
+            'Nature',
+            'Religious Places',
+            'Food',
+            'Bars',
+            'Movies',
+            'History',
+            'Culture',
             'Adventures',
             'National Parks',
-            'Art Galllery',
-            'Shooting Places'
+            'Art'
         ];
         return interests;
     }

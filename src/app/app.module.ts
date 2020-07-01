@@ -41,7 +41,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     GuideModule,
     ToastrModule.forRoot(),
-    
   ],
   providers: [
     {

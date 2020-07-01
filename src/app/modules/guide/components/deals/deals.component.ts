@@ -85,7 +85,7 @@ export class DealsComponent implements OnInit {
       this.guideService.createDeal(this.dealForm.value).subscribe( res=> {
         console.log(res);
         this.createForm();
-        this.toastr.success("Deal craeted successfully!");
+        this.toastr.success("Deal created successfully!");
         this.createDeal = false;
       }, error => {
         console.log(error)
