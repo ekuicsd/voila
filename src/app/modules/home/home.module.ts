@@ -51,7 +51,7 @@ const routes: Routes = [
     MapComponent,
     TopCitiesComponent,
   ]
-}) 
+})
 
 export class HomeModule {
 

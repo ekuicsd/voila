@@ -3,12 +3,12 @@
     text-align: center;
 }
 .state{
-    fill: #3AAFA9;
-    stroke: white;
+    fill: #ffffff;
+    stroke: rgb(56,50,48);
     white-space: nowrap;
 }
 .state:hover{
-    fill: #447799;
+    fill: #000000;
 }
 .map-detail{
     text-align: center;
@@ -16,5 +16,9 @@
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.row{
+  background-color: rgb(56,50,48);
 }
