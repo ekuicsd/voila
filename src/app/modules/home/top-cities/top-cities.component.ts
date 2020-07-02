@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-top-cities',
   templateUrl: './top-cities.component.html',
@@ -31,7 +32,6 @@ export class TopCitiesComponent implements OnInit {
     },
     nav: true
   }
-
 
   // slidesStore = [
   //   {
@@ -68,7 +68,8 @@ export class TopCitiesComponent implements OnInit {
 
   // activeSlides: SlidesOutputData;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
   }

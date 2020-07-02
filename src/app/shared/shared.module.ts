@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,6 +8,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
 import { DealsComponent } from './components/deals/deals.component';
 import { GuideProfileComponent } from './components/guide-profile/guide-profile.component';
+import { BookingProfileComponent } from './components/booking-profile/booking-profile.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MyDatePickerModule } from 'mydatepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -39,6 +39,9 @@ const routes: Routes = [
     },
     {
         path: 'guideprofile', component: GuideProfileComponent
+    },
+    {
+        path: 'bookingprofile', component: BookingProfileComponent
     }
     
     
@@ -49,6 +52,7 @@ const routes: Routes = [
         HeaderComponent,
         DealsComponent,
         GuideProfileComponent,
+        BookingProfileComponent,
         LoginPageComponent,
         ChangePasswordComponent,
         DealsCardsComponent,
@@ -56,13 +60,12 @@ const routes: Routes = [
         ChatHistoryListComponent,
     ],
     imports: [
-        // BrowserModule,
         CommonModule,
         HomeModule,
         ReactiveFormsModule,
         FormsModule,
         NgxAutoScrollModule,
-        // MyDatePickerModule,
+        MyDatePickerModule,
         MDBBootstrapModule.forRoot(),
         NgbModule,
         RouterModule.forChild(routes),

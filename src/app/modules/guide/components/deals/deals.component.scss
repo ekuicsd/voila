@@ -1,34 +1,44 @@
+.dealtop {
+    background-color: #7bd3c3;
+}
+
+.create-font {
+    font-family: 'Bangers', cursive;
+    font-size: 75px;
+    margin-top: 50px;
+    word-spacing: 18px;
+}
 
 mdb-card-text div {
     font-size: medium;
 }
 
-.fa-phone-alt{
+.fa-phone-alt {
     display: none;
 }
- .small-badge{
-  display: none;
- }
-@media only screen and (max-width: 600px){
-     .footer-btn{
-    display: none;
-}
-.fa-phone-alt{
-    display: initial;
-    margin: auto;
-    color: lightseagreen;
-}
-.big-badge{
-    display: none;
-}
-.small-badge{
-    display: initial;
 
+.small-badge {
+    display: none;
 }
+
+@media only screen and (max-width: 600px) {
+    .footer-btn {
+        display: none;
+    }
+    .fa-phone-alt {
+        display: initial;
+        margin: auto;
+        color: lightseagreen;
+    }
+    .big-badge {
+        display: none;
+    }
+    .small-badge {
+        display: initial;
+    }
 }
 
 // 
-
 .sticky {
     position: -webkit-sticky;
     position: sticky;
