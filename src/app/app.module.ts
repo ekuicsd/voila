@@ -13,7 +13,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpInterceptorService } from './shared/service/http-interceptor.service';
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
 
