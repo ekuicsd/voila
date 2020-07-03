@@ -39,10 +39,10 @@
 
 <div class="row">
     <div class="col-md-12">
-        
+
         <section class="my-5">
 
-            
+
             <div class="row">
 
                 <div class="col-lg-4">
@@ -129,10 +129,10 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-lg-8">
 
-                    
+
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3">
@@ -255,33 +255,33 @@
       <mdb-card>
           <mdb-card-body>
               <div class="row">
-                  <div class="col-md-10">
+                  <div class="col-md-9">
                    <mdb-card-title>
                 <h4><mdb-icon fas icon="clipboard-check" style="color: rgba(255, 152, 0, 0.7);" ></mdb-icon> &nbsp; {{booking.guideId?.city}}, India with {{booking.guideId?.name}}</h4>
               </mdb-card-title> </div>
-              <div class="col-md-2">
+              <div class="col-md-3" style="padding: 0;">
                 <button mdbBtn type="button" size="sm" color="amber" mdbWavesEffect>Rate the guide</button>
               </div>
-          
+
         </div>
               <!--Text-->
-              <mdb-card-text> 
-                  Approved booking by the guide under Voils <a href="">terms and condition</a> contact your 
+              <mdb-card-text>
+                  Approved booking by the guide under Voils <a href="">terms and condition</a> contact your
                   guide for any booking related quary .
 
                   <p>{{booking.places.toString()}}</p>
                   <p class="mb-0"><a style="color: rgba(255, 152, 0, 0.7);" (click)="test1.toggle()">View more</a></p>
-                  
-              </mdb-card-text> 
-              
-         
+
+              </mdb-card-text>
+
+
   </mdb-card-body>
       </mdb-card>
   <div  mdbCollapse [isCollapsed]="true" #test1="bs-collapse">
       <mdb-card class="more">
     <mdb-card-body >
         <!--Text-->
-        <mdb-card-text> 
+        <mdb-card-text>
             <div class="row">
                 <div class="col-md-4">
                    <h5>From</h5> {{booking.startDate | date: 'dd-MM-yy'}}
@@ -292,7 +292,7 @@
               <div class="col-md-4">
                    <h5>Tour Type</h5> {{booking.tourType}}
               </div>
-                
+
             </div>
             <br>
             <div class="row">
@@ -305,14 +305,13 @@
             <div class="col-md-4">
                  <h5>People</h5> <i class="fas fa-user-friends"></i> {{booking.noOfPeople}}
             </div>
-              
+
           </div>
-          
-        </mdb-card-text> 
+
+        </mdb-card-text>
       </mdb-card-body>
     </mdb-card>
   </div>
     </mdb-card>
 
     <!--  -->
-  

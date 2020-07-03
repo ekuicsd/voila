@@ -1,6 +1,7 @@
 .navside {
     height: 100%;
     position: fixed;
+    overflow: -moz-hidden-unscrollable;
     width: 250px;
     z-index: 1;
     left: 0;
