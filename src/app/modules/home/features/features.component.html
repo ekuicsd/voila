@@ -49,8 +49,8 @@
     <div class="tl-content">
       <h1 class="f3 text--accent ttu">Join <b>Voila</b> as Tourist</h1>
       <p>Suspendisse potenti. Sed sollicitudin eros lorem, eget accumsan risus dictum id. Maecenas dignissim ipsum vel mi rutrum egestas. Donec mauris nibh, facilisis ut hendrerit vel, fringilla sed felis. Morbi sed nisl et arcu.</p>
-      <button mdbBtn type="button" color="transparent" mdbWavesEffect>Sign In</button>
-      <button mdbBtn type="button"  mdbWavesEffect>Sign Up</button>
+      <button [routerLink]="['/login/tourist']" mdbBtn type="button" color="transparent" mdbWavesEffect>Sign In</button>
+      <button [routerLink]="['/tourists/register']" mdbBtn type="button"  mdbWavesEffect>Sign Up</button>
 
     </div>
 
@@ -69,8 +69,8 @@
     <div class="tl-content">
       <h1 class="f3 text--accent ttu">Join <b>Voila</b> as Guide</h1>
       <p>Suspendisse ac mi at dolor sodales faucibus. Nunc sagittis ornare purus non euismod. Donec vestibulum efficitur tortor, eget efficitur enim facilisis consequat. Vivamus laoreet laoreet elit. Ut ut varius metus, bibendum imperdiet ex. Curabitur diam quam, blandit at risus nec, pulvinar porttitor lorem. Pellentesque dolor elit.</p>
-      <button mdbBtn type="button"  mdbWavesEffect>Sign In</button>
-      <button mdbBtn type="button" mdbWavesEffect>Sign Up</button>
+      <button [routerLink]="['/login/guide']" mdbBtn type="button"  mdbWavesEffect>Sign In</button>
+      <button [routerLink]="['/guide/show-register']" mdbBtn type="button" mdbWavesEffect>Sign Up</button>
     </div>
 
   </div>

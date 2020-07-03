@@ -1,9 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../service/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import * as $ from 'jquery';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -12,12 +13,13 @@ import * as $ from 'jquery';
 export class LoginPageComponent implements OnInit {
 
   public LoginForm: FormGroup;
+  public role: string = 'tourist';
 
   constructor(private userService: UserService,
               private location: Location,
-               private router: Router) { 
-
-               }
+              private toastr: ToastrService,
+              private route: ActivatedRoute,
+               private router: Router) {  }
 
   ngOnInit() {
     $('#signup').click(function() {
@@ -31,9 +33,10 @@ export class LoginPageComponent implements OnInit {
       $('.signup').addClass('nodisplay');
       $('.signin').removeClass('nodisplay');
     });
-
- this.createLoginForm();
-
+    this.createLoginForm();
+    this.route.url.subscribe( s => {
+      this.role = this.route.snapshot.params.role;
+    });
   }
 
   createLoginForm() {
@@ -49,25 +52,29 @@ export class LoginPageComponent implements OnInit {
   
   login(role: string) {
     // alert(role);
-    if(role === 'guide') {
-      this.userService.AttemptGuideLogin(this.LoginForm.value).subscribe(
-        res => {
-          console.log(res);
-          this.router.navigateByUrl('guide/guidehome');
-        }, error => {
-          console.log(error);
-        }
-      )
+    if(this.LoginForm.valid) {
+      if(role === 'guide') {
+        this.userService.AttemptGuideLogin(this.LoginForm.value).subscribe(
+          res => {
+            console.log(res);
+            this.router.navigateByUrl('guide/guidehome');
+          }, error => {
+            console.log(error);
+          }
+        )
+      } else {
+        this.userService.AttemptTouristLogin(this.LoginForm.value).subscribe(
+          res => {
+            console.log(res);
+            this.router.navigateByUrl('tourists/touristshome');
+            // this.location.back();
+          }, error => {
+            console.log(error);
+          }
+        )
+      }
     } else {
-      this.userService.AttemptTouristLogin(this.LoginForm.value).subscribe(
-        res => {
-          console.log(res);
-          this.router.navigateByUrl('tourists/touristshome');
-          // this.location.back();
-        }, error => {
-          console.log(error);
-        }
-      )
+      this.toastr.error("Please fill email and password!");
     }
 
   }
