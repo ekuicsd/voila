@@ -10,7 +10,8 @@
 
 // @import "scss/style";
 
-html, body { height: 100%; }
+html, body { height: 100%;
+  overflow-x: hidden; }
 body { margin: 0 ; font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -21,8 +22,12 @@ body { margin: 0 ; font-family: Roboto, "Helvetica Neue", sans-serif;
   }
 
   ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    // -webkit-border-radius: 10px;
+    // border-radius: 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
     -webkit-border-radius: 10px;
     border-radius: 10px;
   }
