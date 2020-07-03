@@ -1,25 +1,28 @@
 .navside {
-    height: 100%;
-    position: fixed;
     overflow: -moz-hidden-unscrollable;
-    width: 250px;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    padding-top: 20px;
+    // width: 250px;
+    // z-index: 1;
+    // left: 0;
+    // top: 45px;
+    // padding-top: 20px;
+    background-color: #b7e8eb !important;
+    margin: 0;
+    height: 100%;
+    // overflow: auto;
 }
 
+// .sticky {
+//     position: -webkit-sticky;
+//     position: sticky;
+//     top: 0;
+// }
 .guide-name {
     color: #3AAF;
     margin: 10px;
     padding: 2px;
 }
 
-.all-style {
-    background-color: #b7e8eb !important;
-}
+// .main {
+// margin-left: 250px;
 
-.main {
-    margin-left: 250px;
-    /* Same as the width of the sidebar */
-}
+/* Same as the width of the sidebar */
