@@ -14,4 +14,8 @@ export class MapComponent implements OnInit {
   ngOnInit() {
   }
 
+  getStateData(state) {
+    alert(state);
+  }
+
 }
