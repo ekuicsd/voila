@@ -94,7 +94,7 @@
 <div class="container mb-5">
     <div class="welcome">
         <div class="pinkbox">
-            <div class="signup nodisplay" id="guide">
+            <div class="signup " [ngClass]="role === 'tourist' ? 'nodisplay' : ''" id="guide">
                 <h1>Guide Sign in</h1>
                 <form [formGroup]="LoginForm" autocomplete="off">
                     <div class="md-form form-group">
@@ -111,8 +111,8 @@
                     <div class="">
                         <button type="submit" class="button submit" (click)="login('guide')">Log in</button>
                     </div>
-                </form>
-                <div class="text-center white-text"><a>Are you a guide? Register now</a></div>
+                </form> <br>
+                <div class="text-center white-text"><a  [routerLink]="['/guide/show-register']">Are you a guide? Register now</a></div>
             </div>
             <div class="signin" id="tourist">
                 <h1>sign in</h1>
@@ -134,7 +134,7 @@
                         <button type="submit" class="button submit mx-auto" (click)="login('tourist')">login</button>
                     </div>
                 </form><br>
-                <div class="text-center white-text"><a>Wanna explore? Register now</a></div>
+                <div class="text-center white-text"><a  [routerLink]="['/tourists/register']" >Wanna explore? Register now</a></div>
             </div>
         </div>
         <div class="leftbox">
@@ -142,14 +142,14 @@
             <p class="desc">pick your perfect <span>bouquet</span></p>
             <img class="flower smaller" src="https://image.ibb.co/d5X6pn/1357d638624297b.jpg" alt="1357d638624297b" border="0">
             <p class="account">Are you a traveller</p>
-            <button class="button" id="signin">Log in</button>
+            <button [routerLink]="['/login/tourist']"  class="button" id="signin">Log in</button>
         </div>
         <div class="rightbox">
             <h2 class="title"><span>VOILA</span>&<br>Guide</h2>
             <p class="desc"> pick your perfect <span>bouquet</span></p>
             <img class="flower" src="assets\images\tourist-ouch-pic-medium.png" />
             <p class="account">Are you a guide?</p>
-            <button class="button" id="signup">LOg in</button>
+            <button  [routerLink]="['/login/guide']"  class="button" id="signup">Log in</button>
         </div>
     </div>
 </div>
