@@ -30,14 +30,14 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
 
     {path: 'show-register', component: ShowRegisterComponent },
-    
+
     {path: 'guidehome', component: GuideHomeComponent, children: [
       {
         path: '', redirectTo: 'bookings', pathMatch: 'full'
       },
     // {path: 'guide', children: [
       {
-        path: 'bookings', component: BookingsComponent, 
+        path: 'bookings', component: BookingsComponent,
         canActivate: [GuideGuardService]
       },
       {
@@ -71,11 +71,11 @@ const routes: Routes = [
       {
          path: 'show-register', component: ShowRegisterComponent
       }
-      
+
     ]},
     // ]},
-    
-]; 
+
+];
 
 @NgModule({
   declarations: [
@@ -106,9 +106,9 @@ const routes: Routes = [
       SharedModule
   ],
   exports: [
-      
+
   ]
-}) 
+})
 
 export class GuideModule {
 

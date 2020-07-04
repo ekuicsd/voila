@@ -1,22 +1,39 @@
-
-<div class="container-fluid px-5">
+<div class="row all">
+  <div class="col-8" style = "position: relative; overflow:hidden;">
+    <div class="container-fluid px-5">
   <div class="card">
-    <div class="row pb-0 card-body">
-      <div class="col-md-2 booking">
-          <a  [routerLink]="['now']" routerLinkActive="active"><h5> <mdb-icon far icon="calendar-alt"></mdb-icon> &nbsp; Bookings</h5></a>
+    <div class="row  check pb-0 card-body">
+      <div class="col-md-3 booking">
+          <a  [routerLink]="['now']"  routerLinkActive="active"><h5> <mdb-icon far icon="calendar-alt"></mdb-icon> &nbsp; Bookings</h5></a>
       </div>
-      <div class="col-md-2 request">
-          <a [routerLink]="['requests']" routerLinkActive="active"><h5> <mdb-icon far icon="address-card"></mdb-icon> &nbsp; Requested</h5></a>
+      <div class="col-md-3 request">
+          <a [routerLink]="['requests']"  routerLinkActive="active"><h5> <mdb-icon far icon="address-card"></mdb-icon> &nbsp; Requested</h5></a>
       </div>
-      <div class="col-md-2 history">
+      <div class="col-md-3 history">
           <a [routerLink]="['histories']" routerLinkActive="active"><h5><mdb-icon fas    icon="history"></mdb-icon> &nbsp; Previous</h5></a>
       </div>
   </div>
   <!-- <hr class="card-body mt-0"> -->
   <div class="row card-body">
-      <div class="col">
+      <div class="col-12">
           <router-outlet></router-outlet>
       </div>
+
   </div>
   </div>
 </div>
+  </div>
+
+
+<div class="col-3 card side-text">
+  <div class="card-body ">
+    <div> <h5>Bookings with Voila</h5> </div>
+    <div>  <mdb-icon fas icon="check"></mdb-icon> &nbsp;Easy Cancellation</div>
+    <div> <mdb-icon fas icon="check"></mdb-icon>&nbsp; Chat Feature</div>
+    <div> <mdb-icon fas icon="check"></mdb-icon>&nbsp; Save for later</div>
+    <div> <mdb-icon fas icon="check"></mdb-icon>&nbsp; Verified Guides</div>
+    <div> <mdb-icon fas icon="check"></mdb-icon>&nbsp; Personalize Trips</div>
+    <div> <mdb-icon fas icon="check"></mdb-icon>&nbsp; Safe and Secured</div>
+
+  </div>
+</div></div>

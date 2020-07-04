@@ -35,7 +35,7 @@ const routes: Routes = [
         loadChildren: () => import('../modules/guide/guide.module').then(module => module.GuideModule)
     },
     {
-        path: 'login', component: LoginPageComponent
+        path: 'login/:role', component: LoginPageComponent
     },
     {
         path: 'guideprofile', component: GuideProfileComponent

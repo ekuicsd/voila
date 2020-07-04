@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-tourists-home',
   templateUrl: './tourists-home.component.html',
@@ -10,6 +9,8 @@ export class TouristsHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+
+    }
   }
 
-}
