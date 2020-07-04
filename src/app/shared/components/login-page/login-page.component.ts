@@ -27,7 +27,7 @@ export class LoginPageComponent implements OnInit {
       $('.signin').addClass('nodisplay');
       $('.signup').removeClass('nodisplay');
     });
-    
+
     $('#signin').click(function() {
       $('.pinkbox').css('transform', 'translateX(0%)');
       $('.signup').addClass('nodisplay');
@@ -49,7 +49,7 @@ export class LoginPageComponent implements OnInit {
   // login(role) {
 
   // }
-  
+
   login(role: string) {
     // alert(role);
     if(this.LoginForm.valid) {

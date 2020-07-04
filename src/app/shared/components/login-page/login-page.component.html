@@ -90,7 +90,10 @@
 
 
 </div> -->
-
+<div class="all-bg">
+  <div class="text">
+    <h1>Voila Login</h1>
+  </div>
 <div class="container mb-5">
     <div class="welcome">
         <div class="pinkbox">
@@ -114,13 +117,8 @@
                 </form> <br>
                 <div class="text-center white-text"><a [routerLink]="['/guide/show-register']">Are you a guide? Register now</a></div>
             </div>
-<<<<<<< HEAD
-            <div class="signin" id="tourist">
-                <h1>Tourist<br>Sign in</h1>
-=======
             <div class="signin" [ngClass]="role === 'tourist' ? '' : 'nodisplay'" id="tourist">
-                <h1>Tourist sign in</h1>
->>>>>>> 845f621a43dc0449873dd4a41b554e04044a8e16
+                <h1>Tourist<br>sign in</h1>
                 <form [formGroup]="LoginForm" class="more-padding" autocomplete="off">
                     <div class="md-form form-group">
                         <input mdbInput type="email" formControlName="email" id="form3" class="form-control">
@@ -158,5 +156,5 @@
         </div>
     </div>
 </div>
-
+</div>
 <!-- green guide pic attribution <a href='https://www.freepik.com/free-photos-vectors/travel'>Travel vector created by stories - www.freepik.com</a> -->
