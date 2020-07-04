@@ -1,179 +1,190 @@
 <div class="card py-5 px-5">
-  <div class="card-body px-0 py-0">
-    <div class="card-title"><h2><b>Edit Profile</b></h2></div>
-  </div>
-  <hr class="mt-0">
-  <div class="row card-body">
-    <div class="col-md-3">
-      <h4 style="color: rgb(3, 168, 244)" >Personal Info</h4> 
+    <div class="card-body px-0 py-0">
+        <div class="card-title">
+            <h2><b>Edit Profile</b></h2>
+        </div>
     </div>
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-11">
-  <h5 style="color: rgba(3, 169, 244, 0.7)" >{{userData.name}}</h5>
-   </div>
-  <div class="col-md-1 edit-btn">
-    <a (click)="editpersonal.show()" ><mdb-icon fas icon="edit"></mdb-icon></a>
-  </div>
-       
-      </div>
-      
-      <div class="row">
-        <div class="col-md-6">
-          <p> <b style="color: rgba(3, 169, 244, 0.7)">Nationality :-</b>  {{userData.nationality}}</p> 
+    <hr class="mt-0">
+    <div class="row card-body">
+        <div class="col-md-3">
+            <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
         </div>
-        <div class="col-md-6">
-              <p> <b style="color: rgba(3, 169, 244, 0.7)">Date of birth :-</b>  {{userData.dob | date: 'dd-MM-yyyy'}}</p>  
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-11">
+                    <h5 style="color: rgba(3, 169, 244, 0.7)">{{userData.name}}</h5>
+                </div>
+                <div class="col-md-1 edit-btn">
+                    <a (click)="editpersonal.show()">
+                        <mdb-icon fas icon="edit"></mdb-icon>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <b style="color: rgba(3, 169, 244, 0.7)">Nationality </b>
+                    <div>{{userData.nationality}}</div>
+                </div>
+                <div class="col-md-6">
+                    <b style="color: rgba(3, 169, 244, 0.7)">Date of birth </b>
+                    <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
+                    <div> {{userData.email}}</div>
+                </div>
+                <div class="col-md-6">
+                    <b style="color: rgba(3, 169, 244, 0.7)"> Phone </b>
+                    <div> {{userData.phoneNumber}}</div>
+                </div>
+            </div>
+
+            <b style="color: rgba(3, 169, 244, 0.7)">Language </b>
+            <div>{{userData.languages[0]}}</div>
         </div>
-         
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <p> <b style="color: rgba(3, 169, 244, 0.7)">Email :-</b> {{userData.email}}</p>
-        </div>
-        <div class="col-md-6">
-          <p> <b style="color: rgba(3, 169, 244, 0.7)"> Phone :-</b> {{userData.phoneNumber}}</p>
-        </div>
-      </div>
-        
-        <p><b style="color: rgba(3, 169, 244, 0.7)">Language :-</b>{{userData.languages[0]}}</p>
     </div>
-  </div>
-  <div class="row card-body">
-    <div class="col-md-3">
-      <h4 style="color: rgb(255, 153, 0) " >Intrests</h4>
-    </div>
-    <div class="col-md-9" >
-      <div class="row" *ngFor="let item of userData.interests" style="border-bottom: 1px solid gray;">
-        <div class="col-md-10">
-          <p><b style="color: rgba(255, 152, 0, 0.7) ">{{item}}</b></p>
+    <div class="row card-body">
+        <div class="col-md-3">
+            <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
-        <div class="col-md-2">
-          <a (click)="removeInterests(item)" class="float-right"><mdb-icon fas icon="trash-alt" class="red-text pr-3" ></mdb-icon></a>
-          <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
+        <div class="col-md-9">
+            <div class="row" *ngFor="let item of userData.interests" style="border-bottom: 1px solid gray;">
+                <div class="col-md-10">
+                    <b style="color: rgba(255, 152, 0, 0.7) ">{{item}}</b>
+                </div>
+                <div class="col-md-2">
+                    <a (click)="removeInterests(item)" class="float-right">
+                        <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
+                    </a>
+                    <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
+                </div>
+            </div>
+            <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
         </div>
-      </div>
-      <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
     </div>
-  </div>
 </div>
 
 
-  <!-- edit profile modal -->
+<!-- edit profile modal -->
 <div mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
+    <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title w-100" id="myModalLabel">Edit Personal Details</h4>
-      </div>
-      <form [formGroup]="personalDetails" (ngSubmit)="submitPersonalDetails()">
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="form-group">
-              <label for="form6">Gender</label>
-              <select class="form-control browser-default custom-select" formControlName="gender">
+                <h4 class="modal-title w-100" id="myModalLabel">Edit Personal Details</h4>
+            </div>
+            <form [formGroup]="personalDetails" (ngSubmit)="submitPersonalDetails()">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="form6">Gender</label>
+                                <select class="form-control browser-default custom-select" formControlName="gender">
                 <option value="Mr">Mr</option>
                 <option value="Mrs">Mrs</option>
                 <option value="Ms">Ms</option>
               </select>
-          </div>
-          </div>
-          <div class="col-md-9">
-          <div class="form-group">
-            <label for="form6">Name</label>
-          <input type="text" id="form6" class="form-control" formControlName="name">
-          
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label for="form6">Name</label>
+                                <input type="text" id="form6" class="form-control" formControlName="name">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-sm">
+                                <label for="form11">Email</label>
+                                <input type="email" id="form11" class="form-control" formControlName="email" disabled>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row">
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="form6">Date Of Birth</label>
+                                <input type="date" id="form6" disabled formControlName="dob" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-group form-sm">
+                                <label for="form11">Nationality</label>
+                                <input type="text" id="form11" class="form-control" formControlName="nationality">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="form6">Phone Number</label>
+                                <input type="tel" id="form6" formControlName="phoneNumber" class="form-control">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="form58">Language</label>
+                                <input type="text" id="form58" formControlName="language" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                </div>
+            </form>
         </div>
-        </div> 
-        </div>
-        <!--  -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group form-sm">
-              <label for="form11">Email</label>
-              <input type="email" id="form11" class="form-control" formControlName="email" disabled>
-              
-            </div>
-          </div>
-        </div> 
-        <!--  -->
-        <div class="row">
-     
-          <div class="col-md-5">
-            <div class="form-group">
-              <label for="form6">Date Of Birth</label>
-              <input type="date" id="form6" disabled formControlName="dob" class="form-control">
-              
-            </div>  
-          </div>
-           <div class="col-md-7">
-            <div class="form-group form-sm">
-              <label for="form11">Nationality</label>
-              <input type="text" id="form11" class="form-control" formControlName="nationality" >
-              
-            </div>
-          </div>
-        </div>
-        <!--  -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="form6">Phone Number</label>
-              <input type="tel" id="form6" formControlName="phoneNumber" class="form-control">
-              
-            </div>
-          </div>  
-        </div>
-        <!--  -->
-         
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="form58">Language</label>
-                <input type="text" id="form58" formControlName="language" class="form-control">
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
-        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
-      </div>
-    </form>
     </div>
-  </div>
 </div>
 
-  <!-- add intrest modal -->
+<!-- add intrest modal -->
 <div mdbModal #addintrest="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddintrestLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color: rgba(255, 152, 0, 0.7); color: white; ">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="addintrest.hide()">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgba(255, 152, 0, 0.7); color: white; ">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="addintrest.hide()">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title w-100" id="myModalLabel">Add Intrest</h4>
-      </div>
-      <form [formGroup]="interestsDetails" (ngSubmit)="addInterest()">
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="form1" class="">Interest</label>
-          <!-- <input type="text" id="form1" formControlName="interest" class="form-control"> -->
-          <select formControlName="interest" class="form-control" class="browser-default custom-select" id="form1">
+                <h4 class="modal-title w-100" id="myModalLabel">Add Intrest</h4>
+            </div>
+            <form [formGroup]="interestsDetails" (ngSubmit)="addInterest()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="form1" class="">Interest</label>
+                        <!-- <input type="text" id="form1" formControlName="interest" class="form-control"> -->
+                        <select formControlName="interest" class="form-control" class="browser-default custom-select" id="form1">
             <option value="" disabled>Select Interest</option>
             <option *ngFor="let item of interestList" [value]="item"> {{ item }}</option>
           </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                </div>
+            </form>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
-        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
-      </div>
-    </form>
     </div>
-  </div>
 </div>
