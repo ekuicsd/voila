@@ -17,6 +17,9 @@ import { DealsCardsComponent } from './components/deals-cards/deals-cards.compon
 import { ChatsComponent } from './components/chats/chats.component';
 import { NgxAutoScrollModule } from "ngx-auto-scroll";
 import { ChatHistoryListComponent } from './components/chat-history-list/chat-history-list.component';
+import { HelpPageComponent } from './components/help-page/help-page.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AboutComponent } from './components/about/about.component';
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
 
@@ -42,6 +45,15 @@ const routes: Routes = [
     },
     {
         path: 'bookingprofile', component: BookingProfileComponent
+    }, 
+    {
+        path: 'help', component: HelpPageComponent
+    },
+    {
+        path: 'aboutUs', component: AboutComponent
+    }, 
+    {
+        path: 'contact', component: ContactUsComponent
     }
     
     
@@ -58,6 +70,9 @@ const routes: Routes = [
         DealsCardsComponent,
         ChatsComponent,
         ChatHistoryListComponent,
+        HelpPageComponent,
+        ContactUsComponent,
+        AboutComponent,
     ],
     imports: [
         CommonModule,

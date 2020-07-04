@@ -8,9 +8,11 @@ import { UserService } from 'src/app/shared/service/user.service';
 })
 export class GuideHomeComponent implements OnInit {
 
+  public user;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.user = JSON.parse(this.userService.getUser('guide'));
   }
 
   logout() {
