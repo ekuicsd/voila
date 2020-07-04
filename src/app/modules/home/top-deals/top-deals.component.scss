@@ -4,7 +4,9 @@
         height: 210px;
     }
 }
-
+.all{
+  background-color: rgb(56,50,48) !important;
+}
 .deal-card {
     width: 460px;
     height: 200px;
@@ -39,3 +41,19 @@ mdb-carousel-item{
   justify-content: center;
   // display: flex;
 }
+@media screen and (max-width: 990px){
+ .small-screen{
+   display: inherit;
+ }
+ .large-screen{
+   display: none;
+ }
+}
+@media screen and (min-width: 990px){
+  .small-screen{
+    display: none;
+  }
+  .large-screen{
+    display: inherit;
+  }
+ }

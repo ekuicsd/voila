@@ -3,3 +3,19 @@
     font-size: 70px;
     border-left: 2px solid black;
 }
+@media screen and (max-width: 769px){
+  .small-screen{
+    display: inherit;
+  }
+  .large-screen{
+    display: none;
+  }
+ }
+ @media screen and (min-width: 769px){
+   .small-screen{
+     display: none;
+   }
+   .large-screen{
+     display: inherit;
+   }
+  }
