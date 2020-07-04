@@ -6,7 +6,7 @@
             <div class="mx-5 text-center">Let Voila help you make your own tour package/deal according to your preferences</div>
 
             <div *ngIf="!createDeal" class="text-center my-4">
-                <button type="button" mdbBtn (click)="this.createDeal = true" style="background-color:#faed26;" class="btn btn-lg" mdbWavesEffect>Create Deal</button>
+                <button type="button" mdbBtn (click)="basicModal.show()" style="background-color:#faed26;" class="btn btn-lg" mdbWavesEffect>Create Deal</button>
             </div>
         </div>
         <div class="col-6">
@@ -15,7 +15,132 @@
     </div>
 </div>
 
-<div *ngIf="createDeal" class="card">
+<!-- this.createDeal = true -->
+
+<div mdbModal #basicModal="mdbModal" class="modal fade right" [config]="{backdrop: false, ignoreBackdropClick: true}" tabindex="-1" id="frameModalTop" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Create Deal</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="dealForm" (ngSubmit)="submitDeal()">
+
+                    <div class="row card-body pb-0">
+                        <div class="col">
+
+                            <div class="form-group">
+
+                                <label for="form0"><mdb-icon fas icon="city" class="prefix"></mdb-icon> State</label><br>
+                                <select class="form-control" id="form0" formControlName="state" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
+                      <option value="" disabled>Select State</option>
+                      <option *ngFor="let item of stateList" [value]="item.id"> {{ item?.name }}</option>
+                    </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col">
+
+                            <div class="form-group">
+
+                                <label for="form1"><mdb-icon fas icon="city" class="prefix"></mdb-icon> City</label>
+                                <select formControlName="city" class="form-control" class="browser-default custom-select" id="form1">
+                      <option value="" disabled>Select City</option>
+                      <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
+                    </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group">
+
+                                <label for="form2"><mdb-icon fas icon="dollar-sign" class="prefix"></mdb-icon> Price</label>
+                                <input formControlName="price" type="number" placeholder="price " id="form2" class="form-control">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row card-body pb-0">
+                        <div class="col">
+
+                            <div class="form-group">
+                                <label for="form3"><mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon> From</label>
+                                <input formControlName="startDate" type="date" id="form3" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="form4"><mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon> To</label>
+                                <input formControlName="endDate" type="date" id="form4" class="form-control">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group">
+
+                                <label for="form5"><mdb-icon fas icon="users" class="prefix"></mdb-icon> People limit</label>
+                                <input formControlName="peopleLimit" type="number" placeholder="people limit" id="form5" class="form-control">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row card-body pb-0" formArrayName="places">
+                        <div class="col-md-7">
+                            <label for="form6"><mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Locations</label>
+                            <div class="row" *ngFor="let places of dealForm.get('places').controls; let i= index">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <input [formControlName]="i" placeholder="location" type="text" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" (click)="removeLocation(i)" style="margin: auto" class="btn btn-md btn-danger">
+                              <mdb-icon fas icon="cut" class="prefix"></mdb-icon>
+                            </button>
+                                </div>
+
+
+                            </div>
+                            <button class="btn btn-default" type="button" (click)="addLocations()">
+                          <mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Add More
+                        </button>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row pr-3 pb-3">
+                        <div class="col-md-12">
+                            
+                        </div>
+                    </div> -->
+                </form>
+
+
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button mdbBtn type="button" color="unique" (click)="this.createDeal = false; this.createForm()" mdbWavesEffect class="float-right">Cancel &nbsp;
+                    <mdb-icon fas icon="cut"></mdb-icon>
+                  </button>
+                <button mdbBtn type="submit" color="secondary" mdbWavesEffect class="float-right">Create &nbsp;<mdb-icon fas icon="check"></mdb-icon></button>
+                <!-- <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>OK!</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div *ngIf="createDeal" class="card">
     <div class="card-body pb-0">
         <h1 class="card-title">Create Your Deal</h1>
     </div>
@@ -27,8 +152,7 @@
             <div class="col">
 
                 <div class="form-group">
-                    <!-- <mdb-icon fas icon="city" class="prefix"></mdb-icon> -->
-                    <!-- <input mdbInput type="text" id="form0" class="form-control"> -->
+                   
                     <label for="form0"><mdb-icon fas icon="city" class="prefix"></mdb-icon> State</label><br>
                     <select class="form-control" id="form0" formControlName="state" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
           <option value="" disabled>Select State</option>
@@ -41,7 +165,7 @@
             <div class="col">
 
                 <div class="form-group">
-                    <!-- <input mdbInput type="text" id="form1" class="form-control"> -->
+
                     <label for="form1"><mdb-icon fas icon="city" class="prefix"></mdb-icon> City</label>
                     <select formControlName="city" class="form-control" class="browser-default custom-select" id="form1">
           <option value="" disabled>Select City</option>
@@ -52,10 +176,10 @@
 
             <div class="col">
                 <div class="form-group">
-                    <!-- <mdb-icon fas icon="dollar-sign" class="prefix"></mdb-icon> -->
+                   
                     <label for="form2"><mdb-icon fas icon="dollar-sign" class="prefix"></mdb-icon> Price</label>
                     <input formControlName="price" type="number" placeholder="price " id="form2" class="form-control">
-                    <!-- <label for="form2">Price</label> -->
+           
                 </div>
 
             </div>
@@ -63,8 +187,7 @@
 
         <div class="row card-body pb-0">
             <div class="col">
-                <!-- <div class="row"> -->
-                <!-- <div class="col-6"> -->
+           
                 <div class="form-group">
                     <label for="form3"><mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon> From</label>
                     <input formControlName="startDate" type="date" id="form3" class="form-control">
@@ -76,8 +199,7 @@
                     <label for="form4"><mdb-icon fas icon="calendar-alt" class="prefix"></mdb-icon> To</label>
                     <input formControlName="endDate" type="date" id="form4" class="form-control">
                 </div>
-                <!-- </div> -->
-                <!-- </div> -->
+    
 
 
             </div>
@@ -126,15 +248,15 @@
         </div>
     </form>
 
-</div>
+</div> -->
 
 <!--  -->
 <div class="mx-5 mb-5">
     <h1>Your Deals</h1>
 
-    <!-- <div class="w-50 p-2"> -->
-    <div class="row">
-        <div class="col-md-4" *ngFor="let deal of DealsList">
+
+    <div class="row my-3 ">
+        <div class="col-md-4 py-4" *ngFor="let deal of DealsList">
             <mdb-card>
                 <div class="img-fav">
                     <!-- <i class="far fa-heart fa-lg"></i> -->

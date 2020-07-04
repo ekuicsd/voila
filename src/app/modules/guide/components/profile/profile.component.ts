@@ -252,7 +252,7 @@ export class ProfileComponent implements OnInit {
           this.getUser();
           this.modal3.hide(0);
           this.createInterestsForm();
-          this.toastr.success("Language Added Successfully!");
+          this.toastr.success("Interest Added Successfully!");
         });
       }
     } else {
