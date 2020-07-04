@@ -29,7 +29,7 @@
                         </li>
 
                     </ul>
-                  
+
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="tourist" role="tabpanel" aria-labelledby="home-tab">
                             <br>
@@ -54,7 +54,7 @@
                             </form>
                             <a>Are you a guide? Register now</a>
                         </div>
-                       
+
                         <div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="profile-tab">
                             <br>
                             <form [formGroup]="LoginForm">
@@ -81,7 +81,7 @@
                         </div>
 
                     </div>
-                  
+
                 </mdb-card-body>
             </mdb-card>
             Card
@@ -114,8 +114,13 @@
                 </form> <br>
                 <div class="text-center white-text"><a [routerLink]="['/guide/show-register']">Are you a guide? Register now</a></div>
             </div>
+<<<<<<< HEAD
+            <div class="signin" id="tourist">
+                <h1>Tourist<br>Sign in</h1>
+=======
             <div class="signin" [ngClass]="role === 'tourist' ? '' : 'nodisplay'" id="tourist">
                 <h1>Tourist sign in</h1>
+>>>>>>> 845f621a43dc0449873dd4a41b554e04044a8e16
                 <form [formGroup]="LoginForm" class="more-padding" autocomplete="off">
                     <div class="md-form form-group">
                         <input mdbInput type="email" formControlName="email" id="form3" class="form-control">
