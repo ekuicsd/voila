@@ -29,7 +29,7 @@
                         </li>
 
                     </ul>
-
+                  
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="tourist" role="tabpanel" aria-labelledby="home-tab">
                             <br>
@@ -54,7 +54,7 @@
                             </form>
                             <a>Are you a guide? Register now</a>
                         </div>
-
+                       
                         <div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="profile-tab">
                             <br>
                             <form [formGroup]="LoginForm">
@@ -81,7 +81,7 @@
                         </div>
 
                     </div>
-
+                  
                 </mdb-card-body>
             </mdb-card>
             Card
@@ -114,13 +114,8 @@
                 </form> <br>
                 <div class="text-center white-text"><a [routerLink]="['/guide/show-register']">Are you a guide? Register now</a></div>
             </div>
-<<<<<<< HEAD
-            <div class="signin" id="tourist">
-                <h1>Tourist<br>Sign in</h1>
-=======
             <div class="signin" [ngClass]="role === 'tourist' ? '' : 'nodisplay'" id="tourist">
                 <h1>Tourist sign in</h1>
->>>>>>> 845f621a43dc0449873dd4a41b554e04044a8e16
                 <form [formGroup]="LoginForm" class="more-padding" autocomplete="off">
                     <div class="md-form form-group">
                         <input mdbInput type="email" formControlName="email" id="form3" class="form-control">
@@ -145,14 +140,14 @@
         <div class="leftbox">
             <h2 class="title"><span>VOILA</span>&<br>Tourist</h2>
             <p class="desc">pick your perfect <span>bouquet</span></p>
-            <img class="flower smaller" src="assets\images\ouch-guide-login.png" alt="Guide login" border="0">
+            <img class="flower smaller" src="https://image.ibb.co/d5X6pn/1357d638624297b.jpg" alt="1357d638624297b" border="0">
             <p class="account">Are you a traveller</p>
             <button [routerLink]="['/login/tourist']" class="button" id="signin">Log in</button>
         </div>
         <div class="rightbox">
             <h2 class="title"><span>VOILA</span>&<br>Guide</h2>
             <p class="desc"> pick your perfect <span>bouquet</span></p>
-            <img class="flower" src="assets\images\tourist-ouch-pic-medium.png" alt="Tourist login">
+            <img class="flower" src="assets\images\tourist-ouch-pic-medium.png" />
             <p class="account">Are you a guide?</p>
             <button [routerLink]="['/login/guide']" class="button" id="signup">Log in</button>
         </div>
