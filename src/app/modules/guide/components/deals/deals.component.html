@@ -95,7 +95,7 @@
                         </div>
                     </div>
 
-                    <div class="row card-body pb-0" formArrayName="places">
+                    <!-- <div class="row card-body pb-0" formArrayName="places">
                         <div class="col-md-7">
                             <label for="form6"><mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Locations</label>
                             <div class="row" *ngFor="let places of dealForm.get('places').controls; let i= index">
@@ -117,13 +117,8 @@
                           <mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Add More
                         </button>
                         </div>
-                    </div>
-
-                    <!-- <div class="row pr-3 pb-3">
-                        <div class="col-md-12">
-                            
-                        </div>
                     </div> -->
+
                 </form>
 
 
@@ -253,7 +248,6 @@
 <!--  -->
 <div class="mx-5 mb-5">
     <h1>Your Deals</h1>
-
 
     <div class="row my-3 ">
         <div class="col-md-4 py-4" *ngFor="let deal of DealsList">

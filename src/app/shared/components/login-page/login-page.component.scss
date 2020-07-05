@@ -155,9 +155,11 @@ button {
         transition: background-color 1s ease-out;
     }
 }
-.button:hover{
-  color: #553d67;
+
+.button:hover {
+    color: #553d67;
 }
+
 .button {
     // margin-top: 3%;
     background: $white;
