@@ -151,3 +151,19 @@
   66.64%,79.3% {transform:translate3d(0,-50%,0);}
   83.3%,95.96% {transform:translate3d(0,-25%,0);}
 }
+@media screen and (max-width: 1000px){
+  .small-screen{
+    display: inherit;
+  }
+  .large-screen{
+    display: none;
+  }
+ }
+ @media screen and (min-width: 1000px){
+   .small-screen{
+     display: none;
+   }
+   .large-screen{
+     display: inherit;
+   }
+  }
