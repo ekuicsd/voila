@@ -29,7 +29,7 @@
                         </li>
 
                     </ul>
-                  
+
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="tourist" role="tabpanel" aria-labelledby="home-tab">
                             <br>
@@ -54,7 +54,7 @@
                             </form>
                             <a>Are you a guide? Register now</a>
                         </div>
-                       
+
                         <div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="profile-tab">
                             <br>
                             <form [formGroup]="LoginForm">
@@ -81,7 +81,7 @@
                         </div>
 
                     </div>
-                  
+
                 </mdb-card-body>
             </mdb-card>
             Card
@@ -91,7 +91,7 @@
 
 </div> -->
 
-<div class="container mb-5">
+<div class="container large-screen mb-5">
     <div class="welcome">
         <div class="pinkbox">
             <div class="signup" [ngClass]="role === 'tourist' ? 'nodisplay' : ''" id="guide">
@@ -155,3 +155,59 @@
 </div>
 
 <!-- green guide pic attribution <a href='https://www.freepik.com/free-photos-vectors/travel'>Travel vector created by stories - www.freepik.com</a> -->
+<div class="small-screen">
+  <div class="login-wrap1">
+	<div class="login-html1">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form1">
+			<div class="sign-in-htm">
+				<div class="group1">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group1">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group1">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group1">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk1">
+					<a href="#forgot">Forgot Password?</a>
+				</div>
+			</div>
+			<div class="sign-up-htm1">
+				<div class="group1">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" class="input">
+				</div>
+				<div class="group1">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group1">
+					<label for="pass" class="label">Repeat Password</label>
+					<input id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group1">
+					<label for="pass" class="label">Email Address</label>
+					<input id="pass" type="text" class="input">
+				</div>
+				<div class="group1">
+					<input type="submit" class="button" value="Sign Up">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk1">
+					<label for="tab-1">Already Member?</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
