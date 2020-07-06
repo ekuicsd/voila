@@ -15,8 +15,10 @@ import { MyDatePickerModule } from 'mydatepicker';
 // import { NgbInputDatepicker } from  '@ng-bootstrap/ng-bootstrap';
 import {NgbModule, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 // import { NavbarModule, WavesModule, ModalModule, ButtonsModule } from 'angular-bootstrap-md';
 // import { DropdownModule } from 'angular-bootstrap-md';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -31,6 +33,7 @@ const routes: Routes = [
     TopCitiesComponent,
     FeaturesComponent,
     TopDealsComponent,
+    HomeCarouselComponent,
 
   ],
   imports: [
@@ -43,6 +46,7 @@ const routes: Routes = [
       MDBBootstrapModule.forRoot(),
       NgbModule,
       MyDatePickerModule,
+      SlickCarouselModule,
       // NgbDate,
       RouterModule.forChild(routes),
   ],

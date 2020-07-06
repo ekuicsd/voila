@@ -45,3 +45,9 @@ body {
  ::-webkit-scrollbar-thumb:window-inactive {
     background-color: #64b5f6;
 }
+
+.cust-grid {
+    display: flex;
+    justify-content: center;
+    flex-flow:row wrap;
+  }

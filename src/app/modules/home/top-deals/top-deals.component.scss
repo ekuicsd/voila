@@ -1,28 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
-@media (min-width: 768px) {
-    mdb-card {
-        height: 210px;
-    }
+
+@media(max-width: 992px) {
+  .dealImg {
+    height: 250px;
+    width: 100%;
+  }
 }
-.all{
-  background-color: rgb(56,50,48) !important;
-}
-.large-screen{
-  height: 390px !important;
-}
-.deal-card {
-    width: 460px;
-    height: 200px;
-}
-.deal-card a{
- margin-top: -34px;
-}
-.deal-img {
-    width: 150px;
-    height: 180px;
-    border-radius: 10px;
-    margin: 10px 0 0 10px;
-}
+
+// @media (min-width: 768px) {
+//     mdb-card {
+//         height: 210px;
+//     }
+// }
+// .all{
+//   background-color: rgb(56,50,48) !important;
+// }
+// // .large-screen{
+// //   height: 390px !important;
+// // }
+// .deal-card {
+//     width: 460px;
+//     height: 200px;
+// }
+// .deal-card a{
+//  margin-top: -34px;
+// }
+// .deal-img {
+//     width: 150px;
+//     height: 180px;
+//     border-radius: 10px;
+//     margin: 10px 0 0 10px;
+// }
 .deal-text h1{
   font-family: 'Amatic SC', cursive ;
   color:white;
@@ -30,33 +38,56 @@
   margin: 25px;
   font-size: 40px;
 }
-.col-8 .card-body{
-  color: black;
-}
 
-/* control image height */
-.card-img-top-250 {
-  max-height: 250px;
-  overflow:hidden;
-}
-mdb-carousel-item{
-  align-content: center;
-  justify-content: center;
-  // display: flex;
-}
-@media screen and (max-width: 990px){
- .small-screen{
-   display: inherit;
- }
- .large-screen{
-   display: none;
- }
-}
-@media screen and (min-width: 990px){
-  .small-screen{
-    display: none;
-  }
-  .large-screen{
-    display: inherit;
-  }
- }
+// .carousel-indicators {
+//   display: none;
+// }
+
+// .carousel .carousel-indicators {
+//     cursor: default;
+//     pointer-events: none;
+//   }
+
+// mdb-carosel ol .carousel-indicators {
+//   position: relative;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: -1500;
+//   display: none;
+//   justify-content: center;
+//   padding-left: 0;
+//   margin-right: 15%;
+//   margin-left: 15%;
+//   list-style: none;
+// }
+// .col-8 .card-body{
+//   color: black;
+// }
+
+// /* control image height */
+// .card-img-top-250 {
+//   max-height: 250px;
+//   overflow:hidden;
+// }
+// mdb-carousel-item{
+//   align-content: center;
+//   justify-content: center;
+//   // display: flex;
+// }
+// @media screen and (max-width: 990px){
+//  .small-screen{
+//    display: inherit;
+//  }
+//  .large-screen{
+//    display: none;
+//  }
+// }
+// @media screen and (min-width: 990px){
+//   .small-screen{
+//     display: none;
+//   }
+//   .large-screen{
+//     display: inherit;
+//   }
+//  }
