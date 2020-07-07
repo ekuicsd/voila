@@ -20,6 +20,7 @@ import { ChatHistoryListComponent } from './components/chat-history-list/chat-hi
 import { HelpPageComponent } from './components/help-page/help-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutComponent } from './components/about/about.component';
+// import { TruncateTextPipe } from './pipes/truncateText.pipe';
 // import { NavbarModule, WavesModule, PopoverModule, IconsModule,
 //      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
 
@@ -73,6 +74,7 @@ const routes: Routes = [
         HelpPageComponent,
         ContactUsComponent,
         AboutComponent,
+        // TruncateTextPipe
     ],
     imports: [
         CommonModule,
@@ -93,7 +95,8 @@ const routes: Routes = [
         GuideProfileComponent,
         DealsCardsComponent,
         ChatsComponent,
-        ChatHistoryListComponent
+        ChatHistoryListComponent,
+        // TruncateTextPipe
     ]
 }) 
 

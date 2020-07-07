@@ -14,11 +14,13 @@ import { TopDealsComponent } from './top-deals/top-deals.component';
 import { MyDatePickerModule } from 'mydatepicker';
 // import { NgbInputDatepicker } from  '@ng-bootstrap/ng-bootstrap';
 import {NgbModule, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 // import { NavbarModule, WavesModule, ModalModule, ButtonsModule } from 'angular-bootstrap-md';
 // import { DropdownModule } from 'angular-bootstrap-md';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { AngularMyDatePickerModule } from 'angular-mydatepicker';
+import { TruncateTextPipe } from 'src/app/shared/pipes/truncateText.pipe';
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -34,7 +36,7 @@ const routes: Routes = [
     FeaturesComponent,
     TopDealsComponent,
     HomeCarouselComponent,
-
+    TruncateTextPipe
   ],
   imports: [
       // BrowserModule,
@@ -42,11 +44,14 @@ const routes: Routes = [
       ReactiveFormsModule,
       CarouselModule,
       // BrowserAnimationsModule,
+      AngularMyDatePickerModule,
+
       // NoopAnimationsModule,
       MDBBootstrapModule.forRoot(),
       NgbModule,
       MyDatePickerModule,
       SlickCarouselModule,
+      FormsModule,
       // NgbDate,
       RouterModule.forChild(routes),
   ],
