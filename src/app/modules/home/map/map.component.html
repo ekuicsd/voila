@@ -244,9 +244,11 @@
       </div>
       <div class="col-lg-4 col-xl-4 text-center">
          <div class="map-detail">
-            <h1  >Voila Map data</h1>
-            <h4>Total local guides :- 2530</h4>
-            <h4>Total Places :- 1289</h4>
+            <h1>{{selectedState?.state}}</h1>
+            <br>
+            <h4>Tourists visited - <b>{{selectedState?.tourists}}</b></h4>
+            <h4>Total Guides - <b>{{selectedState?.guides}}</b></h4>
+            <h4>Attractive Places - <b>{{selectedState?.cities}}</b></h4>
          </div>
       </div>
    </div>

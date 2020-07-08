@@ -1,32 +1,21 @@
 <form [formGroup]="searchService.searchForm" class="pt-5 pb-4 px-4 bg" (ngSubmit)="submitForm()">
-  <div class="row cust-grid">
-    <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+  <div class="row cust-grid ">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-4">
       <div class="form-group">
-        <input type="text" class="form-control" formControlName="city" placeholder="Enter city">
+        <input type="text" class="form-control" formControlName="city" [(ngModel)]="searchService.city" placeholder="Enter city">
         </div>
     </div>
     <!--  -->
 
-    <div class="col-6 form-inline d-block d-md-none bottom-margin">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-4 text-center">
+      
       <div class="form-group">
         <div class="input-group">
-          <input class="form-control" placeholder="yyyy-mm-dd"
-                 name="dp"  ngbDatepicker #d="ngbDatepicker">
+          <input angular-mydatepicker name="mydate" formControlName="range" [(ngModel)]="searchService.range"
+          class="form-control"  (ngModelChange)="changeRange($event)"
+          [options]="myOptions" #dp="angular-mydatepicker"/>
           <div class="input-group-append">
-            <button class="btn calendar" (click)="d.toggle()" type="button">
-              <mdb-icon size="lg" far icon="calendar-alt"></mdb-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-6 form-inline d-block d-md-none">
-      <div class="form-group">
-        <div class="input-group">
-          <input class="form-control" placeholder="yyyy-mm-dd"
-                 name="dp1"  ngbDatepicker #d1="ngbDatepicker">
-          <div class="input-group-append">
-            <button class="btn calendar" (click)="d1.toggle()" type="button">
+            <button class="btn calendar" (click)="dp.toggleCalendar()" type="button">
               <mdb-icon size="lg" far icon="calendar-alt"></mdb-icon>
             </button>
           </div>
@@ -34,75 +23,16 @@
       </div>
     </div>
 
-      <div class="col-12 col-sm-12 col-md-8 col-lg-4 form-inline d-none d-md-inline-flex mb-3 text-center" style="margin-top: -5px;">
-        <div class="form-group hidden">
-          <div class="input-group">
-            <input name="datepicker"
-                  class="hidden"
-                  ngbDatepicker
-                  #datepicker="ngbDatepicker"
-                  [autoClose]="'inside'"
-                  (dateSelect)="onDateSelection($event)"
-                  [displayMonths]="2"
-                  [dayTemplate]="t"
-                  outsideDays="hidden"
-                  [startDate]="searchService.fromDate!">
-            <ng-template #t let-date let-focused="focused">
-              <span class="custom-day"
-                    [class.focused]="focused"
-                    [class.range]="isRange(date)"
-                    [class.faded]="isHovered(date) || isInside(date)"
-                    (mouseenter)="hoveredDate = date"
-                    (mouseleave)="hoveredDate = null">
-                {{ date.day }}
-              </span>
-            </ng-template>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="input-group">
-            <input #dpFromDate
-                  class="dateInput"
-                   placeholder="yyyy-mm-dd"
-                  name="dpFromDate"
-                  formControlName="startDate"
-                  [value]="formatter.format(searchService.fromDate)"
-                  (input)="searchService.fromDate = validateInput(searchService.fromDate, dpFromDate.value)">
-            <div class="input-group-append">
-              <button class="btn calendar" (click)="datepicker.toggle()" type="button">
-                <mdb-icon size="lg" far icon="calendar-alt"></mdb-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="form-group ml-4">
-          <div class="input-group">
-            <input #dpToDate
-                  placeholder="yyyy-mm-dd"
-                  class="dateInput"
-                  name="dpToDate"
-                  formControlName="endDate"
-                  [value]="formatter.format(searchService.toDate)"
-                  (input)="searchService.toDate = validateInput(searchService.toDate, dpToDate.value)">
-            <div class="input-group-append">
-              <button class="btn calendar" (click)="datepicker.toggle()" type="button">
-                <mdb-icon size="lg" far icon="calendar-alt"></mdb-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div class="col-6 col-sm-8 col-md-8 col-lg-2">
+    <div class="col-6 col-sm-8 col-md-7 col-lg-2">
       <div class="form-group">
-        <input type="number" class="form-control" formControlName="noOfPeople" placeholder="people">
+        <input type="number" class="form-control" formControlName="noOfPeople" [(ngModel)]="searchService.noOfPeople" placeholder="people">
       </div>
     </div>
     <!--  -->
 
-    <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+    <div class="col-6 col-sm-4 col-md-5 col-lg-2">
       <div class="form-group">
-          <button type="submit "  class="btn btn-success btn-css btn-block">Submit</button>
+          <button type="submit" class="btn btn-success btn-css btn-block">Submit</button>
       </div>
     </div>
 

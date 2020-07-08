@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// For MDB Angular Free
-import { TooltipModule, ButtonsModule, WavesModule } from 'angular-bootstrap-md'
+import { HomeService } from 'src/app/shared/service/home-page.service';
 
 @Component({
   selector: 'app-map',
@@ -9,13 +8,34 @@ import { TooltipModule, ButtonsModule, WavesModule } from 'angular-bootstrap-md'
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  public mapDataList: any[] = [];
+  public selectedState; // default- delhi
+
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.homeService.getMapInfo().subscribe( res => {
+      if(res.success) {
+        this.mapDataList = res.data;
+        this.getDataByState('Delhi');
+        // console.log(res);
+      }
+    })
   }
 
+  getDataByState(state) {
+    this.selectedState = this.mapDataList.filter( ele => {
+      if(ele.state === state) {
+        return ele;
+      }
+    })[0];
+  }
+  
+
   getStateData(state) {
-    alert(state);
+    this.getDataByState(state);
   }
 
 }
+
+
