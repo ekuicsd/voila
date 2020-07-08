@@ -4,7 +4,7 @@
     <!-- Navbar brand -->
     <mdb-navbar-brand>
         <a class="navbar-brand" (click)="navigateToBackLocation()">
-            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="Voila">
+            <img src="assets/images/areoplane white.png" height="40" alt="Voila">
         </a>
     </mdb-navbar-brand>
 
@@ -42,7 +42,7 @@
         </ul>
 
         <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')" class="navbar-nav ml-auto">
-            
+
             <li class="nav-item">
                 <a [routerLink]="['/tourists/touristshome/favourites']" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
@@ -115,8 +115,8 @@
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Deals</a>
             </li>
-           
-            
+
+
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
@@ -144,7 +144,7 @@
 
         </ul>
 
-        <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')" 
+        <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')"
             class="navbar-nav ml-auto d-none d-lg-inline-flex">
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
@@ -176,7 +176,7 @@
     </links>
     <!-- Collapsible content -->
 
-    
+
 
 </mdb-navbar>
 <!--/.Navbar-->
