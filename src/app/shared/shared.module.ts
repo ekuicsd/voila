@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeModule } from '../modules/home/home.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
@@ -11,7 +10,7 @@ import { GuideProfileComponent } from './components/guide-profile/guide-profile.
 import { BookingProfileComponent } from './components/booking-profile/booking-profile.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MyDatePickerModule } from 'mydatepicker';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DealsCardsComponent } from './components/deals-cards/deals-cards.component';
 import { ChatsComponent } from './components/chats/chats.component';
@@ -21,8 +20,6 @@ import { HelpPageComponent } from './components/help-page/help-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutComponent } from './components/about/about.component';
 import { TruncateTextPipe } from './pipes/truncateText.pipe';
-// import { NavbarModule, WavesModule, PopoverModule, IconsModule,
-//      DropdownModule , ButtonsModule, ModalModule, TooltipModule, } from 'angular-bootstrap-md'
 
 const routes: Routes = [
     
@@ -78,7 +75,6 @@ const routes: Routes = [
     ],
     imports: [
         CommonModule,
-        // HomeModule,
         ReactiveFormsModule,
         FormsModule,
         NgxAutoScrollModule,

@@ -1,174 +1,73 @@
-<div class="bg mt-0 p-0 p-md-5">
-
+<div class="bg">
     <div class="card register-card m-5 mx-auto my-auto w-auto w-lg-100">
         <div class="row">
-            <div class="col-12 p-5">
-                <!-- Card content -->
-
-
-                <!-- Title -->
-                <h2 style="font-size: 50px;" class="card-title">Sign up</h2>
+            <div class="col-12 px-5 py-4">
+                <h2 style="font-size: 50px;" class="card-title text-center mt-3 mb-5">Sign up</h2>
                 <form [formGroup]="detailsForm" (ngSubmit)="submitForm()">
-                <div class="card-text">
-                    <!--  -->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label>Gender</label>
-                            <select formControlName="gender" class="browser-default custom-select">
-                                <option  value="" disabled>Select</option>
-                                <option value="Mr">Mr</option>
-                                <option value="Mrs">Mrs</option>
-                                <option value="Ms">Ms</option>
-                            </select>
-                        </div>
-                        <div class="col-md-8">
-                            <!-- Material input -->
-                            <div class="form-group">
-                                <label for="form2">Full Name</label>
-                                <input type="text" formControlName="name" id="form2" class="form-control">
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group mb-0">
-                                <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>&nbsp;
-                                <label for="form5">Email</label>
-                                <input type="email" id="form5" formControlName="email" class="form-control">
-<br>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <mdb-icon fas icon="phone-alt" class="prefix"></mdb-icon>&nbsp;
-                                <label for="form4">Your Phone Number</label>
-                                <input type="text" id="form4" formControlName="phoneNumber" class="form-control">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  -->
-
-                    <div class="row mt-0 pt-0">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <mdb-icon fas icon="key" class="prefix"></mdb-icon>&nbsp;
-                                <label for="form6">Create Password</label>
-                                <input type="password" id="form6" formControlName="password" class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <mdb-icon fas icon="key" class="prefix"></mdb-icon>&nbsp;
-                                <label for="form7">Confirm Password</label>
-                                <input type="password" id="form7" formControlName="confirmPassword" class="form-control">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <mdb-icon far icon="calendar-alt" class="prefix"></mdb-icon>&nbsp;
-                                <label  for="form3">Date of Birth</label>
-                                <input type="date" id="form3" formControlName="dob" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Nationality</label>
-                                <select formControlName="nationality" class="browser-default custom-select">
-                                    <option value="" disabled>Nationality</option>
-                                    <option *ngFor="let item of countryList" [value]="item.name">{{item.name}}</option>
-
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col-5 col-md-4 mb-2">
+                                <mdb-icon fas icon="caret-down" class="prefix"></mdb-icon>&nbsp;
+                                <label>Gender</label>
+                                <select formControlName="gender" class="browser-default custom-select">
+                                    <option  value="" disabled>Select</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
                                 </select>
                             </div>
+                            <div class="col-7 col-md-8 mb-2">
+                                <div class="form-group">
+                                    <mdb-icon fas icon="user" class="prefix"></mdb-icon>&nbsp;
+                                    <label for="form2">Full Name</label>
+                                    <input type="text" formControlName="name" id="form2" placeholder="Enter name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 mb-2">
+                                <div class="form-group">
+                                    <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>&nbsp;
+                                    <label for="form5">Email</label>
+                                    <input type="text" id="form5" formControlName="email" placeholder="Enter email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="form-group">
+                                    <mdb-icon fas icon="phone-alt" class="prefix"></mdb-icon>&nbsp;
+                                    <label for="form4">Phone Number</label>
+                                    <input type="text" id="form4" formControlName="phoneNumber" placeholder="Enter phone no" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="form-group">
+                                    <mdb-icon fas icon="flag" class="prefix"></mdb-icon>&nbsp;
+                                    <label>Nationality</label>
+                                    <select formControlName="nationality" class="browser-default custom-select">
+                                        <option value="" disabled>Nationality</option>
+                                        <option *ngFor="let item of countryList" [value]="item.name">{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="form-group">
+                                    <mdb-icon fas icon="key" class="prefix"></mdb-icon>&nbsp;
+                                    <label for="form6">Create Password</label>
+                                    <input type="password" id="form6" formControlName="password" placeholder="Enter Password" class="form-control">
+                                </div>
+                            </div>
+                            <div class=" col-12 col-md-6 mb-4">
+                                <div class="form-group">
+                                    <mdb-icon fas icon="key" class="prefix"></mdb-icon>&nbsp;
+                                    <label for="form7">Confirm Password</label>
+                                    <input type="password" id="form7" formControlName="confirmPassword" placeholder="Enter Confirm Password" class="form-control">
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Language</label>
-                            <input type="text" formControlName="languages" class="form-control">
+                        <div class="text-center">
+                            <button style="text-transform:none; font-size: 20px; background: #553d67;" type="submit" class="btn white-text">Sign up</button>
                         </div>
-
                     </div>
-
-
-
-
-
-                    <!-- Text -->
-                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p> -->
-<br>
-                    <div class="text-center">
-                        <button style="text-transform:none; font-size: 30px; background: #553d67;" type="submit" class="btn btn-rounded white-text">Sign up</button>
-                    </div>
-                </div>
-            </form>
-                <!-- style="height: 550px; width:380px;" -->
+                </form>
             </div>
-
-
         </div>
-        <!-- Card -->
     </div>
-
-
-
 </div>
-<!-- <div class="card mx-auto my-3" style="width:950px">
-    <div class=" mx-4 mt-5 font-weight-light">Let us know something about you so that we can provide you suitable recommendations.</div>
-    <h1 class="card-title mx-4 mt-2">Choose your Interests</h1>
-    <div class="d-flex flex-wrap mx-4 my-4">
-        <div class="px-3 py-2">
-
-            <mdb-checkbox [default]="true">Adventure Sports</mdb-checkbox>
-        </div>
-        <div class="px-3 py-2">
-
-            <mdb-checkbox [default]="true">Shopping</mdb-checkbox>
-        </div>
-        <div class=" px-3 py-2">
-
-            <mdb-checkbox [default]="true">History</mdb-checkbox>
-        </div>
-
-        <div class="px-3 py-2">
-            <mdb-checkbox [default]="true">Art and Culture</mdb-checkbox>
-        </div>
-        <div class=" p-2">
-
-            <mdb-checkbox [default]="true">Nature</mdb-checkbox>
-        </div>
-        <div class="px-3 py-2">
-
-            <mdb-checkbox [default]="true">Photography</mdb-checkbox>
-        </div>
-        <div class="px-3 py-2">
-
-            <mdb-checkbox [default]="true">Technology</mdb-checkbox>
-        </div>
-        <div class="px-3 py-2">
-
-            <mdb-checkbox [default]="true">Food & Drinks</mdb-checkbox>
-        </div>
-        <div class="px-3 py-2">
-
-            <mdb-checkbox [default]="true">Wildlife</mdb-checkbox>
-        </div>
-    </div>
-</div> -->

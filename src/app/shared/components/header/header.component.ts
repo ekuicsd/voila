@@ -46,9 +46,9 @@ export class HeaderComponent implements OnInit, OnChanges{
     // }
   }
 
-  navigateToBackLocation() {
-    this.location.back();
-  }
+  // navigateToBackLocation() {
+  //   this.location.back();
+  // }
 
   ngOnChanges() {
   //   if(this.jwtService.getToken()) {

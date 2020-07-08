@@ -54,5 +54,15 @@ export class CustomValidators {
         return isValid ? null : message;
     }
 
+    static passwordConfirming(c: AbstractControl): any {
+        if (!c.parent || !c) { return; }
+        const pwd = c.parent.get('password');
+        const cpwd = c.parent.get('confirmPassword');
+        if (!pwd || !cpwd) { return; }
+        if (pwd.value !== cpwd.value) {
+          return { invalid: true };
+        }
+      }
+
 
 }
