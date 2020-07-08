@@ -46,18 +46,17 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
-  // login(role) {
-
-  // }
-  
   login(role: string) {
-    // alert(role);
     if(this.LoginForm.valid) {
       if(role === 'guide') {
         this.userService.AttemptGuideLogin(this.LoginForm.value).subscribe(
           res => {
+           if(res.success) {
             console.log(res);
             this.router.navigateByUrl('guide/guidehome');
+           } else {
+             this.toastr.error(res.message);
+           }
           }, error => {
             console.log(error);
           }
@@ -65,9 +64,12 @@ export class LoginPageComponent implements OnInit {
       } else {
         this.userService.AttemptTouristLogin(this.LoginForm.value).subscribe(
           res => {
-            console.log(res);
+            if(res.success) {
+              console.log(res);
             this.router.navigateByUrl('tourists/touristshome');
-            // this.location.back();
+            } else {
+              this.toastr.error(res.message);
+            }
           }, error => {
             console.log(error);
           }

@@ -21,6 +21,7 @@ import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 import { TruncateTextPipe } from 'src/app/shared/pipes/truncateText.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -36,7 +37,7 @@ const routes: Routes = [
     FeaturesComponent,
     TopDealsComponent,
     HomeCarouselComponent,
-    TruncateTextPipe
+    // TruncateTextPipe
   ],
   imports: [
       // BrowserModule,
@@ -45,6 +46,7 @@ const routes: Routes = [
       CarouselModule,
       // BrowserAnimationsModule,
       AngularMyDatePickerModule,
+      SharedModule,
 
       // NoopAnimationsModule,
       MDBBootstrapModule.forRoot(),

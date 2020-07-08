@@ -53,9 +53,11 @@ export class UserService {
         return this.apiService.post(url, credentials).pipe(
             map(data => {
                 console.log(data);
-            this.setAuth(data.body.token);
-            this.saveUser(data.body.Tourist, 'tourist');
-              return data;
+                if(data.body.success) {
+                    this.setAuth(data.body.token);
+                    this.saveUser(data.body.Tourist, 'tourist');
+                }
+              return data.body;
             }
         ));
     }
@@ -66,9 +68,11 @@ export class UserService {
         return this.apiService.post(url, credentials).pipe(
             map(data => {
                 console.log(data);
-            this.setAuth(data.body.token);
-            this.saveUser(data.body.guide, 'guide');
-              return data;
+                if(data.body.success) {
+                    this.setAuth(data.body.token);
+                    this.saveUser(data.body.guide, 'guide');
+                }
+              return data.body;
             }
         ));
     }
