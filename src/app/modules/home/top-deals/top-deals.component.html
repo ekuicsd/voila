@@ -1,224 +1,48 @@
 <div class="row">
-    <div class="col-md-2 col-6 col-sm-4">
-        <!-- Card -->
-        <mdb-card style="background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0a/c4/72/f6/jal-mahal-jaipur-tour.jpg); background-size:cover;">
-            <mdb-card-body class="mask waves-effect waves-light rgba-blue-light">
-                <div class="white-text">
-                    <mdb-card-title>
-                        <h4>Jaipur, Rajasthan</h4>
-                    </mdb-card-title>
-                    <mdb-card-text class="white-text">Offer By Guide: <a class="white-text" href="#!">Arjun Gupta</a>
-                        <div>Explore the cultural delight in <b>3 days and 2 nights</b></div>
-                    </mdb-card-text>
-                    <div class="flex-row">
-                        <a class="card-link"><span><i class="far fa-heart"></i></span> </a>
-                        <a class="card-link">View More</a>
+    <div class="col-12">
+        <!-- deales of the day -->
+        <div class="all">
+            <section style="background-color: rgb(56,50,48);">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                        <img class="dealImg" src="assets/images/dealimg.png"  alt="" height="100%" width="100%">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 deal-text">
+                        <!-- <h1>Select from our hot deals</h1> -->
+                        <h1><p>select from wide range of hand picked deals by our experts and explore the world with us
+                        through our selected hot deals
+                        </p></h1>
+                        <mdb-carousel class="carousel slide carousel-fade pb-5 pt-3" [type]="'carousel-thumbnails'" [animation]="'fade'">
+                            <div class="row cust-grid">
+                                <div class="col-11 col-sm-9 col-md-8 col-lg-8 col-xl-8">
+                                    <mdb-carousel-item *ngFor="let deal of hotDealsList | slice:0:5">
+                                        <div class="card deal-card">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img class="deal-img card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="" height="100%" width="100%">
+                                                </div>
+                                                <div class="col-8 pl-3">
+                                                    <div class="card-body">
+                                                        <h3 class="card-title"><strong>{{deal.dealId?.city | titlecase}} City Tour</strong></h3>
+                                                        <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
+                                                        <div class="card-text mt-0 pt-0 black-text">
+                                                            <div>
+                                                                <p><i class="far fa-calendar-alt"></i> From: <b>{{deal.dealId?.startDate | date: 'short'}}</b> &nbsp; To: <b>{{deal.dealId?.endDate | date: 'short'}}</b></p>
+                                                            </div>
+                                                            <h5 class="text-right">In only Rs. <b>{{deal.dealId?.price}}</b>/-</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </mdb-carousel-item>
+                                    </div>
+                                </div>
+                            </mdb-carousel>
+
                     </div>
                 </div>
-
-            </mdb-card-body>
-        </mdb-card>
-    </div>
-
-    <div class="col-md-2 col-6 col-sm-4">
-        <!-- Card -->
-        <mdb-card>
-            <mdb-card-body>
-                <mdb-card-title>
-                    <h4>Panel title</h4>
-                </mdb-card-title>
-                <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.
-                </mdb-card-text>
-                <div class="flex-row">
-                    <a class="card-link">Card link</a>
-                    <a class="card-link">Another link</a>
-                </div>
-            </mdb-card-body>
-        </mdb-card>
-    </div>
-
-    <div class="col-md-2 col-6 col-sm-4">
-        <!-- Card -->
-        <mdb-card>
-            <mdb-card-body>
-                <mdb-card-title>
-                    <h4>Panel title</h4>
-                </mdb-card-title>
-                <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.
-                </mdb-card-text>
-                <div class="flex-row">
-                    <a class="card-link">Card link</a>
-                    <a class="card-link">Another link</a>
-                </div>
-            </mdb-card-body>
-        </mdb-card>
-    </div>
-
-    <div class="col-md-2 col-6 col-sm-4">
-        <!-- Card -->
-        <mdb-card>
-            <mdb-card-body>
-                <mdb-card-title>
-                    <h4>Panel title</h4>
-                </mdb-card-title>
-                <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.
-                </mdb-card-text>
-                <div class="flex-row">
-                    <a class="card-link">Card link</a>
-                    <a class="card-link">Another link</a>
-                </div>
-            </mdb-card-body>
-        </mdb-card>
-    </div>
-    <div class="col-md-2 col-6 col-sm-4">
-        <!-- Card -->
-        <mdb-card>
-            <mdb-card-body>
-                <mdb-card-title>
-                    <h4>Panel title</h4>
-                </mdb-card-title>
-                <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.
-                </mdb-card-text>
-                <div class="flex-row">
-                    <a class="card-link">Card link</a>
-                    <a class="card-link">Another link</a>
-                </div>
-            </mdb-card-body>
-        </mdb-card>
-    </div>
-    <div class="col-md-2 col-6 col-sm-4">
-        <!-- Card -->
-        <mdb-card>
-            <mdb-card-body>
-                <mdb-card-title>
-                    <h4>Panel title</h4>
-                </mdb-card-title>
-                <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.
-                </mdb-card-text>
-                <div class="flex-row">
-                    <a class="card-link">Card link</a>
-                    <a class="card-link">Another link</a>
-                </div>
-            </mdb-card-body>
-        </mdb-card>
+            </section>  
+        </div>
     </div>
 </div>
-<br>
-<br>
-<!-- deales of the day -->
-<section style="background-color: rgb(56,50,48);">
-  <div class="row">
-     <div class="col-5">
-    <img src="assets/images/dealimg.png" class="img-fluid " alt="">
-  </div>
-  <div class="col-7 deal-text">
-      <!-- <h1>Select from our hot deals</h1> -->
-
-    <h1><p>select from wide range of hand picked deals by our experts and explore the world with us
-      through our selected hot deals
-    </p></h1>
-    <mdb-carousel [animation]="'slide'">
-      <mdb-carousel-item>
-        <div class="card deal-card">
-          <div class="row">
-              <div class="col-4">
-                  <!-- Card image -->
-                  <img class="deal-img card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-              </div>
-
-              <div class="col-8 pl-3">
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                      <!-- Title -->
-                      <h2 class="card-title"><strong>Darjeeling City Tour</strong></h2>
-                      <!-- Text -->
-                      <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
-                      <div class="card-text mt-0 pt-0 black-text">
-                          <!-- <div>&#x20b9;1200 pp</div> -->
-                          <div><i class="far fa-calendar-alt"></i> 2 days tour</div>
-                          <div>Choose your guide from 8+ local guides</div>
-
-                      </div>
-                      <!-- Button -->
-                      <!-- <a href="#" class="btn btn-primary">Button</a> -->
-
-                  </div>
-              </div>
-          </div>
-
-          <a href="https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link text-right pb-0 mb-3 px-3 text-decoration-none"><strong>Know More</strong></a>
-
-      </div>
-      </mdb-carousel-item>
-      <mdb-carousel-item>
-        <div class="card deal-card">
-          <div class="row">
-              <div class="col-4">
-                  <!-- Card image -->
-                  <img class="deal-img card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-              </div>
-
-              <div class="col-8 pl-3">
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                      <!-- Title -->
-                      <h2 class="card-title"><strong>Darjeeling City Tour</strong></h2>
-                      <!-- Text -->
-                      <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
-                      <div class="card-text mt-0 pt-0 black-text">
-                          <!-- <div>&#x20b9;1200 pp</div> -->
-                          <div ><i class="far fa-calendar-alt"></i> 2 days tour</div>
-                          <div>Choose your guide from 8+ local guides</div>
-
-                      </div>
-                      <!-- Button -->
-                      <!-- <a href="#" class="btn btn-primary">Button</a> -->
-
-                  </div>
-              </div>
-          </div>
-
-          <a href="https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link text-right pb-0 mb-3 px-3 text-decoration-none"><strong>Know More</strong></a>
-
-      </div></mdb-carousel-item>
-      <mdb-carousel-item>
-        <div class="card deal-card">
-          <div class="row">
-              <div class="col-4">
-                  <!-- Card image -->
-                  <img class="deal-img card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
-              </div>
-
-              <div class="col-8 pl-3">
-                  <!-- Card content -->
-                  <div class="card-body">
-
-                      <!-- Title -->
-                      <h2 class="card-title"><strong>Darjeeling City Tour</strong></h2>
-                      <!-- Text -->
-                      <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
-                      <div class="card-text mt-0 pt-0 black-text">
-                          <!-- <div>&#x20b9;1200 pp</div> -->
-                          <div><i class="far fa-calendar-alt"></i> 2 days tour</div>
-                          <div>Choose your guide from 8+ local guides</div>
-
-                      </div>
-                      <!-- Button -->
-                      <!-- <a href="#" class="btn btn-primary">Button</a> -->
-
-                  </div>
-              </div>
-          </div>
-
-          <a href="https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link text-right  pb-0 mb-3 px-3 text-decoration-none"><strong>Know More</strong></a>
-
-      </div>
-    </mdb-carousel-item>
-    </mdb-carousel>
-  </div>
-  </div>
-</section>
-
-<br><br>

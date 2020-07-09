@@ -3,8 +3,8 @@
 
     <!-- Navbar brand -->
     <mdb-navbar-brand>
-        <a class="navbar-brand" [routerLink]="['/']">
-            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="Voila">
+        <a class="navbar-brand" (click)="navigateToBackLocation()">
+            <img src="assets/images/areoplane white.png" height="40" alt="Voila">
         </a>
     </mdb-navbar-brand>
 
@@ -12,34 +12,14 @@
     <links>
 
         <!-- Links -->
-        <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item" *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
-                <a [routerLink]="['/tourists/touristshome/favourites']" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>
-                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                    <mdb-icon fas icon="heart"></mdb-icon>
-                </a>
-            </li>
-            <li class="nav-item" *ngIf="jwtService.getToken()">
-                <a class="nav-link waves-light" mdbWavesEffect>
-                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                    <mdb-icon  fas  icon="envelope"></mdb-icon>
-                    <span class="nav-label-icon circle" *ngIf="msgNumber > 0">{{msgNumber}}</span>
-                </a>
-            </li>
-            <li class="nav-item" *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
-                <a class="nav-link waves-light" [routerLink]="['/tourists/touristshome/bookings']" routerLinkActive="active" mdbWavesEffect>
-                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
-                    <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
-            </li>
-            <li class="nav-item" 
-                *ngIf="!jwtService.getToken()">
+        <ul *ngIf="!jwtService.getToken()" class="navbar-nav ml-auto">
+            <li class="nav-item">
               <a class="nav-link waves-light"  [routerLink]="['/login/tourist']" mdbWavesEffect>
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                   LogIn</a>
           </li>
             <!-- Dropdown -->
-            <li class="nav-item dropdown" dropdown *ngIf="!jwtService.getToken()" >
+            <li class="nav-item dropdown" dropdown>
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     Register<span class="caret"></span></a>
@@ -59,8 +39,39 @@
                 </div>
             </li>
 
-            <li class="nav-item avatar dropdown" dropdown  
-                *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')">
+        </ul>
+
+        <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')" class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a [routerLink]="['/tourists/touristshome/favourites']" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon fas icon="heart"></mdb-icon>Favourites
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon  fas  icon="envelope"></mdb-icon>Message
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/tourists/touristshome/bookings']" routerLinkActive="active" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
+            </li>
+            <li class="nav-item dropdown" dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
+                    <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']">About</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']">Contact us</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']">Help!</a>
+                </div>
+            </li>
+
+            <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
 
                     <!-- More<span class="caret"></span> -->
@@ -69,7 +80,93 @@
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
                     <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/changePassword']" routerLinkActive="active">Change Password</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Logout</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout('tourist')">Logout</a>
+
+                </div>
+            </li>
+
+        </ul>
+
+        <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')"
+            class="navbar-nav ml-auto d-block d-lg-none">
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon  fas  icon="envelope"></mdb-icon>Message
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/bookings']" routerLinkActive="active" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/requests']" routerLinkActive="active" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon fas icon="calendar-alt"></mdb-icon>Requests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/activities']" routerLinkActive="active" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon fas icon="calendar-alt"></mdb-icon>Activites</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/deals']" routerLinkActive="active" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                    <mdb-icon fas icon="calendar-alt"></mdb-icon>Deals</a>
+            </li>
+
+
+            <li class="nav-item dropdown" dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
+                    <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']">About</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']">Contact us</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']">Help!</a>
+                </div>
+            </li>
+
+            <li class="nav-item avatar dropdown" dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+
+                    <!-- More<span class="caret"></span> -->
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                </a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/changepassword']" routerLinkActive="active">Change Password</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout('guide')">Logout</a>
+
+                </div>
+            </li>
+
+        </ul>
+
+        <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')"
+            class="navbar-nav ml-auto d-none d-lg-inline-flex">
+            <li class="nav-item dropdown" dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
+                    <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']">About</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']">Contact us</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']">Help!</a>
+                </div>
+            </li>
+
+            <li class="nav-item avatar dropdown" dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+
+                    <!-- More<span class="caret"></span> -->
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                </a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/changepassword']" routerLinkActive="active">Change Password</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout('guide')">Logout</a>
 
                 </div>
             </li>
@@ -78,6 +175,8 @@
         <!-- Links -->
     </links>
     <!-- Collapsible content -->
+
+
 
 </mdb-navbar>
 <!--/.Navbar-->

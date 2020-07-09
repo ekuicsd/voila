@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/shared/service/home-page.service';
 
 @Component({
   selector: 'app-top-deals',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopDealsComponent implements OnInit {
 
-  constructor() { }
+  public hotDealsList: any[] = [];
+
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.homeService.getHotDeals().subscribe( res => {
+      if(res.success) {
+        this.hotDealsList = res.data;
+        console.log(res.data);
+      }
+    });
+    
   }
 
+  
 }

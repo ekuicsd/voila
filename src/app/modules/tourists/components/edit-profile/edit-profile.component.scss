@@ -1,0 +1,20 @@
+.editup {
+    font-family: 'Staatliches', cursive;
+    word-spacing: 0.6rem;
+}
+
+@media (min-width: 576px) {
+    .editup {
+        font-size: 43px;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .editup {
+        font-size: 50px;
+    }
+}

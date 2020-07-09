@@ -1,160 +1,107 @@
-<!-- <div class="container">
-    <h1>Logo work or any other thing</h1>
-    <div class="row">
-        <div class="col-md-12">
-
-            Card
-            <mdb-card class="mx-auto">
-                <div class="view rgba-white-slight waves-light" mdbWavesEffect>
-                    <a>
-                        <div class="mask"></div>
-                    </a>
-                </div>
-                <mdb-card-title>
-                    <h1 class="center-class">Voila</h1>
-                </mdb-card-title>
-                Card content
-                <mdb-card-body>
-                    Title
-                    <ul class="nav nav-pills center-class" id="myTab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tourist" role="tab" aria-controls="home" aria-selected="true">
-                                <h3>Tourist</h3>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#guide" role="tab" aria-controls="profile" aria-selected="false">
-                                <h3>Guide</h3>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="tourist" role="tabpanel" aria-labelledby="home-tab">
-                            <br>
-                            <form [formGroup]="LoginForm">
-                                <div class="md-form form-group">
-                                    <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
-                                    <input mdbInput type="email" formControlName="email" id="form9" class="form-control">
-                                    <label for="form9">Email</label>
-                                    <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
-                                </div>
-                                <br>
-                                <div class="md-form form-group">
-                                    <mdb-icon fas icon="unlock-alt" class="prefix"></mdb-icon>
-                                    <input mdbInput type="password" formControlName="password" id="form9" class="form-control">
-                                    <label for="form9">password</label>
-                                    <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
-                                </div>
-                                <br>
-                                <div class="md-form form-group text-center">
-                                    <button type="submit" class="btn btn-success" (click)="login('tourist')">Login</button>
-                                </div>
-                            </form>
-                            <a>Are you a guide? Register now</a>
-                        </div>
-
-                        <div class="tab-pane fade" id="guide" role="tabpanel" aria-labelledby="profile-tab">
-                            <br>
-                            <form [formGroup]="LoginForm">
-                                <div class="md-form form-group">
-                                    <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
-                                    <input mdbInput type="email" formControlName="email" id="form2" class="form-control">
-                                    <label for="form2">Email</label>
-                                    <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
-                                </div>
-                                <br>
-                                <div class="md-form form-group">
-                                    <mdb-icon fas icon="unlock-alt" class="prefix"></mdb-icon>
-                                    <input mdbInput type="password" id="form2" formControlName="password" class="form-control">
-                                    <label for="form2">password</label>
-                                    <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
-                                   Commented out a link <a href="#" mdbBtn color="primary" mdbWavesEffect>Login</a>
-                                </div>
-                                <br>
-                                <div class="md-form form-group text-center">
-                                    <button type="submit" class="btn btn-success" (click)="login('guide')">Login</button>
-                                </div>
-                            </form>
-                            <a>Wanna explore? Register now</a>
-                        </div>
-
-                    </div>
-
-                </mdb-card-body>
-            </mdb-card>
-            Card
-        </div>
-    </div>
-
-
-</div> -->
-<div class="all-bg">
-  <div class="text">
-    <h1>Voila Login</h1>
-  </div>
-<div class="container mb-5">
+<div class="container d-none d-md-block mb-5">
     <div class="welcome">
-        <div class="pinkbox">
-            <div class="signup" [ngClass]="role === 'tourist' ? 'nodisplay' : ''" id="guide">
-                <h1>Guide Sign in</h1>
+        <div class="pinkbox px-5 py-5" [ngClass]="role === 'tourist' ? 'zeroTransform' : 'eightyTransform'">
+            <div class="signup " [ngClass]="role === 'tourist' ? 'nodisplay' : ''" id="guide">
+                <h2 class="text-white text-center" style="margin-bottom: 50px;">Guide Login</h2>
                 <form [formGroup]="LoginForm" autocomplete="off">
-                    <div class="md-form form-group">
+                    <div class="md-form form-group mb-5">
                         <input mdbInput type="email" formControlName="email" id="form1" class="form-control">
                         <label for="form1">Email</label>
-                        <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
+                        <!-- <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                     </div>
-                    <div class="md-form form-group">
+                    <div class="md-form form-group mb-5">
                         <input mdbInput type="password" formControlName="password" id="form2" class="form-control">
                         <label for="form2">password</label>
-                        <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
+                        <a class="mt-2 text-info float-right">Forgot Password?</a>
+                        <!-- <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                     </div>
-                    <!-- <input type="password" placeholder="confirm password"> -->
-                    <div class="">
+                    <div class="md-form form-group" style="margin-top: 90px;">
                         <button type="submit" class="button submit" (click)="login('guide')">Log in</button>
                     </div>
-                </form> <br>
+                </form>
                 <div class="text-center white-text"><a [routerLink]="['/guide/show-register']">Are you a guide? Register now</a></div>
             </div>
             <div class="signin" [ngClass]="role === 'tourist' ? '' : 'nodisplay'" id="tourist">
-                <h1>Tourist<br>sign in</h1>
-                <form [formGroup]="LoginForm" class="more-padding" autocomplete="off">
-                    <div class="md-form form-group">
+                <h2 class="text-white text-center" style="margin-bottom: 50px;">Tourist Login</h2>
+                <form [formGroup]="LoginForm"  autocomplete="off">
+                    <div class="md-form form-group mb-5">
                         <input mdbInput type="email" formControlName="email" id="form3" class="form-control">
                         <label for="form3">Email</label>
-                        <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
+                        <!-- <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                     </div>
-                    <div class="md-form form-group">
+                    <div class="md-form form-group mb-5">
                         <input mdbInput type="password" formControlName="password" id="form4" class="form-control">
                         <label for="form4">password</label>
-                        <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small>
+                        <a class="mt-2 text-info float-right">Forgot Password?</a>
+
+                        <!-- <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                     </div>
-                    <!-- <div class="checkbox">
-                        <input type="checkbox" id="remember" /><label for="remember">remember me</label>
-                    </div> -->
-                    <div class="md-form form-group text-center my-0 pt-">
-                        <button type="submit" class="button submit mx-auto" (click)="login('tourist')">login</button>
+                    <div class="md-form form-group" style="margin-top: 90px;">
+                        <button type="submit" class="button submit " (click)="login('tourist')">Login</button>
                     </div>
-                </form><br>
-                <div class="text-center white-text"><a [routerLink]="['/tourists/register']" >Wanna explore? Register now</a></div>
+                </form>
+                <div class="text-center white-text"><a [routerLink]="['/tourists/register']">Wanna explore? Register now</a></div>
             </div>
         </div>
         <div class="leftbox">
-            <h2 class="title"><span>VOILA</span>&<br>Tourist</h2>
+            <h2 class="title mt-4"><b><span>VOILA</span>&<br>Tourist</b></h2>
             <p class="desc">pick your perfect <span>bouquet</span></p>
-            <img class="flower smaller" src="https://image.ibb.co/d5X6pn/1357d638624297b.jpg" alt="1357d638624297b" border="0">
-            <p class="account">Are you a traveller</p>
-            <button [routerLink]="['/login/tourist']" class="button" id="signin">Log in</button>
+            <img class="flower smaller" src="assets\images\ouch-guide-login.png" alt="" border="0"><br>
+            <p class="account">Are you a traveller?</p>
+            <button [routerLink]="['/login/tourist']" class="button" id="signin">Click Here</button>
         </div>
         <div class="rightbox">
-            <h2 class="title"><span>VOILA</span>&<br>Guide</h2>
+            <h2 class="title mt-4"><b><span>VOILA</span>&<br>Guide</b></h2>
             <p class="desc"> pick your perfect <span>bouquet</span></p>
-            <img class="flower" src="assets\images\tourist-ouch-pic-medium.png" />
+            <img class="flower" src="assets\images\tourist-ouch-pic-medium.png" /><br>
             <p class="account">Are you a guide?</p>
-            <button [routerLink]="['/login/guide']" class="button" id="signup">Log in</button>
+            <button [routerLink]="['/login/guide']" class="button" id="signup">Click Here</button>
         </div>
     </div>
 </div>
-</div>
+<!-- </div> -->
 <!-- green guide pic attribution <a href='https://www.freepik.com/free-photos-vectors/travel'>Travel vector created by stories - www.freepik.com</a> -->
+<div class="d-block d-md-none ">
+  <div class="login-wrap1">
+	<div class="login-html1">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" [routerLink]="['/login/guide']" [checked]="role === 'guide'"><label for="tab-1" class="tab">Guide</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up" [routerLink]="['/login/tourist']" [checked]="role === 'tourist'"><label for="tab-2" class="tab">Tourist</label>
+		<div class="login-form1 mt-5">
+			<div class="sign-in-htm1">
+                <form  [formGroup]="LoginForm" autocomplete="off">
+                    <div class="group1 form-group mb-4">
+                        <label for="form1" class="label">Email</label>
+                        <input mdbInput type="email" formControlName="email" id="form1" class="input">
+                    </div>
+                    <div class="group1 form-group mb-5">
+                        <label for="form2" class="label">Password</label>
+                        <input mdbInput type="password" formControlName="password" id="form2" class="input">
+                        <a class="mt-2 text-info float-right">Forgot Password?</a>
+                    </div>
+                    <div class="group1 form-group" style="margin-top: 70px;">
+                        <input type="submit" class="button mb-4" (click)="login('guide')" value="LogIn">
+                        <p style="font-size: 18px;"><a class="text-center white-text" [routerLink]="['/guide/show-register']">Are you a guide?  <br> Register now</a></p>
+                    </div>
+                </form>
+			</div>
+			<div class="sign-up-htm1">
+                <form [formGroup]="LoginForm" autocomplete="off">
+                    <div class="group1 form-group mb-4">
+                        <label for="form1" class="label">Email</label>
+                        <input mdbInput type="email" formControlName="email" id="form1" class="input">
+                    </div>
+                    <div class="group1 form-group mb-5">
+                    <label for="form2" class="label">Password</label>
+                        <input mdbInput type="password" formControlName="password" id="form2" class="input">
+                        <a class="mt-2 text-info float-right">Forgot Password?</a>
+                    </div>
+                    <div class="group1 form-group" style="margin-top: 70px;">
+                        <input type="submit" class="button mb-4" (click)="login('tourist')" value="LogIn">
+                        <p style="font-size: 18px;"><a class="text-center white-text" [routerLink]="['/tourists/register']">Wanna Explore?  <br> Register now</a></p>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
