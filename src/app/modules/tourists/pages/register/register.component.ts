@@ -41,28 +41,14 @@ export class RegisterComponent implements OnInit {
   submitForm() {
     if(this.detailsForm.valid) {
       console.log(this.detailsForm.value);
-      // this.tourists.dob = this.detailsForm.value.dob;
-      // this.tourists.email = this.detailsForm.value.email;
-      // this.tourists.gender = this.detailsForm.value.gender;
-      // this.tourists.name = this.detailsForm.value.name;
-      // this.tourists.nationality = this.detailsForm.value.nationality;
-      // this.tourists.password = this.detailsForm.value.password;
-      // this.tourists.phoneNumber = this.detailsForm.value.phoneNumber;
-      // this.tourists.languages =[];
-      // this.tourists.languages.push(this.detailsForm.value.languages);
-      // console.log(this.detailsForm.value);
-      // console.log(this.tourists);
-
-      /////////api//////
       this.touristsService.touristsSignup(this.detailsForm.value).subscribe( res => {
         console.log(res);
         if(res.success) {
           this.toastr.success("Registered Successfully!");
-          // this.createform();
-          this.router.navigateByUrl('/login/tourist');
         } else {
-          this.toastr.error(res.msg);
+          this.toastr.error(res.message);
         }
+        this.router.navigateByUrl('/login/tourist');
       })
 
     } else {
