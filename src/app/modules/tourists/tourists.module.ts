@@ -21,7 +21,12 @@ import { TouristGuardService } from 'src/app/shared/service/tourist-guard.servic
 import { GuidesListComponent } from './components/guides-list/guides-list.component';
 import { DealsListComponent } from './components/deals-list/deals-list.component';
 import { GuideProfileComponent } from 'src/app/shared/components/guide-profile/guide-profile.component';
+<<<<<<< HEAD
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
+=======
+import { InterestsComponent } from './pages/interests/interests.component';
+import { LanguagesComponent } from './pages/languages/languages.component';
+>>>>>>> origin/vidhi
 
 
 const routes: Routes = [
@@ -104,6 +109,8 @@ const routes: Routes = [
     TouristChangePwdComponent,
     GuidesListComponent,
     DealsListComponent,
+    InterestsComponent,
+    LanguagesComponent,
   ],
   imports: [
     CommonModule,
