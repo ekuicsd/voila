@@ -67,5 +67,20 @@ export class StaticDataService {
             }
         ];
     }
+
+    getGradientClassesList() : string[] {
+        return [
+            'zero',
+            'first',
+            'second',
+            'third',
+            'forth',
+            'fifth',
+            'sixth',
+            'seventh',
+            'eighth',
+            'ninth'
+        ]
+    }
     
 }

@@ -88,15 +88,16 @@ const routes: Routes = [
       path: 'guideProfile/:id', component: GuideProfileComponent
     },
     {
-      path: 'languages', component: LanguagesComponent, 
-      // canActivate: [TouristGuardService]
+      path: 'languagesInterests/:status', component: LanguagesComponent, //languageInterest
+      canActivate: [TouristGuardService]
     },
     {
-      path: 'interests', component: InterestsComponent,
-      //  canActivate: [TouristGuardService]
+      path: 'interests/:status', component: InterestsComponent, //interests
+       canActivate: [TouristGuardService]
     },
     {
-      path: 'languagesInterests', component:LanguagesComponent
+      path: 'languages/:status', component: LanguagesComponent, //languages
+      canActivate: [TouristGuardService]
     }
   ]},
 ];

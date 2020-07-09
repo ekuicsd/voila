@@ -67,11 +67,11 @@ export class LoginPageComponent implements OnInit {
             if(res.success) {
               console.log(res);
               if(!res.languages && !res.interests) {
-                this.router.navigateByUrl('/tourists/touristshome/languagesInterests');
+                this.router.navigateByUrl('/tourists/touristshome/languagesInterests/languagesInterests');
               } else if(!res.languages) {
-                this.router.navigateByUrl('/tourists/touristshome/languages')
+                this.router.navigateByUrl('/tourists/touristshome/languages/languages')
               } else if(!res.interests) {
-                this.router.navigateByUrl('/tourists/touristshome/interests')
+                this.router.navigateByUrl('/tourists/touristshome/interests/interests')
               } else {
                 this.router.navigateByUrl('/tourists/touristshome');
               }

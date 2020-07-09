@@ -5,24 +5,22 @@
 
 @media (min-width: 576px) {
     .headup {
-        font-size: 38px;
+        font-size: 43px;
     }
 }
 
 // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) {}
+@media (min-width: 768px) {}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
     .headup {
-        font-size: 45px;
+        font-size: 65px;
     }
 }
 
-
-// @media (min-width: 1200px) {
-//     .headup {
-//         font-size: 70px;
-//     }
-// }
-
+@media (min-width: 1200px) {
+    .headup {
+        font-size: 70px;
+    }
+}

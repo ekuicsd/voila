@@ -92,4 +92,13 @@ export class TouristsService {
         })
     }
 
+    updateInterestAndLang(request) : Observable<any> {
+        let url = '/tourist/updateInterestAndLang';
+        return new Observable<any>( obs => {
+            this.apiService.post(url, request).subscribe(res => {
+                obs.next(res.body);
+            })
+        })
+    }
+
 }

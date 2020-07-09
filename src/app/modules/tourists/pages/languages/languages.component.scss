@@ -1,0 +1,28 @@
+.headup {
+    font-family: 'Staatliches', cursive;
+    word-spacing: 0.6rem;
+}
+
+@media (min-width: 576px) {
+    .headup {
+        font-size: 38px;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .headup {
+        font-size: 45px;
+    }
+}
+
+
+// @media (min-width: 1200px) {
+//     .headup {
+//         font-size: 70px;
+//     }
+// }
+

@@ -1,3 +1,38 @@
-<p>
-  languages works!
-</p>
+<h3 class="headup my-4 text-center mx-3"> Select known Languages</h3>
+<div class="px-lg-4 px-3">
+  <div *ngIf="selectedLanguageList.length > 0">
+    <h4>Selected 
+      <button class="btn my-0 py-2 float-right" (click)="saveLanguages()" type="button" mdbBtn color="info" mdbWavesEffect>Save</button>
+    </h4>
+    <hr>
+    <div class="row my-4">
+      <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="removeFromSelectedList(item)" *ngFor="let item of selectedLanguageList; let i = index;">
+          <mdb-card [ngClass]="getGradientClass(i+1)">
+              <mdb-card-body class="waves-effect waves-light">
+                  <div class="m-auto text-center white-text">
+                      <h5 class="my-0">{{item}}</h5>
+                  </div>
+              </mdb-card-body>
+          </mdb-card>
+      </div>
+    </div>
+  </div>
+  <h4>All
+    <button *ngIf="selectedLanguageList.length <= 0" 
+      class="btn float-right my-0 py-2" (click)="navigateToRoute()" type="button" mdbBtn color="info" mdbWavesEffect>
+      Skip
+    </button>
+  </h4>
+  <hr>
+  <div class="row my-4">
+      <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="addToSelectedLangList(item)" *ngFor="let item of languageList; let i = index;">
+          <mdb-card [ngClass]="isSelected(item) ? 'active' : getGradientClass(i+1)">
+              <mdb-card-body class="waves-effect waves-light">
+                  <div class="m-auto text-center white-text">
+                      <h5 class="my-0">{{item}}</h5>
+                  </div>
+              </mdb-card-body>
+          </mdb-card>
+      </div>
+  </div>
+</div>

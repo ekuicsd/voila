@@ -22,6 +22,8 @@ import { PersonalDetailsComponent } from './components/personal-details/personal
 import { BussinessDetailsComponent } from './components/bussiness-details/bussiness-details.component';
 import { QuestionDetailsComponent } from './components/question-details/question-details.component';
 import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
+import { LanguagesComponent } from './pages/languages/languages.component';
+import { InterestsComponent } from './pages/interests/interests.component';
 
 
 
@@ -93,7 +95,9 @@ const routes: Routes = [
     PersonalDetailsComponent,
     BussinessDetailsComponent,
     QuestionDetailsComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    LanguagesComponent,
+    InterestsComponent
     ],
   imports: [
     //   BrowserModule,
