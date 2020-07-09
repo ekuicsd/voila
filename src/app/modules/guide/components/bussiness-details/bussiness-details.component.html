@@ -1,9 +1,9 @@
 <div class="card card-body pannel">
-      
-  <div class="row"> 
-    <div class="col-md-7">
+
+  <div class="row">
+    <div class="col-lg-7">
       <h2 class="card-title center" >Sign Up</h2>
-       <div class="card-text"> 
+       <div class="card-text">
 
         <form [formGroup]="basicDetails">
           <div class="row card-body">
@@ -27,7 +27,7 @@
             </div>
           </div>
         </form>
-         
+
         <!-- 1 -->
         <form [formGroup]="interestForm" (ngSubmit)="submitInterest()">
         <div class="row card-body pb-0 pt-0">
@@ -50,13 +50,13 @@
       </form>
       <!-- list -->
       <div *ngIf="userInterestList" class="row card-body pt-0">
-        <span class="spanClass" *ngFor="let item of userInterestList">{{item}} 
+        <span class="spanClass" *ngFor="let item of userInterestList">{{item}}
           <button (click)="removeFromUserInterestList(item)" class="btn btn-danger">X</button>
         </span>
       </div>
       <!--  -->
 
-      
+
        <!-- 2 -->
        <form [formGroup]="languageForm" (ngSubmit)="submitLanguage()">
         <div class="row card-body pt-0 pb-0">
@@ -81,7 +81,7 @@
       <!-- list -->
       <div *ngIf="userLanguageList" class="row card-body pt-0">
         <!-- <div class="col-md-12"> -->
-          <span class="spanClass" *ngFor="let item of userLanguageList">{{item}} 
+          <span class="spanClass" *ngFor="let item of userLanguageList">{{item}}
             <button (click)="removeFromUserLanguageList(item)" class="btn btn-danger">X</button>
           </span>
         <!-- </div> -->
@@ -113,19 +113,19 @@
         </form>
         <!-- list -->
         <div *ngIf="userLocationList" class="row card-body pt-0">
-          <span class="spanClass" *ngFor="let item of userLocationList">{{item}} 
+          <span class="spanClass" *ngFor="let item of userLocationList">{{item}}
             <button (click)="removeFromUserLocationList(item)" class="btn btn-danger">X</button>
           </span>
         </div>
         <!--  -->
-           
-        
+
+
 
         </div>
 
        </div>
-    
-    <div class="col-md-5">
+
+    <div class="col-lg-5 d-none d-lg-block">
       <div class="svg1 align-self-center d-flex justify-content-center">
         <svg width="744" height="591" viewBox="0 0 744 591" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M560.056 585.278C565.305 585.278 569.56 581.023 569.56 575.773C569.56 570.524 565.305 566.269 560.056 566.269C554.806 566.269 550.551 570.524 550.551 575.773C550.551 581.023 554.806 585.278 560.056 585.278Z" fill="#3F3D56"/>
@@ -152,9 +152,9 @@
           <path d="M417.087 515.593C417.087 515.593 419.087 514.593 409.087 515.593C399.087 516.593 395.087 515.593 395.087 515.593L402.087 542.593C402.087 542.593 396.087 588.593 416.087 584.593C436.087 580.593 436.087 552.593 436.087 552.593C436.087 552.593 433.087 527.593 435.087 525.593C437.087 523.593 436.087 496.593 433.087 496.593C430.087 496.593 415.607 490.113 415.607 490.113C415.607 490.113 425.087 515.593 417.087 515.593Z" fill="#2F2E41"/>
           <path d="M364.408 87.7094C362.728 85.1237 363.577 81.6078 362.398 78.7582C360.548 74.2834 354.799 73.2352 349.974 72.8269C346.777 72.4166 343.541 72.4253 340.347 72.8527C338.935 73.0873 337.598 73.6468 336.439 74.4868C335.28 75.3269 334.333 76.4246 333.671 77.6934C332.957 79.125 333.137 74.6394 333.594 68.8814C334.057 63.0054 336.374 57.4281 340.21 52.9531C344.046 48.4781 349.204 45.3364 354.94 43.9808C355.008 43.9648 355.076 43.949 355.143 43.9336C361.017 42.5784 367.074 41.5811 373.062 42.2846C379.049 42.988 385.018 45.5727 388.754 50.3037C390.462 52.466 391.67 55.0158 393.576 57.0051C396.926 60.5004 401.892 61.7723 406.453 63.3941C411.683 65.0805 416.495 67.857 420.573 71.5402C424.518 75.3361 427.315 80.5376 427.398 86.0121C427.494 92.3981 423.432 98.9884 416.886 100.247C415.748 100.446 414.673 100.91 413.747 101.602C407.497 106.448 414.627 111.521 414.578 116.977C414.536 121.529 409.469 124.496 404.921 124.708C400.669 124.785 396.524 123.38 393.194 120.735C389.865 118.09 387.559 114.369 386.672 110.211C385.986 106.475 386.516 102.637 386.962 98.8654C387.472 94.5476 378.174 84.3805 384.316 91.8327C385.515 93.2491 386.324 94.9532 386.664 96.7774C387.687 102.731 382.269 104.733 378.853 108.032C376.977 109.898 375.662 112.252 375.056 114.828C374.45 117.403 374.578 120.097 375.426 122.603C372.609 120.051 370.771 116.596 370.229 112.833C369.688 109.07 370.477 105.237 372.46 101.994C373.56 100.306 374.978 98.8375 376.022 97.114C377.65 94.4245 378.099 88.5747 373.541 88.7354C370.288 88.8501 366.908 91.5586 364.408 87.7094Z" fill="#2F2E41"/>
           </svg>
-          
+
            </div>
-      
+
   </div>
   <!-- col-md-5 -->
   </div>
@@ -164,7 +164,7 @@
     <p>*You can add more experiences in the edit profile section</p>
     <form [formGroup]="experienceForm" (ngSubmit)="submitExperienceForm()">
   <div class="row card-body">
-    
+
     <div class="col-md-3">
       <div class="form-group">
         <label>Work</label>
@@ -223,17 +223,17 @@
             </td>
           </tr>
         </tbody>
-       </table>   
+       </table>
     </div>
   </div>
   <div class="row card-body mx-0">
     <div class="col-md-12">
       <button class="btn btn-success" type="button" previousStep>Previous</button>
-      <button class="btn btn-success" type="button" (click)="finalSubmit()" >Next</button>
+      <button class="btn btn-success" type="button" nextStep (click)="finalSubmit()" >Next</button>
     </div>
   </div>
- 
-  
+
+
   <!-- <div class="flex-row">
     <a class="card-link" previousStep>Previous</a>
     <a class="card-link" nextStep>Next</a>

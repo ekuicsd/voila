@@ -1,5 +1,13 @@
 <app-filter-form></app-filter-form>
-<div class="search-text">
+
+<div class="container-fluid d-none d-lg-block">
+    <div class="row">
+        <div class="col-12 text-center py-3">
+            <h1>Searched Results</h1>
+        </div>
+    </div>
+</div>
+<!-- <div class="search-text">
     <h1>Deals and guides in Rishikesh</h1>
 </div>
 <br>
@@ -13,22 +21,21 @@
         <br>
         <h3>Filters</h3>
         <br>
-        <!-- Default unchecked -->
         <h6>Ratings</h6>
 
-        <!-- Default inline 1-->
+        
         <div class="custom-control custom-radio">
             <input type="radio" class="custom-control-input" id="days1" name="days" mdbInput>
             <label class="custom-control-label" for="days1">1 - 2</label>
         </div>
 
-        <!-- Default inline 2-->
+        
         <div class="custom-control custom-radio ">
             <input type="radio" class="custom-control-input" id="days2" name="days" mdbInput>
             <label class="custom-control-label" for="days2">2 - 4</label>
         </div>
 
-        <!-- Default inline 3-->
+       
         <div class="custom-control custom-radio">
             <input type="radio" class="custom-control-input" id="days3" name="days" mdbInput>
             <label class="custom-control-label" for="days3">More than 4</label>
@@ -36,19 +43,19 @@
         <hr>
         <br>
         <h6>Price</h6>
-        <!-- Default inline 1-->
+        
         <div class="custom-control custom-radio">
             <input type="radio" class="custom-control-input" id="money1" name="inlineDefaultRadiosExample" mdbInput>
             <label class="custom-control-label" for="money1">Less than 2000</label>
         </div>
 
-        <!-- Default inline 2-->
+        
         <div class="custom-control custom-radio ">
             <input type="radio" class="custom-control-input" id="money2" name="inlineDefaultRadiosExample" mdbInput>
             <label class="custom-control-label" for="money2">2000 - 8000</label>
         </div>
 
-        <!-- Default inline 3-->
+       
         <div class="custom-control custom-radio">
             <input type="radio" class="custom-control-input" id="money3" name="inlineDefaultRadiosExample" mdbInput>
             <label class="custom-control-label" for="money3">More than 8000</label>
@@ -56,13 +63,13 @@
         <hr>
         <br>
         <h6>Gender</h6>
-        <!-- Default inline 1-->
+        
         <div class="custom-control custom-radio">
             <input type="radio" class="custom-control-input" id="gender1" name="gender" mdbInput>
             <label class="custom-control-label" for="gender1">Male</label>
         </div>
 
-        <!-- Default inline 2-->
+        
         <div class="custom-control custom-radio ">
             <input type="radio" class="custom-control-input" id="gender2" name="gender" mdbInput>
             <label class="custom-control-label" for="gender2">Female</label>
@@ -70,23 +77,23 @@
         <hr>
         <br>
         <h6>Language</h6>
-        <!-- Default checked -->
+        
         <mdb-checkbox [default]="true">Hindi</mdb-checkbox>
-        <!-- Default inline 1-->
-        <!-- Default checked -->
+        
+        
         <mdb-checkbox [default]="true">English</mdb-checkbox>
-        <!-- Default checked -->
+        
         <mdb-checkbox [default]="true">French</mdb-checkbox>
-        <!-- Default checked -->
+        
         <mdb-checkbox [default]="true">Spanish</mdb-checkbox>
         <div mdbCollapse #test="bs-collapse">
             <mdb-checkbox [default]="true">Hindi</mdb-checkbox>
-            <!-- Default inline 1-->
-            <!-- Default checked -->
+            
+            
             <mdb-checkbox [default]="true">English</mdb-checkbox>
-            <!-- Default checked -->
+            
             <mdb-checkbox [default]="true">French</mdb-checkbox>
-            <!-- Default checked -->
+            
             <mdb-checkbox [default]="true">Spanish</mdb-checkbox>
         </div>
         <div>
@@ -96,24 +103,12 @@
         <hr>
         <br>
         <h6>Interests</h6>
-        <!-- Default checked -->
         <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
-        <!-- Default inline 1-->
-
-        <!-- <mdb-checkbox [default]="true">Foodie</mdb-checkbox>
-
-        <mdb-checkbox [default]="true">Advanture</mdb-checkbox>
-     
-        <mdb-checkbox [default]="true">Music</mdb-checkbox>
-        <mdb-checkbox [default]="true">Dance</mdb-checkbox> -->
+       
         <div mdbCollapse #intrest="bs-collapse">
             <mdb-checkbox [default]="true">Hindi</mdb-checkbox>
-            <!-- Default inline 1-->
-            <!-- Default checked -->
             <mdb-checkbox [default]="true">English</mdb-checkbox>
-            <!-- Default checked -->
             <mdb-checkbox [default]="true">French</mdb-checkbox>
-            <!-- Default checked -->
             <mdb-checkbox [default]="true">Spanish</mdb-checkbox>
         </div>
         <div>
@@ -129,7 +124,7 @@
             <li><a [routerLink]="['dealsList']" routerLinkActive="active">Deals</a></li>
         </ul>
         <router-outlet></router-outlet>
-        <!--  -->
 
     </div>
 </div>
+ -->

@@ -14,7 +14,7 @@ export class TouristsService {
         let url = '/signup/tourist';
         return new Observable<any>( obs => {
             this.apiService.post(url, body).subscribe( res => {
-                obs.next(res);
+                obs.next(res.body);
             });
         });
     }

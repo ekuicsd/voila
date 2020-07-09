@@ -27,7 +27,7 @@ export class LoginPageComponent implements OnInit {
       $('.signin').addClass('nodisplay');
       $('.signup').removeClass('nodisplay');
     });
-    
+
     $('#signin').click(function() {
       $('.pinkbox').css('transform', 'translateX(0%)');
       $('.signup').addClass('nodisplay');
@@ -66,7 +66,15 @@ export class LoginPageComponent implements OnInit {
           res => {
             if(res.success) {
               console.log(res);
-            this.router.navigateByUrl('tourists/touristshome');
+              if(!res.languages && !res.interests) {
+                this.router.navigateByUrl('/tourists/touristshome/languagesInterests');
+              } else if(!res.languages) {
+                this.router.navigateByUrl('/tourists/touristshome/languages')
+              } else if(!res.interests) {
+                this.router.navigateByUrl('/tourists/touristshome/interests')
+              } else {
+                this.router.navigateByUrl('/tourists/touristshome');
+              }
             } else {
               this.toastr.error(res.message);
             }
