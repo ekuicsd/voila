@@ -39,3 +39,13 @@
         padding: 2em 0 2em 0;
     }
 }
+
+.getStartedBlock {
+    padding: 0 30px 45px 30px;
+}
+
+@media(min-width: 767px) {
+    .getStartedBlock {
+        padding: 0 100px 45px 100px;
+    } 
+}

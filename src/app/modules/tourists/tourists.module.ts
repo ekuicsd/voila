@@ -21,16 +21,17 @@ import { TouristGuardService } from 'src/app/shared/service/tourist-guard.servic
 import { GuidesListComponent } from './components/guides-list/guides-list.component';
 import { DealsListComponent } from './components/deals-list/deals-list.component';
 import { GuideProfileComponent } from 'src/app/shared/components/guide-profile/guide-profile.component';
+import { AngularMyDatePickerModule } from 'angular-mydatepicker';
+import { InterestsComponent } from './pages/interests/interests.component';
+import { LanguagesComponent } from './pages/languages/languages.component';
 
 
 const routes: Routes = [
-  // {path: '', redirectTo: 'register', pathMatch: 'full'},
   {path: 'register', component: RegisterComponent},
   {path: 'touristshome', component: TouristsHomeComponent, children: [
     {
       path: '', redirectTo: 'dashboard', pathMatch: 'full'
     },
-  // {path: 'guide', children: [
     {
       path: 'dashboard', component: DashboardComponent,
       canActivate: [TouristGuardService]
@@ -47,13 +48,6 @@ const routes: Routes = [
       path: 'favourites', component: FavouritesComponent,
       canActivate: [TouristGuardService]
     },
-    // {
-    //   path: 'histories', component: HistoriesComponent
-    // },
-    // {
-    //   path: 'messages', component: MessagesComponent,
-    //   canActivate: [TouristGuardService]
-    // },
     {
       path: 'chats/:role/:email', component: MessagesComponent,
       canActivate: [TouristGuardService]
@@ -92,6 +86,14 @@ const routes: Routes = [
     },
     {
       path: 'guideProfile/:id', component: GuideProfileComponent
+    },
+    {
+      path: 'languages', component: LanguagesComponent, 
+      // canActivate: [TouristGuardService]
+    },
+    {
+      path: 'interests', component: InterestsComponent,
+      //  canActivate: [TouristGuardService]
     }
   ]},
 ];
@@ -112,14 +114,15 @@ const routes: Routes = [
     TouristChangePwdComponent,
     GuidesListComponent,
     DealsListComponent,
+    InterestsComponent,
+    LanguagesComponent,
   ],
   imports: [
-    // BrowserModule,
     CommonModule,
     SharedModule,
     HomeModule,
+    AngularMyDatePickerModule,
     ReactiveFormsModule,
-    // BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forChild(routes)
   ],
