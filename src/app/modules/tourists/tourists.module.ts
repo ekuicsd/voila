@@ -94,6 +94,9 @@ const routes: Routes = [
     {
       path: 'interests', component: InterestsComponent,
       //  canActivate: [TouristGuardService]
+    },
+    {
+      path: 'languagesInterests', component:LanguagesComponent
     }
   ]},
 ];

@@ -45,6 +45,9 @@ const routes: Routes = [
     FilterFormComponent,
     MapComponent,
     TopCitiesComponent,
+    FeaturesComponent,
+    HomeCarouselComponent,
+    TopDealsComponent
   ]
 })
 
