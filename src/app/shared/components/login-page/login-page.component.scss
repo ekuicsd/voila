@@ -1,4 +1,36 @@
 // yahi tkk h
+
+.all-bg {
+  height: max-content !important;
+  background: linear-gradient(235deg, #553d67, #faed26, #c87068, #7bd3c3, #b6f455, #f76c6c);
+  background-size: 1200% 1200%;
+  z-index: -1;
+  -webkit-animation: AnimationName 31s ease infinite;
+  -moz-animation: AnimationName 31s ease infinite;
+  animation: AnimationName 31s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 96%}
+  50%{background-position:100% 5%}
+  100%{background-position:0% 96%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 96%}
+  50%{background-position:100% 5%}
+  100%{background-position:0% 96%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 96%}
+  50%{background-position:100% 5%}
+  100%{background-position:0% 96%}
+}
+.text h1{
+  font-size: 100px;
+  overflow: hidden;
+  margin: 0;
+  z-index: 1;
+}
 .center-class {
     justify-content: center;
     text-align: center;
@@ -33,6 +65,7 @@ body {
     min-height: 80vh;
     // height: 550px;
     position: relative;
+    margin-bottom: 0 !important;
 }
 
 .welcome {

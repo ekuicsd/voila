@@ -1,0 +1,537 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #337af0;
+  overflow: hidden;
+}
+
+h2 {
+  text-align: center;
+  display: block;
+  margin-top: 200px;
+  width: 100%;
+  color: #fff;
+  font-size: 32px;
+  height: 40px;
+  font-weight: 300;
+}
+
+.secondTitle {
+  opacity: 0;
+  margin: 0;
+  position: absolute;
+  top: 247px;
+  transition: all .3s ease;
+}
+
+h2.thirdTitle {
+  opacity: 0;
+  margin: 0;
+  position: absolute;
+  top: 350px;
+  transition: all .3s 2.4s ease;
+}
+
+h2.addTitleThird {
+  opacity: 1;
+  top: 298px;
+  transition: all .6s 9.5s ease;
+}
+
+.subtitle {
+  text-align: center;
+  display: block;
+  margin-top: 17px;
+  width: 100%;
+  color: #fff;
+  font-size: 20px;
+  opacity: .4;
+}
+
+.formScreenRaper #removeTitle {
+  opacity: 0;
+  transition: all .3s 1s ease;
+}
+
+.addTitle {
+  opacity: 1;
+  top: 197px;
+  transition: all .6s 2.7s ease;
+}
+
+h3.addSubtitle {
+  opacity: .4;
+  top: 250px;
+  transition: all .6s 2.7s ease;
+}
+
+.secondSubtitle {
+  opacity: 0;
+  margin: 0;
+  position: absolute;
+  top: 254px;
+  transition: all .3s ease;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.formScreenRaper {
+  position: absolute;
+  z-index: 9999;
+  width: 1000px;
+  height: 100%;
+  left: 50%;
+  margin-left: -500px;
+  transform-style: preserve-3D;
+  perspective: 1000px;
+}
+
+#supaForm {
+  background: #fff;
+  width: 560px;
+  height: 109px;
+  position: absolute;
+  transform: translate3D(39%, 80%, 0) scale(.7, .7);
+  z-index: 9999;
+  box-shadow: rgba(0, 0, 0, 0.27) 0px 18px 57px;
+  transition: transform .3s cubic-bezier(0.45, -0.01, 0.18, 0.98),
+    background .3s ease;
+  overflow: hidden;
+}
+
+#supaForm:hover {
+  background: #EAEAEA;
+}
+
+#activateForm {
+  width: 100%;
+  padding: 7% 0px;
+  text-align: center;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  z-index: 9999;
+}
+
+fieldset {
+  opacity: 0;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#supaForm fieldset label {
+  transition: all .2s 2s ease;
+  font-weight: 400;
+  z-index: 10;
+  font-size: 35px;
+  color: #464646;
+  top: 36px;
+  left: 20px;
+}
+
+fieldset .inputText {
+  width: 80%;
+  height: 115px;
+  font-size: 35px;
+  font-weight: 400;
+  padding-left: 19px;
+  border: none;
+  outline: 0;
+  opacity: 0;
+  transition: all .3s 1.8s ease;
+}
+
+fieldset svg {
+  width: 34px;
+  height: 34px;
+  right: 0;
+  top: 50%;
+  position: absolute;
+  margin-top: -38px;
+  padding: 20px;
+  fill: #909090;
+  opacity: 0;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+
+fieldset svg:hover {
+  fill: #676767;
+}
+
+#supaForm fieldset textarea {
+  height: 338px;
+  margin-top: 43px;
+  font-size: 25px;
+  resize: none;
+}
+
+.displayBlock {
+  opacity: 1;
+}
+
+hr {
+  background: #206ae4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  border: none;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  transition: width .3s ease;
+}
+
+.quarter {
+  animation: quarter .3s forwards ease;
+}
+
+.threeQuarters {
+  animation: threeQuarters .3s forwards ease;
+}
+
+.full {
+  animation: full .3s forwards ease;
+}
+
+@keyframes quarter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 33.3%;
+  }
+}
+
+@keyframes threeQuarters {
+  from {
+    width: 33.3%;
+  }
+  to {
+    width: 66.6%;
+  }
+}
+
+@keyframes full {
+  from {
+    width: 66.6%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* form activation and transition styles */
+
+#supaForm.formActive {
+  transform: translate3D(39%, 75%, 0) scale(1, 1);
+}
+
+#supaForm.formActive:hover {
+  background: #fff;
+}
+
+.formActive #activateForm {
+  display: none;
+}
+
+/* .formActive:active				{ transform: translate3D(40%,100%,0) rotateX(0deg) rotateY(7deg) skew(0deg,1deg) scale(.9,.9);} */
+
+.formActive .stepOff {
+  opacity: 0;
+  transition: opacity .5s ease, left .7s ease;
+  left: -100px;
+}
+
+.stepOn {
+  opacity: 1;
+  width: 100%;
+  transition: opacity .6s .9s ease;
+}
+
+#supaForm .stepOn label {
+  transition: all .2s 2.6s ease;
+  position: absolute;
+  animation: labelAnimation .2s 2.6s ease forwards;
+}
+
+@keyframes labelAnimation {
+  0% {
+    font-weight: 400;
+    z-index: 10;
+    font-size: 35px;
+    color: #464646;
+    top: 36px;
+    left: 20px;
+  }
+  100% {
+    top: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    color: #A0A0A0;
+  }
+}
+
+.stepOn .inputText {
+  opacity: 1;
+  transition: all .3s 2.5s ease;
+}
+
+#supaForm.messageStep {
+  height: 380px;
+  transform: translate3D(39%, 20%, 0);
+  transition: all .5s 2.6s cubic-bezier(0.45, -0.01, 0.18, 0.98),
+    transform .6s 2.4s ease;
+}
+
+.messageAway {
+  animation: shrinkForm 1.5s 1s ease forwards;
+}
+
+/* form activation transition styles */
+
+.skyContainer {
+  overflow: hidden;
+  position: absolute;
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  max-height: 996px;
+  min-height: 996px;
+  top: 0;
+  left: 0;
+}
+
+.skyBG {
+  background: url(http://128.199.49.84/codepen/supaform/spaceBG.svg)
+    center
+    bottom
+    no-repeat;
+  width: 100%;
+  height: 1024px;
+  position: absolute;
+  top: -1000px;
+  left: 0;
+  z-index: 9997;
+}
+
+.sateliteRap {
+  position: absolute;
+  bottom: 420px;
+  left: 50%;
+  margin-left: 25px;
+  z-index: 9999;
+}
+
+#activeSky .sateliteRap {
+  margin-left: -1000px;
+  transition: margin 16s 4s linear;
+}
+
+#activeSky .sateliteRap svg {
+  margin-left: -240px;
+  transition: margin 4s 6.3s ease-out;
+  animation: sateliteRotate 3.3s 6.3s ease-out forwards;
+  transform: rotate(0deg);
+}
+
+.sateliteRap svg #hitSpark {
+  opacity: 0;
+}
+
+#activeSky .sateliteRap svg #hitSpark {
+  animation: hitSpark .5s 6.3s ease-out forwards;
+}
+
+@keyframes sateliteRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-540deg);
+  }
+}
+
+@keyframes hitSpark {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.clouds {
+  background: url(http://128.199.49.84/codepen/supaform/clouds.svg)
+    center
+    top
+    no-repeat;
+  width: 100%;
+  height: 352px;
+  z-index: 9999;
+  position: absolute;
+  left: 0;
+  top: -350px;
+}
+
+#activeSky {
+  top: -8px;
+  transition: all 5s 3s ease;
+}
+
+#activeClouds {
+  top: 651px;
+  transition: all 5s 3s ease;
+}
+
+.rocketContainer {
+  width: 90px;
+  height: 150px;
+  position: absolute;
+  z-index: 9998;
+  transition: all 2s ease;
+  top: 1300px;
+  transform: rotate(20deg);
+  left: 50%;
+  margin-left: -45px;
+  animation: rocketShake 1s ease infinite;
+  opacity: 0;
+}
+
+.rocketContainer svg {
+  left: -94px;
+  position: relative;
+}
+
+#flame {
+  animation: shake .2s linear infinite;
+}
+
+/* rocket mechanism */
+
+.liftOff {
+  top: 255px;
+  transition: top 2.4s linear, opacity .3s ease;
+  opacity: 1;
+  animation: flyRocketFly 8s 2.4s ease forwards;
+}
+
+/* rocket mechanism */
+
+@keyframes shrinkForm {
+  0% {
+    transform: translate3D(39%, 20%, 0) scale3D(1, 1, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3D(70%, 54%, 0px) scale3D(1.05, 1.05, 1) rotate(-33deg);
+    opacity: 1;
+  }
+  99% {
+    transform: translate3D(40%, -47%, 0px)
+      scale3D(0.01, 0.01, 0.01)
+      rotate(-197deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3D(40%, -47%, 0px)
+      scale3D(0.01, 0.01, 0.01)
+      rotate(-197deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(55px, 135px) rotate(7deg);
+  }
+  20% {
+    transform: translate(55px, 135px) rotate(0deg);
+  }
+  40% {
+    transform: translate(55px, 135px) rotate(-7deg);
+  }
+  60% {
+    transform: translate(55px, 135px) rotate(0deg);
+  }
+  100% {
+    transform: translate(55px, 135px) rotate(0deg);
+  }
+}
+
+@keyframes rocketShake {
+  0% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(24deg);
+  }
+  100% {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes flyRocketFly {
+  0% {
+    top: 255px;
+    left: 50%;
+  }
+  50% {
+    top: 498px;
+    left: 50%;
+    transform: rotate(20deg);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -o-filter: blur(0);
+    -ms-filter: blur(0);
+    filter: blur(0);
+  }
+  60% {
+    top: 498px;
+    left: 50%;
+    transform: rotate(34deg);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -o-filter: blur(0);
+    -ms-filter: blur(0);
+    filter: blur(0);
+  }
+  69% {
+    top: 498px;
+    left: 50%;
+    transform: rotate(14deg);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -o-filter: blur(0);
+    -ms-filter: blur(0);
+    filter: blur(0);
+  }
+  80% {
+    top: 498px;
+    left: 50%;
+    transform: rotate(18deg);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    -o-filter: blur(0);
+    -ms-filter: blur(0);
+    filter: blur(0);
+  }
+  100% {
+    top: -400px;
+    left: 50%;
+    transform: rotate(24deg);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+  }
+}
