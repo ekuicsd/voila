@@ -35,7 +35,7 @@ const routes: Routes = [
   // {path: 'guide', children: [
     {
       path: 'dashboard', component: DashboardComponent,
-      // canActivate: [TouristGuardService]
+      canActivate: [TouristGuardService]
     },
     {
       path: 'changePassword', component: TouristChangePwdComponent,
