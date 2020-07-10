@@ -15,8 +15,8 @@ import { StaticDataService } from '../../service/static-data.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DealsCardsComponent implements OnInit, OnChanges {
-
-  @Input() dealsList : Deals[] = [];
+  
+  @Input() dealsList : any[] = [];
   @ViewChild('dealTour', {static: false}) modal1: MDBModalService;
   @ViewChild('dealTour2', {static: false}) modal2: MDBModalService;
   isValid: boolean;
@@ -35,7 +35,7 @@ export class DealsCardsComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.getDealsFavourite();
     this.groupTypesList = this.staticDataService.getAllGroupTypes();
-    this.userId = JSON.parse(this.userService.getUser('tourist'))._id;
+    // this.userId = JSON.parse(this.userService.getUser('tourist'))._id;
     console.log(this.userId);
     this.createForm();
   }

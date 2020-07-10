@@ -13,7 +13,7 @@ import { BookingsComponent } from './components/bookings/bookings.component';
 import { ArchwizardModule } from 'ng2-archwizard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RequestsComponent } from './components/requests/requests.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ShowRegisterComponent } from './pages/show-register/show-register.component';
 import { GuideGuardService } from 'src/app/shared/service/guide-guard.service';
 import { GuideChangePwdComponent } from './components/guide-change-pwd/guide-change-pwd.component';
@@ -24,7 +24,6 @@ import { QuestionDetailsComponent } from './components/question-details/question
 import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 import { LanguagesComponent } from './pages/languages/languages.component';
 import { InterestsComponent } from './pages/interests/interests.component';
-
 
 
 const routes: Routes = [
@@ -101,6 +100,7 @@ const routes: Routes = [
       CommonModule,
       RouterModule.forChild(routes),
       NgbModule,
+      FormsModule,
       ReactiveFormsModule,
       MDBBootstrapModule.forRoot(),
       ArchwizardModule,

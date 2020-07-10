@@ -40,8 +40,8 @@ export class SearchService {
     };
     public noOfPeople = 2;
 
-    public guidesList: any[];
-    public dealsList: Deals[];
+    public guidesList: any[] = [];
+    public dealsList: Deals[] = [];
 
 
     constructor(private calendar: NgbCalendar, 
@@ -74,6 +74,7 @@ export class SearchService {
       getFilterData() {
         this.searchForm.patchValue({
             city: this.city,
+            range: this.range,
             startDate: this.convertDateIntoString(this.range.dateRange.beginDate),
             endDate: this.convertDateIntoString(this.range.dateRange.endDate),
             noOfPeople: this.noOfPeople
@@ -104,7 +105,7 @@ export class SearchService {
         return new Observable<any>(obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
-            })
+            });
         });
       }
     
