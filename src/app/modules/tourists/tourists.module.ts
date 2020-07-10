@@ -14,7 +14,7 @@ import { HomeModule } from '../home/home.module';
 import { RequestsComponent } from './components/requests/requests.component';
 import { SearchResultPageComponent } from './pages/search-result-page/search-result-page.component';
 import { AllBookingsComponent } from './pages/all-bookings/all-bookings.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TouristChangePwdComponent } from './components/tourist-change-pwd/tourist-change-pwd.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TouristGuardService } from 'src/app/shared/service/tourist-guard.service';
@@ -24,7 +24,8 @@ import { GuideProfileComponent } from 'src/app/shared/components/guide-profile/g
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 import { InterestsComponent } from './pages/interests/interests.component';
 import { LanguagesComponent } from './pages/languages/languages.component';
-
+import {SliderModule} from 'primeng/slider';
+import {InputTextModule} from 'primeng/inputtext';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -127,7 +128,10 @@ const routes: Routes = [
     AngularMyDatePickerModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SliderModule,
+    InputTextModule,
+    FormsModule
   ],
   exports: [
 

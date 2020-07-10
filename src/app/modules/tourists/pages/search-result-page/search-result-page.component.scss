@@ -9,14 +9,17 @@
 .container1 {
     display: flex;
 }
-.deal-card{
+
+.deal-card {
     border: 1px solid rgba(128, 128, 128, 0.315);
     margin: 30px;
 }
-.deal-card:hover{
+
+.deal-card:hover {
     background-color: rgba(252, 255, 47, 0.418);
 }
-.deal-card p{
+
+.deal-card p {
     font-size: 13px;
     margin: 0;
 }
@@ -25,27 +28,31 @@ mdb-card-text,
 mdb-card-text div {
     font-size: medium !important;
 }
-.requests{
+
+.requests {
     display: flex;
 }
-.request-card{
-// width: 500px;
-}
-.side-card{
+
+// .request-card {
+//     width: 500px;
+// }
+.side-card {
     // padding: 3px;
     background-color: rgba(189, 235, 122, 0.384);
 }
+
 .collapse {
-    margin-left:30px;
+    margin-left: 30px;
 }
-.filters{
+
+.filters {
     border-right: 1px solid rgba(128, 128, 128, 0.342);
 }
-@media only screen and (max-width: 600px){
 
-    .request-card{
-        // width: 300px;
-    }
+@media only screen and (max-width: 600px) {
+    // .request-card {
+    //     width: 300px;
+    // }
     .container1 img {
         // border-radius: 50%;
         height: 100px;
@@ -53,19 +60,81 @@ mdb-card-text div {
         margin: 3px;
         // margin: 14px;
     }
-    .side-card{
+    .side-card {
         display: none;
     }
-    .responsive1{
+    .responsive1 {
         display: none;
     }
-    mdb-card-title h4{
+    mdb-card-title h4 {
         font-size: 17px;
     }
     .collapse {
-        margin-left:10px;
+        margin-left: 10px;
     }
-    .filters{
+    .filters {
         display: none;
     }
+}
+
+// tabs
+// .fifi {
+//     height: 100vh;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     font-family: 'Roboto', sans-serif;
+// }
+.wrapper {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.tabs {
+    margin-top: 50px;
+    font-size: 15px;
+    padding: 0px;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-radius: 50px;
+    position: relative;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #777;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.6s;
+}
+
+.tabs a.active {
+    color: #fff;
+}
+
+.tabs a i {
+    margin-right: 5px;
+}
+
+.tabs .selector {
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    border-radius: 50px;
+    transition-duration: 0.6s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: #05abe0;
+    background: -moz-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
+    -ms-filter: "progid: DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1)";
 }
