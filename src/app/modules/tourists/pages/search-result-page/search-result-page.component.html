@@ -2,11 +2,78 @@
 
 <div class="container-fluid d-none d-lg-block">
     <div class="row">
-        <div class="col-12 text-center py-3">
+        <div class="col-12 text-center py-3 ">
             <h1>Searched Results</h1>
         </div>
     </div>
 </div>
+
+<div class="row mx-lg-2">
+    <div class="col-lg-2 filters">
+        <div><b>FILTERS</b></div>
+        <div class="row my-lg-2">
+            <div class="col-lg-12">
+                <h4>Price Range: {{rangeValues[0] + ' - ' + rangeValues[1]}}</h4>
+                <p-slider [(ngModel)]="rangeValues" [style]="{'width':'14em'}" [range]="true"></p-slider>
+            </div>
+        </div>
+        <div class="row my-lg-2">
+            <div class="col-lg-12">
+                <h6>RATINGS</h6>
+                <!-- Default unchecked -->
+                <mdb-checkbox [default]="true">5</mdb-checkbox>
+                <mdb-checkbox [default]="true">5</mdb-checkbox>
+                <mdb-checkbox [default]="true">5</mdb-checkbox>
+                <mdb-checkbox [default]="true">5</mdb-checkbox>
+                <mdb-checkbox [default]="true">5</mdb-checkbox>
+            </div>
+        </div>
+        <div class="row my-lg-2">
+            <div class="col-lg-12">
+                <!-- Default unchecked -->
+                <h6>INTERESTS</h6>
+                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+            </div>
+        </div>
+        <div class="row my-lg-2">
+            <div class="col-lg-12">
+                <!-- Default unchecked -->
+                <h6>LANGUAGES</h6>
+                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-9">
+        <!-- <mat-tab-group [color]="primary" [backgroundColor]="accent">
+            <mat-tab label="First"> Content 1 </mat-tab>
+            <mat-tab label="Second"> Content 2 </mat-tab>
+            <mat-tab label="Third"> Content 3 </mat-tab>
+        </mat-tab-group> -->
+
+        <div class="wrapper">
+            <!-- <h2>Elastic Tabs</h2> -->
+
+            <nav class="tabs">
+                <div class="selector"></div>
+                <a [routerLink]="['guidesList']" routerLinkActive="active" class="active"><i class="im im-user-male"></i>Guides</a>
+                <a [routerLink]="['dealsList']" routerLinkActive="active"><i class="im im-user-male"></i>Deals</a>
+                <!-- <a href="#"><i class="fas fa-bolt"></i>Thor</a>
+                <a href="#"><i class="fas fa-burn"></i>Marvel</a> -->
+            </nav>
+        </div>
+
+
+        <!-- <ul>
+            <li><a [routerLink]="['guidesList']" routerLinkActive="active">Guides</a></li>
+            <li><a [routerLink]="['dealsList']" routerLinkActive="active">Deals</a></li>
+        </ul> -->
+        <router-outlet></router-outlet>
+
+    </div>
+</div>
+
 <!-- <div class="search-text">
     <h1>Deals and guides in Rishikesh</h1>
 </div>
@@ -102,29 +169,11 @@
 
         <hr>
         <br>
-        <h6>Interests</h6>
-        <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
        
-        <div mdbCollapse #intrest="bs-collapse">
-            <mdb-checkbox [default]="true">Hindi</mdb-checkbox>
-            <mdb-checkbox [default]="true">English</mdb-checkbox>
-            <mdb-checkbox [default]="true">French</mdb-checkbox>
-            <mdb-checkbox [default]="true">Spanish</mdb-checkbox>
-        </div>
-        <div>
-            <a (click)="intrest.toggle()" style="color: rgb(248, 93, 93); ">more</a>
-        </div>
         <br>
         <button mdbBtn type="button" color="indigo" mdbWavesEffect>Apply</button>
 
     </div>
-    <div class="col-md-9">
-        <ul>
-            <li><a [routerLink]="['guidesList']" routerLinkActive="active">Guides</a></li>
-            <li><a [routerLink]="['dealsList']" routerLinkActive="active">Deals</a></li>
-        </ul>
-        <router-outlet></router-outlet>
 
-    </div>
 </div>
  -->
