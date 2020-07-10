@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
-import languages from 'country-language';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';

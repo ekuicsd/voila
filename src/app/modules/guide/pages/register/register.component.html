@@ -1,24 +1,19 @@
 <wizard #wizard class="arc-wizard background" navBarLayout="large-filled-symbols">
-
   <wizard-step stepTitle="Personal Details" navigationSymbol="1">
     <app-personal-details (personalData)="getPersonalData($event)"></app-personal-details>
   </wizard-step>
-
-  <wizard-step stepTitle="Set-up" navigationSymbol="2">
-    <app-bussiness-details (basicData)="getBasicData($event)" (languageData)="getLanguageData($event)"
-      (interestData)="getInterestData($event)" (experienceData)="getExperienceData($event)"
+  <wizard-step stepTitle="Business Details" navigationSymbol="2">
+    <app-bussiness-details (basicData)="getBasicData($event)"
+      (experienceData)="getExperienceData($event)"
     ></app-bussiness-details>
   </wizard-step>
-  <wizard-step stepTitle="Language" navigationSymbol="3">
-    <app-languages></app-languages>
+  <wizard-step stepTitle="Languages" navigationSymbol="3">
+    <app-languages (ouputLanguagesList)="getLanguageData($event)"></app-languages>
   </wizard-step>
-  <wizard-step stepTitle="Intrests" navigationSymbol="4">
-    <app-interests></app-interests>
+  <wizard-step stepTitle="Interests" navigationSymbol="4">
+    <app-interests (ouputInterestsList)="getInterestData($event)"></app-interests>
   </wizard-step>
-  <wizard-step stepTitle="Terms and condition" navigationSymbol="5">
+  <wizard-step stepTitle="Terms and conditions" navigationSymbol="5">
     <app-terms-conditions (tc)="finalSubmit()"></app-terms-conditions>
   </wizard-step>
-<br><br><br>
 </wizard>
-
-<!-- mdb test -->

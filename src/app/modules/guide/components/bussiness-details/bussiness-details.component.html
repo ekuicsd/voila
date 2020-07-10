@@ -1,10 +1,8 @@
-<div class="card card-body pannel">
-  <h2 style="font-size: 50px;" class="card-title text-center mt-3 mb-4">Sign Up</h2>
-
+<div class="card card-body pannel px-4 py-0 mb-5">
+  <h3 style="font-size: 30px;" class="card-title text-center mt-3 mb-3">Business Details</h3>
   <div class="row">
     <div class="col-lg-7">
        <div class="card-text">
-
         <form [formGroup]="basicDetails">
             <div class="col-12">
               <div class="form-group">
@@ -25,69 +23,39 @@
               </div>
             </div>
         </form>
-
-
-
-
-        <!-- 3 -->
-        <!-- <form [formGroup]="locationForm" (ngSubmit)="submitLocation()">
-          <div class="row card-body pt-0">
-              <div class="col-md-7">
-                <div class="form-group">
-                  <label>Location</label>
-
-                  <input type="text" class="form-control" formControlName="location">
-                </div>
-              </div>
-              <div class="col-md-4 pl-3 pt-1">
-                  <button type="submit"class="btn btn-success mt-4">Add</button>
-              </div>
-          </div>
-        </form>
-        <div *ngIf="userLocationList" class="row card-body pt-0">
-          <span class="spanClass" *ngFor="let item of userLocationList">{{item}}
-            <button (click)="removeFromUserLocationList(item)" class="btn btn-danger">X</button>
-          </span>
-        </div> -->
-
-
-
         </div>
         <h5 class="mt-3" style="font-size: 25px;">Past Experience</h5>
         <p>*You can add more experiences in the edit profile section</p>
         <form [formGroup]="experienceForm" (ngSubmit)="submitExperienceForm()">
-      <div class="row card-body">
-
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Work</label>
-            <input type="text" class="form-control" formControlName="work">
+          <div class="row card-body">
+            <div class="col-6 ">
+              <div class="form-group">
+                <label>Work</label>
+                <input type="text" class="form-control" formControlName="work">
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label>Work Profile</label>
+                <input type="text" class="form-control" formControlName="profile">
+              </div>
+            </div>
+            <div class="col-6 ">
+              <div class="form-group ">
+                <label>Start Year</label>
+                <input type="number" class="form-control" formControlName="startYear">
+              </div>
+            </div>
+            <div class="col-6 ">
+              <div class="form-group ">
+                <label>Year</label>
+                <input type="text" class="form-control" formControlName="duration">
+              </div>
+            </div>
+            <div class="col-md-12 text-center pt-2">
+                <button type="submit" class="btn btn-success">Add</button>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Work Profile</label>
-            <input type="text" class="form-control" formControlName="profile">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Start Year</label>
-            <input type="number" class="form-control" formControlName="startYear">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label>Year</label>
-            <input type="text" class="form-control" formControlName="duration">
-          </div>
-        </div>
-        <div class="col-md-3 pl-3 pt-4">
-          <!-- <div class="form-group"> -->
-            <button type="submit" class="form-control btn btn-success">Add</button>
-          <!-- </div> -->
-        </div>
-      </div>
       </form>
        </div>
 
@@ -122,12 +90,7 @@
            </div>
 
   </div>
-  <!-- col-md-5 -->
   </div>
-  <!-- row -->
-
-
-
   <div *ngIf="userExperienceList.length > 0" class="row card-body">
     <div class="col-md-12 table-responsive">
       <table class="table table-hover">
@@ -157,17 +120,10 @@
        </table>
     </div>
   </div>
-  <div class="row card-body mx-0">
-    <div class="col-md-12">
-      <button class="btn btn-success" type="button" previousStep>Previous</button>
-      <button class="btn btn-success" type="button" nextStep (click)="finalSubmit()" >Next</button>
+  <div class="row card-body mx-0 px-0">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-danger"  style="width: 120px;" mdbBtn type="button" previousStep>Previous</button>
+      <button class="btn btn-success"  style="width: 120px;" mdbBtn type="button" (click)="finalSubmit()" >Next</button>
     </div>
   </div>
-
-
-  <!-- <div class="flex-row">
-    <a class="card-link" previousStep>Previous</a>
-    <a class="card-link" nextStep>Next</a>
-  </div> -->
-  <!--  -->
 </div>

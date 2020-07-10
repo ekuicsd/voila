@@ -1,113 +1,38 @@
-<div class="card card-body pannel" >
-  <h2 style="font-size: 50px;" class="card-title text-center mt-3 mb-4">Select Your Intrests</h2>
-<div class="mx-lg-4">
+<div class="card card-body pannel px-4 py-0 mb-5" >
+  <h2 style="font-size: 30px;" class="card-title text-center mt-3 mb-4">Intrests</h2>
+  <div class="px-lg-4">
+    <div *ngIf="selectedInterestsList.length > 0">
+      <h4>Selected 
+      </h4>
+      <hr>
+      <div class="row my-4">
+        <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="removeFromSelectedList(item)" *ngFor="let item of selectedInterestsList; let i = index;">
+            <mdb-card [ngClass]="getGradientClass(i+1)">
+                <mdb-card-body class="waves-effect waves-light">
+                    <div class="m-auto text-center white-text">
+                        <h5 class="my-0">{{item}}</h5>
+                    </div>
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+      </div>
+    </div>
+    <h4>All
+      <button class="btn btn-success my-0 py-2 float-right" mdbBtn type="button" (click)="outputInterests()" >Next</button>
+      <button class="btn btn-danger my-0 py-2 float-right" mdbBtn type="button" previousStep>Previous</button>
+      
+    </h4>
+    <hr>
     <div class="row my-4">
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style=" background-image: linear-gradient(45deg, rgb(35,36,58),rgb(77,241,192));">
+        <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="addToSelectedIntList(item)" *ngFor="let item of interestsList; let i = index;">
+            <mdb-card [ngClass]="isSelected(item) ? 'activeClass' : getGradientClass(i+1)">
                 <mdb-card-body class="waves-effect waves-light">
-
                     <div class="m-auto text-center white-text">
-                        <h3>Sports</h3>
-
-                    </div>
-
-                </mdb-card-body>
-            </mdb-card>
-
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style="background-image: linear-gradient(45deg, rgb(44,17,17),rgb(249,52,52));">
-                <mdb-card-body class="waves-effect waves-light">
-
-                    <div class="m-auto text-center white-text">
-                        <h3>Shopping</h3>
-
-                    </div>
-
-                </mdb-card-body>
-            </mdb-card>
-
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style="background-image: linear-gradient(45deg, rgb(25,31,68),rgb(169,249,52));">
-                <mdb-card-body class="waves-effect waves-light">
-
-                    <div class="m-auto text-center white-text">
-                        <h3>History</h3>
-
+                        <h5 class="my-0">{{item}}</h5>
                     </div>
                 </mdb-card-body>
             </mdb-card>
-
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style=" background-image: linear-gradient(45deg, rgb(40, 23, 76),rgb(232, 90, 94));">
-                <mdb-card-body class="waves-effect waves-light">
-
-                    <div class="m-auto text-center white-text">
-                        <h3>Fashion</h3>
-
-                    </div>
-                </mdb-card-body>
-            </mdb-card>
-
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style="background-image: linear-gradient(45deg, rgb(23,12,40),rgb(229,170,255));">
-                <mdb-card-body class="waves-effect waves-light">
-
-                    <div class="m-auto text-center white-text">
-                        <h3>Shopping</h3>
-
-                    </div>
-
-                </mdb-card-body>
-            </mdb-card>
-
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style=" background-image: linear-gradient(45deg, rgb(48,47,20),rgb(245,241,15));">
-                <mdb-card-body class="waves-effect waves-light">
-
-                    <div class="m-auto text-center white-text">
-                        <h3>Nature</h3>
-
-                    </div>
-
-                </mdb-card-body>
-            </mdb-card>
-
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style="background-image: linear-gradient(45deg, rgb(12,18,40),rgb(255,146,31));">
-                <mdb-card-body class="waves-effect waves-light">
-
-                    <div class="m-auto text-center white-text">
-                        <h3>History</h3>
-
-                    </div>
-                </mdb-card-body>
-            </mdb-card>
-
-        </div>
-        <div class="col-lg-3 col-md-4 col-6 mb-4">
-            <mdb-card style="background-image: linear-gradient(45deg, rgb(12,24,52),rgb(143,185,225));">
-                <mdb-card-body class="waves-effect waves-light">
-
-                    <div class="m-auto text-center white-text">
-                        <h3>History</h3>
-
-                    </div>
-                </mdb-card-body>
-            </mdb-card>
-
         </div>
     </div>
-</div>
-<div class="row card-body mx-0">
-  <div class="col-md-12">
-    <button class="btn btn-success" type="button" previousStep>Previous</button>
-    <button class="btn btn-success" type="button" nextStep >Next</button>
   </div>
-</div>
 </div>

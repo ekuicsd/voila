@@ -1,44 +1,30 @@
-<div class="card card-body pannel">
-  <h2 style="font-size: 50px;" class="card-title text-center mt-3 mb-4">Terms and conditions</h2>
+<div class="card card-body pannel px-4 py-0 mb-5">
+  <h2 style="font-size: 30px;" class="card-title text-center mt-3 mb-4">Terms and conditions</h2>
   <div class="row">
     <div class="col-12">
        <div class="card-text">
          <div>
            <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
              with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h5>
-         </div>
-         <!--  -->
+         </div><br>
          <form [formGroup]="termsConditions">
           <div class="row">
             <div class="col-md-12">
-              <!-- <div class="form-group"> -->
                <div class="form-check">
                  <input type="checkbox" formControlName="tc" class="form-check-input" id="materialChecked2">
-                 <label class="form-check-label" for="materialChecked2">terms and Conditions</label>
+                 <label class="form-check-label" for="materialChecked2">Terms and Conditions</label>
                </div>
-              <!-- </div> -->
             </div>
           </div>
-           <!--  -->
            <div class="row">
-             <div class="col-md-12">
-               <button type="button" (click)="submitTc()" class="btn btn-primary">Continue</button>
+             <div class="col-md-12 text-center">
+              <button type="button" style="width: 140px;" previousStep class="btn btn-danger">Previous</button>
+               <button type="button" style="width: 140px;" (click)="submitTc()" class="btn btn-success">Submit</button>
              </div>
            </div>
          </form>
-        </div>
-
-
-
-
-       </div>
-
-
+      </div>
+    </div>
   </div>
-
-  <!-- <div class="flex-row">
-    <a class="card-link" previousStep>Previous</a>
-    <a class="card-link" nextStep>Next</a>
-  </div> -->
 </div>
 

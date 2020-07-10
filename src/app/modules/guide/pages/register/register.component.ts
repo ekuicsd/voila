@@ -4,6 +4,7 @@ import { Guide } from 'src/app/shared/models/guide.model';
 import { WizardComponent } from 'ng2-archwizard/dist';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,41 +13,17 @@ import { GuideService } from 'src/app/shared/service/guide.service';
 })
 export class RegisterComponent implements OnInit {
 
-  // guideForm: FormGroup;
   @ViewChild('wizard', {static: false}) wizard: WizardComponent;
   guide: Guide = {};
 
-  constructor(private toastr: ToastrService, private guideService: GuideService) { }
+  constructor(private toastr: ToastrService,
+    private router: Router,
+    private guideService: GuideService) { }
 
   ngOnInit() {
-
-
   }
 
-  // createForm() {
-  //   this.guideForm = new FormGroup({
-  //     name : new FormControl('', [Validators.required]),
-  //     gender : new FormControl('', [Validators.required]),
-  //     password : new FormControl('', [Validators.required]),
-  //     dob : new FormControl('', [Validators.required]),
-  //     phoneNumber : new FormControl('', [Validators.required]),
-  //     email : new FormControl('', [Validators.required]),
-  //     address : new FormControl('', [Validators.required]),
-  //     experience : new FormControl('', [Validators.required]),
-  //     peopleLimit : new FormControl('', [Validators.required]),
-  //     perHeadCharge : new FormControl('', [Validators.required]),
-  //     perDayCharge : new FormControl('', [Validators.required]),
-  //     // picUrl : picUrl,
-  //     aadhaarNumber : new FormControl('', [Validators.required]),
-  //     interests : new FormControl('', [Validators.required]),
-  //     languages : new FormControl('', [Validators.required]),
-  //     city : new FormControl('', [Validators.required]),
-  //     state : new FormControl('', [Validators.required])
-  //   })
-  // }
-
   getPersonalData(data) {
-    // this.guideForm.patchValue(data);
     this.guide = data;
     console.log(this.guide);
     this.wizard.navigation.goToNextStep();
@@ -60,10 +37,12 @@ export class RegisterComponent implements OnInit {
 
   getLanguageData(data) {
     this.guide.languages = data;
+    this.wizard.navigation.goToNextStep();
   }
 
   getInterestData(data) {
     this.guide.interests = data;
+    this.wizard.navigation.goToNextStep();
   }
 
   getExperienceData(data) {
@@ -71,17 +50,22 @@ export class RegisterComponent implements OnInit {
     this.wizard.navigation.goToNextStep();
   }
 
+  // terms and conditions 
   finalSubmit() {
     console.log("done!");
     console.log(this.guide);
-
     const formData = new FormData();
     formData.append("data", JSON.stringify(this.guide));
-
     this.guideService.guideSignup(formData).subscribe( res => {
-      console.log(res);
-      this.toastr.success("Created Successfully!");
-      this.wizard.navigation.reset();
-    })
+      if(res.success) {
+        console.log(res);
+        this.toastr.success("Created Successfully!");
+        this.router.navigateByUrl('/login/guide');
+      } else {
+        this.toastr.error(res.message);
+        this.wizard.navigation.reset();
+        this.wizard.navigation.canGoToStep(1);
+      }
+    });
   }
 }
