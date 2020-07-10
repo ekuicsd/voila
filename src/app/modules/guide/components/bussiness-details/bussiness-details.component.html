@@ -1,128 +1,94 @@
 <div class="card card-body pannel">
+  <h2 style="font-size: 50px;" class="card-title text-center mt-3 mb-4">Sign Up</h2>
 
   <div class="row">
     <div class="col-lg-7">
-      <h2 class="card-title center" >Sign Up</h2>
        <div class="card-text">
 
         <form [formGroup]="basicDetails">
-          <div class="row card-body">
-            <div class="col-md-4">
+            <div class="col-12">
               <div class="form-group">
                 <label>People Limit</label>
                 <input type="number" formControlName="peopleLimit" class="form-control">
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-12">
               <div class="form-group">
                 <label>Charges Per Head</label>
                 <input type="number" formControlName="perHeadCharge" class="form-control">
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-12">
               <div class="form-group">
                 <label>Charges per Day</label>
                 <input type="number" formControlName="perDayCharge" class="form-control">
               </div>
             </div>
-          </div>
         </form>
 
-        <!-- 1 -->
-        <form [formGroup]="interestForm" (ngSubmit)="submitInterest()">
-        <div class="row card-body pb-0 pt-0">
-            <div class="col-md-7">
-              <div class="form-group">
-                <label>Select Interests</label>
-                <select formControlName="interest" class="form-control">
-                  <option value="" disabled>Select</option>
-                  <option *ngFor="let item of interestList" [value]="item">{{item}}</option>
-                </select>
-              </div>
-            </div>
-            <!-- <div class="col-md-1"></div> -->
-            <div class="col-md-4 pl-3 pt-1">
-              <!-- <div class="form-control"> -->
-                <button type="submit"class="btn btn-success mt-4">Add</button>
-              <!-- </div> -->
-            </div>
-        </div>
-      </form>
-      <!-- list -->
-      <div *ngIf="userInterestList" class="row card-body pt-0">
-        <span class="spanClass" *ngFor="let item of userInterestList">{{item}}
-          <button (click)="removeFromUserInterestList(item)" class="btn btn-danger">X</button>
-        </span>
-      </div>
-      <!--  -->
-
-
-       <!-- 2 -->
-       <form [formGroup]="languageForm" (ngSubmit)="submitLanguage()">
-        <div class="row card-body pt-0 pb-0">
-            <div class="col-md-7">
-              <div class="form-group">
-                <label>Language</label>
-                <!-- <select formControlName="interest" class="form-control">
-                  <option value="" disabled>Select</option>
-                  <option *ngFor="let item of interestList" [value]="item">{{item}}</option>
-                </select> -->
-                <input type="text" class="form-control" formControlName="language">
-              </div>
-            </div>
-            <!-- <div class="col-md-1"></div> -->
-            <div class="col-md-4 pl-3 pt-1">
-              <!-- <div class="form-control"> -->
-                <button type="submit"class="btn btn-success mt-4">Add</button>
-              <!-- </div> -->
-            </div>
-        </div>
-      </form>
-      <!-- list -->
-      <div *ngIf="userLanguageList" class="row card-body pt-0">
-        <!-- <div class="col-md-12"> -->
-          <span class="spanClass" *ngFor="let item of userLanguageList">{{item}}
-            <button (click)="removeFromUserLanguageList(item)" class="btn btn-danger">X</button>
-          </span>
-        <!-- </div> -->
-      </div>
-      <!--  -->
 
 
 
         <!-- 3 -->
-        <form [formGroup]="locationForm" (ngSubmit)="submitLocation()">
+        <!-- <form [formGroup]="locationForm" (ngSubmit)="submitLocation()">
           <div class="row card-body pt-0">
               <div class="col-md-7">
                 <div class="form-group">
                   <label>Location</label>
-                  <!-- <select formControlName="interest" class="form-control">
-                    <option value="" disabled>Select</option>
-                    <option *ngFor="let item of interestList" [value]="item">{{item}}</option>
-                  </select> -->
+
                   <input type="text" class="form-control" formControlName="location">
                 </div>
               </div>
-              <!-- <div class="col-md-1"></div> -->
               <div class="col-md-4 pl-3 pt-1">
-                <!-- <div class="form-control"> -->
                   <button type="submit"class="btn btn-success mt-4">Add</button>
-                <!-- </div> -->
               </div>
           </div>
         </form>
-        <!-- list -->
         <div *ngIf="userLocationList" class="row card-body pt-0">
           <span class="spanClass" *ngFor="let item of userLocationList">{{item}}
             <button (click)="removeFromUserLocationList(item)" class="btn btn-danger">X</button>
           </span>
-        </div>
-        <!--  -->
+        </div> -->
 
 
 
         </div>
+        <h5 class="mt-3" style="font-size: 25px;">Past Experience</h5>
+        <p>*You can add more experiences in the edit profile section</p>
+        <form [formGroup]="experienceForm" (ngSubmit)="submitExperienceForm()">
+      <div class="row card-body">
 
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Work</label>
+            <input type="text" class="form-control" formControlName="work">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Work Profile</label>
+            <input type="text" class="form-control" formControlName="profile">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Start Year</label>
+            <input type="number" class="form-control" formControlName="startYear">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Year</label>
+            <input type="text" class="form-control" formControlName="duration">
+          </div>
+        </div>
+        <div class="col-md-3 pl-3 pt-4">
+          <!-- <div class="form-group"> -->
+            <button type="submit" class="form-control btn btn-success">Add</button>
+          <!-- </div> -->
+        </div>
+      </div>
+      </form>
        </div>
 
     <div class="col-lg-5 d-none d-lg-block">
@@ -160,42 +126,7 @@
   </div>
   <!-- row -->
 
-  <h5>Past Experience</h5>
-    <p>*You can add more experiences in the edit profile section</p>
-    <form [formGroup]="experienceForm" (ngSubmit)="submitExperienceForm()">
-  <div class="row card-body">
 
-    <div class="col-md-3">
-      <div class="form-group">
-        <label>Work</label>
-        <input type="text" class="form-control" formControlName="work">
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="form-group">
-        <label>Work Profile</label>
-        <input type="text" class="form-control" formControlName="profile">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label>Start Year</label>
-        <input type="number" class="form-control" formControlName="startYear">
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="form-group">
-        <label>Year</label>
-        <input type="text" class="form-control" formControlName="duration">
-      </div>
-    </div>
-    <div class="col-md-2 pl-3 pt-4">
-      <!-- <div class="form-group"> -->
-        <button type="submit" class="form-control btn btn-success">Add</button>
-      <!-- </div> -->
-    </div>
-  </div>
-  </form>
 
   <div *ngIf="userExperienceList.length > 0" class="row card-body">
     <div class="col-md-12 table-responsive">
@@ -218,8 +149,8 @@
             <td>{{item.startYear}}</td>
             <td>{{item.duration}}</td>
             <td>
-              <button (click)="editExperience(item)"><mdb-icon fas icon="edit"></mdb-icon></button>
-              <button (click)="removeExperience(item)"><mdb-icon fas icon="trash-alt"></mdb-icon></button>
+              <button (click)="editExperience(item)"><mdb-icon class="edit-icon" fas icon="edit"></mdb-icon></button>
+              <button (click)="removeExperience(item)"><mdb-icon fas class="delete-icon" icon="trash-alt"></mdb-icon></button>
             </td>
           </tr>
         </tbody>
@@ -229,7 +160,7 @@
   <div class="row card-body mx-0">
     <div class="col-md-12">
       <button class="btn btn-success" type="button" previousStep>Previous</button>
-      <button class="btn btn-success" type="button" (click)="finalSubmit()" >Next</button>
+      <button class="btn btn-success" type="button" nextStep (click)="finalSubmit()" >Next</button>
     </div>
   </div>
 
