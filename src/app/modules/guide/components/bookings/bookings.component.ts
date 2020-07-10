@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { Booking } from 'src/app/shared/models/booking.model';
 import { Router } from '@angular/router';
@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
-  styleUrls: ['./bookings.component.scss']
+  styleUrls: ['./bookings.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BookingsComponent implements OnInit {
   public bookingsList: Booking[];
@@ -33,7 +34,7 @@ export class BookingsComponent implements OnInit {
   //   console.log(startDate.getDate());
   //   console.log(startDate.getMonth());
   //   if(endDate.getMonth() - startDate.getMonth()){
-      
+
 
   //   }else {
   //     let dayDiff = endDate.getDate() - startDate.getDate();
