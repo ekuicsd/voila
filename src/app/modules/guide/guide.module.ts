@@ -28,7 +28,6 @@ import { InterestsComponent } from './pages/interests/interests.component';
 
 
 const routes: Routes = [
-    // {path: '', redirectTo: 'register', pathMatch: 'full'},
     {path: 'register', component: RegisterComponent},
 
     {path: 'show-register', component: ShowRegisterComponent },
@@ -37,7 +36,6 @@ const routes: Routes = [
       {
         path: '', redirectTo: 'bookings', pathMatch: 'full'
       },
-    // {path: 'guide', children: [
       {
         path: 'bookings', component: BookingsComponent,
         canActivate: [GuideGuardService]
@@ -70,12 +68,11 @@ const routes: Routes = [
         path: 'changepassword', component: GuideChangePwdComponent,
         canActivate: [GuideGuardService]
       },
-      {
-         path: 'show-register', component: ShowRegisterComponent
-      }
+      // {
+      //    path: 'show-register', component: ShowRegisterComponent
+      // }
 
     ]},
-    // ]},
 
 ];
 

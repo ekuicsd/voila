@@ -32,7 +32,7 @@
       <tbody>
         <tr *ngFor="let data of bookingsList; let i = index">
           <th scope="row">{{i+1}}</th>
-          <td>{{data.touristId.name}}</td>
+          <td>{{data.touristId?.name}}</td>
           <td>{{data.places.toString()}}</td>
           <td>{{data.bookingDate | date: 'dd-MM-yyyy'}}</td>
           <td>{{data.duration}}</td>
