@@ -8,7 +8,18 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./personal-details.component.scss']
 })
 export class PersonalDetailsComponent implements OnInit {
+  // url: string | ArrayBuffer;
+  // onSelectFile(event) { // called each time file input changes
+  //     if (event.target.files && event.target.files[0]) {
+  //       var reader = new FileReader();
 
+  //       reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+  //       reader.onload = (event) => { // called once readAsDataURL is completed
+  //         this.url = FileReader.result;
+  //       }
+  //     }
+  // }
   // public countryCode: string = '101';
   @Output() personalData: EventEmitter<any> = new EventEmitter<any>();
   stateList: any[];

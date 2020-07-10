@@ -1,16 +1,21 @@
 <wizard #wizard class="arc-wizard background" navBarLayout="large-filled-symbols">
 
-  <wizard-step stepTitle="Pertional Details" navigationSymbol="1">
+  <wizard-step stepTitle="Personal Details" navigationSymbol="1">
     <app-personal-details (personalData)="getPersonalData($event)"></app-personal-details>
   </wizard-step>
 
-  <wizard-step stepTitle="Title of step 2" navigationSymbol="2">
+  <wizard-step stepTitle="Set-up" navigationSymbol="2">
     <app-bussiness-details (basicData)="getBasicData($event)" (languageData)="getLanguageData($event)"
       (interestData)="getInterestData($event)" (experienceData)="getExperienceData($event)"
     ></app-bussiness-details>
   </wizard-step>
-
-  <wizard-step stepTitle="Title of step 3" navigationSymbol="3">
+  <wizard-step stepTitle="Language" navigationSymbol="3">
+    <app-languages></app-languages>
+  </wizard-step>
+  <wizard-step stepTitle="Intrests" navigationSymbol="4">
+    <app-interests></app-interests>
+  </wizard-step>
+  <wizard-step stepTitle="Terms and condition" navigationSymbol="5">
     <app-terms-conditions (tc)="finalSubmit()"></app-terms-conditions>
   </wizard-step>
 <br><br><br>

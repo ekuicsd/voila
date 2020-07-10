@@ -1,14 +1,14 @@
 <div class="card pannel">
+  <h2 style="font-size: 50px;" class="card-title text-center mt-3 mb-4">Sign Up</h2>
 
   <div class="row">
     <div class="col-lg-7">
-      <h2 class="card-title center" >Sign Up</h2>
        <div class="card-text">
          <form [formGroup]="personalDetails">
-         <div class="row card-body mx-0">
+         <div class="row card-body mx-0 p-3">
            <div class="col-md-3">
             <div class="form-group">
-              <mdb-icon fas icon="user-circle" class="prefix"></mdb-icon>
+              <mdb-icon fas icon="user-circle" class="prefix"></mdb-icon>&nbsp;
               <label for="form1"> Gender</label>
               <!-- <input type="text" id="form1" class="form-control"> -->
               <select id="form1" class="form-control" formControlName="gender">
@@ -21,7 +21,7 @@
            </div>
            <div class="col-md-9">
              <div class="form-group">
-          <mdb-icon fas icon="user-circle" class="prefix"></mdb-icon>
+          <mdb-icon fas icon="user-circle" class="prefix"></mdb-icon>&nbsp;
           <label for="form2"> Full Name</label>
           <input type="text" id="form2" class="form-control" formControlName="name">
 
@@ -33,7 +33,7 @@
          <div class="row card-body pt-0 mx-0">
            <div class="col-md-12">
             <div class="form-group">
-              <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+              <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>&nbsp;
               <label for="form5">Email</label>
               <input type="email" id="form5" formControlName="email" class="form-control">
 
@@ -45,7 +45,7 @@
          <div class="row card-body pt-0 mx-0">
            <div class="col-md-12">
             <div class="form-group">
-              <mdb-icon fas icon="phone-alt" class="prefix"></mdb-icon>
+              <mdb-icon fas icon="phone-alt" class="prefix"></mdb-icon>&nbsp;
               <label for="form6">Phone number</label>
               <input type="number" id="form6" formControlName="phoneNumber" class="form-control">
 
@@ -53,11 +53,21 @@
            </div>
          </div>
          <!--  -->
-
+         <div class="row card-body pt-0 mx-0">
+          <div class="col-md-12">
+           <div class="form-group">
+             <mdb-icon fas icon="user-circle" class="prefix"></mdb-icon>&nbsp;
+             <label for="form6">Profile Image</label><br>
+             <!-- <img [src]="url" height="200"> <br/>
+             <input type='file' accept="image/*" (change)="onSelectFile($event)"> -->
+             <input type='file' accept="image/*">
+           </div>
+          </div>
+        </div>
          <div class="row card-body pt-0 mx-0">
           <div class="col-md-6">
             <div class="form-group">
-              <mdb-icon fas icon="key" class="prefix"></mdb-icon>
+              <mdb-icon fas icon="key" class="prefix"></mdb-icon>&nbsp;
               <label for="form3">Password</label>
               <input type="password" id="form3" formControlName="password" class="form-control">
 
@@ -66,7 +76,7 @@
 
            <div class="col-md-6">
             <div class="form-group">
-              <mdb-icon fas icon="key" class="prefix"></mdb-icon>
+              <mdb-icon fas icon="key" class="prefix"></mdb-icon>&nbsp;
               <label for="form4">Confirm Password</label>
               <input type="password" formControlName="confirmPassword" id="form4" class="form-control">
 
@@ -78,7 +88,7 @@
          <div class="row card-body pt-0 mx-0">
           <div class="col-md-5">
             <div class="form-group">
-              <mdb-icon far icon="calendar-alt" class="prefix"></mdb-icon>
+              <mdb-icon far icon="calendar-alt" class="prefix"></mdb-icon>&nbsp;
               <label for="form3">Date of Birth</label>
               <input type="date" id="form3" formControlName="dob" class="form-control">
 
@@ -87,7 +97,7 @@
 
           <div class="col-md-7">
             <div class="form-group">
-         <mdb-icon far icon="address-card" class="prefix"></mdb-icon>
+         <mdb-icon far icon="address-card" class="prefix"></mdb-icon>&nbsp;
          <label for="form4">Aadhar card Number</label>
          <input type="number" id="form4"formControlName="aadhaarNumber" class="form-control">
 
@@ -130,7 +140,7 @@
           <div class="row card-body pt-0 mx-0">
             <div class="col-md-12">
               <div class="form-group">
-                <mdb-icon far icon="address-book" class="prefix"></mdb-icon>
+                <mdb-icon far icon="address-book" class="prefix"></mdb-icon>&nbsp;
                 <label for="form10">Address</label>
                 <input type="text" formControlName="address" id="form10" class="form-control">
 

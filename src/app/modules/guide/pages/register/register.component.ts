@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild , ViewEncapsulation} from '@angular/core';
 // import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Guide } from 'src/app/shared/models/guide.model';
 import { WizardComponent } from 'ng2-archwizard/dist';
@@ -7,7 +7,8 @@ import { GuideService } from 'src/app/shared/service/guide.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
 
