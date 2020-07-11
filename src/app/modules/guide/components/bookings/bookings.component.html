@@ -52,9 +52,40 @@
 </div>
 
 <div class="d-block d-md-none">
-  <h1> Hey cards!</h1>
+  <mdb-card class="bag">
+    <!--Card image-->
+    <!--Card content-->
+    <mdb-card-body>
+
+      <!--Title-->
+      <mdb-card-title>
+        <h4>Tourist name</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text >
+        <div class="row">
+          <div class="col-6">
+          <div><b>Start-Date</b></div>
+          <div>12-7-23</div>
+        </div>
+        <div class="col-6">
+          <div><b>Duration</b></div>
+          <div>4 Days</div>
+        </div>
+        <div class="col-6">
+          <div><b>People</b></div>
+          <div>41</div>
+        </div>
+        </div>
+
+      </mdb-card-text>
+
+      <a href="#" mdbBtn style="background: #cbcbcb;" mdbWavesEffect>View more</a>
+    </mdb-card-body>
+  </mdb-card>
 </div>
-  
+
 </div>
 
 
@@ -132,7 +163,7 @@
   <div class="modal-footer row mx-0 ">
        <div class="col">
          <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
-      </div> 
+      </div>
       <div class="col">
         <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactTourist(content, selectedBooking.touristId.email)" mdbWavesEffect>Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
       </div>
