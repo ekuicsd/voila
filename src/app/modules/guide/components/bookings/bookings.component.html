@@ -44,44 +44,36 @@
 </div>
 
 <div *ngIf="!bookingsList">
-  <div class="row">
+  <div class="row cust-grid">
     <div class="col-12 text-center">
       <h1>No Bookings !!</h1>
     </div>
   </div>
 </div>
 
-<div class="d-block d-md-none">
-  <mdb-card class="bag">
-    <!--Card image-->
-    <!--Card content-->
+<div class="d-block d-md-none mt-4">
+  <mdb-card class="bag mb-4" *ngFor="let data of bookingsList">
     <mdb-card-body>
-
-      <!--Title-->
       <mdb-card-title>
-        <h4>Tourist name</h4>
+        <h4>{{data.tourType | titlecase}} Tour</h4>
       </mdb-card-title>
-
-      <!--Text-->
       <mdb-card-text >
         <div class="row">
-          <div class="col-6">
+          <div class="col-4">
           <div><b>Start-Date</b></div>
-          <div>12-7-23</div>
+          <div>{{data.startDate | date: 'dd-MM-yyyy'}}</div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
           <div><b>Duration</b></div>
-          <div>4 Days</div>
+          <div>{{data.duration}} days</div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
           <div><b>People</b></div>
-          <div>41</div>
+          <div>{{data.noOfPeople}}</div>
         </div>
         </div>
-
       </mdb-card-text>
-
-      <a href="#" mdbBtn style="background: #cbcbcb;" mdbWavesEffect>View more</a>
+      <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
     </mdb-card-body>
   </mdb-card>
 </div>

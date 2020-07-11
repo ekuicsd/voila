@@ -3,7 +3,13 @@
 
     <!-- Navbar brand -->
     <mdb-navbar-brand>
-        <a class="navbar-brand" [routerLink]="['/']">
+        <a *ngIf="!jwtService.getToken()" class="navbar-brand" [routerLink]="['/']">
+            <img src="assets/images/areoplane white.png" height="40" alt="Voila">
+        </a>
+        <a *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')" class="navbar-brand" [routerLink]="['/tourists/touristshome']">
+            <img src="assets/images/areoplane white.png" height="40" alt="Voila">
+        </a>
+        <a  *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')" class="navbar-brand" [routerLink]="['/guide/guidehome']">
             <img src="assets/images/areoplane white.png" height="40" alt="Voila">
         </a>
     </mdb-navbar-brand>
