@@ -24,8 +24,7 @@ import { GuideProfileComponent } from 'src/app/shared/components/guide-profile/g
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 import { InterestsComponent } from './pages/interests/interests.component';
 import { LanguagesComponent } from './pages/languages/languages.component';
-import {SliderModule} from 'primeng/slider';
-import {InputTextModule} from 'primeng/inputtext';
+import { Ng5SliderModule } from 'ng5-slider';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -130,9 +129,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forChild(routes),
-    SliderModule,
-    InputTextModule,
-    FormsModule
+    FormsModule,
+    Ng5SliderModule,
   ],
   exports: [
 

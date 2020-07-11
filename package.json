@@ -47,6 +47,7 @@
     "moment": "^2.27.0",
     "mydatepicker": "^2.6.10",
     "ng2-archwizard": "^2.1.0",
+    "ng5-slider": "^1.2.4",
     "ngx-auto-scroll": "^1.1.0",
     "ngx-toastr": "^11.2.0",
     "npm-registry-client": "^8.6.0",
