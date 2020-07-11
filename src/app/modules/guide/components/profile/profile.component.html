@@ -1,4 +1,4 @@
-<div class="edittop">
+<div class="edittop d-none d-md-block">
     <div class="row">
 
 
@@ -14,18 +14,21 @@
         </div>
     </div>
 </div>
+<div class="edittopsmall d-block d-md-none ">
+    <h1>EDIT PROFILE</h1>
+</div>
 <!-- <hr class="mt-0"> -->
-<div class="mx-4">
+<div class=" font mx-4 ">
     <div class="row" style="margin-top: 40px;">
-        <div class="col-md-3">
+        <div class=" col-12 col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-10">
                     <h4 style="color: rgba(3, 169, 244, 0.7)">{{userData.name}}</h4>
                 </div>
-                <div class="col-md-1 edit-btn">
+                <div class="col-2 float-right edit-btn">
                     <a (click)="editpersonal.show()">
                         <mdb-icon fas icon="edit"></mdb-icon>
                     </a>
@@ -34,69 +37,69 @@
             </div>
 
             <div class="row my-2">
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Aadhar Number </b>
                     <div> {{userData.aadhaarNumber}}</div>
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Date of birth </b>
                     <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
                 </div>
 
             </div>
             <div class="row my-2">
-                <div class="col-md-6">
+                <div class="col-12 col-md-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
                     <div> {{userData.email}}</div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)"> Phone </b>
                     <div>{{userData.phoneNumber}}</div>
                 </div>
-            </div>
-            <div class="row my-2">
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Address </b>
                     <div>{{userData.address}}</div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">city </b>
                     <div>{{userData.city}}</div>
                 </div>
-            </div>
-            <b style="color: rgba(3, 169, 244, 0.7)">State  </b>
+            <div class="col-6 mb-3  mb-md-4  ">
+                <b style="color: rgba(3, 169, 244, 0.7)">State  </b>
             <div> {{userData.state}}</div>
+            </div>
+        </div>
+
         </div>
     </div>
     <hr>
     <!--  -->
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Business Info</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-10">
                     <div class="row my-2">
-                        <div class="col-md-12">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(3, 169, 244, 0.7)">People Limit </b>
                             <div>{{userData.peopleLimit}}</div>
                         </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col-md-6">
+
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Head</b>
                             <div> {{userData.perHeadCharge}}</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Day </b>
                             <div> {{userData.perDayCharge}}</div>
                         </div>
 
                     </div>
                 </div>
-                <div class="col-md-1 edit-btn">
+                <div class="col-2 float-right edit-btn">
                     <a (click)="editbusiness.show()">
                         <mdb-icon fas icon="edit"></mdb-icon>
                     </a>
@@ -107,42 +110,48 @@
     <hr>
     <!--  -->
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(233, 30, 98)">Experiences</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="row" *ngFor="let item of userData.experience" style="border-bottom: 1px solid gray;">
-                <div class="col-md-10">
+                <div class="col-9">
                     <div class="row my-2">
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(233, 30, 99, 0.7)">Work-place </b>
                             <div>{{item.work}}</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(233, 30, 99, 0.7)">Work-profile </b>
                             <div> {{item.profile}}
                             </div>
                         </div>
                     </div>
                     <div class="row my-2">
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(233, 30, 99, 0.7)">Starting date </b>
                             <div> {{item.startYear}}</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(233, 30, 99, 0.7)">Duration </b>
                             <div> {{item.duration}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <a (click)="removeExperience(item)" class="float-right">
+                <div class="col-3 m-0 mt-sm-2 p-0">
+                  <div class="col-6 m-0 p-0 float-left">
+                    <a (click)="removeExperience(item)">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
-                    <a class="float-right" (click)="editExpShow(editexperience, item)">
+                  </div>
+                  <div class="col-6 m-0 p-0 float-right">
+                     <a (click)="editExpShow(editexperience, item)">
                         <mdb-icon fas icon="edit"></mdb-icon>
                     </a>
+                  </div>
+
+
                     <!-- <a class="float-right" (click)="editexperienceWithData.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
@@ -152,15 +161,15 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(76, 175, 79)">Languages</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="row" *ngFor="let item of userData.languages" style="border-bottom: 1px solid gray;">
-                <div class="col-md-10">
+                <div class="col-10">
                     <b style="color: rgba(76, 175, 80, 0.7)">{{item}}</b>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                     <a (click)="removeLanguage(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
@@ -173,15 +182,15 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="row" *ngFor="let item of userData.interests" style="border-bottom: 1px solid gray;">
-                <div class="col-md-10">
+                <div class="col-10">
                     <b style="color: rgba(255, 152, 0, 0.7) ">{{item}}</b>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                     <a (click)="removeInterests(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
