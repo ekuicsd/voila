@@ -1,18 +1,51 @@
-<div class="mb-5 dealtop">
-    <div class="row">
-        <div class="col-lg-6">
-
-            <div class="create-font mx-5 mb-2 text-center">Create your deals</div>
-            <div class="mx-5 text-center">Let Voila help you make your own tour package/deal according to your preferences</div>
-
-            <div *ngIf="!createDeal" class="text-center my-4">
-                <button type="button" mdbBtn (click)="basicModal.show()" style="background-color:#faed26;" class="btn btn-lg" mdbWavesEffect>Create Deal</button>
+<div class="container-fluid mx-0 px-0">
+    <div class="mb-3 dealtop">
+        <div class="row mx-0 px-0">
+            <div class="col-12 col-md-6 px-0">
+    
+                <div class="create-font mx-5 mb-2 text-center">Create your deals</div>
+                <div class="mx-5 text-center">Let Voila help you make your own tour package/deal according to your preferences</div>
+    
+                <div *ngIf="!createDeal" class="text-center my-4">
+                    <button type="button" mdbBtn [routerLink]="['/guide/guidehome/createDeal']" routerLinkActive="router-link-active"  style="background-color:#faed26;" class="btn btn-lg" mdbWavesEffect>Create Deal</button>
+                </div>
+            </div>
+            <div class="col-12  col-md-6">
+                <img src="assets\images\abstract-success.png" class="img-fluid" style="height: 100%; width:100%">
             </div>
         </div>
-        <div class="col-lg-6">
-            <img src="assets\images\abstract-success.png" class="float-right my-4" style="height: 300px; width:auto">
-        </div>
     </div>
+    <div class="mx-5 mb-5">
+        <h1>Your Deals</h1>
+        <div class="row my-3 ">
+            <div class="col-md-4 py-4" *ngFor="let deal of DealsList">
+                <mdb-card>
+                    <div class="img-fav">
+                        <!-- <i class="far fa-heart fa-lg"></i> -->
+                        <!--Card image-->
+                        <mdb-card-img class="main-img" src="https://images.thrillophilia.com/image/upload/s--8pyG_oK_--/c_fill,dpr_1.0,f_auto,fl_strip_profile,g_center,h_450,q_auto,w_753/v1/images/photos/000/113/476/original/1501063349_Pune_Palace.jpg.jpg" alt="Card image cap"></mdb-card-img>
+                        <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
+                        <h5><span class="badge badge-default font-weight-normal">{{deal.city}} tour with Barkha Joshi</span></h5>
+                    </div>
+                    <!--Card content-->
+                    <mdb-card-body>
+                        <!--Title-->
+                        <mdb-card-title>
+                            <h5><strong>{{deal.places[0]}} Tour</strong></h5>
+                        </mdb-card-title>
+    
+                        <!--Text-->
+                        <mdb-card-text>
+                            <div>{{deal.places.toString()}}.</div>
+                            <div>&#x20b9;{{deal.price}} pp &#8226; From {{deal.startDate | date: 'dd-MM-yy'}} &#8226; To {{deal.endDate | date: 'dd-MM-yy'}}</div>
+                        </mdb-card-text>
+    
+                        <!-- <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a> -->
+                    </mdb-card-body>
+                </mdb-card>
+            </div>
+        </div>
+    </div>    
 </div>
 
 <!-- this.createDeal = true -->
@@ -252,38 +285,6 @@
 </div> -->
 
 <!--  -->
-<div class="mx-5 mb-5">
-    <h1>Your Deals</h1>
-
-    <div class="row my-3 ">
-        <div class="col-md-4 py-4" *ngFor="let deal of DealsList">
-            <mdb-card>
-                <div class="img-fav">
-                    <!-- <i class="far fa-heart fa-lg"></i> -->
-                    <!--Card image-->
-                    <mdb-card-img class="main-img" src="https://images.thrillophilia.com/image/upload/s--8pyG_oK_--/c_fill,dpr_1.0,f_auto,fl_strip_profile,g_center,h_450,q_auto,w_753/v1/images/photos/000/113/476/original/1501063349_Pune_Palace.jpg.jpg" alt="Card image cap"></mdb-card-img>
-                    <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
-                    <h5><span class="badge badge-default font-weight-normal">{{deal.city}} tour with Barkha Joshi</span></h5>
-                </div>
-                <!--Card content-->
-                <mdb-card-body>
-                    <!--Title-->
-                    <mdb-card-title>
-                        <h5><strong>{{deal.places[0]}} Tour</strong></h5>
-                    </mdb-card-title>
-
-                    <!--Text-->
-                    <mdb-card-text>
-                        <div>{{deal.places.toString()}}.</div>
-                        <div>&#x20b9;{{deal.price}} pp &#8226; From {{deal.startDate | date: 'dd-MM-yy'}} &#8226; To {{deal.endDate | date: 'dd-MM-yy'}}</div>
-                    </mdb-card-text>
-
-                    <!-- <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a> -->
-                </mdb-card-body>
-            </mdb-card>
-        </div>
-    </div>
-</div>
 <!-- </div> -->
 
 

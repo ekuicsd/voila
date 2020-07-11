@@ -24,6 +24,10 @@ import { QuestionDetailsComponent } from './components/question-details/question
 import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 import { LanguagesComponent } from './pages/languages/languages.component';
 import { InterestsComponent } from './pages/interests/interests.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history-list/chat-history-list.component';
+import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
+import { CreateDealComponent } from './components/create-deal/create-deal.component';
 
 
 const routes: Routes = [
@@ -56,12 +60,23 @@ const routes: Routes = [
         canActivate: [GuideGuardService]
       },
       {
-        path: 'messages', component: MessagesComponent,
+        path: 'createDeal', component: CreateDealComponent,
         canActivate: [GuideGuardService]
       },
       {
-        path: 'chats/:role/:email', component: MessagesComponent,
-        canActivate: [GuideGuardService]
+        path: 'messages', component: MessagesComponent, canActivate: [GuideGuardService], children: [
+          {
+            path: '', redirectTo: 'chatList', pathMatch: 'full'
+          },
+          {
+            path: 'chatList', component: ChatHistoryListComponent
+          }, 
+          {
+            path: 'chats/:role/:email', component: ChatsComponent,
+            canActivate: [GuideGuardService]
+          }
+        ]
+        
       },
       {
         path: 'changepassword', component: GuideChangePwdComponent,
@@ -93,7 +108,9 @@ const routes: Routes = [
     QuestionDetailsComponent,
     TermsConditionsComponent,
     LanguagesComponent,
-    InterestsComponent
+    InterestsComponent,
+    BlogComponent,
+    CreateDealComponent
     ],
   imports: [
     //   BrowserModule,

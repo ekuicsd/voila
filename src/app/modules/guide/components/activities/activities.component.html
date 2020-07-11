@@ -1,162 +1,138 @@
+<div class="container-fluid">
+  <app-blog></app-blog>
+  <!--  -->
+  <div class="d-none d-md-block" *ngIf="previousBookingsList">
+  <div class="row mt-3">
+    <div class="col-12 text-center">
+      <div class="card first" style="z-index: 100; width: 90%; margin-left: 5%;">
+        <h5 class="text-center py-2 my-0">Your Recent Activities</h5>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-5" style="margin-top: -25px;">
+    <div class="card-body">
+      <div class="mt-3 mb-3">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead >
+              <tr>
+                <th scope="col">Sr no.</th>
+                <th scope="col">Tourist</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of previousBookingsList; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{data.tourType | titlecase}}</td>
+                <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
+                <td>{{data.duration}} days</td>
+                <td>
+                  <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                    <b>VIEW</b>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="request">
+<div *ngIf="!previousBookingsList">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>No Recent activities !!</h1>
+    </div>
+  </div>
+</div>
 
-  <!-- requests -->
-  <div class="request-card">
+<div class="d-block d-md-none">
+  <h1> Hey cards!</h1>
+</div>
   
-    <!--  -->
-  
-  <div *ngIf="previousBookingsList" class="card">
-    <div class="table-responsive card-body">
-      <div class="card-title"><h4>Your Previous Bookings</h4></div>
-      <table class="table table-hover">
-        <thead >
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">Tour Details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body p-4">
+      <div class="row">
+        <div class="col-12">
+         <h6>{{selectedPreviousBookings.tourType | titlecase}} Tour
+            <span class="float-right">{{selectedPreviousBookings.bookingDate | date: 'dd-MM-yyyy'}}</span>
+          </h6>
+        </div>
+      </div>
+      <hr class="mt-0">
+      <div class="row">
+        <div class="col-6">
+          <B>Price</B>
+        </div>
+        <div class="col-6">
+          Rs. {{selectedPreviousBookings.price}}/-
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>Start Date</B>
+        </div>
+        <div class="col-6">
+          {{selectedPreviousBookings.startDate | date: 'dd-MM-yyyy'}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>Duration</B>
+        </div>
+        <div class="col-6">
+          {{selectedPreviousBookings.duration}} days
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>People</B>
+        </div>
+        <div class="col-6">
+          {{selectedPreviousBookings.noOfPeople}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>Group Type</B>
+        </div>
+        <div class="col-6">
+          {{selectedPreviousBookings.groupType | titlecase}}
+        </div>
+      </div>
+      <table class="table">
+        <thead>
           <tr>
-            <th scope="col">Sr no.</th>
-            <th scope="col">Tourist</th>
-            <th scope="col">Places</th>
-            <th scope="col">Booking Date</th>
-            <th scope="col">Duration</th>
-            <th scope="col">Price</th>
-            <th scope="col">People</th>
-            <th scope="col">Group Type</th>
-            <th scope="col">Tour</th>
-            <th scope="col">Action</th>
+            <th><b>Sr no.</b></th>
+            <th><b>Tourist Name</b></th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let data of previousBookingsList; let i = index">
-            <th scope="row">{{i+1}}</th>
-            <td>{{data.touristId.name}}</td>
-            <td>{{data.places.toString()}}</td>
-            <td>{{data.bookingDate | date: 'dd-MM-yyyy'}}</td>
-            <td>{{data.duration}}</td>
-            <td>{{data.price}}</td>
-            <td>{{data.noOfPeople}}</td>
-            <td>{{data.groupType}}</td>
-            <td>{{data.tourType}}</td>
-            <td>
-              <button class="btn" color="info" style="margin: auto; "  mdbBtn type="button" size="sm" mdbWavesEffect>
-                <b>VIEW</b>
-              </button>
-            </td>
+        <!-- <tbody>
+          <tr *ngFor="let item of selectedPreviousBookings.touristId; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item.name}}</td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
-      </div>  
   </div>
-    <!-- /table -->
-
-
-
-
-
-
-
-
-
-
-
-<!-- --------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------- -->
-
-<!-- 
-<div class="row">
-  <div class="col-md-10">
-<section class="my-5">
-
- 
-  <div class="row">
-
-    <div class="col-lg-5">
-
-      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
-        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="Sample image">
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-
+  <div class="modal-footer row mx-0 ">
+       <div class="col">
+         <button type="button" mdbBtn color="secondary" size="sm" class="waves-light flost-right" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+      </div> 
     </div>
+</ng-template>
 
-    <div class="col-lg-7 to-right">
-
-      <a   class="green-text">
-        <h6 class="font-weight-bold mb-3"><mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>Food</h6>
-      </a>
-      <h3 class="font-weight-bold mb-3"><strong>Tourist name</strong></h3>
-      
-      <div>Duration: 5</div>
-      <div>Number of people: 5</div>
-      <p>Message By tourist: "Review given"</p>
-      <p>by <a><strong>Date</strong></a>, 19/08/2018</p>
-      <a mdbBtn color="success" mdbWavesEffect>Ratings given</a>
-
-    </div>
-  </div>
-
-  <hr class="my-5">
-
-  <div class="row">
-    <div class="col-lg-5">
-
-      <div class="view overlay rounded z-depth-2 waves-light" mdbWavesEffect>
-        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(34).jpg" alt="Sample image">
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-
-    </div>
-    <div class="col-lg-7 to-right">
-
-      <a href="#!" class="pink-text">
-        <h6 class="font-weight-bold mb-3"><mdb-icon far icon="image" class="pr-2"></mdb-icon>Lifestyle</h6>
-      </a>
-      <h3 class="font-weight-bold mb-3"><strong>Tourist name</strong></h3>
-      
-      <div>Duration: 5</div>
-      <div>Number of people: 5</div>
-      <p>Message By tourist: "Review given"</p>
-      <p>by <a><strong>Date</strong></a>, 19/08/2018</p>
-      <a mdbBtn color="pink" mdbWavesEffect>Ratings given</a>
-    </div>
-
-
-  </div>
-
-  <hr class="my-5">
-
-  <div class="row">
-
-    <div class="col-lg-5">
-
-      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
-        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img (28).jpg" alt="Sample image">
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-
-    </div>
-
-    <div class="col-lg-7 to-right">
-
-      <a href="#!" class="indigo-text">
-        <h6 class="font-weight-bold mb-3"><mdb-icon fas icon="suitcase" class="pr-2"></mdb-icon>Travels</h6>
-      </a>
-      <h3 class="font-weight-bold mb-3"><strong>Tourist name</strong></h3>
-      
-      <div>Duration: 5</div>
-      <div>Number of people: 5</div>
-      <p>Message By tourist: "Review given"</p>
-      <p>by <a><strong>Date</strong></a>, 19/08/2018</p>
-      <a mdbBtn color="indigo" mdbWavesEffect>Ratings given</a>
-
-    </div>
-
-  </div>
-
-</section>
-  </div>
-</div> -->

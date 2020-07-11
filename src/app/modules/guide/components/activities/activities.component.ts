@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-activities',
@@ -7,9 +8,14 @@ import { GuideService } from 'src/app/shared/service/guide.service';
   styleUrls: ['./activities.component.scss']
 })
 export class ActivitiesComponent implements OnInit {
-  public previousBookingsList: any[];
 
-  constructor(private guideService: GuideService) { }
+  public previousBookingsList: any[] = [];
+  public selectedPreviousBookings: any;
+
+  constructor(private guideService: GuideService,
+    config: NgbModalConfig, private modalService: NgbModal,
+
+    ) { }
 
   ngOnInit() {
     this.getAllPreviousBookings();
@@ -18,11 +24,21 @@ export class ActivitiesComponent implements OnInit {
   getAllPreviousBookings() {
     this.guideService.getAllBookingsByStatus('COMPLETE').subscribe(
       res => {
-        this.previousBookingsList = res;
+        if(res.length > 0) {
+          this.previousBookingsList = res;
+        } else {
+          this.previousBookingsList = undefined;
+        }
         console.log(res);
       }, error => {
         console.log(error);
       }
     )
+  }
+
+  open(content, data) {
+    console.log(data);
+    this.selectedPreviousBookings = data;
+    this.modalService.open(content, { centered: true, scrollable: true});
   }
 }

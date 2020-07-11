@@ -36,9 +36,10 @@ export class BookingsComponent implements OnInit {
     )
   }
 
-  contactTourist(email) {
+  contactTourist(content, email) {
     console.log(email);
-    this.router.navigateByUrl('/guide/guidehome/chats/tourist/' + email);
+    this.router.navigateByUrl('/guide/guidehome/messages/chats/tourist/' + email);
+    this.modalService.dismissAll(content);
   }
 
   open(content, data) {

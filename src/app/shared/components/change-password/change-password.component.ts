@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter,ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { CustomValidators } from 'src/app/validators/custom';
 
 @Component({
   selector: 'app-change-password',
@@ -24,7 +25,7 @@ export class ChangePasswordComponent implements OnInit {
     this.changePwd = new FormGroup({
       oldPassword: new FormControl('', [Validators.required]),
       newPassword: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required])
+      confirmPassword: new FormControl('', [Validators.required, CustomValidators.passwordConfirming])
     })
   }
 
