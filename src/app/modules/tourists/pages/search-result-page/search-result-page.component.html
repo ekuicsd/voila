@@ -8,8 +8,33 @@
     </div>
 </div>
 
+<!-- small screens filter sidenav -->
+<mat-sidenav-container class="example-container d-block d-lg-none" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <p><button mat-button (click)="close('toggle button')">Toggle</button></p>
+        <div class="row my-lg-2">
+            <div class="col-lg-12">
+                <div class="mb-0"><b>PRICE RANGE</b></div>
+                <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
+
+                <p>Min price(₹): <input type="number" [(ngModel)]="minValue"></p>
+                <p>Max price(₹): <input type="number" [(ngModel)]="maxValue"></p>
+                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+
+            </div>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <p><button mat-button (click)="sidenav.open()">Open</button></p>
+        <p>Closed due to: {{reason}}</p>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- small screens filter sidenav -->
+
 <div class="row mx-lg-2">
-    <div class="col-lg-2 filters d-none d-md-block">
+    <div class="col-lg-2 filters d-none d-lg-block">
         <div><b>FILTERS</b></div>
         <div class="row my-lg-2">
             <div class="col-lg-12">
@@ -59,7 +84,7 @@
     </div>
 
 
-    <div class="col-lg-9">
+    <div class="col-12 col-lg-9">
 
 
         <div class="text-center mt-4 mb-5 mx-auto">

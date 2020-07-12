@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
+import {MatSidenav} from '@angular/material/sidenav';
 import { Options} from 'ng5-slider';
 import * as $ from 'jquery';
 
@@ -12,6 +13,18 @@ import * as $ from 'jquery';
 })
 export class SearchResultPageComponent implements OnInit {
 
+  @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
+
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+
+  // slider 
   minValue: number = 100;
   maxValue: number = 400;
   options: Options = {
