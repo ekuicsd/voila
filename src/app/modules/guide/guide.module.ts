@@ -29,7 +29,6 @@ import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history
 import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
 import { CreateDealComponent } from './components/create-deal/create-deal.component';
 
-
 const routes: Routes = [
     {path: 'register', component: RegisterComponent},
 
@@ -73,10 +72,8 @@ const routes: Routes = [
           }, 
           {
             path: 'chats/:role/:email', component: ChatsComponent,
-            canActivate: [GuideGuardService]
           }
-        ]
-        
+        ]  
       },
       {
         path: 'changepassword', component: GuideChangePwdComponent,
@@ -85,9 +82,7 @@ const routes: Routes = [
       // {
       //    path: 'show-register', component: ShowRegisterComponent
       // }
-
     ]},
-
 ];
 
 @NgModule({
@@ -123,9 +118,7 @@ const routes: Routes = [
       ArchwizardModule,
       SharedModule
   ],
-  exports: [
-
-  ]
+  exports: []
 })
 
 export class GuideModule {
