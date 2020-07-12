@@ -9,36 +9,50 @@
 </div>
 
 <div class="row mx-lg-2">
-    <div class="col-lg-2 filters">
+    <div class="col-lg-2 filters d-none d-md-block">
         <div><b>FILTERS</b></div>
         <div class="row my-lg-2">
             <div class="col-lg-12">
-                <h4>Price Range: {{rangeValues[0] + ' - ' + rangeValues[1]}}</h4>
-                <p-slider [(ngModel)]="rangeValues" [style]="{'width':'14em'}" [range]="true"></p-slider>
+                <div class="mb-0"><b>PRICE RANGE</b></div>
+                <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
+
+                <p>Min price(₹): <input type="number" [(ngModel)]="minValue"></p>
+                <p>Max price(₹): <input type="number" [(ngModel)]="maxValue"></p>
+                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+
             </div>
         </div>
         <div class="row my-lg-2">
             <div class="col-lg-12">
-                <h6>RATINGS</h6>
+                <div class="mb-0"><b>RATINGS</b></div>
+                <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
+
                 <!-- Default unchecked -->
-                <mdb-checkbox [default]="true">5</mdb-checkbox>
-                <mdb-checkbox [default]="true">5</mdb-checkbox>
-                <mdb-checkbox [default]="true">5</mdb-checkbox>
-                <mdb-checkbox [default]="true">5</mdb-checkbox>
-                <mdb-checkbox [default]="true">5</mdb-checkbox>
+                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
             </div>
         </div>
         <div class="row my-lg-2">
             <div class="col-lg-12">
                 <!-- Default unchecked -->
-                <h6>INTERESTS</h6>
-                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                <div class="mb-0"><b>INTERESTS</b></div>
+                <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
+
+                <div>
+                    <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                </div>
+
             </div>
         </div>
         <div class="row my-lg-2">
             <div class="col-lg-12">
                 <!-- Default unchecked -->
-                <h6>LANGUAGES</h6>
+                <div class="mb-0"><b>LANGUAGES</b></div>
+                <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
+
                 <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
             </div>
         </div>
@@ -46,13 +60,9 @@
 
 
     <div class="col-lg-9">
-        <!-- <mat-tab-group [color]="primary" [backgroundColor]="accent">
-            <mat-tab label="First"> Content 1 </mat-tab>
-            <mat-tab label="Second"> Content 2 </mat-tab>
-            <mat-tab label="Third"> Content 3 </mat-tab>
-        </mat-tab-group> -->
 
-        <div class="wrapper">
+
+        <div class="text-center mt-4 mb-5 mx-auto">
             <!-- <h2>Elastic Tabs</h2> -->
 
             <nav class="tabs">
@@ -74,17 +84,10 @@
     </div>
 </div>
 
-<!-- <div class="search-text">
-    <h1>Deals and guides in Rishikesh</h1>
-</div>
-<br>
-<br>
-<br>
+
+<!-- 
 <div class="row">
     <div class="col-md-2 filters ">
-        <br>
-        <br>
-        <br>
         <br>
         <h3>Filters</h3>
         <br>
