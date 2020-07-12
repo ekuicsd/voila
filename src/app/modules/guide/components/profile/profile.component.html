@@ -106,22 +106,22 @@
             <div class="row mb-3" *ngFor="let item of userData.experience">
                 <div class="col-9">
                     <div class="row my-2">
-                        <div class="col-6 mb-3  mb-md-4  ">
+                        <div class="col-6 mb-1  mb-md-1">
                             <b style="color: rgba(233, 30, 99, 0.7)">Work Place </b>
                             <div>{{item.work | titlecase}}</div>
                         </div>
-                        <div class="col-6 mb-3  mb-md-4  ">
+                        <div class="col-6 mb-1  mb-md-1">
                             <b style="color: rgba(233, 30, 99, 0.7)">Work Profile </b>
                             <div> {{item.profile | titlecase}}
                             </div>
                         </div>
                     </div>
                     <div class="row my-2">
-                        <div class="col-6 mb-3  mb-md-4  ">
+                        <div class="col-6 mb-3  mb-md-3">
                             <b style="color: rgba(233, 30, 99, 0.7)">Starting Year </b>
                             <div> {{item.startYear}}</div>
                         </div>
-                        <div class="col-6 mb-3  mb-md-4  ">
+                        <div class="col-6 mb-3  mb-md-3">
                             <b style="color: rgba(233, 30, 99, 0.7)">Duration </b>
                             <div> {{item.duration}} months
                             </div>
@@ -186,6 +186,7 @@
             <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
         </div>
     </div>
+    <hr>
 
     <div class="row mt-4">
         <div class="col-12 text-center">
