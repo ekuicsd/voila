@@ -1,0 +1,17 @@
+.cards mdb-card{
+  width: 75%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.486);
+  box-shadow: 0px 0px 24px 5px rgba(255, 255, 255, 0.497);
+
+}
+body{
+  background-image: url(../../../../../assets/images/sylwia-bartyzel-D2K1UZr4vxk-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+}
+@media(max-width:700px){
+  .cards mdb-card{
+    width:100%;
+  }
+}

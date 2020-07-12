@@ -103,7 +103,7 @@
             <h4 style="color: rgb(233, 30, 98)">Experiences</h4>
         </div>
         <div class="col-12 col-md-9">
-            <div class="row" *ngFor="let item of userData.experience" style="border-bottom: 1px solid gray;">
+            <div class="row mb-3" *ngFor="let item of userData.experience">
                 <div class="col-9">
                     <div class="row my-2">
                         <div class="col-6 mb-3  mb-md-4  ">
@@ -152,7 +152,7 @@
             <h4 style="color: rgb(76, 175, 79)">Languages</h4>
         </div>
         <div class="col-12 col-md-9">
-            <div class="row" *ngFor="let item of userData.languages" style="border-bottom: 1px solid gray;">
+            <div class="row mb-2" *ngFor="let item of userData.languages">
                 <div class="col-10">
                     <b style="color: rgba(76, 175, 80, 0.7)">{{item | titlecase}}</b>
                 </div>
@@ -172,7 +172,7 @@
             <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
         <div class="col-12 col-md-9">
-            <div class="row" *ngFor="let item of userData.interests" style="border-bottom: 1px solid gray;">
+            <div class="row mb-2" *ngFor="let item of userData.interests">
                 <div class="col-10">
                     <b style="color: rgba(255, 152, 0, 0.7) ">{{item | titlecase}}</b>
                 </div>
