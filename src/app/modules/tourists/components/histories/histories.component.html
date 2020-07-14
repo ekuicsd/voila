@@ -251,7 +251,7 @@
     </div>
 </div> -->
 
-   <mdb-card class="mb-3" *ngFor="let booking of previousList">
+   <!-- <mdb-card class="mb-3" *ngFor="let booking of previousList">
       <mdb-card>
           <mdb-card-body>
               <div class="row">
@@ -264,7 +264,6 @@
               </div>
 
         </div>
-              <!--Text-->
               <mdb-card-text>
                   Approved booking by the guide under Voils <a href="">terms and condition</a> contact your
                   guide for any booking related quary .
@@ -280,7 +279,6 @@
   <div  mdbCollapse [isCollapsed]="true" #test1="bs-collapse">
       <mdb-card class="more">
     <mdb-card-body >
-        <!--Text-->
         <mdb-card-text>
             <div class="row">
                 <div class="col-md-4">
@@ -312,6 +310,102 @@
       </mdb-card-body>
     </mdb-card>
   </div>
-    </mdb-card>
+    </mdb-card> -->
 
     <!--  -->
+    <mdb-card class="my-3">
+      <mdb-card>
+          <mdb-card-body class="m-0 p-0">
+              <div class="row">
+                  <div class="col-md-9">
+                      <mdb-card-title>
+                          <h4 class="m-3">
+                              <mdb-icon fas icon="suitcase" style="color: rgba(255, 152, 0, 0.7);"></mdb-icon> &nbsp; City, India with Name</h4>
+                      </mdb-card-title>
+                  </div>
+
+
+              </div>
+
+              <mdb-card-text class="p-2">
+                <div class="row">
+                  <div class="col-6 col-md-3">
+                      <h5>Booking Date</h5> 12-3-23
+                  </div>
+                  <div class="col-6 col-md-3">
+                      <h5>Duration</h5>4
+                  </div>
+                  <div class="col-6 col-md-3">
+                      <h5>Price</h5> INR 641
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <h5>Group</h5> Family
+                </div>
+              </div>
+
+              </mdb-card-text>
+  <div class="row card-footer text-muted text-center">
+                  <button mdbBtn class="col-5 col-md-3 p-2" type="button" size="sm" color="warning"  (click)="test1.toggle()" mdbWavesEffect>View More</button>
+                  <button mdbBtn class="col-5 col-md-3  p-2" type="button" size="sm" color="warning" (click)="open(content)"  mdbWavesEffect>Rate tour</button>
+  </div>
+
+          </mdb-card-body>
+      </mdb-card>
+      <div mdbCollapse [isCollapsed]="true" #test1="bs-collapse">
+          <mdb-card>
+              <mdb-card-body>
+                  <mdb-card-text>
+                      <div class="row">
+                          <div class="col-6 col-md-4 mb-2">
+                              <h5>Booking date</h5> 12-3-23
+                          </div>
+                          <div class="col-6 col-md-4 mb-2">
+                              <h5>Start-Date</h5>12-4-23
+                          </div>
+                          <div class="col-6 col-md-4 mb-2">
+                              <h5>Group Type</h5>Family
+                          </div>
+
+
+                          <div class="col-6 col-md-4 mb-2">
+                              <h5>Guide</h5> Ekta
+                          </div>
+                          <div class="col-6 col-md-4 mb-2">
+                              <h5>Price</h5> INR 223
+                          </div>
+                          <div class="col-6 col-md-4 mb-2">
+                              <h5>People</h5> <i class="fas fa-user-friends"></i> 3
+                          </div>
+                          <div class="col-6 col-md-4 mb-2">
+                            <h5>Duration</h5>5 Days
+                        </div>
+
+                      </div>
+
+                  </mdb-card-text>
+              </mdb-card-body>
+          </mdb-card>
+      </div>
+  </mdb-card>
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Cancle Booking</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="md-form">
+        <p-rating [(ngModel)]="val"></p-rating>
+        <div class="md-form">
+          <textarea class="md-textarea form-control" rows="3" id="input_text" type="text"mdbInput></textarea>
+          <label for="input_text">Description</label>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Submit</button>
+    </div>
+  </ng-template>
