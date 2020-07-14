@@ -10,7 +10,8 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HistoriesComponent implements OnInit {
   val: number = 3;
-  public previousList: Booking[];
+  public previousList: Booking[] = [];
+  public selectedPrevious: any;
 
   constructor(private touristService: TouristsService,config: NgbModalConfig, private modalService: NgbModal)
    {
@@ -18,18 +19,24 @@ export class HistoriesComponent implements OnInit {
     config.keyboard = false;
     }
 
-    open(content) {
-      this.modalService.open(content);
-    }
   ngOnInit() {
     this.getAllPreviousList();
+  }
+
+  open(content, data) {
+    this.selectedPrevious = data;
+    this.modalService.open(content);
   }
 
   getAllPreviousList() {
     this.touristService.getAllBookingsByStatus('COMPLETE').subscribe( res => {
       console.log(res);
-      this.previousList = res;
-    })
+      if(res.length > 0) {
+        this.previousList = res;
+      } else {
+        this.previousList = undefined;
+      }
+    });
   }
 
 }

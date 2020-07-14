@@ -5,7 +5,7 @@
   <div class="row mt-3">
     <div class="col-12 text-center">
       <div class="card first" style="z-index: 100; width: 90%; margin-left: 5%;">
-        <h5 class="text-center py-2 my-0">Your bookings</h5>
+        <h5 class="text-center py-2 my-0">Your Requests</h5>
       </div>
     </div>
   </div>
@@ -157,7 +157,7 @@
          <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
       </div>
       <div class="col">
-        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactTourist(content, selectedBooking.touristId.email)" mdbWavesEffect>Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
+        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactTourist(content, selectedBooking.touristId[0]?.email)" mdbWavesEffect>Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
       </div>
     </div>
 </ng-template>

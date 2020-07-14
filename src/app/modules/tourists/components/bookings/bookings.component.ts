@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
-import { Booking } from 'src/app/shared/models/booking.model';
-import { UserService } from 'src/app/shared/service/user.service';
 import { Router } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
@@ -11,17 +9,16 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbModalConfig, NgbModal]
 })
 export class BookingsComponent implements OnInit {
-    public bookingsList: Booking[];
+    public bookingsList: any[] = [];
+    public selectedBooking: any = {};
 
   constructor(private touristService: TouristsService,
     private router: Router, config: NgbModalConfig, private modalService: NgbModal
-    ) {config.backdrop = 'static';
-      config.keyboard = false; }
-
-
-    open(content) {
-      this.modalService.open(content);
+    ) {
+      config.backdrop = 'static';
+      config.keyboard = false;
     }
+
   ngOnInit() {
     this.getAllBookingsList();
   }
@@ -29,12 +26,26 @@ export class BookingsComponent implements OnInit {
   getAllBookingsList() {
     this.touristService.getAllBookingsByStatus('APPROVED').subscribe( res => {
       console.log(res);
-      this.bookingsList = res;
-    })
+      if(res.length > 0) {
+        this.bookingsList = res;
+      } else {
+        this.bookingsList = undefined;
+      }
+    });
   }
 
-  contactGuide(email) {
+  contactGuide(content, email) {
+    this.modalService.dismissAll(content);
     this.router.navigateByUrl('/tourists/touristshome/messages/chats/guide/' + email);
+  }
+
+  openCancelRequest(content) {
+    this.modalService.open(content, {centered: true});
+  }
+
+  open(content, data) {
+    this.selectedBooking = data;
+    this.modalService.open(content, {scrollable: true,centered: true});
   }
 
 }

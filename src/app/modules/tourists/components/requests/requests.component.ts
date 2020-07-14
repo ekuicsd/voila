@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
 import { Booking } from 'src/app/shared/models/booking.model';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-requests',
@@ -9,23 +10,35 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent implements OnInit {
-  public requestList: Booking[];
+  public requestList: Booking[] = [];
+  public selectedRequest: any;
 
-  constructor(private touristService: TouristsService, private toastr: ToastrService) { }
+  constructor(private touristService: TouristsService, 
+    config: NgbModalConfig, private modalService: NgbModal,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getAllRequestsList();
   }
+  
+  open(content, data) {
+    this.selectedRequest = data;
+    this.modalService.open(content);
+  } 
 
   getAllRequestsList() {
     this.touristService.getAllBookingsByStatus('PENDING').subscribe( res => {
       console.log(res);
-      this.requestList = res;
+      if(res.length > 0) {
+        this.requestList = res;
+      } else {
+        this.requestList = undefined;
+      }
     })
   }
 
-  cancelRequest(booking: Booking) {
-    this.touristService.cancelrequest(booking._id, 'CANCEL').subscribe( res => {
+  cancelRequest() {
+    this.touristService.cancelrequest(this.selectedRequest._id, 'CANCEL').subscribe( res => {
       console.log(res);
       this.toastr.success("Request Cancelled successfully!");
       this.getAllRequestsList();

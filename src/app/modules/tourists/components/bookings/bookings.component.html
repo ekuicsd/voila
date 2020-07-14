@@ -1,265 +1,199 @@
-<!-- <table class="table">
-    <thead class="black white-text">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">From</th>
-        <th scope="col">To</th>
-        <th scope="col">Guide</th>
-        <th scope="col">Price</th>
-        <th scope="col">People</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>11 Aug'2020</td>
-        <td>20 Aug'2020</td>
-        <td>Arjun kumar singh</td>
-        <td>2000</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>11 Aug'2020</td>
-        <td>20 Aug'2020</td>
-        <td>Arjun kumar singh</td>
-        <td>2000</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>11 Aug'2020</td>
-        <td>20 Aug'2020</td>
-        <td>Arjun kumar singh</td>
-        <td>2000</td>
-        <td>5</td>
-      </tr>
-    </tbody>
-  </table> -->
-
-
-
-
-<!-- /table -->
-<!-- <mdb-card class="booking-card">
-    <mdb-card-body>
-        <mdb-card-title>
-            <mdb-badge class="float-right amy-crisp-gradient" default="true">PERSONALIZED TOUR</mdb-badge>
-            <h4><strong>Pune, Maharashtra</strong></h4>
-
-        </mdb-card-title>
-
-        <div>
-            <div class="container">
-                <div class="row fromto grey-text">
-                    <div class="col-md-4">
-                        FROM
-                    </div>
-                    <div class="col-md-4">
-                        TO
-                    </div>
-                    <div class="col-md-4">
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h6>11 Aug'19</h6>
-                    </div>
-                    <div class="col-md-4">
-                        <h6>14 Aug'19</h6>
-                    </div>
-                    <div class="col-md-4">
-                        <i class="fas fa-user-friends"></i> Anika + 4
-                    </div>
-                </div>
-                <div class="row grey-text">
-                    <div class="col-md-4">
-                        Guide
-                    </div>
-                    <div class="col-md-4">
-                        Price
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h6><a [routerLink]="['/guideprofile']">Barkha Joshi</a></h6>
-                    </div>
-                    <div class="col-md-4">
-                        <h6>Rs.500/person</h6>
-                    </div>
-                </div>
-
+  <div class="container-fluid">
+    <!-- <app-blog></app-blog> -->
+    <!--  -->
+    <div class="d-none d-md-block" *ngIf="bookingsList">
+    <div class="row mt-3">
+      <div class="col-12 text-center">
+        <div class="card first" style="z-index: 100; width: 90%; margin-left: 5%;">
+          <h5 class="text-center py-2 my-0">Your bookings</h5>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-5" style="margin-top: -25px;">
+      <div class="card-body">
+        <div class="mt-3 mb-3">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead >
+                <tr>
+                  <th scope="col">Sr no.</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of bookingsList; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{data.guideId?.city | titlecase}}</td>
+                  <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
+                  <td>{{data.duration}} days</td>
+                  <td>
+                    <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                      <b>VIEW</b>
+                    </button>&nbsp;
+                    <button class="btn" color="info" style="margin: auto;" mdbBtn type="button" size="sm" mdbWavesEffect>
+                        <b>START</b>
+                      </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             </div>
         </div>
-
-    </mdb-card-body>
-    <mdb-card-footer class="text-muted" style="height: 53px;">
-        <a href="#!">View more</a>
-        <button class="float-right footer-btn" style="margin: auto; " color="danger" ng mdbBtn type="button" size="sm" mdbWavesEffect><b>CANCEL BOOKING</b></button>
-    </mdb-card-footer>
-</mdb-card> -->
-
-<!-- <mdb-card> -->
-<!--Card content-->
-
-<!--  -->
-
-<!-- <mdb-card class="my-3" *ngFor="let booking of bookingsList">
-    <mdb-card>
-        <mdb-card-body class="m-0 p-0">
-            <div class="row">
-                <div class="col-md-9">
-                    <mdb-card-title>
-                        <h4>
-                            <mdb-icon fas icon="suitcase" style="color: rgba(233, 30, 99, 0.7);"></mdb-icon> &nbsp; {{booking.guideId?.city}}, India with {{booking.guideId?.name}}</h4>
-                    </mdb-card-title>
-                </div>
-
-
-            </div>
-
-            <mdb-card-text>
-                Approved booking by the guide under Voils <a href="">terms and condition</a> contact your guide for any booking related quary.
-
-                <p>{{booking.places.toString()}}</p>
-                <div class="row m-0 p-0">
-                <button mdbBtn class="col-3" type="button" size="sm" color="pink" style="margin-top: -6px;" (click)="test1.toggle()" mdbWavesEffect>View More</button>
-                <button mdbBtn class="col-3" type="button" size="sm" color="pink" style="margin-top: -6px;" (click)="contactGuide(booking.guideId.email)" mdbWavesEffect>Contact</button>
-                <button mdbBtn class="col-3" type="button" size="sm" color="pink" style="margin-top: -6px;"  mdbWavesEffect>Start Tour</button>
-                <button mdbBtn class="col-3" type="button" size="sm" color="pink" style="margin-top: -6px;"  mdbWavesEffect>Cancle</button>
-</div>
-            </mdb-card-text>
-
-
-        </mdb-card-body>
-    </mdb-card>
-    <div mdbCollapse [isCollapsed]="true" #test1="bs-collapse">
-        <mdb-card>
-            <mdb-card-body>
-                <mdb-card-text>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h5>From</h5> {{booking.startDate | date: 'dd-MM-yy'}}
-                        </div>
-                        <div class="col-md-4">
-                            <h5>To</h5> {{booking.endDate | date: 'dd-MM-yy'}}
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Tour Type</h5> {{booking.tourType}}
-                        </div>
-
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h5>Guide</h5> {{booking.guideId?.name}}
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Price</h5> INR {{booking.price}}/person
-                        </div>
-                        <div class="col-md-4">
-                            <h5>People</h5> <i class="fas fa-user-friends"></i> {{booking.noOfPeople}}
-                        </div>
-
-                    </div>
-
-                </mdb-card-text>
-            </mdb-card-body>
-        </mdb-card>
+      </div>
     </div>
-</mdb-card> -->
-<mdb-card class="my-3">
-    <mdb-card>
-        <mdb-card-body class="m-0 p-0">
-            <div class="row">
-                <div class="col-md-9">
-                    <mdb-card-title>
-                        <h4 class="m-3">
-                            <mdb-icon fas icon="suitcase" style="color: rgba(233, 30, 99, 0.7);"></mdb-icon> &nbsp; City, India with Name</h4>
-                    </mdb-card-title>
-                </div>
-
-
-            </div>
-
-            <mdb-card-text class="p-2">
-              <div class="row">
-                <div class="col-6 col-md-3">
-                    <h5>Booking Date</h5> 12-3-23
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5>Duration</h5>4
-                </div>
-                <div class="col-6 col-md-3">
-                    <h5>Price</h5> INR 641
-                </div>
-                <div class="col-6 col-md-3">
-                  <h5>Group</h5> Family
-              </div>
-            </div>
-
-            </mdb-card-text>
-<div class="row card-footer text-muted text-center">
-                <button mdbBtn class="col-5 col-md-3 p-2" type="button" size="sm" color="pink"  (click)="test1.toggle()" mdbWavesEffect>View More</button>
-                <button mdbBtn class="col-5 col-md-2 p-2" type="button" size="sm" color="pink"  mdbWavesEffect>Contact</button>
-                <button mdbBtn class="col-5 col-md-2 p-2" type="button" size="sm" color="pink"   mdbWavesEffect>Start Tour</button>
-                <button mdbBtn class="col-5 col-md-3  p-2" type="button" size="sm" color="pink" (click)="open(content)" mdbWavesEffect>Cancle</button>
-</div>
-
-        </mdb-card-body>
-    </mdb-card>
-    <div mdbCollapse [isCollapsed]="true" #test1="bs-collapse">
-        <mdb-card>
-            <mdb-card-body>
-                <mdb-card-text>
-                    <div class="row">
-                        <div class="col-6 col-md-4 mb-2">
-                            <h5>Booking date</h5> 12-3-23
-                        </div>
-                        <div class="col-6 col-md-4 mb-2">
-                            <h5>Start-Date</h5>12-4-23
-                        </div>
-                        <div class="col-6 col-md-4 mb-2">
-                            <h5>Group Type</h5>Family
-                        </div>
-
-
-                        <div class="col-6 col-md-4 mb-2">
-                            <h5>Guide</h5> Ekta
-                        </div>
-                        <div class="col-6 col-md-4 mb-2">
-                            <h5>Price</h5> INR 223
-                        </div>
-                        <div class="col-6 col-md-4 mb-2">
-                            <h5>People</h5> <i class="fas fa-user-friends"></i> 3
-                        </div>
-                        <div class="col-6 col-md-4 mb-2">
-                          <h5>Duration</h5>5 Days
-                      </div>
-
-                    </div>
-
-                </mdb-card-text>
-            </mdb-card-body>
-        </mdb-card>
+  </div>
+  
+  <div *ngIf="!bookingsList">
+    <div class="row cust-grid">
+      <div class="col-12 text-center">
+        <h1>No Bookings !!</h1>
+      </div>
     </div>
-</mdb-card>
-<ng-template #content let-c="close" let-d="dismiss">
+  </div>
+  
+
+  <div class="d-block d-md-none mt-4">
+    <mdb-card class="bag mb-4" *ngFor="let data of bookingsList">
+      <mdb-card-body>
+        <mdb-card-title>
+          <h4>{{data.tourType | titlecase}} Tour</h4>
+        </mdb-card-title>
+        <mdb-card-text >
+          <div class="row">
+            <div class="col-4">
+            <div><b>Start-Date</b></div>
+            <div>{{data.startDate | date: 'dd-MM-yyyy'}}</div>
+          </div>
+          <div class="col-4">
+            <div><b>Duration</b></div>
+            <div>{{data.duration}} days</div>
+          </div>
+          <div class="col-4">
+            <div><b>People</b></div>
+            <div>{{data.noOfPeople}}</div>
+          </div>
+          </div>
+        </mdb-card-text>
+        <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+        <a size="sm" class="float-right"  mdbBtn style="background: #0ec8b9;" mdbWavesEffect>START</a>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+  
+  </div>
+  
+  
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h5 class="modal-title" id="modal-basic-title">Tour Details</h5>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body p-4 pb-0 ">
+        <div class="row">
+          <div class="col-12">
+           <h6>{{selectedBooking.tourType | titlecase}} Tour
+              <span class="float-right">{{selectedBooking.bookingDate | date: 'dd-MM-yyyy'}}</span>
+            </h6>
+          </div>
+        </div>
+        <hr class="mt-0">
+        <div class="row">
+            <div class="col-6">
+              <B>State</B>
+            </div>
+            <div class="col-6">
+              {{selectedBooking.guideId?.state | titlecase}}
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-6">
+            <B>Price</B>
+          </div>
+          <div class="col-6">
+            Rs. {{selectedBooking.price}}/-
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <B>Start Date</B>
+          </div>
+          <div class="col-6">
+            {{selectedBooking.startDate | date: 'dd-MM-yyyy'}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <B>Duration</B>
+          </div>
+          <div class="col-6">
+            {{selectedBooking.duration}} days
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <B>People</B>
+          </div>
+          <div class="col-6">
+            {{selectedBooking.noOfPeople}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <B>Group Type</B>
+          </div>
+          <div class="col-6">
+            {{selectedBooking.groupType | titlecase}}
+          </div>
+        </div>
+        <table *ngIf="selectedBooking.tourType === 'deal'" class="table">
+          <thead>
+            <tr>
+              <th><b>Sr no.</b></th>
+              <th><b>Tour Places</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of selectedBooking?.places; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item | titlecase}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="modal-footer row mx-0 ">
+         <div class="col">
+            <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="pink" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
+        </div>
+        <div class="col">
+          <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactGuide(content, selectedBooking.touristId.email)" mdbWavesEffect>Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
+        </div>
+        <div class="col">
+           <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+        </div>
+    </div>
+  </ng-template>
+
+
+<ng-template #cancel let-c1="close" let-d1="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Cancle Booking</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+    <h5 class="modal-title" id="modal-basic-title">Cancel Booking</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d1('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div class="md-form">
       <textarea class="md-textarea form-control" rows="3" id="input_text" type="text"mdbInput></textarea>
-      <label for="input_text">Tell us why</label>
+      <label for="input_text">Enter Reasons why You Cancel Bookings</label>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
-    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Submit</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c1('Save click')">Close</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c1('Save click')">Submit</button>
   </div>
 </ng-template>
