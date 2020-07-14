@@ -28,6 +28,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history-list/chat-history-list.component';
 import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
 import { Ng5SliderModule } from 'ng5-slider';
+import {RatingModule} from 'primeng/rating';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -142,6 +143,7 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     HomeModule,
+    RatingModule,
     AngularMyDatePickerModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
