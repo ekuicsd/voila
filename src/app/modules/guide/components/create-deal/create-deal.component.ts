@@ -5,7 +5,7 @@ import { CustomValidators } from 'src/app/validators/custom';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-deal',
   templateUrl: './create-deal.component.html',
@@ -27,6 +27,7 @@ export class CreateDealComponent implements OnInit {
 
   constructor(private staticDataService: StaticDataService,
     private guideService: GuideService,
+    private router: Router,
     private toastr: ToastrService
     ) { }
 
@@ -100,6 +101,7 @@ export class CreateDealComponent implements OnInit {
       this.guideService.createDeal(this.deal).subscribe( res=> {
         console.log(res);
         this.toastr.success("Deal created successfully!");
+        this.router.navigateByUrl('/guide/guidehome/deals');
       }, error => {
         console.log(error)
       });

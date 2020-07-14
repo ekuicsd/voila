@@ -6,7 +6,7 @@
                 <div class="create-font mx-5 mb-2 text-center">Create your deals</div>
                 <div class="mx-5 text-center">Let Voila help you make your own tour package/deal according to your preferences</div>
     
-                <div *ngIf="!createDeal" class="text-center my-4">
+                <div class="text-center my-4">
                     <button type="button" mdbBtn [routerLink]="['/guide/guidehome/createDeal']" routerLinkActive="router-link-active"  style="background-color:#faed26;" class="btn btn-lg" mdbWavesEffect>Create Deal</button>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 
 <!-- this.createDeal = true -->
 
-<div mdbModal #basicModal="mdbModal" class="modal fade right" [config]="{backdrop: false, ignoreBackdropClick: true}" tabindex="-1" id="frameModalTop" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+<!-- <div mdbModal #basicModal="mdbModal" class="modal fade right" [config]="{backdrop: false, ignoreBackdropClick: true}" tabindex="-1" id="frameModalTop" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -128,35 +128,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="row card-body pb-0" formArrayName="places">
-                        <div class="col-md-7">
-                            <label for="form6"><mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Locations</label>
-                            <div class="row" *ngFor="let places of dealForm.get('places').controls; let i= index">
-                                <div class="col-md-10">
-                                    <div class="form-group">
-                                        <input [formControlName]="i" placeholder="location" type="text" class="form-control">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="button" (click)="removeLocation(i)" style="margin: auto" class="btn btn-md btn-danger">
-                              <mdb-icon fas icon="cut" class="prefix"></mdb-icon>
-                            </button>
-                                </div>
-
-
-                            </div>
-                            <button class="btn btn-default" type="button" (click)="addLocations()">
-                          <mdb-icon fas icon="map-marker-alt" class="prefix"></mdb-icon> Add More
-                        </button>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="row pr-3 pb-3">
-                        <div class="col-md-12">
-
-                        </div>
-                    </div> -->
+                    
 
                 </form>
 
@@ -167,12 +139,10 @@
                     <mdb-icon fas icon="cut"></mdb-icon>
                   </button>
                 <button mdbBtn type="submit" color="secondary" mdbWavesEffect class="float-right">Create &nbsp;<mdb-icon fas icon="check"></mdb-icon></button>
-                <!-- <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
-                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>OK!</button> -->
-            </div>
+               </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- <div *ngIf="createDeal" class="card">
     <div class="card-body pb-0">
