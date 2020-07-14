@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit,ViewEncapsulation } from '@angular/core';
 import { MessageService } from '../../service/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../service/user.service';
@@ -8,7 +8,8 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-chats',
   templateUrl: './chats.component.html',
-  styleUrls: ['./chats.component.scss']
+  styleUrls: ['./chats.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ChatsComponent implements OnInit {
   public receiverRole: string;
@@ -23,7 +24,7 @@ export class ChatsComponent implements OnInit {
 
   constructor(private msgService: MessageService,
     private userService: UserService,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute) {
       this.socket = io(environment.baseUrl);
     }
 
@@ -53,7 +54,7 @@ export class ChatsComponent implements OnInit {
 
 
     });
-    
+
   }
 
 
@@ -94,7 +95,7 @@ export class ChatsComponent implements OnInit {
 
   sendMessage() {
     if(this.message) {
-      this.msgService.sendMessage(this.sender._id, this.reciever._id, 
+      this.msgService.sendMessage(this.sender._id, this.reciever._id,
         this.reciever.name, this.message, this.senderRole)
         .subscribe(res => {
         // console.log(res);
