@@ -2,9 +2,10 @@
 <div class="row" style="overflow: hidden;">
     <div class="col-3 pr-0  d-none d-lg-flex">
         <div class="navside py-3 ">
+          <div class="content  m-auto">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" class="img-fluid z-depth-1 rounded-circle mt-3" alt="Responsive image">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" class="img-fluid z-depth-1 rounded-circle mt-3 h-75 w-75" alt="Responsive image">
                     <br>
                     <div class="guide-name">
                         <b>{{user.name}}</b>
@@ -12,7 +13,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" style="width: 360px;">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="nav-link" id="v-pills-bookings-tab" data-toggle="pill" [routerLink]="['bookings']" routerLinkActive="active" role="tab" aria-controls="v-pills-bookings" aria-selected="true">Bookings</a>
                         <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['requests']" routerLinkActive="active" role="tab" aria-controls="v-pills-home" aria-selected="true">Requests</a>
@@ -25,7 +26,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div></div>
     </div>
     <!-- main content on the right -->
     <div class="col-12 col-lg-9 main ">
@@ -36,5 +37,5 @@
             <span></span>
         </div>
         <router-outlet></router-outlet>
-    </div>
+  </div>
 </div>
