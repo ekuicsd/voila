@@ -12,6 +12,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class RequestsComponent implements OnInit {
   public requestList: Booking[] = [];
   public selectedRequest: any;
+  public cancelReason: string = 'cancel request';
 
   constructor(private touristService: TouristsService, 
     config: NgbModalConfig, private modalService: NgbModal,
@@ -38,7 +39,8 @@ export class RequestsComponent implements OnInit {
   }
 
   cancelRequest() {
-    this.touristService.cancelrequest(this.selectedRequest._id, 'CANCEL').subscribe( res => {
+    let request = {cancelReason: this.cancelReason };
+    this.touristService.cancelrequest(this.selectedRequest._id, 'CANCELLED', request).subscribe( res => {
       console.log(res);
       this.toastr.success("Request Cancelled successfully!");
       this.getAllRequestsList();

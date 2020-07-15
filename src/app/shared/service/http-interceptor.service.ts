@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { JwtService } from './jwt.service';
 import { tap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from './user.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +13,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-    constructor(private jwtService: JwtService, private toastr: ToastrService) { }
+    constructor(private jwtService: JwtService,
+      private router: Router,
+       private userService: UserService,
+       private toastr: ToastrService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const token = this.jwtService.getToken();
@@ -30,6 +35,10 @@ export class HttpInterceptorService implements HttpInterceptor {
               (event: HttpEvent<any>) => { },
               (err: any) => {
                   if (err instanceof HttpErrorResponse) {
+                      if(err.status == 401) {
+                        this.userService.purgeAuth();
+                        this.router.navigateByUrl('/');
+                      }
                       console.log("error",err);
                     //   this.toastr.error();
                   }

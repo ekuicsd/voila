@@ -1,22 +1,27 @@
-<div class="chat-list p-2 m-0">
-  <div class="row">
-    <div class="col-10">
-     <h3><b>Pinki Bhatt</b></h3>
-     I want break up you Guide
+<div class="container-fluid  m-0 p-0">
+  <div class="row mx-0 teal lighten-2">
+    <div class="col px-0">
+      <h3 class="teal lighten-2 p-2 px-3">Chats</h3>
     </div>
-    <div class="col-2 date">
-      11-2-23
+  </div>
+  
+  <div *ngIf="messageList">
+    <div (click)="navigateToChat(item.userEmail)" class="chat-list p-3 m-0" *ngFor="let item of messageList">
+      <div class="row mx-0">
+        <div class="col-9 px-0">
+        <h3><b>{{item.userName | titlecase}}</b></h3>
+        <span class="text-muted">Message: </span>{{item.body | shorttext | titlecase}}
+        </div>
+        <div class="col-3 px-0 date text-right">
+          {{item.createdAt | date: 'dd/MM/yyyy'}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!messageList" class="row">
+    <div class="col text-center">
+      <h1>No Messages Yet1!</h1>
     </div>
   </div>
 </div>
-<div class="chat-list p-2 m-0">
-  <div class="row">
-    <div class="col-10">
-     <h3><b>Pinki Bhatt</b></h3>
-     I want break up you Guide
-    </div>
-    <div class="col-2 date">
-      11-2-23
-    </div>
-  </div>
-</div>
+

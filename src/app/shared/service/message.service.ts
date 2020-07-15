@@ -41,6 +41,15 @@ export class MessageService {
             })
         })
     }
+
+    getGuideMessageList(guideId) : Observable<any> {
+        let url = '/guide/messages/' + guideId;
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
    
     
 }

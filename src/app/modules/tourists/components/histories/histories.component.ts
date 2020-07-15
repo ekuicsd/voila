@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Booking } from 'src/app/shared/models/booking.model';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-histories',
@@ -12,8 +13,11 @@ export class HistoriesComponent implements OnInit {
   val: number = 3;
   public previousList: Booking[] = [];
   public selectedPrevious: any;
+  public review: string = '';
 
-  constructor(private touristService: TouristsService,config: NgbModalConfig, private modalService: NgbModal)
+  constructor(private touristService: TouristsService,
+    private toastr: ToastrService,
+    config: NgbModalConfig, private modalService: NgbModal)
    {
     config.backdrop = 'static';
     config.keyboard = false;
@@ -37,6 +41,15 @@ export class HistoriesComponent implements OnInit {
         this.previousList = undefined;
       }
     });
+  }
+
+  addReview() {
+    // let request = {rating: this.val, review: this.review };
+    // this.touristService.cancelrequest(this.selectedPrevious._id, 'COMPLETED', request).subscribe( res => {
+    //   console.log(res);
+    //   this.toastr.success("Review added successfully!");
+    //   this.getAllPreviousList();
+    // });
   }
 
 }

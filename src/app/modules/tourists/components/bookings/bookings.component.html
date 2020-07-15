@@ -188,12 +188,12 @@
   </div>
   <div class="modal-body">
     <div class="md-form">
-      <textarea class="md-textarea form-control" rows="3" id="input_text" type="text"mdbInput></textarea>
+      <textarea class="md-textarea form-control" rows="3" [(ngModel)]="cancelReason" id="input_text" type="text" mdbInput></textarea>
       <label for="input_text">Enter Reasons why You Cancel Bookings</label>
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c1('Save click')">Close</button>
-    <button type="button" class="btn btn-outline-dark" (click)="c1('Save click')">Submit</button>
+    <button mdbBtn type="button" color="secondary" size="sm" class="btn" (click)="c1('Save click')">Close</button>
+    <button mdbBtn type="button"  color="deep-orange" size="sm" class="btn " (click)="cancelBooking(content, cancel)" >Submit</button>
   </div>
 </ng-template>
