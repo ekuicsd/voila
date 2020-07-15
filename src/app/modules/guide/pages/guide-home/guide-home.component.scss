@@ -1,9 +1,24 @@
+.col-3{
+  background-color: #b7e8eb !important;
+overflow:hidden;
+}
 .navside {
     overflow: -moz-hidden-unscrollable;
+    overflow: hidden;
     width: 100%;
-    background-color: #b7e8eb !important;
     margin: 0;
-    height: 100%;
+  background-color: #b7e8eb !important;
+
+    padding:0 !important;
+    height: 100% !important;
+    position: relative;
+}
+.navside .content{
+position: fixed;
+background-color: #b7e8eb !important;
+overflow:hidden;
+
+bottom: 0px;
 }
 .guide-name {
     color: #3AAF;
