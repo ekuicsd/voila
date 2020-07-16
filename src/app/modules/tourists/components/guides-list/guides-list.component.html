@@ -1,43 +1,47 @@
-<h1> Pick Your Guide</h1>
-<br>
-<br>
-<div class="request-card d-none d-sm-block">
+<h1 class="mx-3 mb-2"> Pick Your Guide</h1>
 
-    <mdb-card class="w-auto">
+<div class="request-card d-none d-md-block">
+
+    <mdb-card class="w-auto ml-lg-4 my-3 mx-md-3">
         <div class="container1">
 
-            <mdb-card-body>
+            <mdb-card-body class="p-3">
 
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4 col-lg-3">
                         <img src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid contained" alt="...">
                     </div>
-                    <div class="col-md-5">
-                        <mdb-card-title>
-                            <a>
-                                <h4>Sahil Malhotra</h4>
-                            </a>
+                    <div class="col-md-4 col-lg-5">
+                        <mdb-card-title style="font-size: 24px;">
+
+                            <strong>Mr. Sahil Malhotra</strong>
+
                         </mdb-card-title>
-                        <div>
-                            <div>Age: 34</div>
-                            <hr>
-                            <a class="responsive1">
-                                <div data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                    <mdb-icon fas icon="map-marker-alt" size="lg" class="red-text"></mdb-icon>&nbsp;Rishikesh</div>
-                                <hr>
-                            </a>
-                            <div>
-                                <h5>Speaks
-                                    <p>guide.languages.toString()</p>
-                                </h5>
+                        <hr>
+                        <div style="font-size: 18px;">
+
+                            <div class="py-2">
+                                <mdb-icon fas icon="birthday-cake" size="lg" class="brown-text pr-1"></mdb-icon>&nbsp;29 years old
                             </div>
+
+                            <!-- <div data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> -->
+                            <div class="py-2">
+                                <mdb-icon fas icon="map-marker-alt" size="lg" class="red-text pr-1"></mdb-icon>&nbsp; Lives in Rishikesh
+                            </div>
+
+                            <div class="py-2">
+                                <!-- <mdb-icon fas icon="globe" class="purple-text pr-1"></mdb-icon>&nbsp;<h5>Speaks{{guide?.languages.toString()}}</h5> -->
+                                <mdb-icon fas icon="globe" size="lg" class="green-text pr-1"></mdb-icon>&nbsp;Speaks Hindi, English and French
+
+                            </div>
+
                             <!-- <a>
                                 <div data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                     <mdb-badge pill="true" default="true">4.2 </mdb-badge>&nbsp; (207 reviews)</div>
                             </a> -->
                         </div>
                     </div>
-                    <div class="col-md-4" style="border-left: 1px solid rgba(128, 128, 128, 0.356);">
+                    <div class="col-md-4 p-2" style="border-left: 1px solid rgba(128, 128, 128, 0.356);">
                         <!-- <div class="side-card">
                       <mdb-card-text>
                         <div>Recommended Deal</div>
@@ -50,17 +54,24 @@
                         <div>
                             <div>Price Per Day</div>
                             <div>
-                                <h2>₹ guide.perDayCharge</h2>
+                                <h2>₹ 1000</h2>
                             </div>
                         </div>
-                        <div class="text-center mb-2">
+                        <div class="text-center mb-4 mt-2">
                             <!-- <button (click)="navigateToGuideProfile(guide._id)">Book for Personalised Tour</button> -->
                             <button type="button" class="btn btn-cyan">Book for Personalised Tour</button>
                         </div>
-                        <div class="mt-5">
+                        <div class=" mt-5 mb-0">
                             <!-- <div data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> -->
-                            <mdb-badge pill="true" default="true">4.2 </mdb-badge>&nbsp; (207 reviews)
-                            <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="text-decoration-none float-right">View more</a>
+                            <i class="fa fa-star " aria-hidden="true"></i>
+                            <i class="fa fa-star " aria-hidden="true"></i>
+                            <i class="fa fa-star " aria-hidden="true"></i>
+                            <i class="fa fa-star " aria-hidden="true"></i> &nbsp; (22 REVIEWS)
+
+                            <!-- <mdb-badge pill="true" default="true">4.2 </mdb-badge>&nbsp; (207 reviews) -->
+                            <span class="float-right">
+                                <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="text-decoration-none">View more</a>
+                            </span>
                         </div>
                     </div>
 
@@ -88,34 +99,36 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="Info" role="tabpanel" aria-labelledby="Info-tab">
-                        <br>
-                        <h4>About guide.name</h4>
-                        <p>Rishikesh is a city in India’s northern state of Uttarakhand, in the Himalayan foothills beside the Ganges River. The river is considered holy, and the city is renowned as a center for studying yoga and meditation. Temples and
-                            ashrams (centers for spiritual studies) line the eastern bank around Swarg Ashram, a traffic-free, alcohol-free and vegetarian enclave upstream from Rishikesh town.</p>
+                        <div class="row my-2">
+                            <div class="col-md-6">
+                                <h4>Languages</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Interests</h4>
+                                <p>guide.interests.toString()</p>
+                            </div>
+                        </div>
 
 
-                        <hr>
-                        <h4>Interests</h4>
-                        <p>guide.interests.toString()</p>
+
                     </div>
                     <div class="tab-pane fade" id="rating" role="tabpanel" aria-labelledby="rating-tab">
-                        <br>
-                        <h4>Reviews</h4>
-                        <hr>
-                        <div class="row">
-                            <div class="col-lg-4">
+
+
+                        <div class="row my-2">
+                            <div class="col-md-4">
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-12">
                                         <h1>
-                                            <mdb-badge pill="true" primary="true">4.2</mdb-badge>
+                                            <mdb-badge pill="true" primary="true">4.2 <i class="fa fa-star " aria-hidden="true"></i></mdb-badge>
                                         </h1>
                                     </div>
-                                    <div class="col-9 my-auto">
+                                    <div class="col-12">
                                         <b>Voila rating</b> based on 256 reviews
                                     </div>
 
                                 </div>
-                                <div class="my-3">
+                                <div class="my-4">
                                     <h3>Recent Review</h3>
                                     <div>
                                         <div><b>Alexender roxx</b> 4.5/5</div>
@@ -123,7 +136,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
+                            <div class="col-md-8 my-1" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
 
                                 <h4>More Reviews</h4>
                                 <br>
@@ -154,7 +167,7 @@
                                             <mdb-icon fas icon="check-double"></mdb-icon>
                                         </mdb-badge>&nbsp;
 
-                                        <p>Greate Experience and a really cool and hot man to roam with</p>
+                                        <p>Great Experience and a really cool and hot man to roam with</p>
                                     </div>
                                 </div>
                                 <hr>
@@ -172,49 +185,134 @@
                     </div> -->
 
                     <div class="tab-pane fade" id="deal" role="tabpanel" aria-labelledby="deal-tab">
-                        <div class="row">
-                            <div class="col-sm-2 deal-card ">
-                                <mdb-badge pill="true" success="true">Recommended deal</mdb-badge>
-                                <p>From: 26/02/2021</p>
-                                <p>To: 5/03/2021</p>
-                                <h3>₹550
-                                    <p>/head</p>
-                                </h3>
-                                <button mdbBtn type="button" class="float-right" size="sm" color="success" mdbWavesEffect>View Deal</button>
-                            </div>
-                            <div class="col-sm-2 deal-card ">
-                                <mdb-badge pill="true" success="true">Recommended deal</mdb-badge>
-                                <p>From: 26/02/2021</p>
-                                <p>To: 5/03/2021</p>
-                                <h3>₹550
-                                    <p>/head</p>
-                                </h3>
-                                <button mdbBtn type="button" class="float-right" size="sm" color="success" mdbWavesEffect>View Deal</button>
+                        <mdb-badge pill="true" success="true">
+                            <h3>Recommended deals</h3>
+                        </mdb-badge>
 
-                            </div>
-                            <div class="col-sm-2 deal-card ">
-                                <mdb-badge pill="true" success="true">Recommended deal</mdb-badge>
-                                <p>From: 26/02/2021</p>
-                                <p>To: 5/03/2021</p>
-                                <h3>₹550
-                                    <p>/head</p>
-                                </h3>
-                                <button mdbBtn type="button" class="float-right" size="sm" color="success" mdbWavesEffect>View Deal</button>
+                        <div class="row p-2 text-center">
+                            <div class="col-lg-3 col-md-4">
+                                <div class="view deal-card guide-card">
 
-                            </div>
-                            <div class="col-sm-2 deal-card ">
-                                <mdb-badge pill="true" success="true">Recommended deal</mdb-badge>
-                                <p>From: 26/02/2021</p>
-                                <p>To: 5/03/2021</p>
-                                <h3>₹550
-                                    <p>/head</p>
-                                </h3>
-                                <button mdbBtn type="button" class="float-right" size="sm" color="success" mdbWavesEffect>View Deal</button>
+                                    <img src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" alt="">
+                                    <div class="mask rgba-purple-light white-text">
+                                        <!-- <div class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                        
+                                            <div style="font-size:12px;">(22 REVIEWS)</div>
+                                        </div> -->
+                                        <div class="text-center" style="overflow-wrap: break-word;">
+                                            <h5>Nandpur Fort Tour</h5>
 
+                                        </div><br>
+                                        <div class="text-center">
+                                            <div style="font-size:16px"><strong>₹500/day</strong></div>
+                                            <br>
+                                            <div>From: 26/02/2021</div>
+                                            <div>To: 5/03/2021</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white-text black my-2" mdbWavesEffect>BOOK NOW!</button>
+
+                                </div>
                             </div>
-                            <div class="button-book float-right ">
-                                <button mdbBtn type="button" size="sm" color="primary" mdbWavesEffect>Book Now</button>
-                                <button mdbBtn type="button" class="float-right" size="sm" color="success" mdbWavesEffect>More Deal</button>
+                            <div class="col-lg-3 col-md-4">
+                                <div class="view deal-card guide-card">
+
+                                    <img src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" alt="">
+                                    <div class="mask rgba-purple-light white-text">
+                                        <!-- <div class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                        
+                                            <div style="font-size:12px;">(22 REVIEWS)</div>
+                                        </div> -->
+                                        <div class="text-center" style="overflow-wrap: break-word;">
+                                            <h5>Nandpur Fort Tour</h5>
+
+                                        </div><br>
+                                        <div class="text-center">
+                                            <div style="font-size:16px"><strong>₹500/day</strong></div>
+                                            <br>
+                                            <div>From: 26/02/2021</div>
+                                            <div>To: 5/03/2021</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white-text black my-2" mdbWavesEffect>BOOK NOW!</button>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4">
+                                <div class="view deal-card guide-card">
+
+                                    <img src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" alt="">
+                                    <div class="mask rgba-purple-light white-text">
+                                        <!-- <div class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                        
+                                            <div style="font-size:12px;">(22 REVIEWS)</div>
+                                        </div> -->
+                                        <div class="text-center" style="overflow-wrap: break-word;">
+                                            <h5>Nandpur Fort Tour</h5>
+
+                                        </div><br>
+                                        <div class="text-center">
+                                            <div style="font-size:16px"><strong>₹500/day</strong></div>
+                                            <br>
+                                            <div>From: 26/02/2021</div>
+                                            <div>To: 5/03/2021</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white-text black my-2" mdbWavesEffect>BOOK NOW!</button>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4">
+                                <div class="view deal-card guide-card">
+
+                                    <img src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" alt="">
+                                    <div class="mask rgba-purple-light white-text">
+                                        <!-- <div class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                                            <i class="fa fa-star star" aria-hidden="true"></i>
+                        
+                                            <div style="font-size:12px;">(22 REVIEWS)</div>
+                                        </div> -->
+                                        <div class="text-center" style="overflow-wrap: break-word;">
+                                            <h5>Nandpur Fort Tour</h5>
+
+                                        </div><br>
+                                        <div class="text-center">
+                                            <div style="font-size:16px"><strong>₹500/day</strong></div>
+                                            <br>
+                                            <div>From: 26/02/2021</div>
+                                            <div>To: 5/03/2021</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white-text black my-2" mdbWavesEffect>BOOK NOW!</button>
+
+                                </div>
+                            </div>
+                            <div>
+                                <button mdbBtn type="button" size="sm" color="primary" mdbWavesEffect>More Deals</button>
+
 
                             </div>
 
@@ -228,7 +326,7 @@
 </div>
 
 
-<div class="d-block d-sm-none">
+<!-- <div class="d-block d-md-none">
     <div>
         <div class="row guidy mx-2 my-3">
             <div class="col-12 m-0 p-0">
@@ -254,5 +352,50 @@
             </div>
         </div>
 
+    </div>
+</div> -->
+<!-- small screen guide cards -->
+
+<div class="row m-3">
+    <div class="col-12  d-block d-md-none">
+        <div class="view guide-card" style="position: relative;">
+            <img src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" alt="">
+            <div class="mask mygradient white-text">
+                <div class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+
+                    <div style="font-size:12px;">(22 REVIEWS)</div>
+                </div>
+                <div style="position:absolute; bottom:6px; left:10px; overflow-wrap: break-word;">
+                    <h4 class="guide-name">Sahil Malhotra</h4>
+
+                </div>
+                <div style="position:absolute; bottom:6px; right:10px;" class="float-right">
+                    <div class="text-center">₹500/day</div>
+
+                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white black-text my-2" mdbWavesEffect>BOOK NOW!</button>
+
+                </div>
+            </div>
+        </div>
 
     </div>
+</div>
+
+
+
+<!-- alternative mobile card implementation -->
+<!-- <div class="row">
+    <div class="col-12">
+        <div class="content">
+            
+            <img src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="width:300px;" />
+            <div class>
+                <h3>Sahil Malhotra</h3>
+            <div>Author: Bill Jones</div>
+            </div>
+        </div>
+    </div>
+</div> -->

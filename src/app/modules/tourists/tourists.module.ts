@@ -25,8 +25,7 @@ import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 import { InterestsComponent } from './pages/interests/interests.component';
 import { LanguagesComponent } from './pages/languages/languages.component';
 import { Ng5SliderModule } from 'ng5-slider';
-import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'touristshome', component: TouristsHomeComponent, children: [
@@ -132,7 +131,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     Ng5SliderModule,
-    MatSidenavModule
+    NgbModule
   ],
   exports: [
 
