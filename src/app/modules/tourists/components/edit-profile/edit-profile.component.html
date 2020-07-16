@@ -1,11 +1,21 @@
-<div class="card py-5 px-5 mx-lg-5">
-    <div class="card-body px-0 py-0">
-        <div class="card-title">
-            <h1 class="editup">Edit Profile</h1>
-        </div>
-    </div>
+<div class="edittop d-none d-md-block">
+  <div class="row">
+      <div class="col-6 p-5">
+          <div class="edit-font white-text">
+              EDIT PROFILE
+          </div>
+      </div>
+      <div class="col-6">
+          <img src="assets\images\undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
+      </div>
+  </div>
+</div>
+<div class="edittopsmall d-block d-md-none ">
+  <h1>EDIT PROFILE</h1>
+</div>
+<div class="py-5 px-5 mx-lg-5">
     <hr class="mt-0">
-    <div class="row font card-body">
+    <div class="row font">
         <div class="col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
         </div>
@@ -21,20 +31,8 @@
                 </div>
 
             </div>
-
-            <div class="row">
-                <div class="col-6">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Nationality </b>
-                    <div>{{userData.nationality}}</div>
-                </div>
-                <div class="col-6">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Date of birth </b>
-                    <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-6">
+<div class="row">
+                <div class="col-6 mb-3">
                     <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
                     <div> {{userData.email}}</div>
                 </div>
@@ -44,12 +42,42 @@
                 </div>
             </div>
 
-            <b style="color: rgba(3, 169, 244, 0.7)">Language </b>
-            <div>{{userData.languages[0]}}</div>
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <b style="color: rgba(3, 169, 244, 0.7)">Nationality </b>
+                    <div>{{userData.nationality}}</div>
+                </div>
+                <div class="col-6 mb-3">
+                    <b style="color: rgba(3, 169, 244, 0.7)">Age </b>
+                    <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
+                </div>
+
+            </div>
+
+
         </div>
     </div>
     <div class="row card-body">
-        <div class="col-md-3">
+        <div class="col-3">
+            <h4 style="color: #4caf4f ">Language</h4>
+        </div>
+        <div class="col-md-9 font">
+            <div class="row mb-2" *ngFor="let item of userData.interests">
+                <div class="col-10">
+                    <b style="color: #4caf4fb7 ">{{item}}</b>
+                </div>
+                <div class="col-2">
+                    <a (click)="removeInterests(item)" class="float-right">
+                        <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
+                    </a>
+                    <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
+                </div>
+            </div>
+            <a (click)="addintrest.show()"><b style="color: #4caf4f ">+Add more</b></a>
+        </div>
+    </div>
+    <div class="row card-body">
+        <div class="col-3">
             <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
         <div class="col-md-9 font">
@@ -68,7 +96,12 @@
         </div>
     </div>
 </div>
-
+<div class="row mt-4">
+  <div class="col-12 text-center">
+      <button type="button"  class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
+      <button type="button" class="btn btn-info"  mdbBtn size="md">Save</button>
+  </div>
+</div>
 
 <!-- edit profile modal -->
 <div mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
@@ -116,7 +149,7 @@
 
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label for="form6">Date Of Birth</label>
+                                <label for="form6">Age</label>
                                 <input type="date" id="form6" disabled formControlName="dob" class="form-control">
 
                             </div>
@@ -188,3 +221,4 @@
         </div>
     </div>
 </div>
+<!-- add language -->
