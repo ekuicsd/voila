@@ -51,8 +51,6 @@ export class ChatsComponent implements OnInit {
       this.socket.on('refreshPage', () => {
         this.getUserByEmail(this.email, this.receiverRole);
       });
-
-
     });
 
   }

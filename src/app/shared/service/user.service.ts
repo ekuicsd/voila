@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 import { JwtService } from './jwt.service';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
+import { SearchService } from './search.service';
 
 @Injectable({
     providedIn: 'root'
@@ -24,8 +25,16 @@ export class UserService {
     
     constructor(private apiService: ApiService,
         private jwtService: JwtService,
+        private searchService: SearchService,
         private router: Router,
-    ) {}
+    ) {
+        if(this.getRole() === 'tourist') {
+            let user = JSON.parse(this.getUser('tourist'));
+            this.searchService.extra_filter.interests = user.interests;
+            this.searchService.extra_filter.languages = user.languages;
+        }
+        
+    }
 
 
     // populate() {
@@ -56,6 +65,8 @@ export class UserService {
                 if(data.body.success) {
                     this.setAuth(data.body.token);
                     this.saveUser(data.body.Tourist, 'tourist');
+                    this.searchService.extra_filter.interests = data.body.Tourist.interests;
+                    this.searchService.extra_filter.languages = data.body.Tourist.languages;
                 }
               return data.body;
             }
@@ -83,6 +94,8 @@ export class UserService {
             res=> {
                 console.log('logout');
                 this.purgeAuth();
+                this.searchService.extra_filter.interests = [];
+                this.searchService.extra_filter.languages = []
                 this.router.navigate(['/']);
             }, error => {
                 console.log(error);
@@ -108,7 +121,6 @@ export class UserService {
         window.localStorage.removeItem('guide');
         window.localStorage.removeItem('tourist');
         window.localStorage.removeItem('role');
-        
     }
 
     saveUser(user, role: string) {

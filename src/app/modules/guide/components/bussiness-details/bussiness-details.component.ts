@@ -38,9 +38,9 @@ export class BussinessDetailsComponent implements OnInit {
   createExperienceForm() {
     this.experienceForm = new FormGroup({
       work: new FormControl('', [Validators.required]),
-      startYear: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]),
+      startYear: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(4), CustomValidators.compondValueValidate]),
       duration: new FormControl('', [Validators.required, CustomValidators.compondValueValidate]),
-      profile: new FormControl('', [Validators.required, CustomValidators.compondValueValidate])
+      profile: new FormControl('', [Validators.required])
     })
   }
 

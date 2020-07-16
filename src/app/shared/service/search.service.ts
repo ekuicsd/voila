@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import { Deals } from '../models/deals.model';
 import * as moment from 'moment';
+import { Filter } from '../models/filters.model';
+import { UserService } from './user.service';
 @Injectable({
     providedIn: 'root'
 })
@@ -39,6 +41,8 @@ export class SearchService {
       singleDate: null
     };
     public noOfPeople = 2;
+    public extra_filter: Filter;
+    public user;
 
     public guidesList: any[] = [];
     public dealsList: Deals[] = [];
@@ -46,10 +50,18 @@ export class SearchService {
 
     constructor(private calendar: NgbCalendar, 
         private router: Router,
+        // private userService: UserService,
         private apiService: ApiService,
         private toastr: ToastrService) 
     {
         this.createForm();
+        this.extra_filter = {
+          minPrice: 100,
+          maxPrice: 2000,
+          rating: null,
+          interests: [],
+          languages: []
+        }
     }
 
 
@@ -68,6 +80,7 @@ export class SearchService {
           range: new FormControl(),
           endDate: new FormControl(),
           noOfPeople: new FormControl(4),
+          filter: new FormControl(true)
         })
       }
 
@@ -91,8 +104,11 @@ export class SearchService {
       }
 
       getGuidesAndDealsList() {
+        let request = this.searchForm.value;
+        request['extra_filter'] = this.extra_filter;
+        console.log(request);
         let url = '/tourist/guides';
-        this.apiService.post(url, this.searchForm.value).subscribe( res => {
+        this.apiService.post(url,request).subscribe( res => {
             console.log(res);
             this.guidesList = res.body.guides;
             this.dealsList = res.body.deals;
