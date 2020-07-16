@@ -1,29 +1,33 @@
 .col-3{
-  background-color: #b7e8eb !important;
-overflow:hidden;
+
+}
+.top-bar{
+  background:#4ca6ea;
+  width:100%;
+}
+.nav-link:hover{
+  background:#b9c2ce !important;
+}
+.nav-link:visited{
+  background:#4ca6ea;
 }
 .navside {
-    overflow: -moz-hidden-unscrollable;
-    overflow: hidden;
     width: 100%;
     margin: 0;
-  background-color: #b7e8eb !important;
-
-    padding:0 !important;
-    height: 100% !important;
-    position: relative;
+    background: #d3d5df !important;
+    border-right: 1px solid rgba(128, 128, 128, 0.384);
+    // position: relative;
 }
-.navside .content{
-position: fixed;
-background-color: #b7e8eb !important;
-overflow:hidden;
-
-bottom: 0px;
+.navside .content1 img{
+  width:100px;
+  height:100px;
+  border-radius:50%;
 }
 .guide-name {
-    color: #3AAF;
-    margin: 10px;
-    padding: 2px;
+    color: white;
+    font-size: 25px;
+    // margin: 10px;
+    // padding: 2px;
 }
 
 @media(min-width: 992px) {
