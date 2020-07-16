@@ -9,11 +9,12 @@
 html,
 body {
     height: 100%;
-    min-height: 50vh;
+    // min-height: 50vh;
     overflow-x: hidden;
 }
 body {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 85vh;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 ::-webkit-scrollbar {
     width: 8px;

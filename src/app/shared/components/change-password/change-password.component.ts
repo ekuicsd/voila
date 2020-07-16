@@ -7,7 +7,7 @@ import { CustomValidators } from 'src/app/validators/custom';
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 
 })
 export class ChangePasswordComponent implements OnInit {

@@ -1,5 +1,5 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false" >
+<mdb-navbar #navbarid  SideClass="navbar navbar-expand-lg navbar-dark black" [containerInside]="false" >
     <!-- Navbar brand -->
     <mdb-navbar-brand>
         <a *ngIf="!jwtService.getToken()" class="navbar-brand" [routerLink]="['/']" routerLinkActive="active">
@@ -17,7 +17,7 @@
         <!-- Links -->
         <ul *ngIf="!jwtService.getToken()" class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link waves-light"  [routerLink]="['/login/tourist']" routerLinkActive="active" mdbWavesEffect>
+              <a (click)="onLinkClick()" class="nav-link waves-light"  [routerLink]="['/login/tourist']" routerLinkActive="active" mdbWavesEffect>
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                   LogIn</a>
           </li>
@@ -27,8 +27,8 @@
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     Register<span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/touristsRegister']" routerLinkActive="active">Tourists</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guideRegister']" routerLinkActive="active">Guide</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/touristsRegister']" routerLinkActive="active">Tourists</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/guideRegister']" routerLinkActive="active">Guide</a>
                 </div>
             </li>
             <li class="nav-item dropdown" dropdown >
@@ -36,28 +36,28 @@
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']"  routerLinkActive="active">About</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/aboutUs']"  routerLinkActive="active">About</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
                 </div>
             </li>
         </ul>
         <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'tourist')" class="navbar-nav ml-auto">
 
             <li class="nav-item">
-                <a [routerLink]="['/tourists/touristshome/favourites']" routerLinkActive="active" class="nav-link waves-light" mdbWavesEffect>
+                <a [routerLink]="['/tourists/touristshome/favourites']" routerLinkActive="active" (click)="onLinkClick()" class="nav-link waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="heart"></mdb-icon>Favourites
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/messages']" routerLinkActive="active">
+                <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/messages']" (click)="onLinkClick()" routerLinkActive="active">
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon  fas  icon="envelope"></mdb-icon>Message
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" [routerLink]="['/tourists/touristshome/bookings']" routerLinkActive="active" mdbWavesEffect>
+                <a class="nav-link waves-light" [routerLink]="['/tourists/touristshome/bookings']" routerLinkActive="active" (click)="onLinkClick()" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
             </li>
@@ -66,9 +66,9 @@
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
                 </div>
             </li>
             <li class="nav-item avatar dropdown" dropdown >
@@ -78,37 +78,37 @@
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/tourists/touristshome/changePassword']" routerLinkActive="active">Change Password</a>
-                    <a class="dropdown-item waves-light text-white" mdbWavesEffect (click)="logout('tourist')" routerLinkActive="active">Logout</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/tourists/touristshome/changePassword']" routerLinkActive="active">Change Password</a>
+                    <a class="dropdown-item waves-light text-white" (click)="onLinkClick()" mdbWavesEffect (click)="logout('tourist')" routerLinkActive="active">Logout</a>
                 </div>
             </li>
         </ul>
         <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')"
             class="navbar-nav ml-auto d-block d-lg-none">
             <li class="nav-item">
-                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/messages']" routerLinkActive="active" mdbWavesEffect>
+                <a (click)="onLinkClick()" class="nav-link waves-light" [routerLink]="['/guide/guidehome/messages']" routerLinkActive="active" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon  fas  icon="envelope"></mdb-icon>Message
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/bookings']" routerLinkActive="active" mdbWavesEffect>
+                <a (click)="onLinkClick()" class="nav-link waves-light" [routerLink]="['/guide/guidehome/bookings']" routerLinkActive="active" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/requests']" routerLinkActive="active" mdbWavesEffect>
+                <a (click)="onLinkClick()" class="nav-link waves-light" [routerLink]="['/guide/guidehome/requests']" routerLinkActive="active" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Requests</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/activities']" routerLinkActive="active" mdbWavesEffect>
+                <a (click)="onLinkClick()" class="nav-link waves-light" [routerLink]="['/guide/guidehome/activities']" routerLinkActive="active" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Activites</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link waves-light" [routerLink]="['/guide/guidehome/deals']" routerLinkActive="active" mdbWavesEffect>
+                <a (click)="onLinkClick()" class="nav-link waves-light" [routerLink]="['/guide/guidehome/deals']" routerLinkActive="active" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Deals</a>
             </li>
@@ -117,9 +117,9 @@
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
                 </div>
             </li>
             <li class="nav-item avatar dropdown" dropdown >
@@ -128,9 +128,9 @@
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/changepassword']" routerLinkActive="active">Change Password</a>
-                    <a class="dropdown-item waves-light text-white" mdbWavesEffect (click)="logout('guide')" routerLinkActive="active">Logout</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/changepassword']" routerLinkActive="active">Change Password</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light text-white" mdbWavesEffect (click)="logout('guide')" routerLinkActive="active">Logout</a>
                 </div>
             </li>
         </ul>
@@ -141,9 +141,9 @@
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
                 </div>
             </li>
             <li class="nav-item avatar dropdown" dropdown >
@@ -152,10 +152,10 @@
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome']" routerLinkActive="active">Dashboard</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/changepassword']" routerLinkActive="active">Change Password</a>
-                    <a class="dropdown-item waves-light text-white" mdbWavesEffect (click)="logout('guide')" routerLinkActive="active">Logout</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome']" routerLinkActive="active">Dashboard</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/changepassword']" routerLinkActive="active">Change Password</a>
+                    <a (click)="onLinkClick()" class="dropdown-item waves-light text-white" mdbWavesEffect (click)="logout('guide')" routerLinkActive="active">Logout</a>
                 </div>
             </li>
         </ul>

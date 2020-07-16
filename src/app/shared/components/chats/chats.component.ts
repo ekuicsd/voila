@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   selector: 'app-chats',
   templateUrl: './chats.component.html',
   styleUrls: ['./chats.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class ChatsComponent implements OnInit {
   public receiverRole: string;
@@ -50,7 +50,7 @@ export class ChatsComponent implements OnInit {
 
       this.socket.on('refreshPage', () => {
         this.getUserByEmail(this.email, this.receiverRole);
-      })
+      });
 
 
     });

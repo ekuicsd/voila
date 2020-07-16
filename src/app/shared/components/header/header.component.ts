@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { MessageService } from '../../service/message.service';
@@ -6,6 +6,10 @@ import { JwtService } from '../../service/jwt.service';
 import io from 'socket.io-client';
 import { environment } from 'src/environments/environment';
 import { Location } from '@angular/common';
+import { NavbarComponent } from 'angular-bootstrap-md';
+// import { NavbarComponent as navmdb } from '../../../node_modules/ng-uikit-pro-standard/lib/free/navbars/navbar.component';
+// import { NavbarComponent as navmdb } from '../../../node_modules/angular-bootstrap-md/navbars/navbar.component';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,12 +17,13 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent implements OnInit, OnChanges{
 
+  @ViewChild('navbarid', {static: false}) navbaridRef: NavbarComponent;
   @Input() loggingIn;
   msgNumber = 0;
   public user: any;
   public recieverRole;
   public userRole;
-  socket:any;
+  // socket:any;
   public chatList = [];
   
   constructor(
@@ -45,6 +50,10 @@ export class HeaderComponent implements OnInit, OnChanges{
     //   })
     // }
   }
+
+  onLinkClick() {
+    this.navbaridRef.toggle(); //Hide the collapse menu after click
+   }
 
   // navigateToBackLocation() {
   //   this.location.back();

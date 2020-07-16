@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   selector: 'app-create-deal',
   templateUrl: './create-deal.component.html',
   styleUrls: ['./create-deal.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class CreateDealComponent implements OnInit {
 
