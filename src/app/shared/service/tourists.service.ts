@@ -28,11 +28,10 @@ export class TouristsService {
         });
     }
 
-    cancelrequest(id, status: string) : Observable<any>  {
+    cancelrequest(id, status: string, request) : Observable<any>  {
         let url = '/tourist/editBooking/' + id + '/' + status;
-        // let url = '/tourist/editBooking/:bookingId/:change';
         return new Observable<any>(obs => {
-            this.apiService.get(url).subscribe(res => {
+            this.apiService.put(url, request).subscribe(res => {
                 obs.next(res);
             })
         });

@@ -20,6 +20,7 @@ import { HelpPageComponent } from './components/help-page/help-page.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutComponent } from './components/about/about.component';
 import { TruncateTextPipe } from './pipes/truncateText.pipe';
+import { ShortTextPipe } from './pipes/shortText.pipe';
 
 const routes: Routes = [
     
@@ -71,7 +72,8 @@ const routes: Routes = [
         HelpPageComponent,
         ContactUsComponent,
         AboutComponent,
-        TruncateTextPipe
+        TruncateTextPipe,
+        ShortTextPipe
     ],
     imports: [
         CommonModule,
@@ -92,7 +94,8 @@ const routes: Routes = [
         DealsCardsComponent,
         ChatsComponent,
         ChatHistoryListComponent,
-        TruncateTextPipe
+        TruncateTextPipe,
+        ShortTextPipe
     ]
 }) 
 

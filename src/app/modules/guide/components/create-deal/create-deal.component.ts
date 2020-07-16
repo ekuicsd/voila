@@ -1,0 +1,118 @@
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import csc from 'country-state-city';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomValidators } from 'src/app/validators/custom';
+import { StaticDataService } from 'src/app/shared/service/static-data.service';
+import { ToastrService } from 'ngx-toastr';
+import { GuideService } from 'src/app/shared/service/guide.service';
+import { Router } from '@angular/router';
+@Component({
+  selector: 'app-create-deal',
+  templateUrl: './create-deal.component.html',
+  styleUrls: ['./create-deal.component.scss'],
+  // encapsulation: ViewEncapsulation.None
+})
+export class CreateDealComponent implements OnInit {
+
+  public stateList: any[];
+  public cityList: any[];
+  public placesList: Places[] = [];
+  public dealForm: FormGroup;
+  public deal: any = {};
+  public groupType;
+
+  //ngModel
+  public place: string = '';
+  public date: Date;
+
+  constructor(private staticDataService: StaticDataService,
+    private guideService: GuideService,
+    private router: Router,
+    private toastr: ToastrService
+    ) { }
+
+  ngOnInit() {
+    this.groupType = this.staticDataService.getAllGroupTypes();
+    this.getAllState('101');
+    this.createDealForm();
+  }
+
+  createDealForm() {
+    this.dealForm = new FormGroup({
+      price: new FormControl('', [Validators.required, CustomValidators.compondValueValidate]),
+      startDate: new FormControl('', [Validators.required]),
+      endDate: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
+      peopleLimit: new FormControl('', [Validators.required, CustomValidators.compondValueValidate]),
+      groupType: new FormControl('', [Validators.required]),
+    });
+  }
+
+  getAllState(countryId: string) {
+    console.log(countryId);
+    this.stateList = csc.getStatesOfCountry(countryId);
+    console.log(this.stateList);
+  }
+
+  getAllCity(statename) {
+    let stateId = this.stateList.filter(ele => {
+      if(ele.name === statename) {
+        return ele;
+      }
+    })[0].id;
+    console.log(stateId);
+    this.cityList = csc.getCitiesOfState(stateId);
+    console.log(this.cityList);
+  }
+
+  addToPlacesList() {
+    if(this.place === '' || this.date === undefined) {
+      this.toastr.error("Data Invalid!");
+    } else {
+      this.placesList.push({
+        place: this.place,
+        date: this.date
+      });
+      this.place = '';
+      this.date = undefined;
+    }
+  }
+
+  editPlace(item) {
+    this.removePlace(item);
+    this.place = item.place;
+    this.date = item.date;
+  }
+
+  removePlace(item) {
+    let index = this.placesList.indexOf(item);
+    if(index !== -1) {
+      this.placesList.splice(index, 1);
+    }
+  }
+
+  saveDeal() {
+    if(this.dealForm.valid && this.placesList.length > 0) {
+      console.log(this.dealForm.value);
+      this.deal = this.dealForm.value;
+      this.deal['places'] = this.placesList;
+      console.log(this.deal);
+      this.guideService.createDeal(this.deal).subscribe( res=> {
+        console.log(res);
+        this.toastr.success("Deal created successfully!");
+        this.router.navigateByUrl('/guide/guidehome/deals');
+      }, error => {
+        console.log(error)
+      });
+    } else {
+      this.toastr.error("Invalid Details!");
+    }
+  }
+
+}
+
+interface Places {
+  place: string;
+  date: Date;
+}

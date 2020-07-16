@@ -1,6 +1,22 @@
-.editup {
-    font-family: 'Staatliches', cursive;
-    word-spacing: 0.6rem;
+.edittop {
+  // background-image: radial-gradient(circle at top left, rgb(200, 112, 104), rgb(85, 61, 103));
+  // background-image: linear-gradient(135deg, rgb(182, 244, 85), rgb(83, 130, 95));
+  background-image: radial-gradient(circle at center center, rgb(80, 32, 84), rgb(62, 35, 81), rgb(44, 38, 79), rgb(26, 40, 76), rgb(8, 43, 73));
+  color: rgba(255, 255, 255, .25);
+  text-align: center;
+  margin: 0
+}
+
+.edit-font {
+  font-family: 'Bangers', cursive;
+  font-size: 80px;
+  word-spacing: 20px;
+}
+.edittopsmall h1{
+  text-align: center;
+  font-family: 'Bangers', cursive;
+  font-size: 60px;
+  color: rgb(80, 32, 84);
 }
 
 @media (min-width: 576px) {
@@ -17,4 +33,9 @@
     .editup {
         font-size: 50px;
     }
+}
+@media (max-width:450px){
+  .font{
+    font-size: 12px;
+  }
 }

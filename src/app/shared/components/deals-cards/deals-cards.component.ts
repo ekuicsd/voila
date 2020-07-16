@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { Deals } from '../../models/deals.model';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';

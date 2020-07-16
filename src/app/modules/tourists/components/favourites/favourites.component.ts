@@ -9,7 +9,7 @@ import { Deals } from 'src/app/shared/models/deals.model';
 })
 export class FavouritesComponent implements OnInit {
 
-  public favouritesList: Deals[];
+  public favouritesList: Deals[] = [];
 
   constructor(private touristService: TouristsService) { }
 
@@ -20,7 +20,11 @@ export class FavouritesComponent implements OnInit {
   getAllFavouritesList() {
     this.touristService.getAllFavorites().subscribe( res => {
       console.log(res);
-      this.favouritesList = res;
+      if(res.length > 0) {
+        this.favouritesList = res;
+      } else {
+        this.favouritesList = undefined;
+      }
     });
   }
 

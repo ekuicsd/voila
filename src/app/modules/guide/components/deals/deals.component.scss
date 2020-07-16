@@ -5,8 +5,17 @@
 .create-font {
     font-family: 'Bangers', cursive;
     font-size: 75px;
-    margin-top: 50px;
+    margin-top: 20px;
     word-spacing: 18px;
+}
+
+@media(max-width: 576px) {
+    .create-font {
+        font-family: 'Bangers', cursive;
+        font-size: 40px;
+        // margin-top: 50px;
+        word-spacing: 14px;
+    }  
 }
 
 mdb-card-text div {

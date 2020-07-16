@@ -9,13 +9,13 @@
 html,
 body {
     height: 100%;
+    // min-height: 50vh;
     overflow-x: hidden;
 }
-
 body {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 85vh;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -43,10 +43,23 @@ body {
     background-color: #64b5f6;
 }
 
+.navbar {
+  z-index: 100;
+}
+
 .cust-grid {
     display: flex;
     justify-content: center;
     flex-flow:row wrap;
+  }
+
+  .vertical-center {
+    min-height: 100%; 
+    min-height: 72vh;
+    display: flex;
+    width: 100%;
+    align-items: center;
+  
   }
 
     /* input error */
@@ -178,7 +191,7 @@ body {
 	span {
 		position: fixed;
     display: block;
-  z-index: 100;
+    z-index: 100;
 		width: 40px;
 		height: 40px;
 		background-color: #EE4040;

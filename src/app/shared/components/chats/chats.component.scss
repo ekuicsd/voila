@@ -28,7 +28,7 @@
     max-width: 100%;
     max-height: 100px;
   }
-  
+
   .message {
     font-size: 16px;
   }
@@ -36,7 +36,7 @@
     white-space: nowrap;
     font-size: 14px;
   }
-  
+
   .message-wrapper {
     position: relative;
     margin-top: 10px;
@@ -133,7 +133,7 @@
     color: #3b88c3;
     text-decoration: none;
   }
-  
+
   .rowDiv {
     background: #ffffff !important;
     height: 61vh !important;
@@ -142,16 +142,16 @@
     top: 0px;
     // margin-top: -20px !important;
   }
-  
+
   .footerDiv {
     height: 38px;
     bottom: 0px !important;
   }
-  
+
   .inputField {
     height: 38px;
   }
-  
+
   emoji-picker {
     width: 100% !important;
     right: 6px;
@@ -159,7 +159,7 @@
   emoji-content {
     width: 100% !important;
   }
-  
+
   .emojiBtn {
     font-size: 20px !important;
     background: inherit !important;
@@ -167,12 +167,12 @@
     text-align: center !important;
     margin-left: -10px !important;
   }
-  
+
   .emojiDiv {
     width: 40px !important;
     margin-bottom: 0px !important;
   }
-  
+
   .imgCircle {
     width: 50px !important;
     height: 50px !important;
@@ -180,49 +180,59 @@
     margin: 0 auto !important;
     top: 20px !important;
   }
-  
+
   .imgCol {
     width: 50px !important;
     margin-left: 20px !important;
     margin-top: 5px !important;
   }
-  
+
   .nameCol span {
     font-size: 25px;
     font-weight: 600 !important;
     color: white !important;
     padding: 0px !important;
   }
-  
+
   .nameCol {
     margin-left: 28px !important;
     height: auto !important;
     width: auto !important;
     padding: 0px !important;
   }
-  
+
   .card {
     height: 60px;
   }
-  
+
   .inputBox {
     color: white;
     padding: 10px;
   }
-  
+
   .input-field {
     top: -9px !important;
   }
-  
+
   .inputRow {
     margin: 0px 10px 0px 10px !important;
   }
-  
+
   .isOnline {
     color: white;
     margin-top: -5px !important;
     padding: 0px !important;
     font-size: 15px;
   }
+// body{
+//   margin: 0;
+//   padding: 0;
+// }
+.sendbox{
+  display: flex;
+flex-direction: column;
+}
+.sendbox1{
+  margin-top: auto;
 
-  
+}

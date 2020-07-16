@@ -1,102 +1,94 @@
-<div class="edittop">
+<div class="edittop d-none d-md-block">
     <div class="row">
-
-
         <div class="col-6 p-5">
             <div class="edit-font white-text">
                 EDIT PROFILE
             </div>
-
         </div>
-
         <div class="col-6">
             <img src="assets\images\undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
         </div>
     </div>
 </div>
+<div class="edittopsmall d-block d-md-none ">
+    <h1>EDIT PROFILE</h1>
+</div>
 <!-- <hr class="mt-0"> -->
-<div class="mx-4">
+<div class=" font mx-4 mb-5">
     <div class="row" style="margin-top: 40px;">
-        <div class="col-md-3">
+        <div class=" col-12 col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-10">
                     <h4 style="color: rgba(3, 169, 244, 0.7)">{{userData.name}}</h4>
                 </div>
-                <div class="col-md-1 edit-btn">
+                <div class="col-2 float-right edit-btn">
                     <a (click)="editpersonal.show()">
                         <mdb-icon fas icon="edit"></mdb-icon>
                     </a>
                 </div>
-
             </div>
-
             <div class="row my-2">
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Aadhar Number </b>
                     <div> {{userData.aadhaarNumber}}</div>
-
                 </div>
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Date of birth </b>
                     <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
                 </div>
-
             </div>
             <div class="row my-2">
-                <div class="col-md-6">
+                <div class="col-12 col-md-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
                     <div> {{userData.email}}</div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)"> Phone </b>
                     <div>{{userData.phoneNumber}}</div>
                 </div>
-            </div>
-            <div class="row my-2">
-                <div class="col-md-6">
+                <div class="col-6 mb-3  mb-md-4  ">
                     <b style="color: rgba(3, 169, 244, 0.7)">Address </b>
-                    <div>{{userData.address}}</div>
+                    <div>{{userData.address | titlecase}}</div>
                 </div>
-                <div class="col-md-6">
-                    <b style="color: rgba(3, 169, 244, 0.7)">city </b>
-                    <div>{{userData.city}}</div>
+                <div class="col-6 mb-3  mb-md-4  ">
+                    <b style="color: rgba(3, 169, 244, 0.7)">City </b>
+                    <div>{{userData.city | titlecase}}</div>
                 </div>
+            <div class="col-6 mb-3  mb-md-4  ">
+                <b style="color: rgba(3, 169, 244, 0.7)">State  </b>
+            <div> {{userData.state | titlecase}}</div>
             </div>
-            <b style="color: rgba(3, 169, 244, 0.7)">State  </b>
-            <div> {{userData.state}}</div>
+        </div>
         </div>
     </div>
     <hr>
     <!--  -->
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Business Info</h4>
         </div>
-        <div class="col-md-9">
+        <div class="col-12 col-md-9">
             <div class="row">
-                <div class="col-md-11">
+                <div class="col-10">
                     <div class="row my-2">
-                        <div class="col-md-12">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(3, 169, 244, 0.7)">People Limit </b>
                             <div>{{userData.peopleLimit}}</div>
                         </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Head</b>
-                            <div> {{userData.perHeadCharge}}</div>
+                            <div>Rs. {{userData.perHeadCharge}}</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-4  ">
                             <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Day </b>
-                            <div> {{userData.perDayCharge}}</div>
+                            <div>Rs. {{userData.perDayCharge}}</div>
                         </div>
-
                     </div>
                 </div>
-                <div class="col-md-1 edit-btn">
+                <div class="col-2 float-right edit-btn">
                     <a (click)="editbusiness.show()">
                         <mdb-icon fas icon="edit"></mdb-icon>
                     </a>
@@ -107,42 +99,46 @@
     <hr>
     <!--  -->
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(233, 30, 98)">Experiences</h4>
         </div>
-        <div class="col-md-9">
-            <div class="row" *ngFor="let item of userData.experience" style="border-bottom: 1px solid gray;">
-                <div class="col-md-10">
+        <div class="col-12 col-md-9">
+            <div class="row mb-3" *ngFor="let item of userData.experience">
+                <div class="col-9">
                     <div class="row my-2">
-                        <div class="col-md-6">
-                            <b style="color: rgba(233, 30, 99, 0.7)">Work-place </b>
-                            <div>{{item.work}}</div>
+                        <div class="col-6 mb-1  mb-md-1">
+                            <b style="color: rgba(233, 30, 99, 0.7)">Work Place </b>
+                            <div>{{item.work | titlecase}}</div>
                         </div>
-                        <div class="col-md-6">
-                            <b style="color: rgba(233, 30, 99, 0.7)">Work-profile </b>
-                            <div> {{item.profile}}
+                        <div class="col-6 mb-1  mb-md-1">
+                            <b style="color: rgba(233, 30, 99, 0.7)">Work Profile </b>
+                            <div> {{item.profile | titlecase}}
                             </div>
                         </div>
                     </div>
                     <div class="row my-2">
-                        <div class="col-md-6">
-                            <b style="color: rgba(233, 30, 99, 0.7)">Starting date </b>
+                        <div class="col-6 mb-3  mb-md-3">
+                            <b style="color: rgba(233, 30, 99, 0.7)">Starting Year </b>
                             <div> {{item.startYear}}</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6 mb-3  mb-md-3">
                             <b style="color: rgba(233, 30, 99, 0.7)">Duration </b>
-                            <div> {{item.duration}}
+                            <div> {{item.duration}} months
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <a (click)="removeExperience(item)" class="float-right">
+                <div class="col-3 m-0 mt-sm-2 p-0">
+                  <div class="col-6 m-0 p-0 float-left">
+                    <a (click)="removeExperience(item)">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
-                    <a class="float-right" (click)="editExpShow(editexperience, item)">
+                  </div>
+                  <div class="col-6 m-0 p-0 float-right">
+                     <a (click)="editExpShow(editexperience, item)">
                         <mdb-icon fas icon="edit"></mdb-icon>
                     </a>
+                  </div>
                     <!-- <a class="float-right" (click)="editexperienceWithData.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
@@ -152,15 +148,15 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(76, 175, 79)">Languages</h4>
         </div>
-        <div class="col-md-9">
-            <div class="row" *ngFor="let item of userData.languages" style="border-bottom: 1px solid gray;">
-                <div class="col-md-10">
-                    <b style="color: rgba(76, 175, 80, 0.7)">{{item}}</b>
+        <div class="col-12 col-md-9">
+            <div class="row mb-2" *ngFor="let item of userData.languages">
+                <div class="col-10">
+                    <b style="color: rgba(76, 175, 80, 0.7)">{{item | titlecase}}</b>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                     <a (click)="removeLanguage(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
@@ -168,20 +164,19 @@
                 </div>
             </div>
             <a (click)="addlanguage.show()"> <b style="color: rgb(76, 175, 79)">+Add more</b> </a>
-
         </div>
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
-        <div class="col-md-9">
-            <div class="row" *ngFor="let item of userData.interests" style="border-bottom: 1px solid gray;">
-                <div class="col-md-10">
-                    <b style="color: rgba(255, 152, 0, 0.7) ">{{item}}</b>
+        <div class="col-12 col-md-9">
+            <div class="row mb-2" *ngFor="let item of userData.interests">
+                <div class="col-10">
+                    <b style="color: rgba(255, 152, 0, 0.7) ">{{item | titlecase}}</b>
                 </div>
-                <div class="col-md-2">
+                <div class="col-2">
                     <a (click)="removeInterests(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
@@ -191,11 +186,108 @@
             <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
         </div>
     </div>
+    <hr>
+
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <button type="button" [routerLink]="['/guide/guidehome/']" class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
+            <button type="button" class="btn btn-info" (click)="saveRecord()" mdbBtn size="md">Save</button>
+        </div>
+    </div>
 </div>
 
 <!-- edit profile modal -->
-<div mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable" role="document">
+<!-- <ng-template #editPersonalModal let-c="close" let-d="dismiss">
+    <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Edit Personal Details</h4>
+    </div>
+    <form [formGroup]="personalDetails" (ngSubmit)="submitPersonalDetails()">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="myform">Gender</label>
+                        <select class="form-control browser-default custom-select" formControlName="gender">
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Ms">Ms</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label for="form1">Name</label>
+                        <input type="text" id="form1" class="form-control" formControlName="name">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group form-sm">
+                        <label for="form2">Email</label>
+                        <input type="email" id="form2" class="form-control" formControlName="email" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="form3">Date Of Birth</label>
+                        <input type="date" id="form3" disabled formControlName="dob" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="form-group form-sm">
+                        <label for="form4">Aadhar Number</label>
+                        <input type="text" id="form4" class="form-control" formControlName="aadhaarNumber" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="form5">Phone Number</label>
+                        <input type="tel" id="form5" formControlName="phoneNumber" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form6">State</label>
+                        <input type="text" id="form6" formControlName="state" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="form7">City</label>
+                        <input type="text" id="form7" formControlName="city" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="form8">Address</label>
+                        <textarea id="form8" formControlName="address" class="form-control">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="float-right">
+            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
+            <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+        </div>
+    </form>
+  </ng-template> -->
+
+
+<div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
@@ -210,17 +302,16 @@
                             <div class="form-group">
                                 <label for="myform">Gender</label>
                                 <select class="form-control browser-default custom-select" formControlName="gender">
-                <option value="Mr">Mr</option>
-                <option value="Mrs">Mrs</option>
-                <option value="Ms">Ms</option>
-              </select>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-9">
                             <div class="form-group">
                                 <label for="form1">Name</label>
                                 <input type="text" id="form1" class="form-control" formControlName="name">
-
                             </div>
                         </div>
                     </div>
@@ -230,25 +321,21 @@
                             <div class="form-group form-sm">
                                 <label for="form2">Email</label>
                                 <input type="email" id="form2" class="form-control" formControlName="email" disabled>
-
                             </div>
                         </div>
                     </div>
                     <!--  -->
                     <div class="row">
-
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="form3">Date Of Birth</label>
-                                <input type="date" id="form3" disabled formControlName="dob" class="form-control">
-
+                                <input type="text" id="form3"  formControlName="dob" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group form-sm">
                                 <label for="form4">Aadhar Number</label>
                                 <input type="text" id="form4" class="form-control" formControlName="aadhaarNumber" disabled>
-
                             </div>
                         </div>
                     </div>
@@ -258,7 +345,6 @@
                             <div class="form-group">
                                 <label for="form5">Phone Number</label>
                                 <input type="tel" id="form5" formControlName="phoneNumber" class="form-control">
-
                             </div>
                         </div>
                     </div>
@@ -267,22 +353,22 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form6">State</label>
-                                <input type="text" id="form6" formControlName="state" class="form-control">
-                                <!-- <select class="form-control" id="form58" formControlName="state" class="browser-default custom-select" #state
-                  (change)="getAllCity(state.value)">
-                  <option value="" disabled>Select State</option>
-                  <option *ngFor="let item of stateList" [value]="item.id"> {{ item?.name }}</option>
-                </select> -->
+                                <!-- <input type="text" id="form6" formControlName="state" class="form-control"> -->
+                                <select class="form-control" id="form58" formControlName="state" class="browser-default custom-select" #state
+                                    (change)="getAllCity(state.value)">
+                                    <option value="" disabled>Select State</option>
+                                    <option *ngFor="let item of stateList" [value]="item.name"> {{ item?.name }}</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form7">City</label>
-                                <input type="text" id="form7" formControlName="city" class="form-control">
-                                <!-- <select formControlName="city" class="form-control" class="browser-default custom-select" id="form58">
-                  <option value="" disabled>Select City</option>
-                  <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
-                </select> -->
+                                <!-- <input type="text" id="form7" formControlName="city" class="form-control"> -->
+                                <select formControlName="city" class="form-control" class="browser-default custom-select" id="form58">
+                                    <option value="" disabled>Select City</option>
+                                    <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -291,7 +377,7 @@
                             <div class="form-group">
                                 <label for="form8">Address</label>
                                 <textarea id="form8" formControlName="address" class="form-control">
-                </textarea>
+                                </textarea>
                             </div>
                         </div>
                     </div>
@@ -300,15 +386,13 @@
                     <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
                     <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
-
-
             </form>
         </div>
     </div>
 </div>
 <!-- add business modal -->
-<div mdbModal #editbusiness="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditbusinessLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div style="overflow-y: auto" mdbModal #editbusiness="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditbusinessLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(233, 30, 99, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editbusiness.hide()">
@@ -338,11 +422,9 @@
                             <div class="form-group">
                                 <label for="form2" class="">Charges Per Day</label>
                                 <input type="number" id="form2" formControlName="perDayCharge" class="form-control">
-
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editbusiness.hide()" mdbWavesEffect>Close</button>
@@ -352,15 +434,16 @@
         </div>
     </div>
 </div>
+
 <!-- add experience modal -->
-<div mdbModal #editexperience="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditexperienceLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div style="overflow-y: auto" mdbModal #editexperience="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditexperienceLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(233, 30, 99, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editexperience.hide()">
           <span aria-hidden="true">×</span>
         </button>
-                <h4 class="modal-title w-100" id="myModalLabel">Add experience</h4>
+                <h4 class="modal-title w-100" id="myModalLabel">{{expVariable}}</h4>
             </div>
             <form [formGroup]="experienceDetails">
                 <div class="modal-body">
@@ -369,14 +452,12 @@
                             <div class="form-group">
                                 <label for="form1" class="">Work-place</label>
                                 <input type="text" id="form1" formControlName="work" class="form-control">
-
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form2" class="">Work-Profile</label>
                                 <input type="text" id="form2" formControlName="profile" class="form-control">
-
                             </div>
                         </div>
                     </div>
@@ -385,14 +466,12 @@
                             <div class="form-group">
                                 <label for="form3" class="">Starting Date</label>
                                 <input type="number" id="form3" formControlName="startYear" class="form-control">
-
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form4" class="">Duration</label>
                                 <input type="text" id="form4" formControlName="duration" class="form-control">
-
                             </div>
                         </div>
                     </div>
@@ -407,7 +486,7 @@
     </div>
 </div>
 <!-- add language modal -->
-<div mdbModal #addlanguage="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddlanguageLabel" aria-hidden="true">
+<div style="overflow-y: auto" mdbModal #addlanguage="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddlanguageLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(76, 175, 80, 0.7); color: white; ">
@@ -420,8 +499,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="form1" class="">language</label>
-                        <input type="text" id="form1" formControlName="language" class="form-control">
-
+                        <!-- <input type="text" id="form1" formControlName="language" class="form-control"> -->
+                        <select formControlName="language" class="form-control" class="browser-default custom-select" id="form1">
+                            <option value="" disabled>Select Language</option>
+                            <option *ngFor="let item of languageList" [value]="item"> {{ item }}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -433,13 +515,13 @@
     </div>
 </div>
 <!-- add interest modal -->
-<div mdbModal #addintrest="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddintrestLabel" aria-hidden="true">
+<div style="overflow-y: auto" mdbModal #addintrest="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddintrestLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(255, 152, 0, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="addintrest.hide()">
-          <span aria-hidden="true">×</span>
-        </button>
+                    <span aria-hidden="true">×</span>
+                </button>
                 <h4 class="modal-title w-100" id="myModalLabel">Add Interest</h4>
             </div>
             <form [formGroup]="interestsDetails" (ngSubmit)="addInterest()">
@@ -448,9 +530,9 @@
                         <label for="form1" class="">Interest</label>
                         <!-- <input type="text" id="form1" formControlName="interest" class="form-control"> -->
                         <select formControlName="interest" class="form-control" class="browser-default custom-select" id="form1">
-            <option value="" disabled>Select Interest</option>
-            <option *ngFor="let item of interestList" [value]="item"> {{ item }}</option>
-          </select>
+                            <option value="" disabled>Select Interest</option>
+                            <option *ngFor="let item of interestList" [value]="item"> {{ item }}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">

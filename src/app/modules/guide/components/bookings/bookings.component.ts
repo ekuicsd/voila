@@ -2,17 +2,20 @@ import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { Booking } from 'src/app/shared/models/booking.model';
 import { Router } from '@angular/router';
-
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
   styleUrls: ['./bookings.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class BookingsComponent implements OnInit {
-  public bookingsList: Booking[];
+  public bookingsList: Booking[] = [];
+  public selectedBooking: Booking;
 
-  constructor(private guideService: GuideService, private router: Router) { }
+  constructor(private guideService: GuideService,
+    config: NgbModalConfig, private modalService: NgbModal,
+     private router: Router) { }
 
   ngOnInit() {
     this.getAllBookings();
@@ -21,7 +24,11 @@ export class BookingsComponent implements OnInit {
   getAllBookings() {
     this.guideService.getAllBookingsByStatus('APPROVED').subscribe(
       res => {
-        this.bookingsList = res;
+        if(res.length > 0) {
+          this.bookingsList = res;
+        } else {
+          this.bookingsList = undefined;
+        }
         console.log(this.bookingsList);
       }, error => {
         console.log(error);
@@ -29,25 +36,16 @@ export class BookingsComponent implements OnInit {
     )
   }
 
-  // getDuration(startDate: Date, endDate: Date): string {
-  //   console.log(startDate);
-  //   console.log(startDate.getDate());
-  //   console.log(startDate.getMonth());
-  //   if(endDate.getMonth() - startDate.getMonth()){
-
-
-  //   }else {
-  //     let dayDiff = endDate.getDate() - startDate.getDate();
-  //     // if(dayDiff) {
-  //       return (dayDiff+1) + ' days';
-  //     // }
-  // }
-  //   return '0';
-  // }
-
-  contactTourist(email) {
+  contactTourist(content, email) {
     console.log(email);
-    //navigate too their chatbox
-    this.router.navigateByUrl('/guide/guidehome/chats/tourist/' + email);
+    console.log(email);
+    this.router.navigateByUrl('/guide/guidehome/messages/chats/tourist/' + email);
+    this.modalService.dismissAll(content);
+  }
+
+  open(content, data) {
+    console.log(data);
+    this.selectedBooking = data;
+    this.modalService.open(content, { centered: true, scrollable: true});
   }
 }

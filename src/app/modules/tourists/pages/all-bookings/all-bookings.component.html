@@ -1,24 +1,22 @@
 <div class="row all">
-    <div class="col-1">
 
-    </div>
-    <div class="col-8 pl-3" style="position: relative; overflow:hidden;">
-        <div class="container-fluid px-5">
+    <div class="col-12 col-lg-9 p-3" style="position: relative; overflow:hidden;">
+        <div class="container-fluid px-1 px-md-5">
             <div class="card">
                 <div class="row  check pb-0 card-body">
-                    <div class="col-md-3 booking">
+                    <div class="col-4 booking">
                         <a [routerLink]="['now']" routerLinkActive="active">
                             <h5>
                                 <mdb-icon far icon="calendar-alt"></mdb-icon> &nbsp; Bookings</h5>
                         </a>
                     </div>
-                    <div class="col-md-3 request">
+                    <div class="col-4 request">
                         <a [routerLink]="['requests']" routerLinkActive="active">
                             <h5>
                                 <mdb-icon far icon="address-card"></mdb-icon> &nbsp; Requested</h5>
                         </a>
                     </div>
-                    <div class="col-md-3 history">
+                    <div class="col-4 history">
                         <a [routerLink]="['histories']" routerLinkActive="active">
                             <h5>
                                 <mdb-icon fas icon="history"></mdb-icon> &nbsp; Previous</h5>
@@ -26,8 +24,8 @@
                     </div>
                 </div>
                 <!-- <hr class="card-body mt-0"> -->
-                <div class="row card-body">
-                    <div class="col-12">
+                <div class="row card-body pt-2">
+                    <div class="col-12 px-1">
                         <router-outlet></router-outlet>
                     </div>
 
@@ -37,7 +35,7 @@
     </div>
 
 
-    <div class="col-3">
+    <div class="col-3 mt-5 d-none d-lg-block text-center">
         <div class="card side-text">
             <div class="card-body ">
                 <div>
