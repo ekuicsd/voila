@@ -31,7 +31,7 @@
                 </div>
 
             </div>
-<div class="row">
+            <div class="row">
                 <div class="col-6 mb-3">
                     <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
                     <div> {{userData.email}}</div>
@@ -57,7 +57,7 @@
 
         </div>
     </div>
-    <div class="row card-body">
+    <div class="row mt-3">
         <div class="col-3">
             <h4 style="color: #4caf4f ">Language</h4>
         </div>
@@ -76,7 +76,7 @@
             <a (click)="addintrest.show()"><b style="color: #4caf4f ">+Add more</b></a>
         </div>
     </div>
-    <div class="row card-body">
+    <div class="row mt-3">
         <div class="col-3">
             <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
@@ -96,16 +96,16 @@
         </div>
     </div>
 </div>
-<div class="row mt-4">
+<div class="row mt-3">
   <div class="col-12 text-center">
       <button type="button"  class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
-      <button type="button" class="btn btn-info"  mdbBtn size="md">Save</button>
+      <button type="button" (click)="saveProfile()" class="btn btn-info"  mdbBtn size="md">Save</button>
   </div>
 </div>
 
 <!-- edit profile modal -->
-<div mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable" role="document">
+<div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
@@ -120,10 +120,10 @@
                             <div class="form-group">
                                 <label for="form6">Gender</label>
                                 <select class="form-control browser-default custom-select" formControlName="gender">
-                <option value="Mr">Mr</option>
-                <option value="Mrs">Mrs</option>
-                <option value="Ms">Ms</option>
-              </select>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -144,25 +144,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--  -->
-                    <div class="row">
-
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label for="form6">Age</label>
-                                <input type="date" id="form6" disabled formControlName="dob" class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="form-group form-sm">
-                                <label for="form11">Nationality</label>
-                                <input type="text" id="form11" class="form-control" formControlName="nationality">
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -172,13 +153,19 @@
                             </div>
                         </div>
                     </div>
-                    <!--  -->
-
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="form58">Language</label>
-                                <input type="text" id="form58" formControlName="language" class="form-control">
+                                <label for="form6">Age</label>
+                                <input type="number" id="form6" formControlName="age" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-sm">
+                                <label for="form11">Nationality</label>
+                                <input type="text" id="form11" class="form-control" formControlName="nationality">
+
                             </div>
                         </div>
                     </div>

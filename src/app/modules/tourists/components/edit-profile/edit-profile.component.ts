@@ -40,11 +40,11 @@ export class EditProfileComponent implements OnInit {
     this.personalDetails = new FormGroup({
       name: new FormControl(this.userData.name, [Validators.required]),
       gender: new FormControl(this.userData.gender, [Validators.required]),
-      dob: new FormControl(this.userData.dob, [Validators.required]),
+      // dob: new FormControl(this.userData.dob, [Validators.required]),
       email: new FormControl(this.userData.email, [Validators.required]),
       phoneNumber: new FormControl(this.userData.phoneNumber, [Validators.required]),
       nationality: new FormControl(this.userData.nationality, [Validators.required]),
-      language: new FormControl(this.userData.languages[0], [Validators.required]),
+      // language: new FormControl(this.userData.languages[0], [Validators.required]),
     })
   }
 
@@ -59,7 +59,7 @@ export class EditProfileComponent implements OnInit {
       this.userData.gender = this.personalDetails.value.gender;
       this.userData.name = this.personalDetails.value.name;
       this.userData.nationality = this.personalDetails.value.nationality;
-      this.userData.languages[0] = this.personalDetails.value.language;
+      // this.userData.languages[0] = this.personalDetails.value.language;
       this.userData.phoneNumber = this.personalDetails.value.phoneNumber;
       console.log(this.userData);
       this.touristService.updateUserDetails(this.userData).subscribe( res => {
@@ -112,6 +112,10 @@ export class EditProfileComponent implements OnInit {
       this.getUser();
       this.toastr.success("Interest Removed Successfully!");
     });
+  }
+
+  saveProfile() {
+    
   }
 
 
