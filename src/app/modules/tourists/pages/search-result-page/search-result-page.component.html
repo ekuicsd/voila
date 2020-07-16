@@ -8,16 +8,86 @@
     </div>
 </div>
 
+<!-- small screens filter sidenav -->
+<div class="d-block d-lg-none">
+    <div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-full-height modal-left filtermodal" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">FILTERS</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- accordion -->
+                    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                        <ngb-panel>
+                            <ng-template ngbPanelTitle>
+                                <b>PRICE RANGE</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="minValue"></p>
+                                <p>Max price(₹): <input type="number" class="form-control" [(ngModel)]="maxValue"></p>
+                                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel>
+                            <ng-template ngbPanelTitle>
+                                <b>RATINGS</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star"
+                                        aria-hidden="true"></i></mdb-checkbox>
+                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel>
+                            <ng-template ngbPanelTitle>
+                                <b>INTERESTS</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel>
+                            <ng-template ngbPanelTitle>
+                                <b>LANGUAGES</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                            </ng-template>
+                        </ngb-panel>
+
+                    </ngb-accordion>
+                    <!-- accordion -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                    <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Done!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- small screens filter sidenav -->
+
 <div class="row mx-lg-2">
-    <div class="col-lg-2 filters d-none d-md-block">
+    <div class="col-lg-2 filters d-none d-lg-block">
         <div><b>FILTERS</b></div>
         <div class="row my-lg-2">
             <div class="col-lg-12">
                 <div class="mb-0"><b>PRICE RANGE</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
 
-                <p>Min price(₹): <input type="number" [(ngModel)]="minValue"></p>
-                <p>Max price(₹): <input type="number" [(ngModel)]="maxValue"></p>
+                <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="minValue"></p>
+                <p>Max price(₹): <input type="number" class="form-control" [(ngModel)]="maxValue"></p>
                 <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
 
             </div>
@@ -59,8 +129,9 @@
     </div>
 
 
-    <div class="col-lg-9">
+    <div class="col-12 col-lg-9">
 
+        <button type="button" mdbBtn color="primary" class="d-block d-lg-none relative waves-light px-3 py-2 float-right" (click)="basicModal.show()" mdbWavesEffect>FILTERS <mdb-icon fas icon="filter"></mdb-icon></button>
 
         <div class="text-center mt-4 mb-5 mx-auto">
             <!-- <h2>Elastic Tabs</h2> -->
@@ -109,26 +180,6 @@
         <div class="custom-control custom-radio">
             <input type="radio" class="custom-control-input" id="days3" name="days" mdbInput>
             <label class="custom-control-label" for="days3">More than 4</label>
-        </div>
-        <hr>
-        <br>
-        <h6>Price</h6>
-        
-        <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="money1" name="inlineDefaultRadiosExample" mdbInput>
-            <label class="custom-control-label" for="money1">Less than 2000</label>
-        </div>
-
-        
-        <div class="custom-control custom-radio ">
-            <input type="radio" class="custom-control-input" id="money2" name="inlineDefaultRadiosExample" mdbInput>
-            <label class="custom-control-label" for="money2">2000 - 8000</label>
-        </div>
-
-       
-        <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="money3" name="inlineDefaultRadiosExample" mdbInput>
-            <label class="custom-control-label" for="money3">More than 8000</label>
         </div>
         <hr>
         <br>

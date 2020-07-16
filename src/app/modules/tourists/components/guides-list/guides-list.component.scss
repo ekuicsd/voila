@@ -4,25 +4,26 @@
 //     margin: 3px; 
 // }
 .contained {
-    width: 260px;
-    height: 250px;
     object-fit: cover;
-    vertical-align: middle;
+    height: auto;
+    width: auto;
+}
+
+@media screen and (min-width: 1200px) {
+    .contained {
+        max-width: 245px;
+        height: 215px;
+        vertical-align: middle;
+    }
 }
 
 .container1 {
     display: flex;
 }
 
-.deal-card {
-    border: 1px solid rgba(128, 128, 128, 0.315);
-    margin: 30px;
-}
-
-.deal-card:hover {
-    background-color: rgba(252, 255, 47, 0.418);
-}
-
+// .deal-card:hover {
+//     background-color: rgba(252, 255, 47, 0.418);
+// }
 .deal-card p {
     font-size: 13px;
     margin: 0;
@@ -41,45 +42,87 @@
     border-right: 1px solid rgba(128, 128, 128, 0.342);
 }
 
-@media only screen and (max-width: 600px) {
-    .request-card {
-        // width: 300px;
-    }
-    .container1 img {
-        // border-radius: 50%;
-        height: 100px;
-        width: 100px;
-        margin: 3px;
-        // margin: 14px;
-    }
-    .side-card {
-        display: none;
-    }
-    .responsive1 {
-        display: none;
-    }
-    mdb-card-title h4 {
-        font-size: 17px;
-    }
-    .collapse {
-        margin-left: 10px;
-    }
-    .filters {
-        display: none;
-    }
-}
-
-.guidy {
-    position: relative;
-}
-
-.sidebg {
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(0, 0, 0));
-    position: absolute;
-    right: 0;
-}
-
+// @media only screen and (max-width: 600px) {
+//     .request-card {
+//         width: 300px;
+//     }
+//     .container1 img {
+//         border-radius: 50%;
+//         height: 100px;
+//         width: 100px;
+//         margin: 3px;
+//         margin: 14px;
+//     }
+//     .side-card {
+//         display: none;
+//     }
+//     .responsive1 {
+//         display: none;
+//     }
+//     mdb-card-title h4 {
+//         font-size: 17px;
+//     }
+//     .collapse {
+//         margin-left: 10px;
+//     }
+//     .filters {
+//         display: none;
+//     }
+// }
+// .guidy {
+//     position: relative;
+// }
+// .sidebg {
+//     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+//     position: absolute;
+//     right: 0;
+// }
 .star {
     font-size: 12px;
     font-size: 3vw
+}
+
+// .content {
+//     position: relative;
+//     margin: 10px;
+//     border: 1px solid grey;
+//     display: inline-block;
+//     bottom: 10px;
+// }
+// .content img {
+//     display: block // height:auto;
+// }
+// .content:after {
+//     position: absolute;
+//     content: "";
+//     height: 100%;
+//     width: 100%;
+//     top: 0;
+//     left: 0;
+//     background: linear-gradient(to bottom, rgba(255, 0, 0, 0) 0%, rgba(255, 0, 0, 0.65) 100%);
+// }
+.mygradient {
+    // background: linear-gradient(to bottom, rgba(255, 0, 0, 0) 0%, rgba(255, 0, 0, 0.65) 100%);
+    // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 51%, rgba(12, 12, 12, 0.8130602582830007) 100%);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 43%, rgba(12, 12, 12, 0.8662815467984069) 100%);
+}
+
+.guide-card {
+    -webkit-box-shadow: 5px 5px 15px -7px rgba(102, 102, 102, 1);
+    -moz-box-shadow: 5px 5px 15px -7px rgba(102, 102, 102, 1);
+    box-shadow: 5px 5px 15px -7px rgba(102, 102, 102, 1);
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 380px) {
+    .guide-name {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .guide-name {
+        font-size: 1em;
+    }
 }

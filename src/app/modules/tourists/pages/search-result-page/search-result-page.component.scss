@@ -87,7 +87,7 @@ mdb-card-text div {
 //     font-family: 'Roboto', sans-serif;
 // }
 .tabs {
-    font-size: 20px;
+    font-size: 17px;
     padding: 0px;
     list-style: none;
     background: #fff;
@@ -101,7 +101,7 @@ mdb-card-text div {
     text-decoration: none;
     color: #777;
     text-transform: uppercase;
-    padding: 12px 28px;
+    padding: 9px 22px;
     display: inline-block;
     position: relative;
     z-index: 1;
@@ -131,4 +131,25 @@ mdb-card-text div {
     background: -webkit-linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
     background: linear-gradient(45deg, #05abe0 0%, #8200f4 100%);
     -ms-filter: "progid: DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#8200f4', GradientType=1)";
+}
+
+@media (min-width: 992px) {
+    .tabs {
+        font-size: 20px;
+    }
+    .tabs a {
+        padding: 12px 28px;
+    }
+}
+
+.filtermodal {
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    min-height: 100vh !important;
+    // overflow: auto !important;
+    // width: auto !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }

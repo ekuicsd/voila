@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import { Options} from 'ng5-slider';
 import * as $ from 'jquery';
@@ -12,6 +12,8 @@ import * as $ from 'jquery';
 })
 export class SearchResultPageComponent implements OnInit {
 
+
+  // slider 
   minValue: number = 100;
   maxValue: number = 400;
   options: Options = {

@@ -30,6 +30,7 @@ import { ChatsComponent } from 'src/app/shared/components/chats/chats.component'
 import { Ng5SliderModule } from 'ng5-slider';
 import {RatingModule} from 'primeng/rating';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'touristshome', component: TouristsHomeComponent, children: [
@@ -150,6 +151,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     Ng5SliderModule,
+    NgbModule
   ],
   exports: [
 
