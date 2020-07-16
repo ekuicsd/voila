@@ -63,19 +63,13 @@ export class ChatsComponent implements OnInit {
     .subscribe( res => {
       console.log("receiver",res);
       this.reciever = res;
-
       this.getAllMessages(this.senderRole, this.sender._id, this.reciever._id);
-
       // this.markMessages(this.sender.email, this.reciever.name);
-
-
       this.params = {
         room1: this.sender._id,
         room2 : this.reciever._id
       };
-
-    this.socket.emit('join chat', this.params);
-
+      this.socket.emit('join chat', this.params);
     });
   }
 

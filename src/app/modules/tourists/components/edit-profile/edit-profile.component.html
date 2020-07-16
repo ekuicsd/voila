@@ -14,7 +14,7 @@
   <h1>EDIT PROFILE</h1>
 </div>
 <div class="py-5 px-5 mx-lg-5">
-    <hr class="mt-0">
+    <!-- <hr class="mt-0"> -->
     <div class="row font">
         <div class="col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
@@ -22,7 +22,7 @@
         <div class="col-md-9">
             <div class="row">
                 <div class="col-10 col-md-11">
-                    <h5 style="color: rgba(3, 169, 244, 0.7)">{{userData.name}}</h5>
+                    <h5 style="color: rgba(3, 169, 244, 0.7)">{{userData.name | titlecase}}</h5>
                 </div>
                 <div class="col-2 col-md-1 edit-btn">
                     <a (click)="editpersonal.show()">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-6 mb-3">
                     <b style="color: rgba(3, 169, 244, 0.7)">Age </b>
-                    <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
+                    <div>{{userData.age | date: 'dd-MM-yyyy'}}</div>
                 </div>
 
             </div>
@@ -57,26 +57,30 @@
 
         </div>
     </div>
-    <div class="row mt-3">
+    <hr>
+    <!--  -->
+    <div class="row mt-4">
         <div class="col-3">
             <h4 style="color: #4caf4f ">Language</h4>
         </div>
         <div class="col-md-9 font">
-            <div class="row mb-2" *ngFor="let item of userData.interests">
+            <div class="row mb-2" *ngFor="let item of userData.languages">
                 <div class="col-10">
                     <b style="color: #4caf4fb7 ">{{item}}</b>
                 </div>
                 <div class="col-2">
-                    <a (click)="removeInterests(item)" class="float-right">
+                    <a (click)="removeLanguage(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
                     <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
-            <a (click)="addintrest.show()"><b style="color: #4caf4f ">+Add more</b></a>
+            <a class="mb-3" (click)="addlanguage.show()"><b style="color: #4caf4f ">+Add more</b></a>
         </div>
     </div>
-    <div class="row mt-3">
+    <hr>
+    <!--  -->
+    <div class="row mt-4">
         <div class="col-3">
             <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
@@ -92,11 +96,11 @@
                     <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
-            <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
+            <a class="mb-3" (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
         </div>
     </div>
 </div>
-<div class="row mt-3">
+<div class="row">
   <div class="col-12 text-center">
       <button type="button"  class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
       <button type="button" (click)="saveProfile()" class="btn btn-info"  mdbBtn size="md">Save</button>
@@ -105,7 +109,7 @@
 
 <!-- edit profile modal -->
 <div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
@@ -184,7 +188,7 @@
 
 <!-- add intrest modal -->
 <div mdbModal #addintrest="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddintrestLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(255, 152, 0, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="addintrest.hide()">

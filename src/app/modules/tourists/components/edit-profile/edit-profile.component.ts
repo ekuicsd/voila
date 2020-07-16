@@ -7,6 +7,7 @@ import { UserService } from 'src/app/shared/service/user.service';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
 import languages from 'country-language';
 import csc from 'country-state-city';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
@@ -21,12 +22,13 @@ export class EditProfileComponent implements OnInit {
   public userData: any = {};
   interestsDetails: FormGroup;
   personalDetails: FormGroup;
-  LanguageDetails: FormGroup;
+  languagesDetails: FormGroup;
   languageList: any[] = [];
   countryList: any[] = [];
 
   constructor(private staticDataService: StaticDataService,
     private userService: UserService,
+    private router: Router,
     private touristService: TouristsService,
     private toastr: ToastrService) { }
 
@@ -64,7 +66,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   createLanguagesForm() {
-    this.LanguageDetails = new FormGroup({
+    this.languagesDetails = new FormGroup({
       language: new FormControl('', [Validators.required])
     })
   }
@@ -73,17 +75,18 @@ export class EditProfileComponent implements OnInit {
     if(this.personalDetails.valid) {
       this.userData.gender = this.personalDetails.value.gender;
       this.userData.name = this.personalDetails.value.name;
+      this.userData.age = this.personalDetails.value.age;
       this.userData.nationality = this.personalDetails.value.nationality;
       // this.userData.languages[0] = this.personalDetails.value.language;
       this.userData.phoneNumber = this.personalDetails.value.phoneNumber;
       console.log(this.userData);
-      this.touristService.updateUserDetails(this.userData).subscribe( res => {
-        console.log(res);
-        this.userService.saveUser(res.profile, 'tourist');
-        this.getUser();
+      // this.touristService.updateUserDetails(this.userData).subscribe( res => {
+      //   console.log(res);
+      //   this.userService.saveUser(res.profile, 'tourist');
+      //   this.getUser();
         this.modal1.hide(0);
-        this.toastr.success("Personal Details Updated Successfully!");
-      });
+      //   this.toastr.success("Personal Details Updated Successfully!");
+      // });
     } else {
       this.toastr.error("Invalid Details!");
     }
@@ -103,14 +106,14 @@ export class EditProfileComponent implements OnInit {
           this.modal3.hide(0);
       } else {
         this.userData.interests.push(this.interestsDetails.value.interest);
-        this.touristService.updateUserDetails(this.userData).subscribe( res => {
-          console.log(res);
-          this.userService.saveUser(res.profile, 'tourist');
-          this.getUser();
+        // this.touristService.updateUserDetails(this.userData).subscribe( res => {
+        //   console.log(res);
+        //   this.userService.saveUser(res.profile, 'tourist');
+        //   this.getUser();
           this.modal3.hide(0);
-          this.createInterestsForm();
-          this.toastr.success("Interest Added Successfully!");
-        });
+        //   this.createInterestsForm();
+        //   this.toastr.success("Interest Added Successfully!");
+        // });
       }
     } else {
       this.toastr.error("Invalid Details!");
@@ -118,24 +121,49 @@ export class EditProfileComponent implements OnInit {
 
   }
 
+  addLanguage() {
+    if(this.languagesDetails.valid) {
+        let language = this.userData.languages.filter( ele => {
+          if(ele === this.languagesDetails.value.language) {
+            return ele;
+          }
+        });
+        console.log(language);
+        if(language.length >= 1) {
+            this.toastr.warning("Already Added!"); 
+            this.modal4.hide(0);
+        } else {
+          this.userData.languages.push(this.languagesDetails.value.language);
+          this.modal4.hide(0);
+        }
+    } else {
+      this.toastr.error("Invalid Details!");
+    }
+  }
+
   removeInterests(item) {
     let index = this.userData.interests.indexOf(item);
     this.userData.interests.splice(index, 1);
-    this.touristService.updateUserDetails(this.userData).subscribe( res => {
-      console.log(res);
-      this.userService.saveUser(res.profile, 'tourist');
-      this.getUser();
-      this.toastr.success("Interest Removed Successfully!");
-    });
+    // this.touristService.updateUserDetails(this.userData).subscribe( res => {
+    //   console.log(res);
+    //   this.userService.saveUser(res.profile, 'tourist');
+    //   this.getUser();
+    //   this.toastr.success("Interest Removed Successfully!");
+    // });
+  }
+
+  removeLanguage(item) {
+    let index = this.userData.languages.indexOf(item);
+    this.userData.languages.splice(index, 1);
   }
 
   saveProfile() {
-    
     this.touristService.updateUserDetails(this.userData).subscribe( res => {
       console.log(res);
       this.userService.saveUser(res.profile, 'tourist');
       this.getUser();
-      this.modal1.hide(0);
+      this.router.navigateByUrl('/tourists/touristshome/dashboard');
+      // this.modal1.hide(0);
       this.toastr.success("Personal Details Updated Successfully!");
     });
   }
