@@ -3,9 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { ToastrService } from 'ngx-toastr';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
-import { Tourists } from '../../../../shared/models/tourists.model';
 import { UserService } from 'src/app/shared/service/user.service';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
+import languages from 'country-language';
+import csc from 'country-state-city';
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -14,10 +16,14 @@ import { TouristsService } from 'src/app/shared/service/tourists.service';
 export class EditProfileComponent implements OnInit {
   @ViewChild('editpersonal', { static: false}) modal1: MDBModalService
   @ViewChild('addintrest', { static: false}) modal3: MDBModalService;
+  @ViewChild('addlanguage', { static: false}) modal4: MDBModalService;
   public interestList: string[];
-  public userData: Tourists;
+  public userData: any = {};
   interestsDetails: FormGroup;
   personalDetails: FormGroup;
+  LanguageDetails: FormGroup;
+  languageList: any[] = [];
+  countryList: any[] = [];
 
   constructor(private staticDataService: StaticDataService,
     private userService: UserService,
@@ -28,7 +34,10 @@ export class EditProfileComponent implements OnInit {
     this.getUser();
     this.createPersonalDetailsForm();
     this.createInterestsForm();
+    this.createLanguagesForm();
     this.interestList = this.staticDataService.getAllInterestList();
+    this.languageList = languages.getLanguages().map(ele => ele.name[0]);
+    this.countryList = csc.getAllCountries();
   }
 
   getUser() {
@@ -40,7 +49,7 @@ export class EditProfileComponent implements OnInit {
     this.personalDetails = new FormGroup({
       name: new FormControl(this.userData.name, [Validators.required]),
       gender: new FormControl(this.userData.gender, [Validators.required]),
-      // dob: new FormControl(this.userData.dob, [Validators.required]),
+      age: new FormControl(this.userData.age, [Validators.required]),
       email: new FormControl(this.userData.email, [Validators.required]),
       phoneNumber: new FormControl(this.userData.phoneNumber, [Validators.required]),
       nationality: new FormControl(this.userData.nationality, [Validators.required]),
@@ -51,6 +60,12 @@ export class EditProfileComponent implements OnInit {
   createInterestsForm() {
     this.interestsDetails = new FormGroup({
       interest: new FormControl('', [Validators.required])
+    })
+  }
+
+  createLanguagesForm() {
+    this.LanguageDetails = new FormGroup({
+      language: new FormControl('', [Validators.required])
     })
   }
 
@@ -116,6 +131,13 @@ export class EditProfileComponent implements OnInit {
 
   saveProfile() {
     
+    this.touristService.updateUserDetails(this.userData).subscribe( res => {
+      console.log(res);
+      this.userService.saveUser(res.profile, 'tourist');
+      this.getUser();
+      this.modal1.hide(0);
+      this.toastr.success("Personal Details Updated Successfully!");
+    });
   }
 
 

@@ -43,7 +43,7 @@ export class ChatsComponent implements OnInit {
         this.sender = JSON.parse(this.userService.getUser('guide'));
         // console.log(this.senderRole);
       }
-      console.log("sender" ,this.sender);
+      // console.log("sender" ,this.sender);
       // console.log(this.reciever);
       this.getUserByEmail(this.email, this.receiverRole);
 
@@ -64,9 +64,9 @@ export class ChatsComponent implements OnInit {
       console.log("receiver",res);
       this.reciever = res;
 
-      this.getAllMessages(this.sender._id, this.reciever._id);
+      this.getAllMessages(this.senderRole, this.sender._id, this.reciever._id);
 
-      this.markMessages(this.sender.email, this.reciever.name);
+      // this.markMessages(this.sender.email, this.reciever.name);
 
 
       this.params = {
@@ -76,22 +76,22 @@ export class ChatsComponent implements OnInit {
 
     this.socket.emit('join chat', this.params);
 
-    })
+    });
   }
 
-  getAllMessages(senderId, receiverId ) {
-    this.msgService.getAllMessage(senderId, receiverId).subscribe( res => {
+  getAllMessages(role, senderId, receiverId ) {
+    this.msgService.getAllMessage(role, senderId, receiverId).subscribe( res => {
       console.log(res);
       this.messageArray = res.msg.message;
     })
   }
 
-  markMessages(sender, receiver) {
-    this.msgService.markMessages(sender, receiver).subscribe( res => {
-      console.log(res);
-      this.socket.emit('refresh', {});
-    })
-  }
+  // markMessages(sender, receiver) {
+  //   this.msgService.markMessages(sender, receiver).subscribe( res => {
+  //     console.log(res);
+  //     this.socket.emit('refresh', {});
+  //   })
+  // }
 
   sendMessage() {
     if(this.message) {

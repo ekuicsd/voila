@@ -120,6 +120,7 @@
                             <div class="form-group">
                                 <label for="form6">Gender</label>
                                 <select class="form-control browser-default custom-select" formControlName="gender">
+                                    <option value="" disabled>Select</option>
                                     <option value="Mr">Mr</option>
                                     <option value="Mrs">Mrs</option>
                                     <option value="Ms">Ms</option>
@@ -164,8 +165,10 @@
                         <div class="col-md-6">
                             <div class="form-group form-sm">
                                 <label for="form11">Nationality</label>
-                                <input type="text" id="form11" class="form-control" formControlName="nationality">
-
+                                <select formControlName="nationality" class="browser-default custom-select">
+                                    <option value="" disabled>Nationality</option>
+                                    <option *ngFor="let item of countryList" [value]="item.name">{{item.name}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -209,3 +212,32 @@
     </div>
 </div>
 <!-- add language -->
+
+<div style="overflow-y: auto" mdbModal #addlanguage="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddlanguageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgba(76, 175, 80, 0.7); color: white; ">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="addlanguage.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Add language</h4>
+            </div>
+            <form [formGroup]="languagesDetails" (ngSubmit)="addLanguage()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="form1" class="">language</label>
+                        <!-- <input type="text" id="form1" formControlName="language" class="form-control"> -->
+                        <select formControlName="language" class="form-control" class="browser-default custom-select" id="form1">
+                            <option value="" disabled>Select Language</option>
+                            <option *ngFor="let item of languageList" [value]="item"> {{ item }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
