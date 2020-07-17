@@ -46,7 +46,7 @@ export class DealsCardsComponent implements OnInit {
       this.modal1.show(content, {ignoreBackdropClick: true});
       this.selectedDeal = deal;
     } else {
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login/tourist');
     }
   }
 
@@ -68,7 +68,7 @@ export class DealsCardsComponent implements OnInit {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
       console.log("removed");
     } else {
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/login/tourist');
     }
   }
 
