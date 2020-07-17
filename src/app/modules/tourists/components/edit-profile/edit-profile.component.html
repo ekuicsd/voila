@@ -14,7 +14,7 @@
   <h1>EDIT PROFILE</h1>
 </div>
 <div class="py-5 px-5 mx-lg-5">
-    <hr class="mt-0">
+    <!-- <hr class="mt-0"> -->
     <div class="row font">
         <div class="col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
@@ -22,7 +22,7 @@
         <div class="col-md-9">
             <div class="row">
                 <div class="col-10 col-md-11">
-                    <h5 style="color: rgba(3, 169, 244, 0.7)">{{userData.name}}</h5>
+                    <h5 style="color: rgba(3, 169, 244, 0.7)">{{userData.name | titlecase}}</h5>
                 </div>
                 <div class="col-2 col-md-1 edit-btn">
                     <a (click)="editpersonal.show()">
@@ -31,7 +31,7 @@
                 </div>
 
             </div>
-<div class="row">
+            <div class="row">
                 <div class="col-6 mb-3">
                     <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
                     <div> {{userData.email}}</div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-6 mb-3">
                     <b style="color: rgba(3, 169, 244, 0.7)">Age </b>
-                    <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
+                    <div>{{userData.age | date: 'dd-MM-yyyy'}}</div>
                 </div>
 
             </div>
@@ -57,26 +57,30 @@
 
         </div>
     </div>
-    <div class="row card-body">
+    <hr>
+    <!--  -->
+    <div class="row mt-4">
         <div class="col-3">
             <h4 style="color: #4caf4f ">Language</h4>
         </div>
         <div class="col-md-9 font">
-            <div class="row mb-2" *ngFor="let item of userData.interests">
+            <div class="row mb-2" *ngFor="let item of userData.languages">
                 <div class="col-10">
                     <b style="color: #4caf4fb7 ">{{item}}</b>
                 </div>
                 <div class="col-2">
-                    <a (click)="removeInterests(item)" class="float-right">
+                    <a (click)="removeLanguage(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
                     <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
-            <a (click)="addintrest.show()"><b style="color: #4caf4f ">+Add more</b></a>
+            <a class="mb-3" (click)="addlanguage.show()"><b style="color: #4caf4f ">+Add more</b></a>
         </div>
     </div>
-    <div class="row card-body">
+    <hr>
+    <!--  -->
+    <div class="row mt-4">
         <div class="col-3">
             <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
         </div>
@@ -92,20 +96,20 @@
                     <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
-            <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
+            <a class="mb-3" (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
         </div>
     </div>
 </div>
-<div class="row mt-4">
+<div class="row">
   <div class="col-12 text-center">
       <button type="button"  class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
-      <button type="button" class="btn btn-info"  mdbBtn size="md">Save</button>
+      <button type="button" (click)="saveProfile()" class="btn btn-info"  mdbBtn size="md">Save</button>
   </div>
 </div>
 
 <!-- edit profile modal -->
-<div mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg  modal-dialog-scrollable" role="document">
+<div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
@@ -120,10 +124,11 @@
                             <div class="form-group">
                                 <label for="form6">Gender</label>
                                 <select class="form-control browser-default custom-select" formControlName="gender">
-                <option value="Mr">Mr</option>
-                <option value="Mrs">Mrs</option>
-                <option value="Ms">Ms</option>
-              </select>
+                                    <option value="" disabled>Select</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Ms">Ms</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -144,25 +149,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--  -->
-                    <div class="row">
-
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label for="form6">Age</label>
-                                <input type="date" id="form6" disabled formControlName="dob" class="form-control">
-
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="form-group form-sm">
-                                <label for="form11">Nationality</label>
-                                <input type="text" id="form11" class="form-control" formControlName="nationality">
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -172,13 +158,21 @@
                             </div>
                         </div>
                     </div>
-                    <!--  -->
-
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="form58">Language</label>
-                                <input type="text" id="form58" formControlName="language" class="form-control">
+                                <label for="form6">Age</label>
+                                <input type="number" id="form6" formControlName="age" class="form-control">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-sm">
+                                <label for="form11">Nationality</label>
+                                <select formControlName="nationality" class="browser-default custom-select">
+                                    <option value="" disabled>Nationality</option>
+                                    <option *ngFor="let item of countryList" [value]="item.name">{{item.name}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -194,7 +188,7 @@
 
 <!-- add intrest modal -->
 <div mdbModal #addintrest="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddintrestLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: rgba(255, 152, 0, 0.7); color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="addintrest.hide()">
@@ -222,3 +216,32 @@
     </div>
 </div>
 <!-- add language -->
+
+<div style="overflow-y: auto" mdbModal #addlanguage="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myaddlanguageLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgba(76, 175, 80, 0.7); color: white; ">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="addlanguage.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Add language</h4>
+            </div>
+            <form [formGroup]="languagesDetails" (ngSubmit)="addLanguage()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="form1" class="">language</label>
+                        <!-- <input type="text" id="form1" formControlName="language" class="form-control"> -->
+                        <select formControlName="language" class="form-control" class="browser-default custom-select" id="form1">
+                            <option value="" disabled>Select Language</option>
+                            <option *ngFor="let item of languageList" [value]="item"> {{ item }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

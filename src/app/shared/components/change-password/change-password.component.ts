@@ -7,7 +7,7 @@ import { CustomValidators } from 'src/app/validators/custom';
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 
 })
 export class ChangePasswordComponent implements OnInit {
@@ -31,8 +31,12 @@ export class ChangePasswordComponent implements OnInit {
 
   submitForm() {
     if(this.changePwd.valid) {
-      console.log(this.changePwd.value);
-      this.outputPassword.emit(this.changePwd.value);
+      if(this.changePwd.value.oldPassword === this.changePwd.value.newPassword) {
+        this.toastr.error("Your Old and new password is same!")
+      }else {
+        console.log(this.changePwd.value);
+        this.outputPassword.emit(this.changePwd.value);
+      }
     } else {
       this.toastr.error("Invalid Details!");
     }

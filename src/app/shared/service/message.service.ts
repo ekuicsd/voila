@@ -24,8 +24,8 @@ export class MessageService {
         });
     }
 
-    getAllMessage(senderId, receiverId) : Observable<any> {
-        let url = '/guide/chat-messages/' + senderId + '/' + receiverId;
+    getAllMessage(role, senderId, receiverId) : Observable<any> {
+        let url = '/' + role + '/chat-messages/' + senderId + '/' + receiverId;
         return new Observable<any>(obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
@@ -33,13 +33,22 @@ export class MessageService {
         })
     }
 
-    markMessages(sender, receiver) : Observable<any> {
-        let url = '/receiver-messages/' + sender + '/' + receiver;
+    // markMessages(sender, receiver) : Observable<any> {
+    //     let url = '/receiver-messages/' + sender + '/' + receiver;
+    //     return new Observable<any>(obs => {
+    //         this.apiService.get(url).subscribe( res => {
+    //             obs.next(res);
+    //         })
+    //     })
+    // }
+
+    getGuideMessageList(guideId) : Observable<any> {
+        let url = '/guide/messages/' + guideId;
         return new Observable<any>(obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
-            })
-        })
+            });
+        });
     }
    
     
