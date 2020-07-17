@@ -16,6 +16,7 @@ import { StaticDataService } from '../../service/static-data.service';
 export class DealsCardsComponent implements OnInit, OnChanges {
   
   @Input() dealsList : any[] = [];
+  @Input() role: string; //guide or tourist
   @ViewChild('dealTour', {static: false}) modal1: MDBModalService;
   @ViewChild('dealTour2', {static: false}) modal2: MDBModalService;
   isValid: boolean;

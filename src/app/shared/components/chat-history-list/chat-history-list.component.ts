@@ -23,12 +23,24 @@ export class ChatHistoryListComponent implements OnInit {
     this.role = this.userService.getRole();
     this.user = JSON.parse(this.userService.getUser(this.role));
     if(this.role === 'guide') {
-      this.getGuideMeassageList();
+      this.getGuideMessageList();
+    } else {
+      this.getTouristMessageList();
     }
   }
 
-  getGuideMeassageList() {
+  getGuideMessageList() {
     this.messageService.getGuideMessageList(this.user._id).subscribe( res => {
+      if(res.glbl.length > 0) {
+        this.messageList = res.glbl;
+      } else {
+        this.messageList = undefined;
+      }
+    });
+  }
+
+  getTouristMessageList() {
+    this.messageService.getTouristMessageList(this.user._id).subscribe( res => {
       if(res.glbl.length > 0) {
         this.messageList = res.glbl;
       } else {
@@ -40,6 +52,8 @@ export class ChatHistoryListComponent implements OnInit {
   navigateToChat(email) {
     if(this.role === 'guide') {
       this.router.navigateByUrl('/guide/guidehome/messages/chats/tourist/' + email);
+    } else {
+      this.router.navigateByUrl('/tourist/guidehome/messages/chats/guide/' + email);
     }
   }
 

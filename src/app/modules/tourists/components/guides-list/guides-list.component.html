@@ -13,7 +13,7 @@
                     <div class="col-md-4 col-lg-5">
                         <mdb-card-title style="font-size: 20px;">
 
-                            <strong>{{guide.gender}} {{guide.name}}</strong>
+                            <strong [routerLink]="['/tourists/touristshome/guideProfile', guide._id]">{{guide.gender}} {{guide.name}}</strong>
 
                         </mdb-card-title>
                         <hr class="my-1">

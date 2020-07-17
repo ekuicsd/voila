@@ -50,6 +50,15 @@ export class MessageService {
             });
         });
     }
+
+    getTouristMessageList(touristId) : Observable<any> {
+        let url = '/tourist/messages/' + touristId;
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
    
     
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../service/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../service/user.service';
