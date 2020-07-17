@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { SearchService } from 'src/app/shared/service/search.service';
 import {IAngularMyDpOptions } from 'angular-mydatepicker';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filter-form',
@@ -24,6 +25,7 @@ export class FilterFormComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     public searchService: SearchService,
+    public router: Router
     ) { 
     }
 
@@ -32,6 +34,7 @@ export class FilterFormComponent implements OnInit {
 
   submitForm() {
     if(this.searchService.searchForm.valid) {
+      this.router.navigateByUrl('/tourists/touristshome/searchResult/guidesList');
       this.searchService.getFilterData();
     } else {
       this.toastr.warning("Please enter city!");

@@ -21,6 +21,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { AboutComponent } from './components/about/about.component';
 import { TruncateTextPipe } from './pipes/truncateText.pipe';
 import { ShortTextPipe } from './pipes/shortText.pipe';
+import { AgePipe } from './pipes/age.pipe';
 
 const routes: Routes = [
     
@@ -73,7 +74,8 @@ const routes: Routes = [
         ContactUsComponent,
         AboutComponent,
         TruncateTextPipe,
-        ShortTextPipe
+        ShortTextPipe,
+        AgePipe
     ],
     imports: [
         CommonModule,
@@ -95,7 +97,8 @@ const routes: Routes = [
         ChatsComponent,
         ChatHistoryListComponent,
         TruncateTextPipe,
-        ShortTextPipe
+        ShortTextPipe,
+        AgePipe
     ]
 }) 
 

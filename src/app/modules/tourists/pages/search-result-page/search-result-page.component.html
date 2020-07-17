@@ -2,16 +2,16 @@
 
 <div class="container-fluid d-none d-lg-block">
     <div class="row">
-        <div class="col-12 text-center py-3 ">
-            <h1>Searched Results</h1>
+        <div class="col-12 text-center px-3 pt-3 pb-0">
+            <h4>Searched Results</h4>
         </div>
     </div>
 </div>
 
 <!-- small screens filter sidenav -->
 <div class="d-block d-lg-none">
-    <div mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-full-height modal-left filtermodal" role="document">
+    <div style="overflow-y: auto;" mdbModal #basicModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-full-height modal-left filtermodal" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
@@ -21,28 +21,49 @@
                 </div>
                 <div class="modal-body">
                     <!-- accordion -->
+                    <p><a (click)="resetAll()" class="float-right text-info mb-2">Reset All</a></p>
+                    <br>
                     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
                         <ngb-panel>
                             <ng-template ngbPanelTitle>
                                 <b>PRICE RANGE</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="minValue"></p>
-                                <p>Max price(₹): <input type="number" class="form-control" [(ngModel)]="maxValue"></p>
-                                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
-                            </ng-template>
+                                <p>Min price(₹): <input type="number" disabled class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
+                                <p>Max price(₹): <input type="number" disabled class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
+                                <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)"  [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
+                        </ng-template>
                         </ngb-panel>
                         <ngb-panel>
                             <ng-template ngbPanelTitle>
                                 <b>RATINGS</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star"
-                                        aria-hidden="true"></i></mdb-checkbox>
-                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
-                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
-                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
-                                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                                <input type="radio"   value="5" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                            <br>
+                            <input type="radio"   value="4" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                            <br>
+                            <input type="radio"   value="3" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                            <br>
+                            <input type="radio"   value="2" (change)="changeRating($event)"   [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                            <br>
+                            <input type="radio"   value="1" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <i class="fa fa-star star" aria-hidden="true"></i>
+                            <br>
                             </ng-template>
                         </ngb-panel>
                         <ngb-panel>
@@ -50,7 +71,7 @@
                                 <b>INTERESTS</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                                <mdb-checkbox *ngFor="let interest of interestList" [checked]="getInterest(interest)" [value]="interest" (change)="changeInterest($event)" [default]="true">{{ interest }}</mdb-checkbox>
                             </ng-template>
                         </ngb-panel>
                         <ngb-panel>
@@ -58,7 +79,7 @@
                                 <b>LANGUAGES</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                                <mdb-checkbox *ngFor="let language of languageList" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
                             </ng-template>
                         </ngb-panel>
 
@@ -76,19 +97,18 @@
 </div>
 
 
-<!-- small screens filter sidenav -->
+<!-- small screens filter sidenav ends-->
 
 <div class="row mx-lg-2">
-    <div class="col-lg-2 filters d-none d-lg-block">
-        <div><b>FILTERS</b></div>
+    <div class="col-lg-3 col-xl-2 filters d-none d-lg-block">
+        <div><b>FILTERS</b> <a (click)="resetAll()" class="float-right text-info">Reset All</a></div>
         <div class="row my-lg-2">
             <div class="col-lg-12">
                 <div class="mb-0"><b>PRICE RANGE</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
-
-                <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="minValue"></p>
-                <p>Max price(₹): <input type="number" class="form-control" [(ngModel)]="maxValue"></p>
-                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                <p>Min price(₹): <input type="number" disabled class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
+                <p>Max price(₹): <input type="number" disabled class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
+                <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)"  [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
 
             </div>
         </div>
@@ -98,11 +118,31 @@
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
 
                 <!-- Default unchecked -->
-                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
-                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
-                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
-                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
-                <mdb-checkbox [default]="true"><i class="fa fa-star star" aria-hidden="true"></i></mdb-checkbox>
+                <input type="radio" (change)="changeRating($event)" value="5"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <br>
+                <input type="radio" (change)="changeRating($event)"  value="4" [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"   [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <br>
+                <input type="radio" (change)="changeRating($event)"  value="3"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <br>
+                <input type="radio" (change)="changeRating($event)"  value="2"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <br>
+                <input type="radio" (change)="changeRating($event)"  value="1"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
+                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <br>
             </div>
         </div>
         <div class="row my-lg-2">
@@ -112,7 +152,7 @@
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
 
                 <div>
-                    <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                    <mdb-checkbox *ngFor="let interest of interestList" [checked]="getInterest(interest)" [value]="interest" (change)="changeInterest($event)" [default]="true">{{ interest }}</mdb-checkbox>
                 </div>
 
             </div>
@@ -122,112 +162,34 @@
                 <!-- Default unchecked -->
                 <div class="mb-0"><b>LANGUAGES</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
-
-                <mdb-checkbox *ngFor="let interest of interestList" [default]="true">{{ interest }}</mdb-checkbox>
+                <div *ngIf="!langMore" >
+                    <mdb-checkbox *ngFor="let language of languageList" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
+                    <p  class="my-2 text-info cursor" (click)="moreLess()">Less-</p>
+                </div>
+                <div *ngIf="langMore" >
+                    <mdb-checkbox *ngFor="let language of languageList | slice:0:15" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
+                    <p class="my-2 text-info cursor" (click)="moreLess()">More+</p>
+                </div>
             </div>
         </div>
     </div>
 
 
-    <div class="col-12 col-lg-9">
+    <div class="col-12 col-lg-9 col-xl-8">
 
         <button type="button" mdbBtn color="primary" class="d-block d-lg-none relative waves-light px-3 py-2 float-right" (click)="basicModal.show()" mdbWavesEffect>FILTERS <mdb-icon fas icon="filter"></mdb-icon></button>
 
-        <div class="text-center mt-4 mb-5 mx-auto">
+        <div class="text-center mt-2 mb-4 mx-auto">
             <!-- <h2>Elastic Tabs</h2> -->
 
             <nav class="tabs">
                 <div class="selector"></div>
                 <a [routerLink]="['guidesList']" routerLinkActive="active" class="active"><i class="im im-user-male"></i>Guides</a>
                 <a [routerLink]="['dealsList']" routerLinkActive="active"><i class="im im-user-male"></i>Deals</a>
-                <!-- <a href="#"><i class="fas fa-bolt"></i>Thor</a>
-                <a href="#"><i class="fas fa-burn"></i>Marvel</a> -->
             </nav>
         </div>
 
-
-        <!-- <ul>
-            <li><a [routerLink]="['guidesList']" routerLinkActive="active">Guides</a></li>
-            <li><a [routerLink]="['dealsList']" routerLinkActive="active">Deals</a></li>
-        </ul> -->
         <router-outlet></router-outlet>
 
     </div>
 </div>
-
-
-<!-- 
-<div class="row">
-    <div class="col-md-2 filters ">
-        <br>
-        <h3>Filters</h3>
-        <br>
-        <h6>Ratings</h6>
-
-        
-        <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="days1" name="days" mdbInput>
-            <label class="custom-control-label" for="days1">1 - 2</label>
-        </div>
-
-        
-        <div class="custom-control custom-radio ">
-            <input type="radio" class="custom-control-input" id="days2" name="days" mdbInput>
-            <label class="custom-control-label" for="days2">2 - 4</label>
-        </div>
-
-       
-        <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="days3" name="days" mdbInput>
-            <label class="custom-control-label" for="days3">More than 4</label>
-        </div>
-        <hr>
-        <br>
-        <h6>Gender</h6>
-        
-        <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="gender1" name="gender" mdbInput>
-            <label class="custom-control-label" for="gender1">Male</label>
-        </div>
-
-        
-        <div class="custom-control custom-radio ">
-            <input type="radio" class="custom-control-input" id="gender2" name="gender" mdbInput>
-            <label class="custom-control-label" for="gender2">Female</label>
-        </div>
-        <hr>
-        <br>
-        <h6>Language</h6>
-        
-        <mdb-checkbox [default]="true">Hindi</mdb-checkbox>
-        
-        
-        <mdb-checkbox [default]="true">English</mdb-checkbox>
-        
-        <mdb-checkbox [default]="true">French</mdb-checkbox>
-        
-        <mdb-checkbox [default]="true">Spanish</mdb-checkbox>
-        <div mdbCollapse #test="bs-collapse">
-            <mdb-checkbox [default]="true">Hindi</mdb-checkbox>
-            
-            
-            <mdb-checkbox [default]="true">English</mdb-checkbox>
-            
-            <mdb-checkbox [default]="true">French</mdb-checkbox>
-            
-            <mdb-checkbox [default]="true">Spanish</mdb-checkbox>
-        </div>
-        <div>
-            <a (click)="test.toggle()" style="color: rgb(248, 93, 93); ">more</a>
-        </div>
-
-        <hr>
-        <br>
-       
-        <br>
-        <button mdbBtn type="button" color="indigo" mdbWavesEffect>Apply</button>
-
-    </div>
-
-</div>
- -->

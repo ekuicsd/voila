@@ -21,4 +21,12 @@ export class GuidesListComponent implements OnInit {
     this.router.navigateByUrl('/tourists/touristshome/guideProfile/' + id);
   }
 
+  getDealsList(guide) {
+    return this.searchService.dealsList.filter( ele => {
+      if(guide.email === ele.guideId.email) {
+        return ele;
+      }
+    });
+  }
+
 }

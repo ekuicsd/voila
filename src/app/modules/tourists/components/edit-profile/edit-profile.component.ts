@@ -8,6 +8,7 @@ import { TouristsService } from 'src/app/shared/service/tourists.service';
 import languages from 'country-language';
 import csc from 'country-state-city';
 import { Router } from '@angular/router';
+import { CustomValidators } from 'src/app/validators/custom';
 
 @Component({
   selector: 'app-edit-profile',
@@ -49,11 +50,11 @@ export class EditProfileComponent implements OnInit {
 
   createPersonalDetailsForm() {
     this.personalDetails = new FormGroup({
-      name: new FormControl(this.userData.name, [Validators.required]),
+      name: new FormControl(this.userData.name, [Validators.required, Validators.minLength(3)]),
       gender: new FormControl(this.userData.gender, [Validators.required]),
-      age: new FormControl(this.userData.age, [Validators.required]),
-      email: new FormControl(this.userData.email, [Validators.required]),
-      phoneNumber: new FormControl(this.userData.phoneNumber, [Validators.required]),
+      age: new FormControl(this.userData.age, [Validators.required, CustomValidators.compondValueValidate]),
+      email: new FormControl(this.userData.email, [Validators.required, Validators.email]),
+      phoneNumber: new FormControl(this.userData.phoneNumber, [Validators.required, CustomValidators.contactNumber]),
       nationality: new FormControl(this.userData.nationality, [Validators.required]),
       // language: new FormControl(this.userData.languages[0], [Validators.required]),
     })

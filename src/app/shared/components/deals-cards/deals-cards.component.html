@@ -33,107 +33,46 @@
 <!-- Responsive deal cards -->
 
 <div class="row mx-lg-2 mx-2">
-    <div class="col-12 col-sm-6 col-lg-4 py-2">
+    <div class="col-12 col-sm-6 col-md-5 col-lg-5 py-2 mb-4" *ngFor="let deal of dealsList" >
         <mdb-card>
             <div class="img-fav">
-                <i class="far fa-heart fa-lg pink-text"></i>
-                <!-- <i *ngIf="deal.isFavourite" (click)="removeFromFavourite(deal)" class="fas fa-heart fa-lg pink-text"></i> -->
+                <i *ngIf="!isFavourite(deal) && role !== 'guide'" (click)="addToFavourite(deal)" class="far fa-heart fa-lg pink-text"></i>
+                <i *ngIf="isFavourite(deal) && role !== 'guide'" (click)="removeFromFavourite(deal)" class="fas fa-heart fa-lg pink-text"></i>
 
-                <mdb-card-img class="main-img" src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap"></mdb-card-img>
-                <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
-                <h5><span class="badge badge-default font-weight-normal">Udaipur tour with Barkha Joshi</span></h5>
+                <mdb-card-img class="main-img" 
+                src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                </mdb-card-img>
+                <img class="card-img rounded-circle" 
+                src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" 
+                style="width:70px; height:70px; border:white 3px solid;" alt="">
+                <h5><span class="badge badge-default font-weight-normal">{{deal.state | titlecase}} tour</span></h5>
             </div>
             <!-- Card content -->
             <div class="mt-3 mb-3 mx-3">
                 <!-- Title -->
                 <mdb-card-title class="mt-1">
-                    <h5><strong>Nandpur Fort Tour</strong></h5>
+                    <h5><strong>{{deal.city | titlecase}}</strong></h5>
                 </mdb-card-title>
 
                 <!-- Text -->
                 <div>
                     <!-- <div>Awadhnagar, Ranibaag, local delicacies</div> -->
                     <div><i class="fa fa-star star pink-text" aria-hidden="true" style=" display:inline-block;
-                        vertical-align: 3px;"></i> &nbsp;4.0&nbsp;(12) &#8226; From 4th July | 4pm To 9pm</div>
+                        vertical-align: 3px;"></i> &nbsp;4.0&nbsp;(12) &#8226; From {{deal.startDate | date: 'MMM dd, y'}} | {{deal.endDate | date: 'MMM dd, y'}}</div>
                 </div>
-
-
-                <div class="mt-2">
-                    <div class="float-left">
-                        <h4 class="mb-0">₹ 1200</h4>
-                        <div class="mt-0 grey-text">per person</div>
-                    </div>
-                    <button mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>Book Deal</button>
-                </div>
-            </div>
-        </mdb-card>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 py-2">
-        <mdb-card>
-            <div class="img-fav">
-                <i class="far fa-heart fa-lg pink-text"></i>
-                <!-- <i *ngIf="deal.isFavourite" (click)="removeFromFavourite(deal)" class="fas fa-heart fa-lg pink-text"></i> -->
-
-                <mdb-card-img class="main-img" src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap"></mdb-card-img>
-                <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
-                <h5><span class="badge badge-default font-weight-normal">Udaipur tour with Barkha Joshi</span></h5>
-            </div>
-            <!-- Card content -->
-            <div class="mt-3 mb-3 mx-3">
-                <!-- Title -->
-                <mdb-card-title class="mt-1">
-                    <h5><strong>Nandpur Fort Tour</strong></h5>
-                </mdb-card-title>
-
-                <!-- Text -->
                 <div>
-                    <!-- <div>Awadhnagar, Ranibaag, local delicacies</div> -->
-                    <div><i class="fa fa-star star pink-text" aria-hidden="true" style=" display:inline-block;
-                        vertical-align: 3px;"></i>&nbsp;4.0&nbsp;(12) &#8226; From 4th July | 4pm To 9pm</div>
+                    <i>User</i><b>{{deal.peopleLimit}}</b>
+                    <i>Left</i><b>{{deal.peopleLeft}}</b>
                 </div>
 
 
                 <div class="mt-2">
                     <div class="float-left">
-                        <h4 class="mb-0">₹ 1200</h4>
+                        <h4 class="mb-0">₹ {{deal.price}}</h4>
                         <div class="mt-0 grey-text">per person</div>
                     </div>
-                    <button mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>Book Deal</button>
-                </div>
-            </div>
-        </mdb-card>
-    </div>
-    <div class="col-12 col-sm-6 col-lg-4 py-2">
-        <mdb-card>
-            <div class="img-fav">
-                <i class="far fa-heart fa-lg pink-text"></i>
-                <!-- <i *ngIf="deal.isFavourite" (click)="removeFromFavourite(deal)" class="fas fa-heart fa-lg pink-text"></i> -->
-
-                <mdb-card-img class="main-img" src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap"></mdb-card-img>
-                <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
-                <h5><span class="badge badge-default font-weight-normal">Udaipur tour with Barkha Joshi</span></h5>
-            </div>
-            <!-- Card content -->
-            <div class="mt-3 mb-3 mx-3">
-                <!-- Title -->
-                <mdb-card-title class="mt-1">
-                    <h5><strong>Nandpur Fort Tour</strong></h5>
-                </mdb-card-title>
-
-                <!-- Text -->
-                <div>
-                    <!-- <div>Awadhnagar, Ranibaag, local delicacies</div> -->
-                    <div><i class="fa fa-star star pink-text" aria-hidden="true" style=" display:inline-block;
-                        vertical-align: 3px;"></i>&nbsp;4.0&nbsp;(12) &#8226; From 4th July | 4pm To 9pm</div>
-                </div>
-
-
-                <div class="mt-2">
-                    <div class="float-left">
-                        <h4 class="mb-0">₹ 1200</h4>
-                        <div class="mt-0 grey-text">per person</div>
-                    </div>
-                    <button mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>Book Deal</button>
+                    <button  *ngIf="role !== 'guide'" mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>Book Deal</button>
+                    <button  *ngIf="role === 'guide'" mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>View Deal</button>
                 </div>
             </div>
         </mdb-card>

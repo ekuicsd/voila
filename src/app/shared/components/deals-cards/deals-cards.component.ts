@@ -16,6 +16,7 @@ import { StaticDataService } from '../../service/static-data.service';
 export class DealsCardsComponent implements OnInit, OnChanges {
   
   @Input() dealsList : any[] = [];
+  @Input() role: string; //guide or tourist
   @ViewChild('dealTour', {static: false}) modal1: MDBModalService;
   @ViewChild('dealTour2', {static: false}) modal2: MDBModalService;
   isValid: boolean;
@@ -32,15 +33,17 @@ export class DealsCardsComponent implements OnInit, OnChanges {
      private router: Router) { }
 
   ngOnInit() {
-    this.getDealsFavourite();
+    // this.getDealsFavourite();
     this.groupTypesList = this.staticDataService.getAllGroupTypes();
-    // this.userId = JSON.parse(this.userService.getUser('tourist'))._id;
+    if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+      this.userId = JSON.parse(this.userService.getUser('tourist'))._id;
+    }
     console.log(this.userId);
     this.createForm();
   }
 
   ngOnChanges() {
-    this.getDealsFavourite();
+    // this.getDealsFavourite();
     
   }
 
@@ -87,7 +90,8 @@ export class DealsCardsComponent implements OnInit, OnChanges {
         console.log(res);
       })
     } else {
-      this.router.navigateByUrl('/login');
+      this.toastr.warning("Please Login First!");
+      // this.router.navigateByUrl('/login');
     }
   }
 
@@ -99,31 +103,46 @@ export class DealsCardsComponent implements OnInit, OnChanges {
     }
   }
 
-  getDealsFavourite() {
+  // getDealsFavourite() {
+  //   if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+  //     if(this.dealsList) {
+  //       this.dealsList.filter(deal => {
+  //       if(deal.favorites.length > 0) {
+  //         deal.favorites.filter( ele => {
+  //           if(ele._id == this.userId) {
+  //             deal.isFavourite = true;
+  //             return;
+  //           } else {
+  //             deal.isFavourite = false;
+  //           }
+  //       })
+  //     } else {
+  //       deal.isFavourite = false;
+  //     }
+  //     })
+  //     }
+  //   } else {
+  //     if(this.dealsList) {
+  //       this.dealsList.filter( deal => {
+  //         deal.isFavourite = false;
+  //       })
+  //     }
+  //   }
+  // }
+
+  isFavourite(deal) {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
-      if(this.dealsList) {
-        this.dealsList.filter(deal => {
-        if(deal.favorites.length > 0) {
-          deal.favorites.filter( ele => {
-            if(ele._id == this.userId) {
-              deal.isFavourite = true;
-              return;
-            } else {
-              deal.isFavourite = false;
-            }
-        })
-      } else {
-        deal.isFavourite = false;
+      let list = deal.favorites.filter(ele => {
+        if(ele == this.userId) {
+          return ele;
+        }
+      });
+      if(list.length > 0) {
+        return true;
       }
-      })
-      }
-    } else {
-      if(this.dealsList) {
-        this.dealsList.filter( deal => {
-          deal.isFavourite = false;
-        })
-      }
+      return false;
     }
+    return false;
   }
 
 

@@ -108,6 +108,13 @@ mdb-card-text div {
     transition-duration: 0.6s;
 }
 
+.tabs a:link {
+    color: #777;
+}
+.tabs a:visited {
+    color: #777;
+}
+
 .tabs a.active {
     color: #fff;
 }
@@ -152,4 +159,7 @@ mdb-card-text div {
     margin-left: 0 !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+}
+.cursor {
+    cursor: pointer;
 }
