@@ -22,6 +22,8 @@ import { AboutComponent } from './components/about/about.component';
 import { TruncateTextPipe } from './pipes/truncateText.pipe';
 import { ShortTextPipe } from './pipes/shortText.pipe';
 import { AgePipe } from './pipes/age.pipe';
+import { PersonalModalComponent } from './components/personal-modal/personal-modal.component';
+import { DealModalComponent } from './components/deal-modal/deal-modal.component';
 
 const routes: Routes = [
     
@@ -75,7 +77,9 @@ const routes: Routes = [
         AboutComponent,
         TruncateTextPipe,
         ShortTextPipe,
-        AgePipe
+        AgePipe,
+        PersonalModalComponent,
+        DealModalComponent
     ],
     imports: [
         CommonModule,
@@ -98,7 +102,9 @@ const routes: Routes = [
         ChatHistoryListComponent,
         TruncateTextPipe,
         ShortTextPipe,
-        AgePipe
+        AgePipe,
+        PersonalModalComponent,
+        DealModalComponent
     ]
 }) 
 

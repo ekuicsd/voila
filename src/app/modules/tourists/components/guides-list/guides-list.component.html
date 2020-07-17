@@ -12,9 +12,7 @@
                     </div>
                     <div class="col-md-4 col-lg-5">
                         <mdb-card-title style="font-size: 20px;">
-
                             <strong [routerLink]="['/tourists/touristshome/guideProfile', guide._id]">{{guide.gender}} {{guide.name}}</strong>
-
                         </mdb-card-title>
                         <hr class="my-1">
                         <div style="font-size: 16px;">
@@ -61,7 +59,7 @@
                         </div>
                         <div class="text-center mb-2 mt-2">
                             <!-- <button (click)="navigateToGuideProfile(guide._id)">Book for Personalised Tour</button> -->
-                            <button type="button" size="sm" class="btn btn-cyan">Book for Personalised Tour</button>
+                            <button (click)="openModal(personalTour, guide)" type="button" size="sm" class="btn btn-cyan">Request for Personalised Tour</button>
                         </div>
                         <div class=" mt-1 mb-0">
                             <!-- <div data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> -->
@@ -276,7 +274,7 @@
                 <div style="position:absolute; bottom:6px; right:10px;" class="float-right">
                     <div class="text-center">₹{{guide.perHeadCharge}}/head/day</div>
 
-                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white black-text my-2" mdbWavesEffect>BOOK NOW!</button>
+                    <button type="button" (click)="openModal(personalTour)" style=" border: 1px solid black; font-size: 15px;" class="white black-text my-2" mdbWavesEffect>BOOK NOW!</button>
 
                 </div>
             </div>
@@ -285,6 +283,13 @@
     </div>
 </div>
 
+
+
+
+<!-- personal Tour Book -->
+<div mdbModal #personalTour="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel" aria-hidden="true">
+    <app-personal-modal [guide]="guide" (close)="personalTour.hide()"></app-personal-modal>
+</div>
 
 
 <!-- alternative mobile card implementation -->
