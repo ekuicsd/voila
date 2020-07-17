@@ -26,18 +26,23 @@ import { PersonalModalComponent } from './components/personal-modal/personal-mod
 import { DealModalComponent } from './components/deal-modal/deal-modal.component';
 
 const routes: Routes = [
-    
     {
         path: 'touristsRegister', redirectTo: 'tourists/register', pathMatch: 'full'
     },
-    {path: 'tourists', 
+    {
+        path: 'tourists', 
         loadChildren: () => import('../modules/tourists/tourists.module').then(module => module.TouristsModule)
     },
     {
         path: 'guideRegister', redirectTo: 'guide/show-register', pathMatch: 'full'
     },
-    {path: 'guide', 
+    {
+        path: 'guide', 
         loadChildren: () => import('../modules/guide/guide.module').then(module => module.GuideModule)
+    },
+    {
+        path:'admin',
+        loadChildren: () => import('../modules/admin/admin.module').then(module => module.AdminModule)
     },
     {
         path: 'login/:role', component: LoginPageComponent
@@ -56,9 +61,7 @@ const routes: Routes = [
     }, 
     {
         path: 'contact', component: ContactUsComponent
-    }
-    
-    
+    }   
 ];
 @NgModule({
     declarations: [
