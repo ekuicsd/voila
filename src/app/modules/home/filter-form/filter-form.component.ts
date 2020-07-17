@@ -35,7 +35,7 @@ export class FilterFormComponent implements OnInit {
   submitForm() {
     if(this.searchService.searchForm.valid) {
       this.router.navigateByUrl('/tourists/touristshome/searchResult/guidesList');
-      // this.searchService.getFilterData();
+      this.searchService.getFilterData();
     } else {
       this.toastr.warning("Please enter city!");
     }

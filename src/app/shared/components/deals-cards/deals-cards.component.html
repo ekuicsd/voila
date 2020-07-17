@@ -33,14 +33,18 @@
 <!-- Responsive deal cards -->
 
 <div class="row mx-lg-2 mx-2">
-    <div class="col-12 col-sm-6 col-md-5 col-lg-5 py-2 mb-4" *ngFor="let deal of dealsList">
+    <div class="col-12 col-sm-6 col-md-5 col-lg-5 py-2 mb-4" *ngFor="let deal of dealsList" >
         <mdb-card>
             <div class="img-fav">
                 <i *ngIf="!isFavourite(deal)" (click)="addToFavourite(deal)" class="far fa-heart fa-lg pink-text"></i>
                 <i *ngIf="isFavourite(deal)" (click)="removeFromFavourite(deal)" class="fas fa-heart fa-lg pink-text"></i>
 
-                <mdb-card-img class="main-img" src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap"></mdb-card-img>
-                <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
+                <mdb-card-img class="main-img" 
+                src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                </mdb-card-img>
+                <img class="card-img rounded-circle" 
+                src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" 
+                style="width:70px; height:70px; border:white 3px solid;" alt="">
                 <h5><span class="badge badge-default font-weight-normal">Udaipur tour with Barkha Joshi</span></h5>
             </div>
             <!-- Card content -->
