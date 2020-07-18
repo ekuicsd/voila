@@ -117,7 +117,7 @@ export class SearchService {
       }
 
       getGuideById(id) : Observable<any> {
-        let url = '/tourist/guideDetails/' + id;
+        let url = '/tourist/deals/guide/' + id;
         return new Observable<any>(obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);

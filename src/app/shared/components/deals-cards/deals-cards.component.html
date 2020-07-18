@@ -71,8 +71,7 @@
                         <h4 class="mb-0">₹ {{deal.price}}</h4>
                         <div class="mt-0 grey-text">per person</div>
                     </div>
-                    <button  *ngIf="role !== 'guide'" mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>Book Deal</button>
-                    <button  *ngIf="role === 'guide'" mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>View Deal</button>
+                    <button (click)="openModal1(dealTour, deal)" mdbBtn type="button" class="font-weight-bold btn-brown float-right white-text" mdbWavesEffect>{{role === 'guide' ? 'View' : 'Book'}} Deal</button>
                 </div>
             </div>
         </mdb-card>
@@ -81,84 +80,6 @@
 </div>
 
 
-<!--Modal: Login with Avatar Form-->
-<div mdbModal #dealTour="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal modal-avatar " role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!-- <form [formGroup]="personalBooking" (ngSubmit)="submitPersonalBooking()"> -->
-            <!--Header-->
-            <div class="modal-header">
-                <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
-            </div>
-            <!--Body-->
-            <div class="modal-body text-center mb-1">
-
-                <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>
-                <hr mx-3>
-                <h5 class="text-left black-text">Tell me your preferred Date</h5>
-                <div class="row form-inline">
-                </div>
-
-            </div>
-            <div class="text-center mt-4">
-                <button (click)="openModal2(dealTour2)" type="button" class="btn btn-cyan mt-1">Request a personalized Tour</button>
-            </div>
-
-            <!-- </form> -->
-        </div>
-        <!--/.Content-->
-    </div>
+<div style="overflow-y: auto;" mdbModal #dealTour="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel" aria-hidden="true">  
+    <app-deal-modal [deal]="selectedDeal" [role]="role" (close)="dealTour.hide()" ></app-deal-modal>
 </div>
-<!--Modal: Login with Avatar Form-->
-
-
-<!--Modal: Login with Avatar Form-->
-<div mdbModal #dealTour2="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel2" aria-hidden="true">
-    <div class="modal-dialog cascading-modal modal-avatar " role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!-- <form [formGroup]="personalBooking" (ngSubmit)="submitPersonalBooking()"> -->
-            <!--Header-->
-            <div class="modal-header">
-                <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
-            </div>
-            <!--Body-->
-            <div class="modal-body text-center mb-1">
-
-                <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>
-                <hr mx-3>
-                <h5 class="text-left black-text">Tell me your preferred Date</h5>
-                <form [formGroup]="dealForm" (ngSubmit)="submitDealForm()">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <select formControlName="groupType" class="form-control">
-                                    <option value="" disabled>Select</option>
-                                    <option *ngFor="let item of groupTypesList" [value]="item">{{item}}</option>
-                                </select>
-                            </div>
-
-                            <!-- <input type="number" mdbInput class="form-control" placeholder="Adults"> -->
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <input type="number" formControlName="noOfPeople" class="form-control" placeholder="no of people">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-cyan mt-1">Book</button>
-                    </div>
-
-                </form>
-
-            </div>
-
-
-            <!-- </form> -->
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<!--Modal: Login with Avatar Form-->

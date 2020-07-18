@@ -22,20 +22,27 @@ import { AboutComponent } from './components/about/about.component';
 import { TruncateTextPipe } from './pipes/truncateText.pipe';
 import { ShortTextPipe } from './pipes/shortText.pipe';
 import { AgePipe } from './pipes/age.pipe';
+import { PersonalModalComponent } from './components/personal-modal/personal-modal.component';
+import { DealModalComponent } from './components/deal-modal/deal-modal.component';
 
 const routes: Routes = [
-    
     {
         path: 'touristsRegister', redirectTo: 'tourists/register', pathMatch: 'full'
     },
-    {path: 'tourists', 
+    {
+        path: 'tourists', 
         loadChildren: () => import('../modules/tourists/tourists.module').then(module => module.TouristsModule)
     },
     {
         path: 'guideRegister', redirectTo: 'guide/show-register', pathMatch: 'full'
     },
-    {path: 'guide', 
+    {
+        path: 'guide', 
         loadChildren: () => import('../modules/guide/guide.module').then(module => module.GuideModule)
+    },
+    {
+        path:'admin',
+        loadChildren: () => import('../modules/admin/admin.module').then(module => module.AdminModule)
     },
     {
         path: 'login/:role', component: LoginPageComponent
@@ -54,9 +61,7 @@ const routes: Routes = [
     }, 
     {
         path: 'contact', component: ContactUsComponent
-    }
-    
-    
+    }   
 ];
 @NgModule({
     declarations: [
@@ -75,7 +80,9 @@ const routes: Routes = [
         AboutComponent,
         TruncateTextPipe,
         ShortTextPipe,
-        AgePipe
+        AgePipe,
+        PersonalModalComponent,
+        DealModalComponent
     ],
     imports: [
         CommonModule,
@@ -98,7 +105,9 @@ const routes: Routes = [
         ChatHistoryListComponent,
         TruncateTextPipe,
         ShortTextPipe,
-        AgePipe
+        AgePipe,
+        PersonalModalComponent,
+        DealModalComponent
     ]
 }) 
 
