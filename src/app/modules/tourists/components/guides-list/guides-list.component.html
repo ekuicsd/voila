@@ -21,21 +21,18 @@
                                 <mdb-icon fas icon="birthday-cake" size="lg" class="brown-text pr-1"></mdb-icon>&nbsp;{{guide.dob | age}} years old
                             </div>
 
-                            <!-- <div data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> -->
+
                             <div class="py-2">
                                 <mdb-icon fas icon="map-marker-alt" size="lg" class="red-text pr-1"></mdb-icon>&nbsp; Lives in {{guide.city}}
                             </div>
 
                             <div class="py-2">
-                                <!-- <mdb-icon fas icon="globe" class="purple-text pr-1"></mdb-icon>&nbsp;<h5>Speaks{{guide?.languages.toString()}}</h5> -->
+
                                 <mdb-icon fas icon="globe" size="lg" class="green-text pr-1"></mdb-icon>&nbsp;Speaks {{guide.languages[0]}} and more
 
                             </div>
 
-                            <!-- <a>
-                                <div data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                    <mdb-badge pill="true" default="true">4.2 </mdb-badge>&nbsp; (207 reviews)</div>
-                            </a> -->
+
                         </div>
                         <span class="float-right">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="text-decoration-none">View more</a>
@@ -69,7 +66,7 @@
                             <i class="fa fa-star " aria-hidden="true"></i> &nbsp; (22+ Reviews)
 
                             <!-- <mdb-badge pill="true" default="true">4.2 </mdb-badge>&nbsp; (207 reviews) -->
-                            
+
                         </div>
                     </div>
 
@@ -98,12 +95,12 @@
                             <div class="col-md-6">
                                 <h4>Languages</h4>
                                 <hr>
-                                <p class="mb-1" *ngFor="let item of guide.interests">{{item | titlecase}}</p>
+                                <p class="mb-1" *ngFor="let item of guide.languages">{{item | titlecase}}</p>
                             </div>
                             <div class="col-md-6">
                                 <h4>Interests</h4>
                                 <hr>
-                                <p class="mb-1" *ngFor="let item of guide.languages">{{item}}</p>
+                                <p class="mb-1" *ngFor="let item of guide.interests">{{item}}</p>
                             </div>
                         </div>
 
@@ -184,15 +181,15 @@
 
                     <div class="tab-pane fade" id="deal" role="tabpanel" aria-labelledby="deal-tab">
                         <!-- <mdb-badge pill="true" success="true"> -->
-                            <h3 class="text-black">Recommended deals</h3>
+                        <h3 class="text-black">Recommended deals</h3>
                         <!-- </mdb-badge> -->
 
                         <div class="row p-2 text-center" *ngIf="getDealsList(guide).length > 0">
-                            <div  class="col-lg-3 col-md-4" *ngFor="let deal of getDealsList(guide)">
-                                <div class="view deal-card guide-card" >
+                            <div class="col-lg-3 col-md-4" *ngFor="let deal of getDealsList(guide)">
+                                <div class="view deal-card guide-card">
 
                                     <img src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" width="100%" alt="">
-                                    <div class="mask rgba-purple-light white-text" >
+                                    <div class="mask rgba-purple-light white-text">
                                         <div class="text-center" style="overflow-wrap: break-word;">
                                             <h5>Nandpur Fort Tour</h5>
 
