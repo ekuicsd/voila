@@ -1,5 +1,4 @@
 <div class="container-fluid">
-  <!--  -->
 <div class="d-none d-sm-block">
   <div class="row mt-3">
     <div class="col-12 text-center">
@@ -29,7 +28,7 @@
                 <td>rg</td>
                 <td>e days</td>
                 <td>
-                  <button [routerLink]="['/navigateToGuideProfile', guide?._id]" class="btn" color="info" style="margin: auto;" mdbBtn type="button" size="sm" mdbWavesEffect>
+                  <button [routerLink]="['../guideProfile', guide._id]" class="btn" color="info" style="margin: auto;" mdbBtn type="button" size="sm" mdbWavesEffect>
                     <b>VIEW</b>
                   </button>
                 </td>
@@ -63,7 +62,7 @@
           <div>213214324</div>
         </div>
         <div class="col-6 col-sm-4">
-          <a [routerLink]="['/navigateToGuideProfile', guide?._id]" size="sm" class="btn mx-0" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+          <a [routerLink]="['../guideProfile', guide._id]" size="sm" class="btn mx-0" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
         </div>
         </div>
       </mdb-card-text>
