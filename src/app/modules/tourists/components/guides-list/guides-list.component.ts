@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchService } from 'src/app/shared/service/search.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/service/user.service';
+import { MDBModalService } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-guides-list',
@@ -10,7 +12,12 @@ import { Router } from '@angular/router';
 export class GuidesListComponent implements OnInit {
   // public guidesList: any[];
 
-  constructor(public searchService: SearchService, private router: Router) { }
+ @ViewChild('personalTour', { static: false}) modal: MDBModalService;
+ public guide;
+
+  constructor(public searchService: SearchService,
+    private userService: UserService,
+     private router: Router) { }
 
   ngOnInit() {
     // this.guidesList = this.searchService.guidesList;
@@ -27,6 +34,15 @@ export class GuidesListComponent implements OnInit {
         return ele;
       }
     });
+  }
+
+  openModal(content, guide) {
+    if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+    this.guide = guide;
+    this.modal.show(content);
+    } else {
+    this.router.navigateByUrl('/login');
+    }
   }
 
 }

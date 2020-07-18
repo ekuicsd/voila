@@ -1,0 +1,51 @@
+import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { GuideProfileComponent } from './pages/guide-profile/guide-profile.component';
+import { AdminGuardService } from './services/admin.auth.guard';
+
+const routes: Routes = [
+    { 
+        path: '', redirectTo: '/login', pathMatch: 'full'
+    },
+    {
+        path: 'login', component: LoginPageComponent,
+        // canActivate: [AdminGuardService]
+    },
+    {
+        path: 'dashboard', component: DashboardComponent
+        // canActivate: [AdminGuardService]
+    },
+    {
+        path: 'guideProfile', component: GuideProfileComponent
+        // canActivate: [AdminGuardService]
+    }
+ 
+];
+
+@NgModule({
+  declarations: [
+    LoginPageComponent,
+    DashboardComponent,
+    GuideProfileComponent,
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
+    RouterModule.forChild(routes),
+    FormsModule,
+    NgbModule
+  ],
+  exports: [
+  ]
+})
+
+export class AdminModule {
+
+}
