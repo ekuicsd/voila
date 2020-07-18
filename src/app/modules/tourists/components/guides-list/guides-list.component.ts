@@ -41,7 +41,7 @@ export class GuidesListComponent implements OnInit {
     this.guide = guide;
     this.modal.show(content);
     } else {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login/tourist');
     }
   }
 
