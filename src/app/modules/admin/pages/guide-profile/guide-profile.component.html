@@ -1,3 +1,175 @@
-<p>
-  guide-profile works!
-</p>
+<div class="pro-bg">
+    <div class="container pt-5  white-text">
+
+
+        <div class="row">
+            <div class="col-4">
+                <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width: 280px; height:280px;" class="mx-auto img-fluid rounded-circle">
+            </div>
+            <div class="col-4">
+                <div class="mt-4">
+
+
+                    <div><i class="fas fa-check-circle fa-2x"></i><span style="font-size: 28px;">  Barkha Joshi</span>
+                        <!-- <div class="py-3">
+                            <span class="pt-2 pr-2" style="font-size: 24px; font-weight: 500;">4.0 </span> <i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i><i class="far fa-star fa-lg"></i>
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-4" style="font-size: 20px;">
+                <!-- <div>
+                    <div><a><i class="fas fa-calendar-check fa-2x"></i> Completed Tours   <span>34</span></a></div>
+                    <div class="py-4"><a><i class="fas fa-business-time fa-2x"></i> Current Bookings     <span>3</span></a></div>
+                </div> -->
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+
+            </div>
+            <div class="col-4" style="font-size: 20px;">
+                <div><i class="fas fa-phone-alt fa-2x"></i> {{userData.phoneNumber}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="my-3 mx-3">
+    <h1 class="mb-4">Personal Info</h1>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-6" style="font-size: 20px; border-left:1px solid black;">
+                <div><strong>Address</strong>
+                    <div class="float-right"> {{userData.address | titlecase}}
+                    </div>
+                </div>
+                <div><strong>City</strong>
+                    <div class="float-right">{{userData.city | titlecase}}</div>
+                </div>
+                <div><strong>State</strong>
+                    <div class="float-right">{{userData.state | titlecase}}</div>
+                </div>
+                <div><strong>Speaks</strong>
+                    <div class="float-right" *ngFor="let item of userData.languages">{{item | titlecase}}</div>
+                </div>
+                <div><strong>Loves</strong>
+                    <div class="float-right" *ngFor="let item of userData.interests">{{item | titlecase}}</div>
+                </div>
+
+            </div>
+            <div class="col-6 " style="font-size: 20px; border-left:1px solid black;">
+                <div><strong>Aadhar Number</strong>
+                    <div class="float-right">{{userData.aadhaarNumber}}</div>
+                </div>
+                <div><strong>Nationality</strong>
+                    <div class="float-right">India</div>
+                </div>
+                <div><strong>Date of Birth</strong>
+                    <div class="float-right">{{userData.dob | date: 'dd-MM-yyyy'}}</div>
+                </div>
+                <div><strong>Email ID</strong>
+                    <div class="float-right">{{userData.email}}</div>
+                </div>
+                <div>Joined Voila in 2019</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="my-3 mx-3">
+    <h1 class="mb-4">Business Info</h1>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-6" style="font-size: 20px; border-left:1px solid black;">
+                <div><strong>People Limit</strong>
+                    <div class="float-right">{{userData.peopleLimit}}
+                    </div>
+                </div>
+                <div><strong>Charges Per Head</strong>
+                    <div class="float-right">Rs. {{userData.perHeadCharge}}</div>
+                </div>
+                <div><strong>Charges Per Day </strong>
+                    <div class="float-right">Rs. {{userData.perDayCharge}}</div>
+                </div>
+
+
+            </div>
+            <div class="col-6 " style="font-size: 20px; border-left:1px solid black;">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="my-3 mx-3">
+    <h1 class="mb-4">Experiences</h1>
+    <div class="container mt-3">
+        <div class="row" *ngFor="let item of userData.experience">
+            <div class="col-6" style="font-size: 20px; border-left:1px solid black;">
+                <div><strong>Work Place</strong>
+                    <div class="float-right">{{item.work | titlecase}}
+                    </div>
+                </div>
+                <div><strong>Work Profile</strong>
+                    <div class="float-right"> {{item.profile | titlecase}}</div>
+                </div>
+                <div><strong>Starting Year</strong>
+                    <div class="float-right"> {{item.startYear}}</div>
+                </div>
+
+                <div><strong>Duration</strong>
+                    <div class="float-right">{{item.duration}} months</div>
+                </div>
+
+            </div>
+            <div class="col-6 " style="font-size: 20px; border-left:1px solid black;">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center my-3">
+    <button type="button" mdbBtn color="danger" mdbWavesEffect>Reject</button>
+
+    <button type="button" mdbBtn color="success" mdbWavesEffect>Accept</button>
+</div>
+
+<!-- <div class="my-5 mx-3">
+    <h1 class="mb-4">Bookings</h1>
+    <h2>Completed</h2>
+    <mdb-card class="w-75 mx-auto my-4">
+
+        <mdb-card-body>
+            <div class="row">
+                <div class="col-4" style="font-size: 20px;">
+                    <div class="py-2"><i class="fas fa-calendar-alt fa-lg"></i> 2 Jul,20 <strong>TO</strong> 3 Jul,20</div>
+                    <div><i class="fas fa-clock fa-lg"></i> Total 6 Hours</div>
+                </div>
+                <div class="col-5 text-center" style="font-size: 20px; border-left:1px solid black;">
+                    <mdb-badge class="sunny-morning-gradient mb-2">Pre-Planned</mdb-badge>
+
+                    <div>The Great Indian Shopaholic tour</div>
+                </div>
+
+
+
+
+                <div class="col-3 text-center" style="font-size: 20px; border-left:1px solid black;">
+                    <div class="pb-2"><i class="fas fa-user-friends fa-lg"></i> </div>
+
+                    <div>Manish +2</div>
+                </div>
+
+
+            </div>
+
+        </mdb-card-body>
+    </mdb-card>
+</div> -->
