@@ -1,17 +1,15 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TouristsService } from '../../service/tourists.service';
 import { MDBModalService } from 'angular-bootstrap-md';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { StaticDataService } from '../../service/static-data.service';
 
 @Component({
   selector: 'app-deals-cards',
   templateUrl: './deals-cards.component.html',
   styleUrls: ['./deals-cards.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DealsCardsComponent implements OnInit {
   
@@ -53,23 +51,40 @@ export class DealsCardsComponent implements OnInit {
 
   addToFavourite(deal) {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
-    // console.log(this.isValid);
       this.touristService.addToFavourite(deal._id).subscribe( res => {
+       if(res.success) {
         this.toastr.success("added to favourites!");
+        deal.favorites.push(this.userId);
         console.log(res);
-      })
+       } else {
+        this.toastr.warning(res.message);
+       }
+      });
     } else {
       this.toastr.warning("Please Login First!");
-      // this.router.navigateByUrl('/login');
     }
+    console.log(this.dealsList);
   }
 
   removeFromFavourite(deal) {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+      this.touristService.removeFromFavourite(deal._id).subscribe( res => {
+        if(res.success) {
+          this.toastr.success("removed from favourites!");
+          let index = deal.favorites.indexOf(this.userId);
+          if(index !== -1) {
+            deal.favorites.splice(index, 1);
+          }
+          console.log(res);
+        } else {
+          this.toastr.warning(res.message);
+        }
+      });
       console.log("removed");
     } else {
       this.router.navigateByUrl('/login/tourist');
     }
+    console.log(this.dealsList);
   }
 
 

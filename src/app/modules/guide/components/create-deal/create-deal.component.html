@@ -1,18 +1,9 @@
 <div class="cards">
   <mdb-card class="mt-md-5">
-    <!-- <div class="view rgba-white-slight waves-light" mdbWavesEffect>
-      <a>
-        <div class="mask"></div>
-      </a>
-    </div> -->
-    <!--Card content-->
     <mdb-card-body>
-      <!--Title-->
       <mdb-card-title>
         <h4 class="mb-3"><B>Create Deal</B></h4>
       </mdb-card-title>
-
-      <!--Text-->
       <mdb-card-text>
       <form [formGroup]="dealForm">
         <div class="row">
@@ -61,7 +52,7 @@
               <input type="date" id="form8" formControlName="endDate" class="form-control">
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-6">
             <div class="form-group">
               <label for="form9">Group Type</label>
               <!-- <input type="text" id="form1" formControlName="interest" class="form-control"> -->
@@ -69,6 +60,12 @@
                   <option value="" disabled>Select Group type</option>
                   <option *ngFor="let item of groupType" [value]="item"> {{ item }}</option>
               </select>
+          </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="form11">Group name</label>
+              <input type="text" id="form11" formControlName="groupName" placeholder="enter group name" class="form-control">
           </div>
           </div>
         </div>
@@ -119,8 +116,7 @@
         </div>
       </div>
       </mdb-card-text>
-      <a mdbBtn [routerLink]="['/guide/guidehome/deals']" routerLinkActive="router-link-active"  style="background:rgba(255, 255, 255, 0.612) ;" mdbWavesEffect>Cancel</a>
-
+      <a mdbBtn [routerLink]="['/guide/guidehome/deals']" routerLinkActive="router-link-active"  style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Cancel</a>
       <a mdbBtn (click)="saveDeal()" style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Create</a>
     </mdb-card-body>
   </mdb-card>

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, DefaultIterableDiffer } from "@angular/core";
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 
@@ -24,7 +24,7 @@ export class GuideService{
         return new Observable<any>(obs => {
             this.apiService.get(url).subscribe(res => {
                 obs.next(res.bookings);
-            })
+            });
         });
     }
 
@@ -33,7 +33,7 @@ export class GuideService{
         return new Observable<any>( obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
-            })
+            });
         });
     }
 
@@ -42,7 +42,7 @@ export class GuideService{
         return new Observable<any>( obs => {
             this.apiService.post(url, body).subscribe( res => {
                 obs.next(res);
-            })
+            });
         });
     }
 
@@ -53,7 +53,7 @@ export class GuideService{
                 obs.next(res.deals);
             }, error => {
                 console.log(error);
-            })
+            });
         });
     }
 
@@ -62,7 +62,7 @@ export class GuideService{
         return new Observable<any>( obs => {
             this.apiService.put(url, body).subscribe( res => {
                 obs.next(res);
-            })
+            });
         });
     }
 
@@ -72,6 +72,15 @@ export class GuideService{
             this.apiService.put(url, {"newPassword": newPassword}).subscribe( res => {
                 obs.next(res);
             })
-        })
+        });
+    }
+
+    createGroupChatRoom(guideId, dealId, groupName) {
+        let url = '/createRoom/' + guideId + '/' + dealId;
+        return new Observable<any>( obs=> {
+            this.apiService.post(url, {"name": groupName}).subscribe( res => {
+                obs.next(res);
+            });
+        });  
     }
 }

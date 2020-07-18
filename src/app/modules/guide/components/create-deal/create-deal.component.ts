@@ -6,6 +6,7 @@ import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/service/user.service';
 @Component({
   selector: 'app-create-deal',
   templateUrl: './create-deal.component.html',
@@ -20,6 +21,7 @@ export class CreateDealComponent implements OnInit {
   public dealForm: FormGroup;
   public deal: any = {};
   public groupType;
+  public user;
 
   //ngModel
   public place: string = '';
@@ -28,10 +30,12 @@ export class CreateDealComponent implements OnInit {
   constructor(private staticDataService: StaticDataService,
     private guideService: GuideService,
     private router: Router,
+    private userService: UserService,
     private toastr: ToastrService
     ) { }
 
   ngOnInit() {
+    this.user = JSON.parse(this.userService.getUser('guide'));
     this.groupType = this.staticDataService.getAllGroupTypes();
     this.getAllState('101');
     this.createDealForm();
@@ -46,6 +50,7 @@ export class CreateDealComponent implements OnInit {
       state: new FormControl('', [Validators.required]),
       peopleLimit: new FormControl('', [Validators.required, CustomValidators.compondValueValidate]),
       groupType: new FormControl('', [Validators.required]),
+      groupName: new FormControl('', [Validators.required, Validators.minLength(3)])
     });
   }
 
@@ -99,10 +104,13 @@ export class CreateDealComponent implements OnInit {
       this.deal['places'] = this.placesList;
       console.log(this.deal);
       this.guideService.createDeal(this.deal).subscribe( res=> {
-        console.log(res);
-        this.toastr.success("Deal created successfully!");
-        this.router.navigateByUrl('/guide/guidehome/deals');
-      }, error => {
+          console.log(res);
+          this.guideService.createGroupChatRoom(this.user._id, res.body.deal._id, this.dealForm.value.groupName).subscribe( res => {
+            console.log(res);
+            this.toastr.success("Deal created successfully!");
+            this.router.navigateByUrl('/guide/guidehome/deals');
+          });
+        }, error => {
         console.log(error)
       });
     } else {
