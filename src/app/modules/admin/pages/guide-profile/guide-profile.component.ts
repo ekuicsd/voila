@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-guide-profile',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GuideProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private adminService: AdminService) { }
 
   ngOnInit() {
   }

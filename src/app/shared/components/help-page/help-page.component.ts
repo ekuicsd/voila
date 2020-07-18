@@ -4,7 +4,7 @@ import * as $ from 'jquery';
   selector: 'app-help-page',
   templateUrl: './help-page.component.html',
   styleUrls: ['./help-page.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 
 })
 export class HelpPageComponent implements OnInit {

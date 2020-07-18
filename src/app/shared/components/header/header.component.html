@@ -11,6 +11,9 @@
         <a  *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')" class="navbar-brand" [routerLink]="['/']" routerLinkActive="active">
             <img src="assets/images/areoplane white.png" height="40" alt="Voila">
         </a>
+        <a  *ngIf="jwtService.getToken() && (userService.getRole() === 'admin')" class="navbar-brand">
+            <img src="assets/images/areoplane white.png" height="40" alt="Voila">
+        </a>
     </mdb-navbar-brand>
     <!-- Collapsible content -->
     <links>
@@ -159,43 +162,29 @@
                 </div>
             </li>
         </ul>
+        <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'admin')" class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a (click)="logout('admin')" (click)="onLinkClick()" class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
+                  <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                  Logout</a>
+          </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
+                    <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/aboutUs']"  routerLinkActive="active">About</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
+                </div>
+            </li>
+        </ul>
         <!-- Links -->
     </links>
     <!-- Collapsible content -->
 </mdb-navbar>
 <!--/.Navbar-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -219,6 +208,9 @@
             <img src="assets/images/areoplane white.png" height="40" alt="Voila">
         </a>
         <a  *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')" class="navbar-brand" [routerLink]="['/']" routerLinkActive="active">
+            <img src="assets/images/areoplane white.png" height="40" alt="Voila">
+        </a>
+        <a  *ngIf="jwtService.getToken() && (userService.getRole() === 'admin')" class="navbar-brand">
             <img src="assets/images/areoplane white.png" height="40" alt="Voila">
         </a>
     </mdb-navbar-brand>
@@ -366,6 +358,24 @@
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/changepassword']" routerLinkActive="active">Change Password</a>
                     <a (click)="onLinkClick()" class="dropdown-item waves-light text-white" mdbWavesEffect (click)="logout('guide')" routerLinkActive="active">Logout</a>
+                </div>
+            </li>
+        </ul>
+        <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'admin')" class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a (click)="logout('admin')" class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
+                  <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                  Logout</a>
+          </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown" dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
+                    <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/aboutUs']"  routerLinkActive="active">About</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
+                    <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/help']" routerLinkActive="active">Help!</a>
                 </div>
             </li>
         </ul>

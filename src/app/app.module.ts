@@ -14,13 +14,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpInterceptorService } from './shared/service/http-interceptor.service';
 import { AdminModule } from './modules/admin/admin.module';
+import { AdminHomeGuardService } from './shared/service/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
 
   { path: 'home',
-    loadChildren: () => import('./modules/home/home.module').then(module => module.HomeModule)
-
+    loadChildren: () => import('./modules/home/home.module').then(module => module.HomeModule),
+    
   },
 ];
 

@@ -88,6 +88,22 @@ export class UserService {
         ));
     }
 
+    AttemptAdminLogin(credentials)  {
+        this.destroyUser();
+        let url = '/login/admin';
+        return this.apiService.post(url, credentials).pipe(
+            map(data => {
+                console.log(data);
+                if(data.body.success) {
+                    this.setAuth(data.body.token);
+                    window.localStorage['role'] = 'admin';
+                    // this.saveUser(data.body.guide, 'guide');
+                }
+              return data.body;
+            }
+        ));
+    }
+
     logout(role: string) {
         let url = '/'+ role + '/logout';
         this.apiService.get(url).subscribe(
@@ -100,8 +116,7 @@ export class UserService {
             }, error => {
                 console.log(error);
             }
-        )
-        
+        ); 
     }
 
     purgeAuth() {
