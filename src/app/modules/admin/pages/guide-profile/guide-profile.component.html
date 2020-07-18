@@ -10,7 +10,7 @@
                 <div class="mt-4">
 
 
-                    <div><i class="fas fa-check-circle fa-2x"></i><span style="font-size: 28px;">  Barkha Joshi</span>
+                    <div><i class="fas fa-check-circle fa-2x"></i><span style="font-size: 28px;">  {{userData?.name}}</span>
                         <!-- <div class="py-3">
                             <span class="pt-2 pr-2" style="font-size: 24px; font-weight: 500;">4.0 </span> <i class="fas fa-star fa-lg"></i>
                             <i class="fas fa-star fa-lg"></i><i class="fas fa-star fa-lg"></i>
@@ -135,10 +135,10 @@
         </div>
     </div>
 </div>
-<div class="text-center my-3">
-    <button type="button" mdbBtn color="danger" mdbWavesEffect>Reject</button>
+<div class="text-right mt-4 mb-5">
+    <button type="button" mdbBtn (click)="acceptRejectGuide('REJECTED')" color="danger" mdbWavesEffect>Reject</button>
 
-    <button type="button" mdbBtn color="success" mdbWavesEffect>Accept</button>
+    <button type="button" mdbBtn color="success" (click)="acceptRejectGuide('APPROVED')" mdbWavesEffect>Accept</button>
 </div>
 
 <!-- <div class="my-5 mx-3">

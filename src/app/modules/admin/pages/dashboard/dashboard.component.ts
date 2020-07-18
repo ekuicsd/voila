@@ -32,4 +32,10 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  navigateToGuideProfile(guide) {
+    console.log(guide);
+    this.adminService.selectedGuide = guide;
+    this.router.navigateByUrl('/admin/guideProfile/' + guide._id);
+  }
+
 }

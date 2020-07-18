@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AdminService {
 
+    public selectedGuide;
+
     constructor(private apiService: ApiService) {}
 
     getRole() : string {
@@ -24,4 +26,14 @@ export class AdminService {
         });
     }
 
+    approvedrejectGuide(guideId, status) : Observable<any> {
+        let url = '/admin/decision/' + guideId + '/' + status;
+        return new Observable<any>( obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            }, error => {
+                console.log(error);
+            });
+        });
+    }
 }

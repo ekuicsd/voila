@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
-import { UserService } from 'src/app/shared/service/user.service';
-import { Guide } from 'src/app/shared/models/guide.model';
 
 @Component({
   selector: 'app-guide-profile',
@@ -11,21 +9,28 @@ import { Guide } from 'src/app/shared/models/guide.model';
 })
 export class GuideProfileComponent implements OnInit {
 
-  public userData: Guide;
+  public userData: any;
   
   constructor(private route: ActivatedRoute,
-    // private userService: UserService,
+    private router: Router,
     private adminService: AdminService
     ) { }
   
 
   ngOnInit() {
-    // this.getUser();
+    if(this.adminService.selectedGuide) {
+      this.userData = this.adminService.selectedGuide;
+    } else {
+      this.router.navigateByUrl('/admin/dashboard');
+    }
   }
 
-  // getUser() {
-  //   this.userData = JSON.parse(this.userService.getUser('guide'));
-  //   console.log(this.userData);
-  // }
+  acceptRejectGuide(status: string) {
+    this.adminService.approvedrejectGuide(this.userData._id, status).subscribe(res => {
+      console.log(res);
+      this.router.navigateByUrl('/admin/dashboard');
+    })
+  }
+
 
 }
