@@ -29,8 +29,8 @@
                                 <b>PRICE RANGE</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <p>Min price(₹): <input type="number" disabled class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
-                                <p>Max price(₹): <input type="number" disabled class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
+                                <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
+                                <p>Max price(₹): <input type="number" class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
                                 <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)"  [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
                         </ng-template>
                         </ngb-panel>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
-                    <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Done!</button>
+                    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.hide()" mdbWavesEffect>Done!</button>
                 </div>
             </div>
         </div>
@@ -106,8 +106,8 @@
             <div class="col-lg-12">
                 <div class="mb-0"><b>PRICE RANGE</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
-                <p>Min price(₹): <input type="number" disabled class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
-                <p>Max price(₹): <input type="number" disabled class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
+                <p>Min price(₹): <input type="number"  class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
+                <p>Max price(₹): <input type="number"  class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
                 <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)"  [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
 
             </div>
@@ -184,12 +184,18 @@
 
             <nav class="tabs">
                 <div class="selector"></div>
-                <a [routerLink]="['guidesList']" routerLinkActive="active" class="active"><i class="im im-user-male"></i>Guides</a>
-                <a [routerLink]="['dealsList']" routerLinkActive="active"><i class="im im-user-male"></i>Deals</a>
+                <a [routerLink]="['guidesList']" routerLinkActive="active" class="active">
+                    <i class="im im-user-male"></i>
+                    Guides
+                </a>
+                <a [routerLink]="['dealsList']" routerLinkActive="active" >
+                    <i class="im im-user-male"></i>
+                    Deals
+                </a>
             </nav>
         </div>
 
         <router-outlet></router-outlet>
-
+        
     </div>
 </div>

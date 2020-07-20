@@ -5,6 +5,7 @@ import { CustomValidators } from 'src/app/validators/custom';
 import { ToastrService } from 'ngx-toastr';
 import { TouristsService } from '../../service/tourists.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-deal-modal',
@@ -24,6 +25,7 @@ export class DealModalComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     private touristService: TouristsService,
+    public userService: UserService,
     private router: Router
     ) { }
 
@@ -44,7 +46,11 @@ export class DealModalComponent implements OnInit {
 
   
   openModal2(content) {
-    this.modal2.show(content, {ignoreBackdropClick: true});
+    if(this.userService.getRole() === 'tourist') {
+      this.modal2.show(content, {ignoreBackdropClick: true});
+    } else {
+      this.toastr.warning("Please login as tourists!");
+    }
   }
 
   calculatePrice(data) {
