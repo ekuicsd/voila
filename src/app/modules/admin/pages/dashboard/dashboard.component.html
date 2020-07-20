@@ -1,15 +1,13 @@
 <div class="container-fluid">
-
-  <!--  -->
-  <div class="d-none d-md-block">
+<div class="d-none d-sm-block">
   <div class="row mt-3">
     <div class="col-12 text-center">
-      <div class="card first" style="z-index: -1; width: 90%; margin-left: 5%;">
+      <div class="card first" style="z-index: 10; width: 90%; margin-left: 5%;">
         <h5 class="text-center white-text py-2 my-0">Admin Dashboard</h5>
       </div>
     </div>
   </div>
-  <div class="card mb-5" style="margin-top: -25px; z-index: -2;">
+  <div class="card mb-5" style="margin-top: -25px;">
     <div class="card-body">
       <div class="mt-3 mb-3">
         <div class="table-responsive">
@@ -18,22 +16,19 @@
               <tr>
                 <th scope="col">Sr no.</th>
                 <th scope="col">Name</th>
-                <th scope="col">Applied Date</th>
+                <th scope="col">Date of birth</th>
                 <th scope="col">State</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-
-                <td>1</td>
-                <td>fdf</td>
-                <td>rg</td>
-                <td>e days</td>
+              <tr *ngFor="let guide of guideList; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{guide.name | titlecase}}</td>
+                <td>{{guide.dob | date: 'MMM dd, y'}}</td>
+                <td>{{guide.state}}</td>
                 <td>
-                  <button class="btn" color="info" style="margin: auto;" mdbBtn type="button" size="sm" mdbWavesEffect>
-                    <b>VIEW</b>
-                  </button>
+                  <a (click)="navigateToGuideProfile(guide)" size="sm" class="btn mx-0" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
                 </td>
               </tr>
             </tbody>
@@ -44,28 +39,32 @@
   </div>
 </div>
 
-<div class="d-block bag  d-md-none mt-4">
-  <mdb-card class="mb-4">
+<div class="d-block   d-sm-none mt-4">
+  <mdb-card class="mb-4" *ngFor="let guide of guideList; let i = index">
     <mdb-card-body>
       <mdb-card-title>
-        <h4>Name</h4>
+        <h4>{{guide.name | titlecase}}</h4>
       </mdb-card-title>
       <mdb-card-text >
         <div class="row">
-          <div class="col-4">
-          <div><b>Applied-Date</b></div>
-          <div>fdfd</div>
+          <div class="col-6 col-sm-4 mb-2">
+          <div><b>Date of birth</b></div>
+          <div>{{guide.dob | date: 'MMM dd, y'}}</div>
         </div>
-        <div class="col-4">
+        <div class="col-6 col-sm-4mb-2">
           <div><b>State</b></div>
-          <div>ee days</div>
+          <div>{{guide.state}}</div>
         </div>
-
+        <div class="col-6 col-sm-4">
+          <div><b>Contact No.</b></div>
+          <div>{{guide.phoneNumber}}</div>
+        </div>
+        <div class="col-6 col-sm-4">
+          <a (click)="navigateToGuideProfile(guide)" size="sm" class="btn mx-0" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+        </div>
         </div>
       </mdb-card-text>
-      <a size="sm" class="float-right" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
     </mdb-card-body>
   </mdb-card>
 </div>
-
 </div>

@@ -1,37 +1,28 @@
-
-
-	<!-- Main Content -->
-	<div class="container-fluid">
-		<div class="row main-content bg-success text-center">
-			<div class="col-md-4 text-center company__info">
-				<img class="img-fluid" src="../../../../../assets/images/areoplane white.png" alt="">
-			</div>
-			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-				<div class="container-fluid">
-					<div class="row mt-2"  style="align-self: center; justify-content: center;">
-						<h2> Admin Log In</h2>
-					</div>
-					<div class="row">
-						<form control="" class="form-group col-12 text-center">
-							<div class="row">
-								<input type="text" name="username" id="username" class="form__input" placeholder="Username">
-							</div>
-							<div class="row">
-								<!-- <span class="fa fa-lock"></span> -->
-								<input type="password" name="password" id="password" class="form__input" placeholder="Password">
-							</div>
-
-							<div class="row" style="align-self: center; justify-content: center;">
-								<input type="submit" value="Submit" class="btn">
-							</div>
-						</form>
-					</div>
-					<!-- <div class="row">
-						<p>Don't have an account? <a href="#">Register Here</a></p>
-					</div> -->
+<div class="container-fluid vertical-center">
+	<div class="row main-content bg-success text-center">
+		<div class="col-md-4 text-center company__info">
+			<img class="img-fluid" src="../../../../../assets/images/areoplane white.png" alt="">
+		</div>
+		<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+			<div class="container-fluid">
+				<div class="row mt-4"  style="align-self: center; justify-content: center;">
+					<h2> Admin Log In</h2>
+				</div>
+				<div class="row">
+					<form [formGroup]="loginForm" (ngSubmit)="submitLogin()"  autocomplete="off" class=" col-12 text-center">
+						<div class="row form-group">
+							<input type="text" id="username" formControlName="email" class="form__input" placeholder="Username">
+						</div>
+						<div class="row form-group">
+							<input type="password" id="password" formControlName="password" class="form__input" placeholder="Password">
+						</div>
+						<div class="row mb-4" style="align-self: center; justify-content: center;">
+							<input type="submit" value="Submit" class="btn">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Footer -->
+</div>
 

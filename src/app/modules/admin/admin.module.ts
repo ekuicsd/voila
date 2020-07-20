@@ -8,21 +8,23 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuideProfileComponent } from './pages/guide-profile/guide-profile.component';
 import { AdminGuardService } from './services/admin.auth.guard';
+import { AdminHomeGuardService } from 'src/app/shared/service/admin.guard';
 
 const routes: Routes = [
     { 
-        path: '', redirectTo: '/login', pathMatch: 'full'
+        path: '', redirectTo: 'login', pathMatch: 'full'
     },
     {
         path: 'login', component: LoginPageComponent,
+        canActivate: [AdminHomeGuardService]
     },
     {
-        path: 'dashboard', component: DashboardComponent
-        // canActivate: [AdminGuardService]
+        path: 'dashboard', component: DashboardComponent,
+        canActivate: [AdminGuardService]
     },
     {
-        path: 'guideProfile', component: GuideProfileComponent
-        // canActivate: [AdminGuardService]
+        path: 'guideProfile/:guideId', component: GuideProfileComponent,
+        canActivate: [AdminGuardService]
     }
  
 ];

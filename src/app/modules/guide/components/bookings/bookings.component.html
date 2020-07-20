@@ -154,10 +154,14 @@
   </div>
   <div class="modal-footer row mx-0 ">
        <div class="col">
-         <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+         <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block"
+          (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;
+          <mdb-icon fas icon="ban"></mdb-icon></button>
       </div>
       <div class="col">
-        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactTourist(content, selectedBooking.touristId[0]?.email)" mdbWavesEffect>Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
+        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" 
+        (click)="contactTourist(content, selectedBooking.touristId[0]?.email)" mdbWavesEffect>Contact&nbsp;
+        <mdb-icon fas icon="headset"></mdb-icon></button>
       </div>
     </div>
 </ng-template>

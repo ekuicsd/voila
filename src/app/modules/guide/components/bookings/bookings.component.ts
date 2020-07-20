@@ -12,6 +12,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class BookingsComponent implements OnInit {
   public bookingsList: Booking[] = [];
   public selectedBooking: Booking;
+  public ongoingList = [];
 
   constructor(private guideService: GuideService,
     config: NgbModalConfig, private modalService: NgbModal,
@@ -19,6 +20,7 @@ export class BookingsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllBookings();
+    // this.getOngoingEvents();
   }
 
   getAllBookings() {
@@ -36,6 +38,21 @@ export class BookingsComponent implements OnInit {
     )
   }
 
+  // getOngoingEvents() {
+  //   this.guideService.getAllBookingsByStatus('ONGOING').subscribe(
+  //     res => {
+  //       if(res.length > 0) {
+  //         this.ongoingList = res;
+  //       } else {
+  //         this.ongoingList = undefined;
+  //       }
+  //       console.log(this.ongoingList);
+  //     }, error => {
+  //       console.log(error);
+  //     }
+  //   )
+  // }
+
   contactTourist(content, email) {
     console.log(email);
     console.log(email);
@@ -48,4 +65,6 @@ export class BookingsComponent implements OnInit {
     this.selectedBooking = data;
     this.modalService.open(content, { centered: true, scrollable: true});
   }
+
+
 }

@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
+import { JwtService } from './jwt.service';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { JwtService } from 'src/app/shared/service/jwt.service';
-import { AdminService } from './admin.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuardService implements CanActivate {
+export class AdminHomeGuardService implements CanActivate {
 
   constructor(
     private jwtService: JwtService,
-    private adminService: AdminService, 
+    private userService: UserService, 
     private router: Router
     ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(this.jwtService.getToken() && this.adminService.getRole() === 'admin') {
-      return true;
+    if(this.userService.getRole() !== 'admin') {
+        return true;
     } else {
-      this.router.navigateByUrl('/');
-      return false;
+        this.router.navigateByUrl('/admin/dashboard');
+        return false;
     }
   }
 }
-
