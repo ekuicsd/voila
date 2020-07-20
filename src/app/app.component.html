@@ -171,10 +171,14 @@
     </button>
   </div>
   <div class="modal-body">
-    <p>Rating</p>
-    <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
+    <div style="text-align:center">
+      <h5>
+       Rate Now
+      </h5>                          
+      <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
+    </div>
     <p>Reviews</p>
-    <textarea class="form-control" placeholder="write something here!"></textarea>
+    <textarea class="form-control" [(ngModel)]="reviews" placeholder="write something here!"></textarea>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="completeTour(rating)">Save</button>

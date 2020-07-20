@@ -6,7 +6,7 @@ import { MDBModalService } from 'angular-bootstrap-md';
 import { GuideService } from './shared/service/guide.service';
 import { TouristsService } from './shared/service/tourists.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,6 +19,8 @@ export class AppComponent {
   public onGoingEvents: any[] = [];
   selected = 0;
   hovered = 0;
+  readonly = false;
+  public reviews: string = '';
 
  constructor(private loadRouter : Router,
     public userService: UserService,
@@ -26,11 +28,8 @@ export class AppComponent {
     private modalService: NgbModal,
     private guideService: GuideService,
     private touristService: TouristsService,
-    config: NgbRatingConfig
   ){
 
-    config.max = 5;
-    config.readonly = true;
 
       this.loadRouter.events.subscribe((routerEvent :Event) =>
       {
@@ -74,7 +73,7 @@ export class AppComponent {
  completeTour(content) {
    let request = {
      rating: 5,
-     reviews: ''
+     reviews: this.reviews
    };
     this.touristService.cancelrequest(this.onGoingEvents[0]._id, 'COMPLETED', request).subscribe( res => {
       console.log(res);
@@ -83,8 +82,7 @@ export class AppComponent {
 
  open(content) {
   this.modalService.open(content);
-}
-
+  }
 
 
 }
