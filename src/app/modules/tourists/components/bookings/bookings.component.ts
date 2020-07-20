@@ -62,4 +62,11 @@ export class BookingsComponent implements OnInit {
     })
   }
 
+  startTour(data) {
+    this.touristService.cancelrequest(data._id, 'ONGOING', {}).subscribe( res => {
+      console.log(res);
+      this.getAllBookingsList();
+    });
+  }
+
 }

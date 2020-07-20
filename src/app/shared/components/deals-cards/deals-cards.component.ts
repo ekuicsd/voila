@@ -40,12 +40,12 @@ export class DealsCardsComponent implements OnInit {
   }
 
   openModal1(content, deal) {
-    if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+    // if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
       this.modal1.show(content, {ignoreBackdropClick: true});
       this.selectedDeal = deal;
-    } else {
-      this.router.navigateByUrl('/login/tourist');
-    }
+    // } else {
+    //   this.router.navigateByUrl('/login/tourist');
+    // }
   }
 
 
