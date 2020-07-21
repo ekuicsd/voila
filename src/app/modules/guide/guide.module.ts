@@ -28,6 +28,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history-list/chat-history-list.component';
 import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
 import { CreateDealComponent } from './components/create-deal/create-deal.component';
+import { ChatRoomComponent } from 'src/app/shared/components/chat-room/chat-room.component';
 
 const routes: Routes = [
     {path: 'register', component: RegisterComponent},
@@ -61,6 +62,9 @@ const routes: Routes = [
       {
         path: 'createDeal', component: CreateDealComponent,
         canActivate: [GuideGuardService]
+      },
+      {
+        path: 'message/chatRooms/:roomId', component: ChatRoomComponent
       },
       {
         path: 'messages', component: MessagesComponent, canActivate: [GuideGuardService], children: [

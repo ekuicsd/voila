@@ -6,6 +6,8 @@ import { MDBModalService } from 'angular-bootstrap-md';
 import { GuideService } from './shared/service/guide.service';
 import { TouristsService } from './shared/service/tourists.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -17,20 +19,21 @@ export class AppComponent {
   @ViewChild('basicModal', { static: false}) modal1: MDBModalService;
   ShowLoadingIndicator = true;
   public onGoingEvents: any[] = [];
-  selected = 0;
-  hovered = 0;
-  readonly = false;
-  public reviews: string = '';
+  // public reviews: string = '';
+  // public rating: number = 0;
+  // public ratingReviews: FormGroup = new FormGroup({
+  //   rating: new FormControl('', [Validators.required]),
+  //   reviews: new FormControl('', [Validators.required, Validators.minLength(3)])
+  // })
 
  constructor(private loadRouter : Router,
     public userService: UserService,
     public jwtService: JwtService,
     private modalService: NgbModal,
     private guideService: GuideService,
+    private toastr: ToastrService,
     private touristService: TouristsService,
   ){
-
-
       this.loadRouter.events.subscribe((routerEvent :Event) =>
       {
         if(routerEvent instanceof NavigationStart){
@@ -70,15 +73,30 @@ export class AppComponent {
   this.modalService.open(content);
  }
 
- completeTour(content) {
-   let request = {
-     rating: 5,
-     reviews: this.reviews
-   };
-    this.touristService.cancelrequest(this.onGoingEvents[0]._id, 'COMPLETED', request).subscribe( res => {
-      console.log(res);
-    });
- }
+//  completeTour(content) {
+//     // if(this.ratingReviews.valid) {
+//       let request = {
+//         rating: this.rating,
+//         reviews: this.reviews
+//       };
+//       this.touristService.cancelrequest(this.onGoingEvents[0]._id, 'COMPLETED', request).subscribe( res => {
+//       console.log(res);
+//     });
+//     this.modalService.dismissAll(content);
+//     // } else {
+//       // this.toastr.error("Invalid"); 
+//     // }
+//  }
+
+//  changeRating(data) {
+//    console.log(data.target.value);
+//    this.rating = +data.target.value;
+//  }
+
+//  changeText(data) {
+//    this.reviews = data.target.value;
+//    console.log(data.target.value);
+//  }
 
  open(content) {
   this.modalService.open(content);

@@ -22,7 +22,7 @@ export class ActivitiesComponent implements OnInit {
   }
 
   getAllPreviousBookings() {
-    this.guideService.getAllBookingsByStatus('COMPLETE').subscribe(
+    this.guideService.getAllBookingsByStatus('COMPLETED').subscribe(
       res => {
         if(res.length > 0) {
           this.previousBookingsList = res;

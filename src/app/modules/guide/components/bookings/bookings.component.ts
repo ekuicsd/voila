@@ -66,5 +66,10 @@ export class BookingsComponent implements OnInit {
     this.modalService.open(content, { centered: true, scrollable: true});
   }
 
+  contactTouristRoom(content, roomId) {
+    this.router.navigateByUrl('/guide/guidehome/message/chatRooms/' + roomId);
+    this.modalService.dismissAll(content);
+  }
+
 
 }

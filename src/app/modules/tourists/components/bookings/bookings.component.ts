@@ -69,4 +69,10 @@ export class BookingsComponent implements OnInit {
     });
   }
 
+  contactTouristRoom(content, roomId) {
+    this.router.navigateByUrl('/tourists/touristshome/message/chatRooms/' + roomId);
+    this.modalService.dismissAll(content);
+  }
+
+
 }
