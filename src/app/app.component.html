@@ -6,7 +6,7 @@
   <span></span>
 </div> -->
 <router-outlet></router-outlet>
-<button *ngIf="jwtService.getToken() && userService.getRole() !== 'admin'" 
+<button *ngIf="jwtService.getToken() && userService.getRole() !== 'admin'"
   type="button" class="btn btn-info toggleBtn" (click)="getOngoingEvents()">
   ^
   <!-- <mdb-icon far icon="paper-plane"></mdb-icon> -->
@@ -40,20 +40,20 @@
       </div>
       <div class="modal-footer" *ngIf="onGoingEvents">
         <!-- [routerLink]="['/tourists/touristshome/bookings/now']" -->
-        <button type="button" *ngIf="userService.getRole() === 'tourist'" 
-         mdbBtn size="sm" 
+        <button type="button" *ngIf="userService.getRole() === 'tourist'"
+         mdbBtn size="sm"
          color="secondary" class="waves-light" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
          View
         </button>
         <!-- [routerLink]="['/guide/guidehome/bookings']" -->
-        <button type="button" *ngIf="userService.getRole() === 'guide'" 
-          mdbBtn size="sm" 
+        <button type="button" *ngIf="userService.getRole() === 'guide'"
+          mdbBtn size="sm"
          color="secondary" class="waves-light" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
          View
         </button>
-        
+
         <button type="button" (click)="open(rating)" *ngIf="userService.getRole() === 'tourist'"
-           routerLinkActive="router-link-active" 
+           routerLinkActive="router-link-active"
           mdbBtn size="sm" color="primary" class="relative waves-light" mdbWavesEffect>
           Completed
         </button>
@@ -154,7 +154,7 @@
          <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Ok&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
       </div>
       <div class="col">
-        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" 
+        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light"
           *ngIf="userService.getRole() === 'tourist'" (click)="open(rating)"
          mdbWavesEffect>
         Completed!&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
@@ -174,10 +174,23 @@
     <div style="text-align:center">
       <h5>
        Rate Now
-      </h5>                          
-      <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
+      </h5>
+<div class="m-auto" style="align-self: center; justify-content: center; text-align: center;">
+      <fieldset class="rating">
+        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+    </fieldset></div>
     </div>
-    <p>Reviews</p>
+    <!-- <br>
+    <p>Reviews</p> -->
     <textarea class="form-control" [(ngModel)]="reviews" placeholder="write something here!"></textarea>
   </div>
   <div class="modal-footer">

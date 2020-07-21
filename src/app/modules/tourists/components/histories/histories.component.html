@@ -576,15 +576,16 @@
       </div>
     </div>
   </div>
-  
+
   <div *ngIf="!previousList">
     <div class="row cust-grid">
       <div class="col-12 text-center">
-        <h1>No Previous Tours !!</h1>
-      </div>
+        <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/flamenco-list-is-empty-1.png">
+             <h1 style="font-family: 'Dancing Script', cursive;">No Previous Booking !!</h1>
+           </div>
     </div>
   </div>
-  
+
 
   <div class="d-block d-md-none mt-4">
     <mdb-card class="bag mb-4" *ngFor="let data of previousList">
@@ -613,10 +614,10 @@
       </mdb-card-body>
     </mdb-card>
   </div>
-  
+
   </div>
-  
-  
+
+
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h5 class="modal-title" id="modal-basic-title">Tour Details</h5>
