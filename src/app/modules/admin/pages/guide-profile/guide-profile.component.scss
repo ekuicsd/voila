@@ -1,5 +1,12 @@
 .pro-bg {
-    height: 450px;
     width: 100%;
     background-color: rgb(31, 110, 86);
 }
+.det{
+  font-size: 3vh;
+}
+@media(max-width:950px){
+.det{
+  font-size: 2vh;
+
+}}
