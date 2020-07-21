@@ -33,9 +33,10 @@
                     <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                       <b>VIEW</b>
                     </button>&nbsp;
-                    <button class="btn" color="info" style="margin: auto;" mdbBtn type="button" size="sm" mdbWavesEffect>
+                    <button class="btn" color="info" style="margin: auto;" (click)="startTour(data)"
+                     mdbBtn type="button" size="sm" mdbWavesEffect>
                         <b>START</b>
-                      </button>
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -167,13 +168,17 @@
     </div>
     <div class="modal-footer row mx-0 ">
          <div class="col">
-            <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="pink" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
+            <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="pink"
+             (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
         </div>
         <div class="col">
-          <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
+          <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light"
+           (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
+            Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
         </div>
         <div class="col">
-           <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+           <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block"
+            mdbWavesEffect>Start Tour&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
         </div>
     </div>
   </ng-template>

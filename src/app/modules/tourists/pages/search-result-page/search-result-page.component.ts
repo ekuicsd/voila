@@ -4,6 +4,7 @@ import { Options} from 'ng5-slider';
 import * as $ from 'jquery';
 import languages from 'country-language';
 import { SearchService } from 'src/app/shared/service/search.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,8 +28,10 @@ export class SearchResultPageComponent implements OnInit {
   public interestList: string[]; 
   public languageList: string[];
   public langMore: boolean = true;
+  path;
 
   constructor( private staticDataService: StaticDataService,
+    private router: Router,
      public searchService: SearchService) { }
   
   ngOnInit() {
@@ -38,6 +41,7 @@ export class SearchResultPageComponent implements OnInit {
     var activeWidth = activeItem.innerWidth();
     $(".selector").css({
       // "left": activeItem.position.left + "px", 
+      // "left":itemPos.left + "px", 
       "width": activeWidth + "px"
     });
     
@@ -52,9 +56,14 @@ export class SearchResultPageComponent implements OnInit {
         "width": activeWidth + "px"
       });
     });
+
     this.languageList = languages.getLanguages().map(ele => ele.name[0]);
     this.interestList = this.staticDataService.getAllInterestList();
       this.searchService.getFilterData();
+      // console.log(this.router.url);
+      if(this.router.url === '/tourists/touristshome/searchResult/dealsList') {
+       this.router.navigateByUrl('/tourists/touristshome/searchResult/guidesList');
+      }
   }
 
   changePrice($event) {

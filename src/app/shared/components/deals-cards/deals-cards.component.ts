@@ -44,7 +44,8 @@ export class DealsCardsComponent implements OnInit {
       this.modal1.show(content, {ignoreBackdropClick: true});
       this.selectedDeal = deal;
     } else {
-      this.router.navigateByUrl('/login/tourist');
+      this.toastr.warning("Please login as tourist!");
+      // this.router.navigateByUrl('/login/tourist');
     }
   }
 
