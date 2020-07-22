@@ -6,10 +6,11 @@
   </div>
   
   <div *ngIf="messageList">
-    <div (click)="navigateToChat(item.userEmail)" class="chat-list p-3 m-0" *ngFor="let item of messageList">
+    <div (click)="navigateToChat(item.userEmail, item.userName, item.roomId)" class="chat-list p-3 m-0" *ngFor="let item of messageList">
       <div class="row mx-0">
         <div class="col-9 px-0">
-        <h3><b>{{item.userName | titlecase}}</b></h3>
+        <h3 *ngIf="item.roomName"><b>{{item.roomName | titlecase}}</b></h3>
+        <h3 *ngIf="!item.roomName"><b>{{item.userName | titlecase}}</b></h3>
         <span class="text-muted">Message: </span>{{item.body | shorttext | titlecase}}
         </div>
         <div class="col-3 px-0 date text-right">

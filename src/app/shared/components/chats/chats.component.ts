@@ -18,12 +18,13 @@ export class ChatsComponent implements OnInit {
   public sender: any;
   public reciever: any;
   public message: string = '';
+  public name;
   public messageArray = [];
   socket : any;
   params: any;
 
   constructor(private msgService: MessageService,
-    private userService: UserService,
+    public userService: UserService,
     private route: ActivatedRoute) {
       this.socket = io(environment.baseUrl);
     }
@@ -32,6 +33,7 @@ export class ChatsComponent implements OnInit {
     this.route.url.subscribe( res => {
       this.email = this.route.snapshot.params.email;
       this.receiverRole = this.route.snapshot.params.role;
+      this.name = this.route.snapshot.params.name;
       // console.log(this.receiverRole);
       if(this.receiverRole === 'guide') {
         this.senderRole = 'tourist';

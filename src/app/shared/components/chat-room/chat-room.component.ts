@@ -22,7 +22,7 @@ export class ChatRoomComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     private router: Router,
-    private userService: UserService,
+    public userService: UserService,
     private messageService: MessageService,
     private route: ActivatedRoute
     ) { }

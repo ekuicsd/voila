@@ -37,9 +37,9 @@ export class BookingsComponent implements OnInit {
     });
   }
 
-  contactGuide(content, email) {
+  contactGuide(content, email, name) {
     this.modalService.dismissAll(content);
-    this.router.navigateByUrl('/tourists/touristshome/messages/chats/guide/' + email);
+    this.router.navigateByUrl('/tourists/touristshome/messages/chats/guide/' + email  + '/' + name);
   }
 
   openCancelRequest(content) {

@@ -49,12 +49,21 @@ export class ChatHistoryListComponent implements OnInit {
     });
   }
 
-  navigateToChat(email) {
-    if(this.role === 'guide') {
-      this.router.navigateByUrl('/guide/guidehome/messages/chats/tourist/' + email);
+  navigateToChat(email, name, roomId) {
+    if(!roomId) {
+      if(this.role === 'guide') {
+        this.router.navigateByUrl('/guide/guidehome/messages/chats/tourist/' + email + '/' + name);
+      } else {
+        this.router.navigateByUrl('/tourists/touristshome/messages/chats/guide/' + email + '/' + name);
+      }
     } else {
-      this.router.navigateByUrl('/tourist/guidehome/messages/chats/guide/' + email);
+      if(this.role === 'guide') {
+        this.router.navigateByUrl('/guide/guidehome/message/chatRooms/' + roomId);
+      } else {
+        this.router.navigateByUrl('/tourists/touristshome/message/chatRooms/' + roomId);
+      }
     }
+   
   }
 
 }

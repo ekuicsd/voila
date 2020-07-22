@@ -178,7 +178,9 @@
             <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
         </div>
         <div class="col">
-            <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
+            <button type="button" mdbBtn color="deep-orange" 
+            size="sm" class="btn-block waves-light"  *ngIf="selectedBooking.tourType !== 'deal'"
+            (click)="contactGuide(content, selectedBooking?.guideId?.email, sellectedBooking?.guideId?.name)" mdbWavesEffect>
             Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
             <button type="button" mdbBtn color="deep-orange" *ngIf="selectedBooking.tourType === 'deal'"
              size="sm" class="btn-block waves-light"
