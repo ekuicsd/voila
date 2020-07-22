@@ -5,8 +5,7 @@ import { UserService } from './shared/service/user.service';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { GuideService } from './shared/service/guide.service';
 import { TouristsService } from './shared/service/tourists.service';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -19,12 +18,6 @@ export class AppComponent {
   @ViewChild('basicModal', { static: false}) modal1: MDBModalService;
   ShowLoadingIndicator = true;
   public onGoingEvents: any[] = [];
-  // public reviews: string = '';
-  // public rating: number = 0;
-  // public ratingReviews: FormGroup = new FormGroup({
-  //   rating: new FormControl('', [Validators.required]),
-  //   reviews: new FormControl('', [Validators.required, Validators.minLength(3)])
-  // })
 
  constructor(private loadRouter : Router,
     public userService: UserService,
@@ -73,34 +66,22 @@ export class AppComponent {
   this.modalService.open(content);
  }
 
-//  completeTour(content) {
-//     // if(this.ratingReviews.valid) {
-//       let request = {
-//         rating: this.rating,
-//         reviews: this.reviews
-//       };
-//       this.touristService.cancelrequest(this.onGoingEvents[0]._id, 'COMPLETED', request).subscribe( res => {
-//       console.log(res);
-//     });
-//     this.modalService.dismissAll(content);
-//     // } else {
-//       // this.toastr.error("Invalid"); 
-//     // }
-//  }
-
-//  changeRating(data) {
-//    console.log(data.target.value);
-//    this.rating = +data.target.value;
-//  }
-
-//  changeText(data) {
-//    this.reviews = data.target.value;
-//    console.log(data.target.value);
-//  }
-
  open(content) {
   this.modalService.open(content);
   }
 
+  getEndDate(data) {
+    if(data) {
+      let today = new Date();
+      let end = new Date(data.endDate);
+      let diff = (end.getTime() - today.getTime()) / (1000 * 3600 * 24);
+      if(diff >= 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+    
+   
 
 }

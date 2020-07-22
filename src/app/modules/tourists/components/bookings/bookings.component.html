@@ -33,7 +33,8 @@
                                         <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                       <b>VIEW</b>
                     </button>&nbsp;
-                                        <button class="btn" color="info" style="margin: auto;" (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn" color="info" style="margin: auto;" [disabled]="disableStart(data)"
+                                        (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                         <b>START</b>
                     </button>
                                     </td>
@@ -86,8 +87,9 @@
                         </div>
                     </div>
                 </mdb-card-text>
-                <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
-                <a size="sm" class="float-right" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>START</a>
+                <button size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</button>
+                <button size="sm" class="float-right" (click)="startTour(data)" mdbBtn [disabled]="disableStart(data)" 
+                style="background: #0ec8b9;" mdbWavesEffect>START</button>
             </mdb-card-body>
         </mdb-card>
     </div>
@@ -188,7 +190,8 @@
              Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
         </div>
         <div class="col">
-            <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;</button>
+            <button type="button" mdbBtn color="secondary" [disabled]="disableStart(data)"
+            size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;</button>
         </div>
     </div>
 </ng-template>
