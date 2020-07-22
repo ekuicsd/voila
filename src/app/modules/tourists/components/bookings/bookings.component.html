@@ -4,8 +4,8 @@
     <div class="d-none d-md-block" *ngIf="bookingsList">
         <div class="row mt-3">
             <div class="col-12 text-center">
-                <div class="card first" style="z-index: 100; width: 90%; margin-left: 5%;">
-                    <h5 class="text-center py-2 my-0">Your bookings</h5>
+                <div class="card ripe-malinka-gradient" style="z-index: 100; width: 90%; margin-left: 5%;">
+                    <h5 class="text-center white-text py-2 my-0">Your bookings</h5>
                 </div>
             </div>
         </div>
@@ -54,47 +54,47 @@
         </div>
     </div>
 
-  <div *ngIf="!bookingsList">
-    <div class="row cust-grid">
-      <div class="col-12 text-center">
-   <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/cherry-list-is-empty-1.png">
-        <h1 style="font-family: 'Dancing Script', cursive;">No Bookings !!</h1>
-      </div>
+    <div *ngIf="!bookingsList">
+        <div class="row cust-grid">
+            <div class="col-12 text-center">
+                <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/cherry-list-is-empty-1.png">
+                <h1 style="font-family: 'Dancing Script', cursive;">No Bookings !!</h1>
+            </div>
+        </div>
     </div>
-  </div>
 
 
-  <div class="d-block d-md-none mt-4">
-    <mdb-card class="bag mb-4" *ngFor="let data of bookingsList">
-      <mdb-card-body>
-        <mdb-card-title>
-          <h4>{{data.tourType | titlecase}} Tour</h4>
-        </mdb-card-title>
-        <mdb-card-text >
-          <div class="row">
-            <div class="col-4">
-            <div><b>Start-Date</b></div>
-            <div>{{data.startDate | date: 'dd-MM-yyyy'}}</div>
-          </div>
-          <div class="col-4">
-            <div><b>Duration</b></div>
-            <div>{{data.duration}} days</div>
-          </div>
-          <div class="col-4">
-            <div><b>People</b></div>
-            <div>{{data.noOfPeople}}</div>
-          </div>
-          </div>
-        </mdb-card-text>
-        <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
-        <a size="sm" class="float-right"  mdbBtn style="background: #0ec8b9;" mdbWavesEffect>START</a>
-      </mdb-card-body>
-    </mdb-card>
-  </div>
+    <div class="d-block d-md-none mt-4">
+        <mdb-card class="bag mb-4" *ngFor="let data of bookingsList">
+            <mdb-card-body>
+                <mdb-card-title>
+                    <h4>{{data.tourType | titlecase}} Tour</h4>
+                </mdb-card-title>
+                <mdb-card-text>
+                    <div class="row">
+                        <div class="col-4">
+                            <div><b>Start-Date</b></div>
+                            <div>{{data.startDate | date: 'dd-MM-yyyy'}}</div>
+                        </div>
+                        <div class="col-4">
+                            <div><b>Duration</b></div>
+                            <div>{{data.duration}} days</div>
+                        </div>
+                        <div class="col-4">
+                            <div><b>People</b></div>
+                            <div>{{data.noOfPeople}}</div>
+                        </div>
+                    </div>
+                </mdb-card-text>
+                <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+                <a size="sm" class="float-right" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>START</a>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
 </div>
 
 
-  <ng-template #content let-c="close" let-d="dismiss">
+<ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
         <h5 class="modal-title" id="modal-basic-title">Tour Details</h5>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -178,15 +178,13 @@
             <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
         </div>
         <div class="col">
-            <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
-            Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
-            <button type="button" mdbBtn color="deep-orange" *ngIf="selectedBooking.tourType === 'deal'"
-             size="sm" class="btn-block waves-light"
-            (click)="contactTouristRoom(content, selectedBooking.roomDetails._id)" mdbWavesEffect>
+            <!-- <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
+            Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button> -->
+            <button type="button" mdbBtn color="deep-orange" *ngIf="selectedBooking.tourType === 'deal'" size="sm" class="btn-block waves-light" (click)="contactTouristRoom(content, selectedBooking.roomDetails._id)" mdbWavesEffect>
              Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
         </div>
         <div class="col">
-            <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+            <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;</button>
         </div>
     </div>
 </ng-template>
@@ -206,7 +204,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button mdbBtn type="button" color="secondary" size="sm" class="btn" (click)="c1('Save click')">Close</button>
+        <button mdbBtn type="button" color="danger" size="sm" class="btn" (click)="c1('Save click')">Close</button>
         <button mdbBtn type="button" color="deep-orange" size="sm" class="btn " (click)="cancelBooking(content, cancel)">Submit</button>
     </div>
 </ng-template>
