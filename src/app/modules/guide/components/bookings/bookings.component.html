@@ -163,7 +163,7 @@
         (click)="contactTourist(content, selectedBooking.touristId[0]?.email)" mdbWavesEffect>Contact&nbsp;
         <mdb-icon fas icon="headset"></mdb-icon></button>
         <button *ngIf="selectedBooking.tourType === 'deal'" type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" 
-        (click)="contactTouristRoom(content, selectedBooking.roomDetails._id)" mdbWavesEffect>Contact&nbsp;
+        (click)="contactTouristRoom(content, selectedBooking.roomDetails?._id)" mdbWavesEffect>Contact&nbsp;
         <mdb-icon fas icon="headset"></mdb-icon></button>
       </div>
     </div>

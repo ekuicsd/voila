@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import io from  'socket.io-client';
 import { environment } from 'src/environments/environment';
 import { UserService } from '../../service/user.service';
+import { MessageService } from '../../service/message.service';
 
 @Component({
   selector: 'app-chat-room',
@@ -15,14 +16,16 @@ export class ChatRoomComponent implements OnInit {
   public message: string = '';
   public user;
   public roomId;
+  public roomName;
   socket = io(environment.baseUrl);
+  public messageList: any[];
 
   constructor(private toastr: ToastrService,
     private router: Router,
     private userService: UserService,
+    private messageService: MessageService,
     private route: ActivatedRoute
-    ) {
-     }
+    ) { }
 
   ngOnInit() {
     this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
@@ -31,14 +34,25 @@ export class ChatRoomComponent implements OnInit {
       console.log(this.roomId);
       if(this.roomId) {
         this.socket.emit('joinRoom', {roomId: this.roomId});
-        // this.socket.on('message', (msg) => {
-        //   console.log(msg);
-        // });
+        this.getAllMessages();
+        this.socket.on('emitMessage', () => {
+          console.log("yes u r here!");
+          this.getAllMessages();
+        });
       }
     });
   }
 
+  getAllMessages() {
+    this.messageService.getAllChatRoomMsg(this.roomId).subscribe( res => {
+      console.log(res);
+      this.messageList = res.newRoom.chatList;
+      this.roomName = res.newRoom.name;
+    }, err => console.log(err));
+  }
+
   sendMessage() {
+    // console.log(this.socket);
     if(this.message !== '') {
       this.socket.emit('message', {
         roomId: this.roomId,
@@ -46,7 +60,7 @@ export class ChatRoomComponent implements OnInit {
         message: this.message
       });
       console.log(this.message);
-      // this.message = '';
+      this.message = '';
     } else {
       this.toastr.error("pls enter any message!");
     }

@@ -91,6 +91,7 @@ export class ChatsComponent implements OnInit {
         this.reciever.name, this.message, this.senderRole)
         .subscribe(res => {
         // console.log(res);
+        
         this.socket.emit('refresh', {
           data: "connected with socket"
         })

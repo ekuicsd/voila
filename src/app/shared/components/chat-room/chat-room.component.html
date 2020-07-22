@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-sm-12 p-0">
+  <div class="col-sm-12 ">
     <div class="row px-0 py-3 mx-0" style="background-color : #007bff; color: #b7e8eb;">
       <div class="col-sm-1">
         <img src="http://placehold.it/50x50" class="circle" style="border-radius: 50%;">
       </div>
       <div class="col-sm-11">
-        <span style="font-size: 30px;"><b>Pinki</b></span>
+        <span style="font-size: 30px;"><b>{{roomName | titlecase}}</b></span>
       </div>
     </div>
   </div>
@@ -13,21 +13,22 @@
   <div class="col-sm-12 rowDiv" ngx-auto-scroll lock-y-offset="10" observe-attributes>
     <div class="row">
       <div class="col-sm-12">
-        <div class="message-wrapper">
+        <div class="message-wrapper" *ngFor="let msg of messageList">
           <!-- <div class="message-wrapper" *ngFor="let message of messageArray"> -->
-          <div class="left">
+          <div class="left" *ngIf="msg.senderId !== user._id">
             <!-- <div class="left"  *ngIf="sender._id !== reciever._id && sender._id !== message.senderId"> -->
             <div class="chat-bubble left slide-left">
-              <div class="message">left meassge</div>
-              <!-- <div class="message">{{message.body}}</div> -->
+              <!-- <div class="message">left meassge</div> -->
+              <div class="message">{{msg.senderName}}</div>
+              <div class="message">{{msg.body}}</div>
             </div>
           </div>
 
-          <div class="right">
+          <div class="right" *ngIf="msg.senderId === user._id">
             <!-- <div class="right" *ngIf="sender._id === message.senderId"> -->
             <div class="chat-bubble right slide-right">
-              <div class="message">right message</div>
-              <!-- <div class="message">{{message.body}}</div> -->
+              <!-- <div class="message">right message</div> -->
+              <div class="message">{{msg.body}}</div>
             </div>
           </div>
 
@@ -46,7 +47,7 @@
         <!-- </form> -->
       </div>
       <div class="col-sm-2 px-0">
-        <button type="type" class="form-control btn btn-success" (click)="sendMessage()">Send</button>
+        <button type="submit" class="form-control btn btn-success mx-0 py-0" (click)="sendMessage()">Send</button>
       </div>
     </div>
   </div>
