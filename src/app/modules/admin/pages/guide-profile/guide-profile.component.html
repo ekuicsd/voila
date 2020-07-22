@@ -1,49 +1,49 @@
-<div class="pro-bg">
+<div class="pro-bg p-3">
     <div class="white-text">
-     <h1 class="text-center mb-5">Pertional Info.</h1>
+     <h1 class="text-center mb-5" style="font-size: 5vh;">Pertional Info.</h1>
 
         <div class="row">
             <div class="col-12 col-md-3 mb-3">
-                <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class="mx-auto img-fluid rounded-circle">
+                <img class=" h-75 w-75" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class="mx-auto img-fluid rounded-circle">
             </div>
             <div class="row col-12 col-md-9">
             <div class="det col-6">
-              <div class="mb-2"><strong>Name</strong>
+              <div class="mb-4"><strong>Name</strong>
                 <div class="float-right">   {{userData?.name}}
                 </div>
             </div>
-              <div class="mb-2"><strong>Address</strong>
+              <div class="mb-4"><strong>Address</strong>
                   <div class="float-right"> {{userData.address | titlecase}}
                   </div>
               </div>
-              <div class="mb-2"><strong>City</strong>
+              <div class="mb-4"><strong>City</strong>
                   <div class="float-right">{{userData.city | titlecase}}</div>
               </div>
-              <div class="mb-2"><strong>State</strong>
+              <div class="mb-4"><strong>State</strong>
                   <div class="float-right">{{userData.state | titlecase}}</div>
               </div>
-              <div class="mb-2"><strong>Speaks</strong>
-                  <div class="float-right" *ngFor="let item of userData.languages">{{item | titlecase}}</div>
+              <div class="mb-4"><strong>Speaks</strong>
+                  <div class="float-right" *ngFor="let item of userData.languages">{{item | titlecase}}&nbsp;,&nbsp;</div>
               </div>
-              <div class="mb-2"><strong>Loves</strong>
-                  <div class="float-right" *ngFor="let item of userData.interests">{{item | titlecase}}</div>
+              <div class="mb-4"><strong>Loves</strong>
+                  <div class="float-right" *ngFor="let item of userData.interests">{{item | titlecase}}&nbsp;,&nbsp;</div>
               </div>
 
           </div>
           <div class="det col-6">
-            <div class="mb-2"><strong>Phone</strong>
+            <div class="mb-4"><strong>Phone</strong>
               <div class="float-right"> {{userData.phoneNumber}}</div>
           </div>
-            <div class="mb-2"><strong>Aadhar Number</strong>
+            <div class="mb-4"><strong>Aadhar Number</strong>
                 <div class="float-right">{{userData.aadhaarNumber}}</div>
             </div>
-            <div class="mb-2"><strong>Nationality</strong>
+            <div class="mb-4"><strong>Nationality</strong>
                 <div class="float-right">India</div>
             </div>
-            <div class="mb-2"><strong>Date of Birth</strong>
+            <div class="mb-4"><strong>Date of Birth</strong>
                 <div class="float-right">{{userData.dob | date: 'dd-MM-yyyy'}}</div>
             </div>
-            <div class="mb-2"><strong>Email ID</strong>
+            <div class="mb-4"><strong>Email ID</strong>
                 <div class="float-right">{{userData.email}}</div>
             </div>
         </div>
@@ -53,101 +53,60 @@
 
     </div>
 </div>
-<div class="my-3 mx-3">
-    <h1 class="mb-4">Personal Info</h1>
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-6" style="font-size: 20px; border-left:1px solid black;">
-                <div><strong>Address</strong>
-                    <div class="float-right"> {{userData.address | titlecase}}
+<div class="row">
+  <div class="col-6">
+    <div class="my-3 mx-3">
+        <h1 class="head mb-4 text-center">Business Info</h1>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="det col-12">
+                    <div><strong>People Limit</strong>
+                        <div class="float-right">{{userData.peopleLimit}}
+                        </div>
                     </div>
-                </div>
-                <div><strong>City</strong>
-                    <div class="float-right">{{userData.city | titlecase}}</div>
-                </div>
-                <div><strong>State</strong>
-                    <div class="float-right">{{userData.state | titlecase}}</div>
-                </div>
-                <div><strong>Speaks</strong>
-                    <div class="float-right" *ngFor="let item of userData.languages">{{item | titlecase}}</div>
-                </div>
-                <div><strong>Loves</strong>
-                    <div class="float-right" *ngFor="let item of userData.interests">{{item | titlecase}}</div>
-                </div>
-
-            </div>
-            <div class="col-6 " style="font-size: 20px; border-left:1px solid black;">
-                <div><strong>Aadhar Number</strong>
-                    <div class="float-right">{{userData.aadhaarNumber}}</div>
-                </div>
-                <div><strong>Nationality</strong>
-                    <div class="float-right">India</div>
-                </div>
-                <div><strong>Date of Birth</strong>
-                    <div class="float-right">{{userData.dob | date: 'dd-MM-yyyy'}}</div>
-                </div>
-                <div><strong>Email ID</strong>
-                    <div class="float-right">{{userData.email}}</div>
-                </div>
-                <div>Joined Voila in 2019</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="my-3 mx-3">
-    <h1 class="mb-4">Business Info</h1>
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-6" style="font-size: 20px; border-left:1px solid black;">
-                <div><strong>People Limit</strong>
-                    <div class="float-right">{{userData.peopleLimit}}
+                    <div><strong>Charges Per Head</strong>
+                        <div class="float-right">Rs. {{userData.perHeadCharge}}</div>
                     </div>
-                </div>
-                <div><strong>Charges Per Head</strong>
-                    <div class="float-right">Rs. {{userData.perHeadCharge}}</div>
-                </div>
-                <div><strong>Charges Per Day </strong>
-                    <div class="float-right">Rs. {{userData.perDayCharge}}</div>
-                </div>
+                    <div><strong>Charges Per Day </strong>
+                        <div class="float-right">Rs. {{userData.perDayCharge}}</div>
+                    </div>
 
 
-            </div>
-            <div class="col-6 " style="font-size: 20px; border-left:1px solid black;">
+                </div>
 
             </div>
         </div>
-    </div>
-</div>
-
-<div class="my-3 mx-3">
-    <h1 class="mb-4">Experiences</h1>
-    <div class="container mt-3">
-        <div class="row" *ngFor="let item of userData.experience">
-            <div class="col-6" style="font-size: 20px; border-left:1px solid black;">
-                <div><strong>Work Place</strong>
-                    <div class="float-right">{{item.work | titlecase}}
+    </div></div>
+  <div class="col-6">
+    <div class="my-3 mx-3">
+        <h1 class="head mb-4 text-center">Experiences</h1>
+        <div class="container mt-3">
+            <div class="row" *ngFor="let item of userData.experience">
+                <div class="det col-12">
+                    <div><strong>Work Place</strong>
+                        <div class="float-right">{{item.work | titlecase}}
+                        </div>
                     </div>
-                </div>
-                <div><strong>Work Profile</strong>
-                    <div class="float-right"> {{item.profile | titlecase}}</div>
-                </div>
-                <div><strong>Starting Year</strong>
-                    <div class="float-right"> {{item.startYear}}</div>
-                </div>
+                    <div><strong>Work Profile</strong>
+                        <div class="float-right"> {{item.profile | titlecase}}</div>
+                    </div>
+                    <div><strong>Starting Year</strong>
+                        <div class="float-right"> {{item.startYear}}</div>
+                    </div>
 
-                <div><strong>Duration</strong>
-                    <div class="float-right">{{item.duration}} months</div>
-                </div>
+                    <div><strong>Duration</strong>
+                        <div class="float-right">{{item.duration}} months</div>
+                    </div>
 
-            </div>
-            <div class="col-6 " style="font-size: 20px; border-left:1px solid black;">
+                </div>
 
             </div>
         </div>
-    </div>
+    </div></div>
 </div>
-<div class="text-right mt-4 mb-5">
+
+
+<div class="btn-size text-center mt-4 mb-5">
     <button type="button" mdbBtn (click)="acceptRejectGuide('REJECTED')" color="danger" mdbWavesEffect>Reject</button>
 
     <button type="button" mdbBtn color="success" (click)="acceptRejectGuide('APPROVED')" mdbWavesEffect>Accept</button>
