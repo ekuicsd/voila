@@ -3,7 +3,6 @@ import { ToastrService } from 'ngx-toastr';
 import { SearchService } from 'src/app/shared/service/search.service';
 import {IAngularMyDpOptions } from 'angular-mydatepicker';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-filter-form',
   templateUrl: './filter-form.component.html',
@@ -21,7 +20,9 @@ export class FilterFormComponent implements OnInit {
       month: this.today.getMonth() + 1,
       year: this.today.getFullYear()
     }
-  }
+  };
+  public stateList: any[];
+
 
   constructor(private toastr: ToastrService,
     public searchService: SearchService,
@@ -31,6 +32,7 @@ export class FilterFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
   submitForm() {
     if(this.searchService.searchForm.valid) {
@@ -43,6 +45,13 @@ export class FilterFormComponent implements OnInit {
 
   changeRange(event) {
     console.log(event);
+  }
+
+  changeState(data) {
+    // console.log(data.target.value);
+    this.searchService.state = data.target.value;
+    this.searchService.state = data.target.value;
+    this.searchService.getAllCity(data.target.value);
   }
 
 }

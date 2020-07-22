@@ -22,6 +22,7 @@ export class CreateDealComponent implements OnInit {
   public deal: any = {};
   public groupType;
   public user;
+  public today = new Date();
 
   //ngModel
   public place: string = '';
@@ -38,16 +39,18 @@ export class CreateDealComponent implements OnInit {
     this.user = JSON.parse(this.userService.getUser('guide'));
     this.groupType = this.staticDataService.getAllGroupTypes();
     this.getAllState('101');
+    this.getAllCity(this.user.state);
     this.createDealForm();
+    console.log(this.today);
   }
 
   createDealForm() {
     this.dealForm = new FormGroup({
       price: new FormControl('', [Validators.required, CustomValidators.compondValueValidate]),
-      startDate: new FormControl('', [Validators.required]),
-      endDate: new FormControl('', [Validators.required]),
+      startDate: new FormControl('', [Validators.required, CustomValidators.fromDateValidation]),
+      endDate: new FormControl('', [Validators.required, CustomValidators.fromToDateValidation]),
       city: new FormControl('', [Validators.required]),
-      state: new FormControl('', [Validators.required]),
+      state: new FormControl(this.user.state, [Validators.required]),
       peopleLimit: new FormControl('', [Validators.required, CustomValidators.compondValueValidate]),
       groupType: new FormControl('', [Validators.required]),
       groupName: new FormControl('', [Validators.required, Validators.minLength(3)])
@@ -72,8 +75,15 @@ export class CreateDealComponent implements OnInit {
   }
 
   addToPlacesList() {
-    if(this.place === '' || this.date === undefined) {
+    let from = new Date(this.dealForm.value.startDate);
+    let to = new Date(this.dealForm.value.endDate);
+    let date = new Date(this.date);
+    if(date.getTime() - from.getTime() < 0 || date.getTime() - to.getTime() > 0 ) {
+      this.toastr.warning("please enter date between to and from date");
+      return;
+    } else if(this.place === '' || this.date === undefined) {
       this.toastr.error("Data Invalid!");
+      return;
     } else {
       this.placesList.push({
         place: this.place,
