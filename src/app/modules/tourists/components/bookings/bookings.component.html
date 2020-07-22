@@ -1,49 +1,57 @@
-  <div class="container-fluid">
+<div class="container-fluid">
     <!-- <app-blog></app-blog> -->
     <!--  -->
     <div class="d-none d-md-block" *ngIf="bookingsList">
-    <div class="row mt-3">
-      <div class="col-12 text-center">
-        <div class="card first" style="z-index: 100; width: 90%; margin-left: 5%;">
-          <h5 class="text-center py-2 my-0">Your bookings</h5>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-5" style="margin-top: -25px;">
-      <div class="card-body">
-        <div class="mt-3 mb-3">
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead >
-                <tr>
-                  <th scope="col">Sr no.</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Start Date</th>
-                  <th scope="col">Duration</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let data of bookingsList; let i = index">
-                  <th scope="row">{{i+1}}</th>
-                  <td>{{data.guideId?.city | titlecase}}</td>
-                  <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
-                  <td>{{data.duration}} days</td>
-                  <td>
-                    <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
-                      <b>VIEW</b>
-                    </button>&nbsp;
-                    <button class="btn" color="info" style="margin: auto;" (click)="startTour(data)"
-                     mdbBtn type="button" size="sm" mdbWavesEffect>
-                        <b>START</b>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <div class="card first" style="z-index: 100; width: 90%; margin-left: 5%;">
+                    <h5 class="text-center py-2 my-0">Your bookings</h5>
+                </div>
             </div>
         </div>
-      </div>
+        <div class="card mb-5" style="margin-top: -25px;">
+            <div class="card-body">
+                <div class="mt-3 mb-3">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr no.</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Duration</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of bookingsList; let i = index">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{data.guideId?.city | titlecase}}</td>
+                                    <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
+                                    <td>{{data.duration}} days</td>
+                                    <td>
+                                        <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                      <b>VIEW</b>
+                    </button>&nbsp;
+                                        <button class="btn" color="info" style="margin: auto;" (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                        <b>START</b>
+                    </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!bookingsList">
+        <div class="row cust-grid">
+            <div class="col-12 text-center">
+                <h1>No Bookings !!</h1>
+            </div>
+        </div>
     </div>
   </div>
 
@@ -90,92 +98,89 @@
 
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h5 class="modal-title" id="modal-basic-title">Tour Details</h5>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <h5 class="modal-title" id="modal-basic-title">Tour Details</h5>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body p-4 pb-0 ">
         <div class="row">
-          <div class="col-12">
-           <h6>{{selectedBooking.tourType | titlecase}} Tour
-              <span class="float-right">{{selectedBooking.bookingDate | date: 'dd-MM-yyyy'}}</span>
-            </h6>
-          </div>
+            <div class="col-12">
+                <h6>{{selectedBooking.tourType | titlecase}} Tour
+                    <span class="float-right">{{selectedBooking.bookingDate | date: 'dd-MM-yyyy'}}</span>
+                </h6>
+            </div>
         </div>
         <hr class="mt-0">
         <div class="row">
             <div class="col-6">
-              <B>State</B>
+                <B>State</B>
             </div>
             <div class="col-6">
-              {{selectedBooking.guideId?.state | titlecase}}
+                {{selectedBooking.guideId?.state | titlecase}}
             </div>
-          </div>
-        <div class="row">
-          <div class="col-6">
-            <B>Price</B>
-          </div>
-          <div class="col-6">
-            Rs. {{selectedBooking.price}}/-
-          </div>
         </div>
         <div class="row">
-          <div class="col-6">
-            <B>Start Date</B>
-          </div>
-          <div class="col-6">
-            {{selectedBooking.startDate | date: 'dd-MM-yyyy'}}
-          </div>
+            <div class="col-6">
+                <B>Price</B>
+            </div>
+            <div class="col-6">
+                Rs. {{selectedBooking.price}}/-
+            </div>
         </div>
         <div class="row">
-          <div class="col-6">
-            <B>Duration</B>
-          </div>
-          <div class="col-6">
-            {{selectedBooking.duration}} days
-          </div>
+            <div class="col-6">
+                <B>Start Date</B>
+            </div>
+            <div class="col-6">
+                {{selectedBooking.startDate | date: 'dd-MM-yyyy'}}
+            </div>
         </div>
         <div class="row">
-          <div class="col-6">
-            <B>People</B>
-          </div>
-          <div class="col-6">
-            {{selectedBooking.noOfPeople}}
-          </div>
+            <div class="col-6">
+                <B>Duration</B>
+            </div>
+            <div class="col-6">
+                {{selectedBooking.duration}} days
+            </div>
         </div>
         <div class="row">
-          <div class="col-6">
-            <B>Group Type</B>
-          </div>
-          <div class="col-6">
-            {{selectedBooking.groupType | titlecase}}
-          </div>
+            <div class="col-6">
+                <B>People</B>
+            </div>
+            <div class="col-6">
+                {{selectedBooking.noOfPeople}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <B>Group Type</B>
+            </div>
+            <div class="col-6">
+                {{selectedBooking.groupType | titlecase}}
+            </div>
         </div>
         <table *ngIf="selectedBooking.tourType === 'deal'" class="table">
-          <thead>
-            <tr>
-              <th><b>Sr no.</b></th>
-              <th><b>Tour Places</b></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of selectedBooking?.places; let i = index">
-              <td>{{i+1}}</td>
-              <td>{{item | titlecase}}</td>
-            </tr>
-          </tbody>
+            <thead>
+                <tr>
+                    <th><b>Sr no.</b></th>
+                    <th><b>Tour Places</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of selectedBooking?.places; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{item | titlecase}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
     <div class="modal-footer row mx-0 ">
-         <div class="col">
-            <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="pink"
-             (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
+        <div class="col">
+            <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
         </div>
         <div class="col">
-          <button type="button" mdbBtn color="deep-orange"
-           size="sm" class="btn-block waves-light" *ngIf="selectedBooking.tourType !== 'deal'"
-           (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
+            <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light" (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
             Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
             <button type="button" mdbBtn color="deep-orange" *ngIf="selectedBooking.tourType === 'deal'"
              size="sm" class="btn-block waves-light"
@@ -183,28 +188,27 @@
              Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
         </div>
         <div class="col">
-           <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block"
-            mdbWavesEffect>Start Tour&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+            <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
         </div>
     </div>
-  </ng-template>
+</ng-template>
 
 
 <ng-template #cancel let-c1="close" let-d1="dismiss">
-  <div class="modal-header">
-    <h5 class="modal-title" id="modal-basic-title">Cancel Booking</h5>
-    <button type="button" class="close" aria-label="Close" (click)="d1('Cross click')">
+    <div class="modal-header">
+        <h5 class="modal-title" id="modal-basic-title">Cancel Booking</h5>
+        <button type="button" class="close" aria-label="Close" (click)="d1('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="modal-body">
-    <div class="md-form">
-      <textarea class="md-textarea form-control" rows="3" [(ngModel)]="cancelReason" id="input_text" type="text" mdbInput></textarea>
-      <label for="input_text">Enter Reasons why You Cancel Bookings</label>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button mdbBtn type="button" color="secondary" size="sm" class="btn" (click)="c1('Save click')">Close</button>
-    <button mdbBtn type="button"  color="deep-orange" size="sm" class="btn " (click)="cancelBooking(content, cancel)" >Submit</button>
-  </div>
+    <div class="modal-body">
+        <div class="md-form">
+            <textarea class="md-textarea form-control" rows="3" [(ngModel)]="cancelReason" id="input_text" type="text" mdbInput></textarea>
+            <label for="input_text">Enter your reason for cancelling the booking</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button mdbBtn type="button" color="secondary" size="sm" class="btn" (click)="c1('Save click')">Close</button>
+        <button mdbBtn type="button" color="deep-orange" size="sm" class="btn " (click)="cancelBooking(content, cancel)">Submit</button>
+    </div>
 </ng-template>
