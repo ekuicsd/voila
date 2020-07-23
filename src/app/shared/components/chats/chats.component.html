@@ -1,107 +1,107 @@
 <div class="container-fluid">
-  <div class="row">
-    <div *ngIf="userService.getRole() === 'tourist'" class="col-lg-3 d-none d-lg-block px-0">
-      <app-chat-history-list></app-chat-history-list>
-    </div>
-    <!--  -->
-    <div *ngIf="userService.getRole() === 'tourist'" class="col-12 col-lg-9">
-      <div class="row">
-        <div class="col-12 col-lg-12 px-0 ">
-          <div class="row py-3 mx-0" style="background-color : #007bff; color: #b7e8eb;">
-            <div class="col-3 col-md-3 ">
-              <img src="http://placehold.it/50x50" class="circle" style="border-radius: 50%;">
-            </div>
-            <div class="col-9 col-sm-9">
-              <span style="font-size: 30px;"><b>{{name}}</b></span>
-            </div>
-          </div>
+    <div class="row">
+        <div *ngIf="userService.getRole() === 'tourist'" class="col-lg-3 d-none d-lg-block px-0">
+            <app-chat-history-list></app-chat-history-list>
         </div>
-      
-        <div class="col-sm-12 rowDiv" ngx-auto-scroll lock-y-offset="10" observe-attributes>
-          <div class="row">
-            <div class="col-sm-12 px-0">
-              <div class="message-wrapper" *ngFor="let message of messageArray">
-                <div class="left"  *ngIf="sender._id !== reciever._id && sender._id !== message.senderId">
-                  <div class="chat-bubble left slide-left">
-                    <div class="message">{{message.body}}</div>
-                  </div>
+        <!--  -->
+        <div *ngIf="userService.getRole() === 'tourist'" class="col-12 col-lg-9">
+            <div class="row">
+                <div class="col-12 col-lg-12 px-0 ">
+                    <div class="row py-3 mx-0" style="background-color : #007bff; color: #b7e8eb;">
+                        <div class="col-3 col-md-3 ">
+                            <img src="http://placehold.it/50x50" class="circle" style="border-radius: 50%;">
+                        </div>
+                        <div class="col-9 col-sm-9">
+                            <span style="font-size: 30px;"><b>{{name}}</b></span>
+                        </div>
+                    </div>
                 </div>
-      
-                <div class="right" *ngIf="sender._id === message.senderId">
-                  <div class="chat-bubble right slide-right">
-                    <div class="message">{{message.body}}</div>
-                  </div>
+
+                <div class="col-sm-12 rowDiv" ngx-auto-scroll lock-y-offset="10" observe-attributes>
+                    <div class="row">
+                        <div class="col-sm-12 px-0">
+                            <div class="message-wrapper" *ngFor="let message of messageArray">
+                                <div class="left" *ngIf="sender._id !== reciever._id && sender._id !== message.senderId">
+                                    <div class="chat-bubble left slide-left">
+                                        <div class="message">{{message.body}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="right" *ngIf="sender._id === message.senderId">
+                                    <div class="chat-bubble right slide-right">
+                                        <div class="message">{{message.body}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="cf"></div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-      
-                <div class="cf"></div>
-      
-              </div>
             </div>
-          </div>
+
+            <div class="row bottomFix">
+                <div class="col-9 col-md-10 col-lg-7 px-0">
+                    <form autocomplete="off">
+                        <input type="text" name="message" [(ngModel)]="message" class="form-control" placeholder="Type a message">
+                    </form>
+                </div>
+                <div class="col-3 col-md-2 col-lg-2 px-0">
+                    <button type="submit" class="form-control btn btn-success mx-0 my-0 btn-sm font-size" (click)="sendMessage()">Send</button>
+                </div>
+            </div>
         </div>
-      </div>
-    
-      <div class="row bottomFix">
-        <div class="col-9 col-md-10 col-lg-7 px-0">
-          <form autocomplete="off">
-            <input type="text" name="message" [(ngModel)]="message" class="form-control" placeholder="Type a message">
-          </form>
+
+        <div class="col" *ngIf="userService.getRole() === 'guide'">
+            <div class="row">
+                <div class="col-12 col-lg-12 px-0 ">
+                    <div class="row py-3 mx-0" style="background-color : #007bff; color: #b7e8eb;">
+                        <div class="col-3 col-md-3 ">
+                            <img src="http://placehold.it/50x50" class="circle" style="border-radius: 50%;">
+                        </div>
+                        <div class="col-9 col-sm-9">
+                            <span style="font-size: 30px;"><b>{{name}}</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 rowDiv" ngx-auto-scroll lock-y-offset="10" observe-attributes>
+                    <div class="row">
+                        <div class="col-sm-12 px-0">
+                            <div class="message-wrapper" *ngFor="let message of messageArray">
+                                <div class="left" *ngIf="sender._id !== reciever._id && sender._id !== message.senderId">
+                                    <div class="chat-bubble left slide-left">
+                                        <div class="message">{{message.body}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="right" *ngIf="sender._id === message.senderId">
+                                    <div class="chat-bubble right slide-right">
+                                        <div class="message">{{message.body}}</div>
+                                    </div>
+                                </div>
+
+                                <div class="cf"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row bottomFix">
+                <div class="col-9 col-md-10 col-lg-7 px-0">
+                    <form autocomplete="off">
+                        <input type="text" name="message" [(ngModel)]="message" class="form-control" placeholder="Type a message">
+                    </form>
+                </div>
+                <div class="col-3 col-md-2 col-lg-2 px-0">
+                    <button type="submit" class="form-control btn btn-success mx-0 my-0 btn-sm font-size" (click)="sendMessage()">Send</button>
+                </div>
+            </div>
         </div>
-        <div class="col-3 col-md-2 col-lg-2 px-0">
-          <button type="submit" class="form-control btn btn-success mx-0 my-0 btn-sm font-size" (click)="sendMessage()">Send</button>
-        </div>
-      </div>
     </div>
 
-    <div class="col"  *ngIf="userService.getRole() === 'guide'">
-      <div class="row">
-        <div class="col-12 col-lg-12 px-0 ">
-          <div class="row py-3 mx-0" style="background-color : #007bff; color: #b7e8eb;">
-            <div class="col-3 col-md-3 ">
-              <img src="http://placehold.it/50x50" class="circle" style="border-radius: 50%;">
-            </div>
-            <div class="col-9 col-sm-9">
-              <span style="font-size: 30px;"><b>Pinki</b></span>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col-sm-12 rowDiv" ngx-auto-scroll lock-y-offset="10" observe-attributes>
-          <div class="row">
-            <div class="col-sm-12 px-0">
-              <div class="message-wrapper" *ngFor="let message of messageArray">
-                <div class="left"  *ngIf="sender._id !== reciever._id && sender._id !== message.senderId">
-                  <div class="chat-bubble left slide-left">
-                    <div class="message">{{message.body}}</div>
-                  </div>
-                </div>
-      
-                <div class="right" *ngIf="sender._id === message.senderId">
-                  <div class="chat-bubble right slide-right">
-                    <div class="message">{{message.body}}</div>
-                  </div>
-                </div>
-      
-                <div class="cf"></div>
-      
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="row bottomFix">
-        <div class="col-9 col-md-10 col-lg-7 px-0">
-          <form autocomplete="off">
-            <input type="text" name="message" [(ngModel)]="message" class="form-control" placeholder="Type a message">
-          </form>
-        </div>
-        <div class="col-3 col-md-2 col-lg-2 px-0">
-          <button type="submit" class="form-control btn btn-success mx-0 my-0 btn-sm font-size" (click)="sendMessage()">Send</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  
 </div>

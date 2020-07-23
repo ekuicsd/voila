@@ -2,31 +2,32 @@
 <div class="row">
     <div class="col-3 pr-0  d-none d-lg-flex">
         <div class="navside p-0">
-          <div class="content1  m-auto">
-            <div class="row top-bar pt-4 pb-4 m-0 mb-2">
-                <div class="col-5 text-center">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" class="img-fluid z-depth-1 rounded-circle" alt="Responsive image">
+            <div class="content1  m-auto">
+                <div class="row top-bar pt-4 pb-4 m-0 mb-2">
+                    <div class="col-5 text-center">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" class="img-fluid z-depth-1 rounded-circle" alt="Responsive image">
 
                     </div>
-                <div class="col-7 guide-name m-auto">
+                    <div class="col-7 guide-name m-auto">
                         <b>{{user.name}}</b>
                     </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link mb-2 py-3" id="v-pills-bookings-tab" data-toggle="pill" [routerLink]="['bookings']" routerLinkActive="active" role="tab" aria-controls="v-pills-bookings" aria-selected="true">Bookings</a>
-                        <a class="nav-link mb-2 py-3" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['requests']" routerLinkActive="active" role="tab" aria-controls="v-pills-home" aria-selected="true">Requests</a>
-                        <a class="nav-link mb-2 py-3" id="v-pills-messages-tab" data-toggle="pill" [routerLink]="['messages']" routerLinkActive="active" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                        <a class="nav-link mb-2 py-3" id="v-pills-activities-tab" data-toggle="pill" [routerLink]="['activities']" routerLinkActive="active" role="tab" aria-controls="v-pills-activities" aria-selected="false">Recent Activities</a>
-                        <a class="nav-link mb-2 py-3" id="v-pills-deals-tab" data-toggle="pill" [routerLink]="['deals']" routerLinkActive="active" role="tab" aria-controls="v-pills-deals" aria-selected="false">Your Deals</a>
-                        <a class="nav-link mb-2 py-3" id="v-pills-profile-tab" data-toggle="pill" [routerLink]="['editProfile']" routerLinkActive="active" role="tab" aria-controls="v-pills-profile" aria-selected="false">Edit Profile</a>
-                        <a class="nav-link mb-2 py-3" id="v-pills-changepwd-tab" data-toggle="pill" [routerLink]="['changepassword']" routerLinkActive="active" role="tab" aria-controls="v-pills-changepwd" aria-selected="false">Change Password</a>
-                        <a class="nav-link mb-2 py-3" id="v-pills-profile-tab" data-toggle="pill" role="tab" (click)="logout()" aria-controls="v-pills-profile" aria-selected="false">Logout</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 white-text">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link mb-2 py-3" id="v-pills-bookings-tab" data-toggle="pill" [routerLink]="['bookings']" routerLinkActive="active" role="tab" aria-controls="v-pills-bookings" aria-selected="true">Bookings</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-home-tab" data-toggle="pill" [routerLink]="['requests']" routerLinkActive="active" role="tab" aria-controls="v-pills-home" aria-selected="true">Requests</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-messages-tab" data-toggle="pill" [routerLink]="['messages']" routerLinkActive="active" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-activities-tab" data-toggle="pill" [routerLink]="['activities']" routerLinkActive="active" role="tab" aria-controls="v-pills-activities" aria-selected="false">Recent Activities</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-deals-tab" data-toggle="pill" [routerLink]="['deals']" routerLinkActive="active" role="tab" aria-controls="v-pills-deals" aria-selected="false">Your Deals</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-profile-tab" data-toggle="pill" [routerLink]="['editProfile']" routerLinkActive="active" role="tab" aria-controls="v-pills-profile" aria-selected="false">Edit Profile</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-changepwd-tab" data-toggle="pill" [routerLink]="['changepassword']" routerLinkActive="active" role="tab" aria-controls="v-pills-changepwd" aria-selected="false">Change Password</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-profile-tab" data-toggle="pill" role="tab" (click)="logout()" aria-controls="v-pills-profile" aria-selected="false">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div></div>
+        </div>
     </div>
     <!-- main content on the right -->
     <div class="col-12 col-lg-9 main ">
@@ -37,5 +38,5 @@
             <span></span>
         </div>
         <router-outlet></router-outlet>
-  </div>
+    </div>
 </div>
