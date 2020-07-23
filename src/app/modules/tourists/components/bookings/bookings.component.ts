@@ -37,6 +37,16 @@ export class BookingsComponent implements OnInit {
     });
   }
 
+  disableStart(data) {
+    let today = new Date();
+    let start = new Date(data.startDate);
+    let diff = (start.getTime() - today.getTime()) / (1000 * 3600 * 24);
+    if(diff >= 0) {
+      return true;
+    }
+    return false;
+  }
+
   contactGuide(content, email, name) {
     this.modalService.dismissAll(content);
     this.router.navigateByUrl('/tourists/touristshome/messages/chats/guide/' + email  + '/' + name);

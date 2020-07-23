@@ -4,4 +4,5 @@ export interface Filter {
     rating: number;
     interests: string[];
     languages: string[];
+    city: string[];
 }

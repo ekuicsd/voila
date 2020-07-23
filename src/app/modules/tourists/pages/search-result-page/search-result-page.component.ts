@@ -28,7 +28,7 @@ export class SearchResultPageComponent implements OnInit {
   public interestList: string[]; 
   public languageList: string[];
   public langMore: boolean = true;
-  path;
+  public cityMore: boolean = true;
 
   constructor( private staticDataService: StaticDataService,
     private router: Router,
@@ -74,6 +74,10 @@ export class SearchResultPageComponent implements OnInit {
     this.langMore = !this.langMore;
   }
 
+  moreLessCity() {
+    this.cityMore = !this.cityMore;
+  }
+
   changeRating(data) {
     // console.log(data.target.value);
     // this.searchService.extra_filter.rating = data.target.value;
@@ -87,6 +91,16 @@ export class SearchResultPageComponent implements OnInit {
     } else {
       let index = this.searchService.extra_filter.interests.indexOf(data.element.value);
       this.searchService.extra_filter.interests.splice(index, 1);
+    }
+    this.searchService.getFilterData();
+  }
+
+  changeCity(data) {
+    if(data.checked) {
+      this.searchService.extra_filter.city.push(data.element.value)
+    } else {
+      let index = this.searchService.extra_filter.city.indexOf(data.element.value);
+      this.searchService.extra_filter.city.splice(index, 1);
     }
     this.searchService.getFilterData();
   }
@@ -117,6 +131,14 @@ export class SearchResultPageComponent implements OnInit {
     return false;
   }
 
+  getCities(city) {
+    let index = this.searchService.extra_filter.city.indexOf(city);
+    if(index !== -1) {
+      return true;
+    }
+    return false;
+  }
+
   resetAll() {
     // alert("reset");
     // this.rating = null;
@@ -126,7 +148,8 @@ export class SearchResultPageComponent implements OnInit {
       maxPrice: 2000,
       rating: null,
       languages: [],
-      interests: []
+      interests: [],
+      city: []
     };
   }
 

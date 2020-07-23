@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 import { Deals } from '../models/deals.model';
 import * as moment from 'moment';
 import { Filter } from '../models/filters.model';
-import { UserService } from './user.service';
+import csc from 'country-state-city';
 @Injectable({
     providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class SearchService {
     searchForm: FormGroup;
     public today = moment().toDate();
     public afterFour = moment().add(4, 'days').toDate();
-    public city = 'Delhi';
+    public state = 'Delhi';
     public range = {
       dateRange: {
         isRange: true,
@@ -43,6 +43,8 @@ export class SearchService {
     public noOfPeople = 2;
     public extra_filter: Filter;
     public user;
+    public stateList: any[];
+    public cityList: any[];
 
     public guidesList: any[] = [];
     public dealsList: Deals[] = [];
@@ -55,13 +57,33 @@ export class SearchService {
         private toastr: ToastrService) 
     {
         this.createForm();
+        this.getAllState('101');
+        this.getAllCity('Delhi');
         this.extra_filter = {
           minPrice: 100,
           maxPrice: 2000,
           rating: null,
           interests: [],
-          languages: []
+          languages: [],
+          city: []
         }
+    }
+
+    getAllState(countryId: string) {
+      console.log(countryId);
+      this.stateList = csc.getStatesOfCountry(countryId);
+      console.log(this.stateList);
+    }
+
+    getAllCity(statename) {
+      let stateId = this.stateList.filter(ele => {
+        if(ele.name === statename) {
+          return ele;
+        }
+      })[0].id;
+      console.log(stateId);
+      this.cityList = csc.getCitiesOfState(stateId);
+      console.log(this.cityList);
     }
 
 
@@ -75,7 +97,7 @@ export class SearchService {
 
     createForm() {
         this.searchForm = new FormGroup({
-          city: new FormControl('', [Validators.required]),
+          state: new FormControl('Delhi', [Validators.required]),
           startDate: new FormControl(),
           range: new FormControl(),
           endDate: new FormControl(),
@@ -86,7 +108,7 @@ export class SearchService {
 
       getFilterData() {
         this.searchForm.patchValue({
-            city: this.city,
+            state: this.state,
             range: this.range,
             startDate: this.convertDateIntoString(this.range.dateRange.beginDate),
             endDate: this.convertDateIntoString(this.range.dateRange.endDate),
