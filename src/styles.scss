@@ -266,3 +266,8 @@ body {
   width: 100%;
   display: flex;
 }
+
+button:disabled, button[disabled], .btn.disabled, .btn:disabled {
+  background-color: #cccccc;
+  opacity: 0.5;
+}
