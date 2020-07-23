@@ -84,6 +84,7 @@ export class SearchService {
       console.log(stateId);
       this.cityList = csc.getCitiesOfState(stateId);
       console.log(this.cityList);
+      this.cityList = this.cityList.map(ele => ele.name);
     }
 
 

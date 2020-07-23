@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neuton:ital@1&display=swap');
+.card input{
+  font-family: 'Neuton', serif !important;
+}
+.card select{
+    font-family: 'Neuton', serif !important;
+  }
 .register-card {
     -webkit-box-shadow: 11px 12px 26px -2px rgba(217, 217, 217, 1);
     -moz-box-shadow: 11px 12px 26px -2px rgba(217, 217, 217, 1);
