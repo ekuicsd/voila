@@ -75,7 +75,7 @@ const routes: Routes = [
             path: 'chatList', component: ChatHistoryListComponent
           }, 
           {
-            path: 'chats/:role/:email', component: ChatsComponent,
+            path: 'chats/:role/:email/:name', component: ChatsComponent,
           }
         ]  
       },
