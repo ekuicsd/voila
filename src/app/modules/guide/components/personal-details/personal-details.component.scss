@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Neuton:ital@1&display=swap');
 .card{
     margin: auto;
     width: 80%;
@@ -8,6 +8,9 @@
     font-size: larger;
     // font-weight: bolder;
     // height: 80%;
+}
+.card input{
+  font-family: 'Neuton', serif;
 }
 .center{
     text-align: center;
