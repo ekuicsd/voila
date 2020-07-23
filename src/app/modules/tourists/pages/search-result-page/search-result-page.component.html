@@ -68,6 +68,16 @@
                         </ngb-panel>
                         <ngb-panel>
                             <ng-template ngbPanelTitle>
+                                <b>CITIES</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <input type="text" name="citySearch" [(ngModel)]="citySearch" class="form-control mb-2" placeholder="search for city">
+                                <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch" [checked]="getCities(city)"
+                                [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>                            
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel>
+                            <ng-template ngbPanelTitle>
                                 <b>INTERESTS</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
@@ -79,7 +89,8 @@
                                 <b>LANGUAGES</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <mdb-checkbox *ngFor="let language of languageList" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
+                                <input type="text" name="citySearch" [(ngModel)]="langSearch" class="form-control mb-2" placeholder="search for city">
+                                <mdb-checkbox *ngFor="let language of languageList | filter:langSearch" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
                             </ng-template>
                         </ngb-panel>
 
@@ -150,16 +161,16 @@
                 <!-- Default unchecked -->
                 <div class="mb-0"><b>CITIES</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
-
+                <input type="text" name="citySearch" [(ngModel)]="citySearch" class="form-control mb-2" placeholder="search for city">
                 <div *ngIf="cityMore">
-                    <mdb-checkbox *ngFor="let city of searchService.cityList | slice:0:15" [checked]="getCities(city.name)"
-                    [value]="city.name" (change)="changeCity($event)" [default]="true">{{ city.name }}</mdb-checkbox>
-                    <p class="my-2 text-info cursor" (click)="moreLessCity()">More+</p>
+                    <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch | slice:0:15" [checked]="getCities(city)"
+                    [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>
+                    <p class="my-2 text-info cursor" *ngIf="searchService.cityList.length > 15" (click)="moreLessCity()">More+</p>
                 </div>
                 <div *ngIf="!cityMore">
-                    <mdb-checkbox *ngFor="let city of searchService.cityList" [checked]="getCities(city.name)"
-                    [value]="city.name" (change)="changeCity($event)" [default]="true">{{ city.name }}</mdb-checkbox>
-                    <p class="my-2 text-info cursor" (click)="moreLessCity()">Less-</p>
+                    <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch" [checked]="getCities(city)"
+                    [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>
+                    <p class="my-2 text-info cursor" *ngIf="searchService.cityList.length < 15"  (click)="moreLessCity()">Less-</p>
                 </div>
 
             </div>
@@ -170,7 +181,6 @@
                 <!-- Default unchecked -->
                 <div class="mb-0"><b>INTERESTS</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
-
                 <div>
                     <mdb-checkbox *ngFor="let interest of interestList" [checked]="getInterest(interest)" [value]="interest" (change)="changeInterest($event)" [default]="true">{{ interest }}</mdb-checkbox>
                 </div>
@@ -182,13 +192,14 @@
                 <!-- Default unchecked -->
                 <div class="mb-0"><b>LANGUAGES</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
+                <input type="text" name="langSearch" [(ngModel)]="langSearch" class="form-control mb-2" placeholder="search for language">
                 <div *ngIf="!langMore" >
-                    <mdb-checkbox *ngFor="let language of languageList" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
-                    <p  class="my-2 text-info cursor" (click)="moreLess()">Less-</p>
+                    <mdb-checkbox *ngFor="let language of languageList | filter:langSearch" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
+                    <p  class="my-2 text-info cursor" *ngIf="languageList.length <= 15" (click)="moreLess()">Less-</p>
                 </div>
                 <div *ngIf="langMore" >
-                    <mdb-checkbox *ngFor="let language of languageList | slice:0:15" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
-                    <p class="my-2 text-info cursor" (click)="moreLess()">More+</p>
+                    <mdb-checkbox *ngFor="let language of languageList | filter:langSearch | slice:0:15" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
+                    <p class="my-2 text-info cursor" *ngIf="languageList.length > 15" (click)="moreLess()">More+</p>
                 </div>
             </div>
         </div>

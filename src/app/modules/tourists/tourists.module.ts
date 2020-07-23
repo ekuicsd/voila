@@ -158,7 +158,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     Ng5SliderModule,
-    StarRatingModule.forRoot(),
+    // StarRatingModule.forRoot(),
     // StarRatingModule,
     // RatingModule,
     NgbModule

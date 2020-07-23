@@ -26,6 +26,7 @@ import { PersonalModalComponent } from './components/personal-modal/personal-mod
 import { DealModalComponent } from './components/deal-modal/deal-modal.component';
 import { RatingModalComponent } from './components/rating-modal/rating-modal.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const routes: Routes = [
     {
@@ -86,7 +87,8 @@ const routes: Routes = [
         PersonalModalComponent,
         DealModalComponent,
         RatingModalComponent,
-        ChatRoomComponent
+        ChatRoomComponent,
+        FilterPipe
     ],
     imports: [
         CommonModule,
@@ -113,7 +115,8 @@ const routes: Routes = [
         PersonalModalComponent,
         DealModalComponent,
         RatingModalComponent,
-        ChatRoomComponent
+        ChatRoomComponent,
+        FilterPipe
     ]
 }) 
 

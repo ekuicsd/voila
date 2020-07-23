@@ -29,6 +29,8 @@ export class SearchResultPageComponent implements OnInit {
   public languageList: string[];
   public langMore: boolean = true;
   public cityMore: boolean = true;
+  public langSearch: string = '';
+  public citySearch: string = '';
 
   constructor( private staticDataService: StaticDataService,
     private router: Router,
