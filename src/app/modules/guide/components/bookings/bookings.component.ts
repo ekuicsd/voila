@@ -53,10 +53,10 @@ export class BookingsComponent implements OnInit {
   //   )
   // }
 
-  contactTourist(content, email) {
+  contactTourist(content, email, name) {
     console.log(email);
     console.log(email);
-    this.router.navigateByUrl('/guide/guidehome/messages/chats/tourist/' + email);
+    this.router.navigateByUrl('/guide/guidehome/messages/chats/tourist/' + email + '/' + name);
     this.modalService.dismissAll(content);
   }
 
@@ -64,6 +64,11 @@ export class BookingsComponent implements OnInit {
     console.log(data);
     this.selectedBooking = data;
     this.modalService.open(content, { centered: true, scrollable: true});
+  }
+
+  contactTouristRoom(content, roomId) {
+    this.router.navigateByUrl('/guide/guidehome/message/chatRooms/' + roomId);
+    this.modalService.dismissAll(content);
   }
 
 

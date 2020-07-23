@@ -59,6 +59,15 @@ export class MessageService {
             });
         });
     }
+
+    getAllChatRoomMsg(roomId) : Observable<any> {
+        let url = '/getAll/' + roomId;
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
    
     
 }

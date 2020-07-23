@@ -34,6 +34,7 @@ import { StarRatingModule } from 'angular-star-rating';
 
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ChatRoomComponent } from 'src/app/shared/components/chat-room/chat-room.component';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'touristshome', component: TouristsHomeComponent, children: [
@@ -57,6 +58,9 @@ const routes: Routes = [
       canActivate: [TouristGuardService]
     },
     {
+      path: 'message/chatRooms/:roomId', component: ChatRoomComponent
+    },
+    {
       path: 'messages', component: MessagesComponent, canActivate: [TouristGuardService], children: [
         {
           path: '', redirectTo: 'chatList', pathMatch: 'full'
@@ -65,11 +69,12 @@ const routes: Routes = [
           path: 'chatList', component: ChatHistoryListComponent
         }, 
         {
-          path: 'chats/:role/:email', component: ChatsComponent,
+          path: 'chats/:role/:email/:name', component: ChatsComponent,
         }
       ]
       
     },
+    
     // {
     //   path: 'chats/:role/:email', component: MessagesComponent,
     //   canActivate: [TouristGuardService]

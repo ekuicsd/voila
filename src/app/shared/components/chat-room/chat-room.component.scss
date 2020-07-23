@@ -40,7 +40,7 @@
   .message-wrapper {
     position: relative;
     margin-top: 10px;
-    z-index: 800 !important;
+    z-index: 700 !important;
   }
   .chat-bubble {
     border-radius: 10px;
@@ -228,16 +228,11 @@
 //   margin: 0;
 //   padding: 0;
 // }
-.sendbox{
-  display: flex;
-flex-direction: column;
-}
-.sendbox1{
-  margin-top: auto;
+// .sendbox{
+//   display: flex;
+// flex-direction: column;
+// }
+// .sendbox1{
+//   margin-top: auto;
 
-}
-
-.font-size {
-  font-size: 15px;
-  // height: 17px;
-}
+// }

@@ -37,9 +37,19 @@ export class BookingsComponent implements OnInit {
     });
   }
 
-  contactGuide(content, email) {
+  disableStart(data) {
+    let today = new Date();
+    let start = new Date(data.startDate);
+    let diff = (start.getTime() - today.getTime()) / (1000 * 3600 * 24);
+    if(diff >= 0) {
+      return true;
+    }
+    return false;
+  }
+
+  contactGuide(content, email, name) {
     this.modalService.dismissAll(content);
-    this.router.navigateByUrl('/tourists/touristshome/messages/chats/guide/' + email);
+    this.router.navigateByUrl('/tourists/touristshome/messages/chats/guide/' + email  + '/' + name);
   }
 
   openCancelRequest(content) {
@@ -68,5 +78,11 @@ export class BookingsComponent implements OnInit {
       this.getAllBookingsList();
     });
   }
+
+  contactTouristRoom(content, roomId) {
+    this.router.navigateByUrl('/tourists/touristshome/message/chatRooms/' + roomId);
+    this.modalService.dismissAll(content);
+  }
+
 
 }

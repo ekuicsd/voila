@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-
+import * as moment from 'moment';
 export class CustomValidators {
 
     static contactNumber(control: AbstractControl): ValidationErrors {
@@ -62,7 +62,34 @@ export class CustomValidators {
         if (pwd.value !== cpwd.value) {
           return { invalid: true };
         }
-      }
+    }
+
+    static fromDateValidation(control: AbstractControl): any {
+    if (!control.value) {
+        return null;
+    } 
+    let today = new Date();
+    let from = new Date(control.value);
+    let diff = (from.getTime() - today.getTime()) / (1000 * 3600 * 24); 
+    return diff > 0 ? null : 'date must after today';
+    }
+
+    static fromToDateValidation(control: AbstractControl): any {
+        if (!control.value) {
+            return null;
+        } 
+        if (!control.parent || !control) { 
+            return; 
+        }
+        const start = control.parent.get('startDate');
+        const end = control.parent.get('endDate'); 
+        let from = new Date(start.value);
+        let to = new Date(end.value);
+        let diff = (to.getTime() - from.getTime()) / (1000 * 3600 * 24); 
+        return diff >= 0 ? null : 'date must after from date';
+    }
+
+
 
 
 }

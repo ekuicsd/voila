@@ -5,7 +5,8 @@ import { UserService } from './shared/service/user.service';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { GuideService } from './shared/service/guide.service';
 import { TouristsService } from './shared/service/tourists.service';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -17,20 +18,15 @@ export class AppComponent {
   @ViewChild('basicModal', { static: false}) modal1: MDBModalService;
   ShowLoadingIndicator = true;
   public onGoingEvents: any[] = [];
-  selected = 0;
-  hovered = 0;
-  readonly = false;
-  public reviews: string = '';
 
  constructor(private loadRouter : Router,
     public userService: UserService,
     public jwtService: JwtService,
     private modalService: NgbModal,
     private guideService: GuideService,
+    private toastr: ToastrService,
     private touristService: TouristsService,
   ){
-
-
       this.loadRouter.events.subscribe((routerEvent :Event) =>
       {
         if(routerEvent instanceof NavigationStart){
@@ -70,19 +66,22 @@ export class AppComponent {
   this.modalService.open(content);
  }
 
- completeTour(content) {
-   let request = {
-     rating: 5,
-     reviews: this.reviews
-   };
-    this.touristService.cancelrequest(this.onGoingEvents[0]._id, 'COMPLETED', request).subscribe( res => {
-      console.log(res);
-    });
- }
-
  open(content) {
   this.modalService.open(content);
   }
 
+  getEndDate(data) {
+    if(data) {
+      let today = new Date();
+      let end = new Date(data.endDate);
+      let diff = (end.getTime() - today.getTime()) / (1000 * 3600 * 24);
+      if(diff >= 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+    
+   
 
 }

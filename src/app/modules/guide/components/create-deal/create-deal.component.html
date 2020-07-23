@@ -10,34 +10,34 @@
           <div class="col-6">
             <div class="form-group">
               <label for="form6">State</label>
-              <!-- <input type="text" id="form6" formControlName="state" class="form-control"> -->
-              <select class="form-control" id="form58" formControlName="state" class="browser-default custom-select" #state
+              <input type="text" id="form6" disabled formControlName="state" class="form-control">
+              <!-- <select class="form-control" id="form58" formControlName="state" class="browser-default custom-select" #state
                   (change)="getAllCity(state.value)">
                   <option value="" disabled>Select State</option>
-                  <option *ngFor="let item of stateList" [value]="item.name"> {{ item?.name }}</option>
-              </select>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="form7">City</label>
-                                <!-- <input type="text" id="form7" formControlName="city" class="form-control"> -->
-                                <select formControlName="city" class="form-control" class="browser-default custom-select" id="form58">
-                  <option value="" disabled>Select City</option>
-                  <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
-              </select>
+                  <option *ngFor="let item of stateList" disabled [value]="item.name"> {{ item?.name }}</option>
+              </select> -->
+            </div>
           </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="form7">City</label>
+              <!-- <input type="text" id="form7" formControlName="city" class="form-control"> -->
+              <select formControlName="city" class="form-control" class="browser-default custom-select" id="form58">
+                <option value="" disabled>Select City</option>
+                <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
+              </select>
+            </div>
           </div>
           <div class="col-6">
             <div class="form-group">
               <label for="form5">People Limit</label>
-              <input type="number" id="form5" formControlName="peopleLimit" class="form-control">
+              <input type="number" id="form5" formControlName="peopleLimit" placeholder="enter people limit" class="form-control">
             </div>
           </div>
           <div class="col-6">
             <div class="form-group">
               <label for="form6">Price Per Head</label>
-              <input type="number" id="form6" formControlName="price" class="form-control">
+              <input type="number" id="form6" formControlName="price" placeholder="enter per head charges" class="form-control">
             </div>
           </div>
           <div class="col-6">
@@ -75,7 +75,7 @@
           <div class="col-6 col-lg-5">
             <div class="form-group">
               <label for="form18">Place</label>
-              <input type="text" id="form18" [(ngModel)]="place" class="form-control">
+              <input type="text" id="form18" [(ngModel)]="place" placeholder="enter place" class="form-control">
             </div>
           </div>
           <div class="col-6 col-lg-5">
@@ -116,7 +116,7 @@
         </div>
       </div>
       </mdb-card-text>
-      <a mdbBtn [routerLink]="['/guide/guidehome/deals']" routerLinkActive="router-link-active"  style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Cancel</a>
+      <a mdbBtn [routerLink]="['/guide/guidehome/deals']" style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Cancel</a>
       <a mdbBtn (click)="saveDeal()" style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Create</a>
     </mdb-card-body>
   </mdb-card>

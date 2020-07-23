@@ -33,7 +33,7 @@ export class HistoriesComponent implements OnInit {
   }
 
   getAllPreviousList() {
-    this.touristService.getAllBookingsByStatus('COMPLETE').subscribe( res => {
+    this.touristService.getAllBookingsByStatus('COMPLETED').subscribe( res => {
       console.log(res);
       if(res.length > 0) {
         this.previousList = res;
@@ -43,13 +43,9 @@ export class HistoriesComponent implements OnInit {
     });
   }
 
-  addReview() {
-    // let request = {rating: this.val, review: this.review };
-    // this.touristService.cancelrequest(this.selectedPrevious._id, 'COMPLETED', request).subscribe( res => {
-    //   console.log(res);
-    //   this.toastr.success("Review added successfully!");
-    //   this.getAllPreviousList();
-    // });
+  openRating(content) {
+    this.modalService.open(content);
   }
 
+  
 }
