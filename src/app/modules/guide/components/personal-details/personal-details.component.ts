@@ -10,24 +10,15 @@ import { CustomValidators } from 'src/app/validators/custom';
 })
 export class PersonalDetailsComponent implements OnInit {
 
-  // url: string | ArrayBuffer;
-  // onSelectFile(event) { // called each time file input changes
-  //     if (event.target.files && event.target.files[0]) {
-  //       var reader = new FileReader();
-
-  //       reader.readAsDataURL(event.target.files[0]); // read file as data url
-
-  //       reader.onload = (event) => { // called once readAsDataURL is completed
-  //         this.url = FileReader.;
-  //       }
-  //     }
-  // }
   // public countryCode: string = '101';
   
   @Output() personalData: EventEmitter<any> = new EventEmitter<any>();
+  @Output() profileData: EventEmitter<any> = new EventEmitter<any>();
   stateList: any[];
   cityList: any[];
   public personalDetails: FormGroup;
+  public myFiles: string[] = [];
+  urlArray:any=[];
 
   constructor(private toastr: ToastrService) { }
 
@@ -72,10 +63,25 @@ export class PersonalDetailsComponent implements OnInit {
         state: selectedState.name
       })
       console.log(this.personalDetails.value);
+      this.profileData.emit(this.myFiles);
       this.personalData.emit(this.personalDetails.value);
     } else {
       this.toastr.error("Invalid details!");
     }
+  }
+
+  onSelectFile(event) {
+    this.myFiles=[];
+    console.log(event.target.files);
+    for (var i = 0; i < event.target.files.length; i++) { 
+      this.myFiles.push(event.target.files[i]);
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[i]); // read file as data url
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.urlArray.push(reader.result);
+      }
+    }
+    console.log(this.urlArray);
   }
 
 }
