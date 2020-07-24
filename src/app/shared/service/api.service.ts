@@ -73,13 +73,13 @@ export class ApiService {
   }
 
   putWithMedia(path: string, body): Observable<any> {
-    const HttpUploadOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "multipart/form-data",
-        authorization : this.jwtService.getToken()
-      })
-    };
-    this.http = new HttpClient(this.httpBackend);
+    // const HttpUploadOptions = {
+    //   headers: new HttpHeaders({
+    //     // "Content-Type": "multipart/form-data",
+    //     authorization : this.jwtService.getToken()
+    //   })
+    // };
+    // this.http = new HttpClient(this.httpBackend);
 
     // console.log("path..." + environment.api_url + path);
     console.log("body..."+ body);
