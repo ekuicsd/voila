@@ -13,6 +13,7 @@ export class LanguagesComponent implements OnInit {
   public gradientList: string[] = [];
   public languageList: any;
   public selectedLanguageList = [];
+  public langSearch: string = '';
 
   constructor(private staticDataService: StaticDataService,
     private toastr: ToastrService,

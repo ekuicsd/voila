@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl : 'https://voila2020.herokuapp.com',
-  // baseUrl2 : 'http://localhost:3000'
+  // baseUrl : 'http://localhost:3000'
 };
 
 /*

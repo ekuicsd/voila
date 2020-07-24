@@ -233,3 +233,12 @@ body, button, input {
     padding: 0;
   }
 }
+.adminLink {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+}
+
+.adminLink:hover {
+  text-decoration: none;
+}

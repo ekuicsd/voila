@@ -64,6 +64,11 @@
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
             </li>
+            <li class="nav-item" (click)="getOngoingEvents()">
+                <a  (click)="onLinkClick()" class="nav-link waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="clipboard-check"></mdb-icon>Events
+                </a>
+            </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
@@ -115,6 +120,11 @@
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Deals</a>
             </li>
+            <li class="nav-item" (click)="getOngoingEvents()">
+                <a  (click)="onLinkClick()" class="nav-link waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="clipboard-check"></mdb-icon>Events
+                </a>
+            </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
@@ -139,9 +149,13 @@
         </ul>
         <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')"
             class="navbar-nav ml-auto d-none d-lg-inline-flex">
+            <li class="nav-item" (click)="getOngoingEvents()">
+                <a  (click)="onLinkClick()" class="nav-link waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="clipboard-check"></mdb-icon>Events
+                </a>
+            </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
@@ -151,7 +165,6 @@
             </li>
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <!-- More<span class="caret"></span> -->
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
@@ -185,12 +198,6 @@
     <!-- Collapsible content -->
 </mdb-navbar>
 <!--/.Navbar-->
-
-
-
-
-
-
 
 
 
@@ -263,6 +270,11 @@
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Bookings</a>
             </li>
+            <li class="nav-item" (click)="getOngoingEvents()">
+                <a  (click)="onLinkClick()" class="nav-link waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="clipboard-check"></mdb-icon>Events
+                </a>
+            </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
@@ -314,6 +326,11 @@
                     <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                     <mdb-icon fas icon="calendar-alt"></mdb-icon>Deals</a>
             </li>
+            <li class="nav-item" (click)="getOngoingEvents()">
+                <a  (click)="onLinkClick()" class="nav-link waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="clipboard-check"></mdb-icon>Events
+                </a>
+            </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
@@ -338,9 +355,13 @@
         </ul>
         <ul *ngIf="jwtService.getToken() && (userService.getRole() === 'guide')"
             class="navbar-nav ml-auto d-none d-lg-inline-flex">
+            <li class="nav-item" (click)="getOngoingEvents()">
+                <a  (click)="onLinkClick()" class="nav-link waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="clipboard-check"></mdb-icon>Events
+                </a>
+            </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
                     <mdb-icon fas icon="question-circle"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
@@ -350,7 +371,6 @@
             </li>
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <!-- More<span class="caret"></span> -->
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
@@ -385,3 +405,160 @@
 </mdb-navbar>
 <!--/.Navbar-->
 
+
+
+
+<div mdbModal #basicModal="mdbModal" [config]="{show: false}" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-side modal-bottom-right " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h6 class="modal-title w-100" id="myModalLabel">On Going Events</h6>
+      </div>
+      <div *ngIf="onGoingEvents" class="modal-body">
+        <div class="row">
+          <div class="col">
+            <b>{{onGoingEvents[0]?.startDate | date: 'yyyy/dd/MM'}}</b> -
+            <b>{{onGoingEvents[0]?.endDate  | date: 'yyyy/dd/MM'}}</b>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>{{onGoingEvents[0]?.tourType | titlecase}}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!onGoingEvents"  class="modal-body">
+        <h6>No onGoing Events!</h6>
+      </div>
+      <div class="modal-footer" *ngIf="onGoingEvents">
+        <!-- [routerLink]="['/tourists/touristshome/bookings/now']" -->
+        <button type="button" *ngIf="userService.getRole() === 'tourist'"
+         mdbBtn size="sm"
+         color="secondary" class="waves-light" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
+         View
+        </button>
+        <!-- [routerLink]="['/guide/guidehome/bookings']" -->
+        <button type="button" *ngIf="userService.getRole() === 'guide'"
+          mdbBtn size="sm"
+         color="secondary" class="waves-light" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
+         View
+        </button>
+
+        <button type="button" (click)="open(rating)" *ngIf="userService.getRole() === 'tourist'"
+           routerLinkActive="router-link-active"
+          mdbBtn size="sm" color="primary" class="relative waves-light" [disabled]="getEndDate(onGoingEvents[0])" mdbWavesEffect>
+          Completed
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h5 class="modal-title" id="modal-basic-title">Tour Details</h5>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body p-4">
+      <div class="row">
+        <div class="col-12">
+         <h6>{{onGoingEvents[0]?.tourType | titlecase}} Tour
+            <span class="float-right">{{onGoingEvents[0]?.bookingDate | date: 'dd-MM-yyyy'}}</span>
+          </h6>
+        </div>
+      </div>
+      <hr class="mt-0">
+      <div class="row">
+        <div class="col-6">
+          <B>Price</B>
+        </div>
+        <div class="col-6">
+          Rs. {{onGoingEvents[0]?.price}}/-
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>Start Date</B>
+        </div>
+        <div class="col-6">
+          {{onGoingEvents[0]?.startDate | date: 'dd-MM-yyyy'}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>Duration</B>
+        </div>
+        <div class="col-6">
+          {{onGoingEvents[0]?.duration}} days
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>People</B>
+        </div>
+        <div class="col-6">
+          {{onGoingEvents[0]?.noOfPeople}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <B>Group Type</B>
+        </div>
+        <div class="col-6">
+          {{onGoingEvents[0]?.groupType | titlecase}}
+        </div>
+      </div>
+      <!-- <table class="table">
+        <thead>
+          <tr>
+            <th><b>Sr no.</b></th>
+            <th><b>Tourist Name</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of onGoingEvents[0]?.touristId; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item.name | titlecase}}</td>
+          </tr>
+        </tbody>
+      </table> -->
+      <!-- <table *ngIf="onGoingEvents?.tourType === 'deal'" class="table">
+        <thead>
+          <tr>
+            <th><b>Sr no.</b></th>
+            <th><b>Tour Places</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of onGoingEvents?.places; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item | titlecase}}</td>
+          </tr>
+        </tbody>
+      </table> -->
+  </div>
+  <div class="modal-footer row mx-0 ">
+       <div class="col">
+         <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Ok&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+      </div>
+      <div class="col">
+        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light"
+          *ngIf="userService.getRole() === 'tourist'" (click)="open(rating)"  [disabled]="getEndDate(onGoingEvents[0])"
+          mdbWavesEffect>
+          Completed!&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
+      </div>
+    </div>
+</ng-template>
+
+
+<ng-template #rating let-c1="close" let-d1="dismiss">
+  <app-rating-modal [bookingId]="this.onGoingEvents[0]?._id" (close)="d1('Cross click')"></app-rating-modal>
+</ng-template>

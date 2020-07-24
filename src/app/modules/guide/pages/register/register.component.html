@@ -1,6 +1,6 @@
 <wizard #wizard class="arc-wizard background" navBarLayout="large-filled-symbols">
   <wizard-step stepTitle="Personal Details" navigationSymbol="1">
-    <app-personal-details (personalData)="getPersonalData($event)"></app-personal-details>
+    <app-personal-details (personalData)="getPersonalData($event)" (profileData)="getProfileData($event)"></app-personal-details>
   </wizard-step>
   <wizard-step stepTitle="Business Details" navigationSymbol="2">
     <app-bussiness-details (basicData)="getBasicData($event)"

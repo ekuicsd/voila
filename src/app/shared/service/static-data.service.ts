@@ -30,7 +30,8 @@ export class StaticDataService {
         const groupTypes = [
             'Family',
             'Friends',
-            'Couples'
+            'Couples',
+            'All Types'
         ];
         return groupTypes;
     }
