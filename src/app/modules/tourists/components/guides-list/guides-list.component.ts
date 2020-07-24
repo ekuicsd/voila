@@ -57,11 +57,5 @@ export class GuidesListComponent implements OnInit {
     }
   }
 
-  getSelectedCard(guide) {
-    if(this.selectedGuide === guide) {
-      return true;
-    }
-    return false;
-  }
 
 }
