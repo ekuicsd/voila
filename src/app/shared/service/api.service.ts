@@ -3,6 +3,7 @@ import { HttpClient, HttpParams, HttpHeaders, HttpBackend } from '@angular/commo
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { environment } from 'src/environments/environment';
+import { JwtService } from './jwt.service';
 
 
 @Injectable({
@@ -12,7 +13,8 @@ export class ApiService {
 
   constructor(
     private http: HttpClient,
-    private httpBackend: HttpBackend
+    private httpBackend: HttpBackend,
+    private jwtService: JwtService
   ) { }
 
   private formatErrors(error: any) {
@@ -67,6 +69,22 @@ export class ApiService {
     console.log("body..."+ body);
     return this.http
       .post(`${environment.baseUrl}${path}`, body)
+      .pipe(catchError(this.formatErrors));
+  }
+
+  putWithMedia(path: string, body): Observable<any> {
+    const HttpUploadOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "multipart/form-data",
+        authorization : this.jwtService.getToken()
+      })
+    };
+    this.http = new HttpClient(this.httpBackend);
+
+    // console.log("path..." + environment.api_url + path);
+    console.log("body..."+ body);
+    return this.http
+      .put(`${environment.baseUrl}${path}`, body)
       .pipe(catchError(this.formatErrors));
   }
 
