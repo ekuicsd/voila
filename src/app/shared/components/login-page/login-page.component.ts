@@ -14,6 +14,7 @@ export class LoginPageComponent implements OnInit {
 
   public LoginForm: FormGroup;
   public role: string = 'tourist';
+  public show = false;
 
   constructor(private userService: UserService,
               private location: Location,
@@ -89,8 +90,13 @@ export class LoginPageComponent implements OnInit {
 
   }
 
-  get f() {
-    return this.LoginForm.controls;
+  showPwd(data) {
+    console.log(data.target.checked);
+    if(data.target.checked) {
+      this.show = true;
+    } else {
+      this.show = false;
+    }
   }
 
 }
