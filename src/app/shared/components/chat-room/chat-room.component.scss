@@ -44,7 +44,7 @@ img.imgMsg {
 }
 
 .message-wrapper {
-    position: relative;
+    // position: relative;
     margin-top: 10px;
     z-index: 700 !important;
 }
@@ -257,6 +257,12 @@ emoji-content {
 
 .small-f {
     font-size: 1.5vmin;
+}
+
+.font-size {
+    font-size: 15px;
+    // height: 17px;
+    height: 42px;
 }
 
 // body{
