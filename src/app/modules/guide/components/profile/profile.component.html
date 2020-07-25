@@ -16,8 +16,16 @@
 <!-- <hr class="mt-0"> -->
 <div class=" font mx-4 mb-5">
     <div class="row" style="margin-top: 40px;">
-        <div class=" col-12 col-md-3">
+        <div class=" col-7 col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
+        </div>
+        <div class="col-5 d-block d-md-none text-right  mb-2" *ngIf="urlArray.length <= 0">
+            <img [src]="userData.picUrl ? userData.picUrl : '../../../../../assets/images/grayman.png'" height="60px" width="60px" 
+                style="border-radius: 50%;" alt="">
+        </div>
+        <div class="col-5 d-block d-md-none text-right  mb-2" *ngIf="urlArray.length > 0">
+            <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" 
+                style="border-radius: 50%;" alt="">
         </div>
         <div class="col-12 col-md-9">
             <div class="row">
@@ -60,6 +68,14 @@
             <div class="col-6 mb-3  mb-md-4  ">
                 <b style="color: rgba(3, 169, 244, 0.7)">State  </b>
             <div> {{userData.state | titlecase}}</div>
+            </div>
+            <div class="col-6 d-none d-md-block" *ngIf="urlArray.length <= 0">
+                <img [src]="userData.picUrl ? userData.picUrl : '../../../../../assets/images/grayman.png'" height="60px" width="60px" 
+                    style="border-radius: 50%;" alt="">
+            </div>
+            <div class="col-6 d-none d-md-block" *ngIf="urlArray.length > 0">
+                <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" 
+                    style="border-radius: 50%;" alt="">
             </div>
         </div>
         </div>
@@ -196,95 +212,6 @@
     </div>
 </div>
 
-<!-- edit profile modal -->
-<!-- <ng-template #editPersonalModal let-c="close" let-d="dismiss">
-    <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
-        <button type="button" class="close pull-right" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title w-100" id="myModalLabel">Edit Personal Details</h4>
-    </div>
-    <form [formGroup]="personalDetails" (ngSubmit)="submitPersonalDetails()">
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="myform">Gender</label>
-                        <select class="form-control browser-default custom-select" formControlName="gender">
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Ms">Ms</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <label for="form1">Name</label>
-                        <input type="text" id="form1" class="form-control" formControlName="name">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group form-sm">
-                        <label for="form2">Email</label>
-                        <input type="email" id="form2" class="form-control" formControlName="email" disabled>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label for="form3">Date Of Birth</label>
-                        <input type="date" id="form3" disabled formControlName="dob" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <div class="form-group form-sm">
-                        <label for="form4">Aadhar Number</label>
-                        <input type="text" id="form4" class="form-control" formControlName="aadhaarNumber" disabled>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="form5">Phone Number</label>
-                        <input type="tel" id="form5" formControlName="phoneNumber" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="form6">State</label>
-                        <input type="text" id="form6" formControlName="state" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="form7">City</label>
-                        <input type="text" id="form7" formControlName="city" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="form8">Address</label>
-                        <textarea id="form8" formControlName="address" class="form-control">
-                        </textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="float-right">
-            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
-            <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
-        </div>
-    </form>
-  </ng-template> -->
-
 
 <div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
@@ -379,6 +306,20 @@
                                 <textarea id="form8" formControlName="address" class="form-control">
                                 </textarea>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <div class="upload-image">
+                                  <label class=" control-label upload"  for="filebutton">
+                                    <mdb-icon fas icon="camera-retro"></mdb-icon>&nbsp;
+                                    <span>Upload file<br></span>
+                                    <input id="filebutton" name="filebutton" #inputFile (change)="onSelectFile($event)" type="file" >
+                                  </label>
+                                </div>
+                              </div>
+                              <!-- <small class="text-mute">If want to change or upload!</small> -->
                         </div>
                     </div>
                 </div>

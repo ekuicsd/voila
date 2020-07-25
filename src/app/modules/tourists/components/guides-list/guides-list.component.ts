@@ -15,6 +15,7 @@ export class GuidesListComponent implements OnInit {
 
  @ViewChild('personalTour', { static: false}) modal: MDBModalService;
  public guide;
+ public selectedGuide;
 
   constructor(public searchService: SearchService,
     private userService: UserService,
@@ -47,5 +48,14 @@ export class GuidesListComponent implements OnInit {
     // this.router.navigateByUrl('/login/tourist');
     }
   }
+
+  setSelectedGuide(guide) {
+    if(this.selectedGuide == guide) {
+      this.selectedGuide = undefined;
+    } else {
+      this.selectedGuide = guide;
+    }
+  }
+
 
 }

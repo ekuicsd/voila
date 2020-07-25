@@ -31,7 +31,10 @@ export class ProfileComponent implements OnInit {
   public languageList: any[] = [];
   public expVariable: string = '';
   public stateList: any[];
-  public cityList: any[]; 
+  public cityList: any[];
+  public myFiles: string[] = [];
+  urlArray:any=[];
+
 
   constructor(private userService: UserService, 
     private guideService: GuideService,
@@ -181,6 +184,7 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  
   submitBusinessDetails() {
     if(this.businessDetails.valid) {
       this.userData.peopleLimit = this.businessDetails.value.peopleLimit;
@@ -253,8 +257,34 @@ export class ProfileComponent implements OnInit {
     this.userData.interests.splice(index, 1);
   }
 
+  onSelectFile(event) {
+    this.myFiles = [];
+    console.log(event.target.files);
+    for (var i = 0; i < event.target.files.length; i++) { 
+      this.myFiles.push(event.target.files[i]);
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[i]); // read file as data url
+      reader.onload = (event) => { // called once readAsDataURL is completed
+      this.urlArray.push(reader.result);
+      }
+    }
+    console.log(this.urlArray);
+  }
+
+
   saveRecord() {
-    this.guideService.updateUserDetails(this.userData).subscribe( res => {
+    console.log(this.userData);
+    const formData = new FormData();
+    formData.append("data", JSON.stringify(this.userData));
+    console.log(formData);
+    if(this.myFiles.length > 0) {
+      for (var i = 0; i < this.myFiles.length; i++) { 
+        // console.log("in for loop");
+        formData.append("profilePic", this.myFiles[i]);
+      }
+    }
+    console.log(formData);
+    this.guideService.updateUserDetails(formData).subscribe( res => {
         console.log(res);
         this.userService.saveUser(res.profile, 'guide');
         this.getUser();

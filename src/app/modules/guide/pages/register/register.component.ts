@@ -15,12 +15,17 @@ export class RegisterComponent implements OnInit {
 
   @ViewChild('wizard', {static: false}) wizard: WizardComponent;
   guide: Guide = {};
+  file: any;
 
   constructor(private toastr: ToastrService,
     private router: Router,
     private guideService: GuideService) { }
 
   ngOnInit() {
+  }
+
+  getProfileData(data) {
+    this.file = data;
   }
 
   getPersonalData(data) {
@@ -56,6 +61,9 @@ export class RegisterComponent implements OnInit {
     console.log(this.guide);
     const formData = new FormData();
     formData.append("data", JSON.stringify(this.guide));
+    for (var i = 0; i < this.file.length; i++) { 
+      formData.append("profilePic", this.file[i]);
+    }
     this.guideService.guideSignup(formData).subscribe( res => {
       if(res.success) {
         console.log(res);

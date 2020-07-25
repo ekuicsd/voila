@@ -1,7 +1,7 @@
 #timeline {
   display: -webkit-box;
   display: flex;
-  background-color: #031625;
+  background-color: #553D67;
 }
 #timeline:hover .tl-item {
   width: 23.3333%;
@@ -30,7 +30,7 @@
   height: 100%;
 }
 .tl-item:after {
-  background: rgba(3, 22, 37, 0.85);
+  background: #553d67c2;
   opacity: 1;
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
