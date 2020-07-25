@@ -1,4 +1,4 @@
-<div class="container-fluid bg">
+<div class="container-fluid bg px-0" >
     <div class="container d-none d-md-block mb-5">
         <div class="welcome">
             <div class="pinkbox px-5 py-5" [ngClass]="role === 'tourist' ? 'zeroTransform' : 'eightyTransform'">
@@ -12,7 +12,7 @@
                         </div>
                         <div class="md-form form-group mb-5">
                             <input mdbInput type="password" formControlName="password" id="form2" class="form-control">
-                            <label for="form2">password</label>
+                            <label for="form2">Password</label>
                             <a class="mt-2 text-info float-right">Forgot Password?</a>
                             <!-- <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                         </div>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="md-form form-group mb-5">
                             <input mdbInput type="password" formControlName="password" id="form4" class="form-control">
-                            <label for="form4">password</label>
+                            <label for="form4">Password</label>
                             <a class="mt-2 text-info float-right">Forgot Password?</a>
 
                             <!-- <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
@@ -67,7 +67,7 @@
             <div class="login-html1">
                 <input id="tab-1" type="radio" name="tab" class="sign-in" [routerLink]="['/login/guide']" [checked]="role === 'guide'"><label for="tab-1" class="tab">Guide</label>
                 <input id="tab-2" type="radio" name="tab" class="sign-up" [routerLink]="['/login/tourist']" [checked]="role === 'tourist'"><label for="tab-2" class="tab">Tourist</label>
-                <div class="login-form1 mt-5">
+                <div class="login-form1 mt-4">
                     <div class="sign-in-htm1">
                         <form [formGroup]="LoginForm" autocomplete="off">
                             <div class="group1 form-group mb-4">

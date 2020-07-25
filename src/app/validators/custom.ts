@@ -90,6 +90,15 @@ export class CustomValidators {
     }
 
 
-
+    static dobValidation(control: AbstractControl): any {
+        if (!control.value) {
+            return null;
+        } 
+        let today = new Date();
+        let dob = new Date(control.value);
+        let diff = (today.getTime() - dob.getTime()) / (1000 * 3600 * 24 * 365.25); 
+        console.log(diff);
+        return diff > 14 ? null : 'allowed only after 15 years old';
+        }
 
 }
