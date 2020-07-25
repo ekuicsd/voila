@@ -81,7 +81,54 @@ export class StaticDataService {
             'seventh',
             'eighth',
             'ninth'
-        ]
+        ];
+    }
+
+    getSiteDevelopers() : any[] {
+        return [
+            {
+                name: 'Ekta Garg',
+                picUrl: '../../../../assets/images/Ekta.jpeg',
+                email: 'happyekta99@gmail.com',
+                instagram: 'ektagarg99',
+                github: 'ekuicsd'
+            },
+            {
+                name: 'Rajat Sharma',
+                picUrl: '../../../../assets/images/rajat.jpg',
+                email: 'rajatsharmaatri@gmail.com',
+                instagram: 'rajat_sd',
+                github: 'RAJATsd'
+            },
+            {
+                name: 'Venu Gopal',
+                picUrl: '../../../../assets/images/venu.jpeg',
+                email: 'venugopalsinghal@gmail.com',
+                instagram: 'venugopalsinghal',
+                github: 'venugopalsinghal'
+            },
+            {
+                name: 'Shobit Jain',
+                picUrl: '../../../../assets/images/Shobhit.jpeg',
+                email: 'jainshobit0@gmail.com',
+                instagram: 'sj_2050_',
+                github: 'sj1218305'
+            },
+            {
+                name: 'Vidhi Agrawal',
+                picUrl: '../../../../assets/images/vidhi.JPG',
+                email: 'vidhiagrawal305@gmail.com',
+                instagram: 'vidhi_agrawal3',
+                github: 'vidhiagrawal3'
+            },
+            {
+                name: 'Archit Jain',
+                picUrl: '../../../../assets/images/archit.JPG',
+                email: 'architjain808@gmail.com',
+                instagram: '_archit.jain_',
+                github: 'architjain808'
+            },
+        ];
     }
     
 }

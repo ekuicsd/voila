@@ -36,8 +36,8 @@ export class PersonalModalComponent implements OnInit {
     this.personalBooking = new FormGroup({
     price: new FormControl(0),
     noOfPeople: new FormControl('', [Validators.required, CustomValidators.compondValueValidate]),
-    startDate: new FormControl('', [Validators.required]),
-    endDate: new FormControl('', [Validators.required]),
+    startDate: new FormControl('', [Validators.required, CustomValidators.fromDateValidation]),
+    endDate: new FormControl('', [Validators.required, CustomValidators.fromToDateValidation]),
     groupType: new FormControl('', [Validators.required]),
     status: new FormControl('REQUESTED'),
     tourType: new FormControl('Personalized'),

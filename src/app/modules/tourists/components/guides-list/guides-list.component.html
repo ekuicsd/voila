@@ -4,11 +4,13 @@
             <mdb-card-body class="p-3">
                 <div class="row">
                     <div class="col-md-4 col-lg-3">
-                        <img src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" width="100%" height="100%" alt="...">
+                        <img [src]="guide.picUrl ? guide.picUrl : '../../../../../../../assets/images/grayman.png'" 
+                            class="" width="100%" height="100%" alt="...">
                     </div>
                     <div class="col-md-4 col-lg-5">
                         <mdb-card-title style="font-size: 20px;">
-                            <strong [routerLink]="['/tourists/touristshome/guideProfile', guide._id]">{{guide.gender}} {{guide.name}}</strong>
+                            <strong [routerLink]="['/tourists/touristshome/guideProfile', guide._id]">
+                                {{guide.gender}} {{guide.name}}</strong>
                         </mdb-card-title>
                         <hr class="my-1">
                         <div style="font-size: 16px;">
@@ -24,7 +26,7 @@
                         </div>
                         <span class="float-right">
                             <!-- <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="text-decoration-none">View more</a> -->
-                            <a (click)="setSelectedGuide(guide)" [attr.aria-expanded]="selectedGuide == guide" [attr.aria-controls]="i" class="text-decoration-none">View more</a>
+                            <a (click)="setSelectedGuide(guide)" class="text-info" [attr.aria-expanded]="selectedGuide == guide" [attr.aria-controls]="i" class="text-decoration-none">View more</a>
                         </span>
                     </div>
                     <div class="col-md-4 p-2" style="border-left: 1px solid rgba(128, 128, 128, 0.356);">
@@ -38,17 +40,13 @@
                             <button (click)="openModal(personalTour, guide)" type="button" size="sm" class="btn btn-cyan">Request for Personalised Tour</button>
                         </div>
                         <div class=" mt-1 mb-0">
-                            <i class="fa fa-star " aria-hidden="true"></i>
-                            <i class="fa fa-star " aria-hidden="true"></i>
-                            <i class="fa fa-star " aria-hidden="true"></i>
-                            <i class="fa fa-star " aria-hidden="true"></i> &nbsp; (22+ Reviews)
+                            <i class="fa fa-star" *ngFor="let star of getRating(guide)" aria-hidden="true"></i>
+                            &nbsp; ({{guide.reviewAndRating.length}}+ Reviews)
                         </div>
                     </div>
                 </div>
             </mdb-card-body>
         </div>
-
-
         <div class="collapse mx-md-4" [id]="i" [ngbCollapse]="selectedGuide !== guide">
             <div class="mt-3">
                 <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
@@ -83,17 +81,17 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <h1>
-                                            <mdb-badge pill="true" primary="true">4.2 <i class="fa fa-star " aria-hidden="true"></i></mdb-badge>
+                                            <mdb-badge pill="true" primary="true">
+                                                <i class="fa fa-star" *ngFor="let star of getRating(guide)" aria-hidden="true"></i></mdb-badge>
                                         </h1>
                                     </div>
                                     <div class="col-12">
-                                        <b>Voila rating</b> based on 256 reviews
+                                        <b>Voila rating</b> based on {{guide.reviewAndRating.length}} reviews
                                     </div>
                                 </div>
                                 <div class="my-4">
                                     <h3>Recent Review</h3>
                                     <div>
-                                        <div><b>Alexender roxx</b> 4.5/5</div>
                                         <p>Greate Experience feel great.</p>
                                     </div>
                                 </div>
@@ -101,62 +99,49 @@
                             <div class="col-md-8 my-1" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
                                 <h4>More Reviews</h4>
                                 <br>
-                                <div class="row">
+                                <div class="row" *ngFor="let item of guide.reviewAndRating | slice:0:2">
                                     <div class="col-sm-3">
                                         <h6>
-                                            <mdb-badge pill="true" primary="true">4.2</mdb-badge>
+                                            <mdb-badge pill="true" primary="true">{{item.rating}}</mdb-badge>
                                         </h6>
-                                        <p><b>Alexa sexy</b></p>
+                                        <p><b>{{item.tourType | titlecase}} Tour</b></p>
                                     </div>
                                     <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
                                         <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
                                             <mdb-icon fas icon="check-double"></mdb-icon>
                                         </mdb-badge>&nbsp;
-                                        <p>Greate Experience and a really cool and hot man to roam with</p>
+                                        <p>{{item.review}}</p>
+                                        <hr>
                                     </div>
                                 </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6>
-                                            <mdb-badge pill="true" danger="true">2.2</mdb-badge>
-                                        </h6>
-                                        <p><b>Hot Natasha</b></p>
-                                    </div>
-                                    <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
-                                        <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
-                                            <mdb-icon fas icon="check-double"></mdb-icon>
-                                        </mdb-badge>&nbsp;
-
-                                        <p>Great Experience and a really cool and hot man to roam with</p>
-                                    </div>
-                                </div>
-                                <hr>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="deal" role="tabpanel" aria-labelledby="deal-tab">
                         <h3 class="text-black">Recommended deals</h3>
                         <div class="row p-2 text-center" *ngIf="getDealsList(guide).length > 0">
-                            <div class="col-lg-3 col-md-4" *ngFor="let deal of getDealsList(guide)">
+                            <div class="col-lg-3 col-md-4" *ngFor="let deal of getDealsList(guide) | slice:0:3">
                                 <div class="view deal-card guide-card">
                                     <img src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" width="100%" alt="">
                                     <div class="mask rgba-purple-light white-text">
                                         <div class="text-center" style="overflow-wrap: break-word;">
-                                            <h5>Nandpur Fort Tour</h5>
+                                            <h5>{{deal.places[0]?.place | titlecase}} and more</h5>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white-text black my-2" mdbWavesEffect>BOOK NOW!</button>
+                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" 
+                                    class="white-text black my-2" [routerLink]="['/tourists/touristshome/guideProfile', guide._id]"
+                                    mdbWavesEffect>BOOK NOW!</button>
                                 </div>
                             </div>
                             <div>
-                                <button mdbBtn type="button" size="sm" color="primary" mdbWavesEffect>More Deals</button>
+                                <button mdbBtn type="button" [routerLink]="['/tourists/touristshome/searchResult/dealsList']" 
+                                 size="sm" color="primary" mdbWavesEffect>More Deals</button>
                             </div>
                         </div>
                         <div *ngIf="getDealsList(guide).length <= 0" class="row p-2 text-center">
-                            <h2>No Deals</h2>
+                            <h2>No Deals Avialable</h2>
                         </div>
                     </div>
                 </div>
@@ -169,24 +154,20 @@
 <div class="row m-3">
     <div class="col-12 col-sm-6 col-md-6  d-block d-lg-none mb-4" *ngFor="let guide of searchService.guidesList">
         <div class="view guide-card" style="position: relative;">
-            <img src="https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" alt="">
+            <img [src]="guide.picUrl ? guide.picUrl : '../../../../../../../assets/images/grayman.png'" 
+            width="100%" height="100%" alt="">
             <div class="mask mygradient white-text">
                 <div class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-
-                    <div style="font-size:12px;">(22 REVIEWS)</div>
+                    <i class="fa fa-star star" *ngFor="let star of getRating(guide)" aria-hidden="true"></i>
+                    <div style="font-size:12px;">({{guide.reviewAndRating.length}}+ REVIEWS)</div>
                 </div>
                 <div style="position:absolute; bottom:6px; left:10px; overflow-wrap: break-word;">
-                    <h4 class="guide-name">{{guide.gender}} {{guide.name | titlecase}}</h4>
-
+                    <h4 [routerLink]="['/tourists/touristshome/guideProfile', guide._id]" 
+                    class="guide-name">{{guide.gender}} {{guide.name | titlecase}}</h4>
                 </div>
                 <div style="position:absolute; bottom:6px; right:10px;" class="float-right">
                     <div class="text-center">₹{{guide.perHeadCharge}}/head/day</div>
-
                     <button type="button" (click)="openModal(personalTour, guide)" style=" border: 1px solid black; font-size: 15px;" class="white black-text my-2" mdbWavesEffect>BOOK NOW!</button>
-
                 </div>
             </div>
         </div>

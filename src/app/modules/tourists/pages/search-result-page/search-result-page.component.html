@@ -89,7 +89,7 @@
                                 <b>LANGUAGES</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <input type="text" name="citySearch" [(ngModel)]="langSearch" class="form-control mb-2" placeholder="search for city">
+                                <input type="text" name="citySearch" [(ngModel)]="langSearch" class="form-control mb-2" placeholder="search for language">
                                 <mdb-checkbox *ngFor="let language of languageList | filter:langSearch" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
                             </ng-template>
                         </ngb-panel>

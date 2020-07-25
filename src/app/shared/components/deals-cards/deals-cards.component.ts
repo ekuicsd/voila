@@ -15,6 +15,7 @@ export class DealsCardsComponent implements OnInit {
   
   @Input() dealsList : any[] = [];
   @Input() role: string; //guide or tourist
+  @Input() isFav = '';
   @ViewChild('dealTour', {static: false}) modal1: MDBModalService;
 
   isValid: boolean;
@@ -40,13 +41,13 @@ export class DealsCardsComponent implements OnInit {
   }
 
   openModal1(content, deal) {
-    if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+    // if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
       this.modal1.show(content, {ignoreBackdropClick: true});
       this.selectedDeal = deal;
-    } else {
-      this.toastr.warning("Please login as tourist!");
-      // this.router.navigateByUrl('/login/tourist');
-    }
+    // } else {
+    //   this.toastr.warning("Please login as tourist!");
+    //   // this.router.navigateByUrl('/login/tourist');
+    // }
   }
 
 
@@ -62,7 +63,8 @@ export class DealsCardsComponent implements OnInit {
        }
       });
     } else {
-      this.toastr.warning("Please Login First!");
+      this.router.navigateByUrl('/login/tourist');
+      // this.toastr.warning("Please Login First!");
     }
     console.log(this.dealsList);
   }
@@ -75,6 +77,12 @@ export class DealsCardsComponent implements OnInit {
           let index = deal.favorites.indexOf(this.userId);
           if(index !== -1) {
             deal.favorites.splice(index, 1);
+          }
+          if(this.isFav !== '') {
+            let index2 = this.dealsList.indexOf(deal);
+            if(index2 !== -1) {
+            this.dealsList.splice(index2, 1);
+          }
           }
           console.log(res);
         } else {

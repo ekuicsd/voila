@@ -8,18 +8,18 @@ import * as $ from 'jquery';
 
 })
 export class HelpPageComponent implements OnInit {
- addClass() {
-      document.body.classList.add("sent");
-    }
 
   constructor() { }
 
   ngOnInit() {
-$('body').delegate('.c-faq', 'click', function(){
-  $('.c-faq').removeClass('c-faq--active');
-  $(this).addClass('c-faq--active');
-});
+    $('body').delegate('.c-faq', 'click', function(){
+      $('.c-faq').removeClass('c-faq--active');
+      $(this).addClass('c-faq--active');
+    });
+  }
 
+  addClass() {
+    document.body.classList.add("sent");
   }
 
 }

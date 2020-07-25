@@ -9,6 +9,7 @@ import { Deals } from '../models/deals.model';
 import * as moment from 'moment';
 import { Filter } from '../models/filters.model';
 import csc from 'country-state-city';
+import { CustomValidators } from 'src/app/validators/custom';
 @Injectable({
     providedIn: 'root'
 })
@@ -99,12 +100,12 @@ export class SearchService {
     createForm() {
         this.searchForm = new FormGroup({
           state: new FormControl('Delhi', [Validators.required]),
-          startDate: new FormControl(),
+          startDate: new FormControl([Validators.required]),
           range: new FormControl(),
-          endDate: new FormControl(),
-          noOfPeople: new FormControl(4),
+          endDate: new FormControl([Validators.required]),
+          noOfPeople: new FormControl(4, [Validators.required, CustomValidators.noOfPeopleValidation]),
           filter: new FormControl(true)
-        })
+        });
       }
 
       getFilterData() {

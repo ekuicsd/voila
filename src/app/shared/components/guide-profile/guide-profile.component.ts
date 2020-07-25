@@ -1,15 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {IMyDpOptions} from 'mydatepicker';
 import { ActivatedRoute, Router } from '@angular/router';
-import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { SearchService } from '../../service/search.service';
-import { StaticDataService } from '../../service/static-data.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { Booking } from '../../models/booking.model';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { UserService } from '../../service/user.service';
-import { TouristsService } from '../../service/tourists.service';
 @Component({
   selector: 'app-guide-profile',
   templateUrl: './guide-profile.component.html',
@@ -36,7 +29,7 @@ export class GuideProfileComponent implements OnInit {
     if(this.guideId) {
       this.searchService.getGuideById(this.guideId).subscribe( res => {
         this.guide = res.guide;
-        this.dealList = res.guide.deals;
+        this.dealList = res.deals;
         console.log(res);
       });
     }

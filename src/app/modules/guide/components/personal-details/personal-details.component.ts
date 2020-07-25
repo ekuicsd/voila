@@ -33,7 +33,7 @@ export class PersonalDetailsComponent implements OnInit {
       gender: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required, CustomValidators.passwordConfirming]),
-      dob: new FormControl('', [Validators.required]),
+      dob: new FormControl('', [Validators.required, CustomValidators.dobValidation]),
       phoneNumber: new FormControl('', [Validators.required, CustomValidators.contactNumber]),
       email: new FormControl('', [Validators.required, Validators.email]),
       address: new FormControl('', [Validators.required, Validators.minLength(3)]),
