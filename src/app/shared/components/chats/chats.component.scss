@@ -71,9 +71,9 @@ img.imgMsg {
     background: #f1f0f0;
     float: left;
     margin-left: 7px;
-    -webkit-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
-    -moz-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
-    box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
+    // -webkit-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
+    // -moz-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
+    // box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
 }
 
 .chat-bubble.left:before {
@@ -83,9 +83,9 @@ img.imgMsg {
     border-radius: 10px;
     -webkit-transform: rotate(70deg) skew(5deg);
     transform: rotate(70deg) skew(5deg);
-    -webkit-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
-    -moz-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
-    box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
+    // -webkit-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
+    // -moz-box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
+    // box-shadow: 0px 7px 26px -11px rgba(0, 0, 0, 0.53);
 }
 
 .chat-bubble.right {
@@ -137,7 +137,7 @@ input,
 textarea,
 .item-input,
 .item-input-wrapper {
-    background: #64b5f6;
+    // background: #64b5f6;
     height: 42px !important;
 }
 
@@ -277,4 +277,8 @@ emoji-content {
 .font-size {
     font-size: 15px;
     // height: 17px;
+}
+
+.small-f {
+    font-size: 1.5vmin;
 }
