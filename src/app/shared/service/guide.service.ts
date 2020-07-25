@@ -60,7 +60,7 @@ export class GuideService{
     updateUserDetails(body) : Observable<any> {
         let url = '/guide/profile/update/GUIDE';
         return new Observable<any>( obs => {
-            this.apiService.put(url, body).subscribe( res => {
+            this.apiService.putWithMedia(url, body).subscribe( res => {
                 obs.next(res);
             });
         });
