@@ -44,8 +44,8 @@ export class GuidesListComponent implements OnInit {
     this.guide = guide;
     this.modal.show(content);
     } else {
-      this.toastr.warning("please login as tourist!");
-    // this.router.navigateByUrl('/login/tourist');
+      this.router.navigateByUrl('/login/tourist');
+      // this.toastr.warning("please login as tourist!");
     }
   }
 
@@ -57,5 +57,20 @@ export class GuidesListComponent implements OnInit {
     }
   }
 
+  getRating(guide) : any {
+    let rating = 0;
+    guide.reviewAndRating.filter( ele => {
+      if(ele.rating) {
+        rating = rating + ele.rating;
+        return ele;
+      }
+    });
+    rating = Math.floor(+rating / guide.reviewAndRating.length );
+    let arr = [];
+    for(let i= 0; i< rating; i++) {
+      arr.push(i);
+    }
+    return arr;
+  }
 
 }
