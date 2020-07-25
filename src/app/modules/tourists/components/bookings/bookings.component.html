@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid px-0">
     <!-- <app-blog></app-blog> -->
     <!--  -->
     <div class="d-none d-md-block" *ngIf="bookingsList">
@@ -17,7 +17,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Sr no.</th>
-                                    <th scope="col">City</th>
+                                    <th scope="col">State</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">Duration</th>
                                     <th scope="col">Action</th>
@@ -26,16 +26,16 @@
                             <tbody>
                                 <tr *ngFor="let data of bookingsList; let i = index">
                                     <th scope="row">{{i+1}}</th>
-                                    <td>{{data.guideId?.city | titlecase}}</td>
+                                    <td>{{data.guideId?.state}}</td>
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
                                         <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
-                      <b>VIEW</b>
-                    </button>&nbsp;
+                                        <b>VIEW</b>
+                                        </button>&nbsp;
                                         <button class="btn" color="info" style="margin: auto;" [disabled]="disableStart(data)" (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
-                        <b>START</b>
-                    </button>
+                                        <b>START</b>
+                                    </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -81,8 +81,8 @@
                             <div>{{data.duration}} days</div>
                         </div>
                         <div class="col-4">
-                            <div><b>People</b></div>
-                            <div>{{data.noOfPeople}}</div>
+                            <div><b>State</b></div>
+                            <div>{{data.guideId?.state}}</div>
                         </div>
                     </div>
                 </mdb-card-text>
@@ -112,10 +112,18 @@
         <hr class="mt-0">
         <div class="row">
             <div class="col-6">
+                <B>Guide Name</B>
+            </div>
+            <div class="col-6">
+                {{selectedBooking.guideId?.name | titlecase}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
                 <B>State</B>
             </div>
             <div class="col-6">
-                {{selectedBooking.guideId?.state | titlecase}}
+                {{selectedBooking.guideId?.state}}
             </div>
         </div>
         <div class="row">
@@ -163,34 +171,38 @@
                 <tr>
                     <th><b>Sr no.</b></th>
                     <th><b>Tour Places</b></th>
+                    <th><b>Date</b></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of selectedBooking?.places; let i = index">
                     <td>{{i+1}}</td>
-                    <td>{{item | titlecase}}</td>
+                    <td>{{item.place | titlecase}}</td>
+                    <td>{{item.date | date: 'dd-MM-yyyy'}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="modal-footer row mx-0 ">
-        <div class="col">
-            <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
+    <div class="modal-footer mx-0 ">
+       <div class="row w-100">
+        <div class="col-4 px-1">
+            <button mdbBtn class="btn-block waves-light px-1" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
         </div>
-        <div class="col">
-            <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light"
+        <div class="col-4 px-1">
+            <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light px-1"
             *ngIf="selectedBooking.tourType !== 'deal'"
              (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
             Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
             <button type="button" mdbBtn color="deep-orange" 
-            *ngIf="selectedBooking.tourType === 'deal'" size="sm" class="btn-block waves-light" 
+            *ngIf="selectedBooking.tourType === 'deal'" size="sm" class="btn-block waves-light px-1" 
             (click)="contactTouristRoom(content, selectedBooking.roomDetails._id)" mdbWavesEffect>
              Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
         </div>
-        <div class="col">
+        <div class="col-4 px-1">
             <button type="button" mdbBtn color="secondary" [disabled]="disableStart(selectedBooking)"
-            size="sm" class="waves-light btn-block" mdbWavesEffect>Start Tour&nbsp;</button>
+            size="sm" class="waves-light btn-block px-1" mdbWavesEffect>Start Tour&nbsp;</button>
         </div>
+       </div>
     </div>
 </ng-template>
 
@@ -210,6 +222,6 @@
     </div>
     <div class="modal-footer">
         <button mdbBtn type="button" color="danger" size="sm" class="btn" (click)="c1('Save click')">Close</button>
-        <button mdbBtn type="button" color="deep-orange" size="sm" class="btn " (click)="cancelBooking(content, cancel)">Submit</button>
+        <button mdbBtn type="button" color="deep-orange" size="sm" class="btn " (click)="cancelBooking(content, cancel)">Cancel</button>
     </div>
 </ng-template>

@@ -1,11 +1,12 @@
-<div class="container ml-md-5">
+<div class="container-fluid ">
     <div class="row">
-        <div class="col-md-5 col-lg-4 pr-2">
+        <div class="col-md-5 col-lg-4">
             <mdb-card class="sticky mt-4">
                 <div class="container mt-4">
                     <div class="row">
                         <div class="col-4 col-sm-3 col-md-3 view overlay waves-light " mdbWavesEffect>
-                            <img [src]="guide?.picUrl ? guide?.picUrl : '../../assets/images/grayman.png'" class="img-fluid rounded-circle z-depth-0" style="height:80px; width:80px;">
+                            <img [src]="guide?.picUrl ? guide?.picUrl : '../../assets/images/grayman.png'" 
+                            class="img-fluid rounded-circle z-depth-0" style="height:80px; width:80px;">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -13,17 +14,13 @@
                         <div class="col-8 col-sm-9 col-md-9">
                             <h2>{{guide?.name | titlecase}}</h2>
                             <div>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <strong> 22 Reviews</strong>
+                                <mdb-icon *ngFor="let star of getRating()" fas icon="star"></mdb-icon>
+                                <strong> {{ratings.length}}+ Reviews</strong>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr class="myt-4 mx-3 mb-0">
+                <hr class="mt-4 mx-3 mb-0">
                 <mdb-card-body style="font-size: 18px !important;">
                     <div class="py-2">
                         <mdb-icon fas icon="check-circle" class="purple-text pr-1"></mdb-icon>Verified <strong>Local Tour Guide</strong>
@@ -47,41 +44,29 @@
             </mdb-card>
         </div>
         <div class="col-md-7 col-lg-8">
-            <img *ngIf="guide?.picUrl" [src]="guide?.picUrl" class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px">
+            <img *ngIf="guide?.picUrl" [src]="guide?.picUrl" 
+            class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px">
             <!-- <img *ngIf="!(guide?.picUrl)" src="" class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px"> -->
             <br>
             <br>
             <div>
                 <h2>Reviews</h2>
-                <div class="row">
+                <div class="row" *ngFor="let rate of ratings | slice:0:3">
                     <div class="col-sm-3">
                         <h6>
-                            <mdb-badge pill="true" primary="true">4.2</mdb-badge>
+                            <mdb-badge pill="true" primary="true">{{rate.rating}}</mdb-badge>
                         </h6>
-                        <p><b>Alexa sexy</b></p>
+                        <p><b>{{rate.tourType | titlecase}}</b></p>
                     </div>
                     <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
                         <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
                             <mdb-icon fas icon="check-double"></mdb-icon>
                         </mdb-badge>&nbsp;
-                        <p>Greate Experience and a really cool and hot man to roam with</p>
+                        <p>{{rate.review}}</p>
                     </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <h6>
-                            <mdb-badge pill="true" danger="true">2.2</mdb-badge>
-                        </h6>
-                        <p><b>Hot Natasha</b></p>
-                    </div>
-                    <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
-                        <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
-                            <mdb-icon fas icon="check-double"></mdb-icon>
-                        </mdb-badge>&nbsp;
-                        <p>Great Experience and a really cool and hot man to roam with</p>
-                    </div>
-                </div>
+
             </div>
             <div class="card my-4 bgclass">
                 <div class="view overlay mx-auto pt-5">

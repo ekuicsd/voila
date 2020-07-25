@@ -17,7 +17,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Sr no.</th>
-                                    <th scope="col">Tourist</th>
+                                    <th scope="col">Tour Type</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">Duration</th>
                                     <th scope="col">Action</th>
@@ -26,13 +26,13 @@
                             <tbody>
                                 <tr *ngFor="let data of bookingsList; let i = index">
                                     <th scope="row">{{i+1}}</th>
-                                    <td>{{data.touristId[0]?.name | titlecase}}</td>
+                                    <td>{{data.tourType | titlecase}}</td>
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
                                         <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
-                    <b>VIEW</b>
-                  </button>
+                                            <b>VIEW</b>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -92,11 +92,27 @@
         <div class="row">
             <div class="col-12">
                 <h6>{{selectedBooking.tourType | titlecase}} Tour
-                    <span class="float-right">{{selectedBooking.bookingDate | date: 'dd-MM-yyyy'}}</span>
+                    <span class="float-right">On {{selectedBooking.bookingDate | date: 'dd-MM-yyyy'}}</span>
                 </h6>
             </div>
         </div>
         <hr class="mt-0">
+        <div *ngIf="selectedBooking.tourType !== 'deal'" class="row">
+            <div class="col-6">
+                <B>Tourist Name</B>
+            </div>
+            <div class="col-6">
+                {{selectedBooking.touristId[0]?.name | titlecase}}
+            </div>
+        </div>
+        <div *ngIf="selectedBooking.tourType !== 'deal'" class="row">
+            <div class="col-6">
+                <B>Tourist Nationality</B>
+            </div>
+            <div class="col-6">
+                {{selectedBooking.touristId[0]?.nationality}}
+            </div>
+        </div>
         <div class="row">
             <div class="col-6">
                 <B>Price</B>
@@ -137,22 +153,42 @@
                 {{selectedBooking.groupType | titlecase}}
             </div>
         </div>
-        <table class="table">
+        <h6 class="mb-1" *ngIf="selectedBooking.tourType === 'deal'">Tourists</h6>
+        <table *ngIf="selectedBooking.tourType === 'deal'" class="table">
             <thead>
                 <tr>
                     <th><b>Sr no.</b></th>
                     <th><b>Tourist Name</b></th>
+                    <th><b>Nationality</b></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of selectedBooking.touristId; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{item.name | titlecase}}</td>
+                    <td>{{item.nationality}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h6 class="mb-1" *ngIf="selectedBooking.tourType === 'deal'">Places</h6>
+        <table *ngIf="selectedBooking.tourType === 'deal'" class="table">
+            <thead>
+                <tr>
+                    <th><b>Sr no.</b></th>
+                    <th><b>Tour Places</b></th>
+                    <th><b>Date</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of selectedBooking?.places; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{item.place | titlecase}}</td>
+                    <td>{{item.date | date: 'dd-MM-yyyy'}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="modal-footer row mx-0 ">
+    <div class="modal-footer row mx-0">
         <div class="col">
             <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;
           <mdb-icon fas icon="ban"></mdb-icon></button>
