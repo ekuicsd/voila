@@ -66,13 +66,10 @@ export class SearchResultPageComponent implements OnInit, OnDestroy {
     this.languageList = languages.getLanguages().map(ele => ele.name[0]);
     this.interestList = this.staticDataService.getAllInterestList();
       this.searchService.getFilterData();
-      // console.log(this.router.url);
       if(this.router.url === '/tourists/touristshome/searchResult/dealsList') {
        this.router.navigateByUrl('/tourists/touristshome/searchResult/guidesList');
       }
-      // window.scrollTo(0,0);
       this.routerSubscription = this.router.events
-        // .filter(event => event instanceof NavigationEnd)
         .subscribe(event => {
             document.body.scrollTop = 0;
         });
@@ -96,13 +93,10 @@ export class SearchResultPageComponent implements OnInit, OnDestroy {
   }
 
   changeRating(data) {
-    // console.log(data.target.value);
-    // this.searchService.extra_filter.rating = data.target.value;
     this.searchService.getFilterData();
   }
 
   changeInterest(data) {
-    // console.log(data);
     if(data.checked) {
       this.searchService.extra_filter.interests.push(data.element.value)
     } else {
@@ -157,9 +151,6 @@ export class SearchResultPageComponent implements OnInit, OnDestroy {
   }
 
   resetAll() {
-    // alert("reset");
-    // this.rating = null;
-    // $('input[name=star]').attr('checked', false);
     this.searchService.extra_filter = {
       minPrice: 100,
       maxPrice: 2000,

@@ -29,20 +29,14 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    // ReactiveFormsModule,
-    // FormsModule,
     AppRoutingModule,
     SharedModule,
-    // TouristsModule,
     HomeModule,
     HttpClientModule,
-    // AdminModule,
     MDBBootstrapModule,
     RouterModule.forRoot(routes,  {
-      // initialNavigation: 'enabled',
       scrollPositionRestoration: 'disabled', // Add options right here
     }),
-    // GuideModule,
     ToastrModule.forRoot(),
   ],
   providers: [

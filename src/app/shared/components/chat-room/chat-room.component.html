@@ -7,9 +7,6 @@
             <div class="row">
                 <div class="col-sm-12 ">
                     <div class="row py-3 " style="background-image: linear-gradient(322deg, #22c1c3 0%,rgb(252, 255, 114) 100%); ">
-                        <!-- <div class="col-sm-1">
-                            <img src="http://placehold.it/50x50" class="circle" style="border-radius: 50%;">
-                        </div> -->
                         <div class="col-12">
                             <span style="font-size: 30px;"><b><mdb-icon (click)="back()" fas icon="arrow-left"></mdb-icon>&nbsp;
                                 {{roomName | titlecase}} (Group)</b></span>
@@ -21,11 +18,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="message-wrapper" *ngFor="let msg of messageList">
-                                <!-- <div class="message-wrapper" *ngFor="let message of messageArray"> -->
                                 <div class="left" *ngIf="msg.senderId !== user._id">
-                                    <!-- <div class="left"  *ngIf="sender._id !== reciever._id && sender._id !== message.senderId"> -->
                                     <div class="chat-bubble left slide-left">
-                                        <!-- <div class="message">left meassge</div> -->
                                         <div class="small-f" style="color:#553d67">{{msg.senderName  | titlecase}}</div>
                                         <div class="message">{{msg.body}}</div>
                                         <div class="small-f float-right">{{msg.created | date: 'dd-MM-yyyy'}}</div>
@@ -33,9 +27,7 @@
                                 </div>
 
                                 <div class="right" *ngIf="msg.senderId === user._id">
-                                    <!-- <div class="right" *ngIf="sender._id === message.senderId"> -->
                                     <div class="chat-bubble right slide-right">
-                                        <!-- <div class="message">right message</div> -->
                                         <div class="message">{{msg.body}}</div>
                                         <div class="small-f float-right">{{msg.created | date: 'dd-MM-yyyy'}}</div>
                                     </div>
@@ -64,9 +56,6 @@
             <div class="row">
                 <div class="col-sm-12 ">
                     <div class="row py-3 " style="background-image: linear-gradient(322deg, #22c1c3 0%,rgb(252, 255, 114) 100%); ">
-                        <!-- <div class="col-sm-1">
-                            <img src="http://placehold.it/50x50" class="circle" style="border-radius: 50%;">
-                        </div> -->
                         <div class="col-12">
                             <span style="font-size: 30px;"><b><mdb-icon (click)="back()" fas icon="arrow-left"></mdb-icon>&nbsp;
                                 {{roomName | titlecase}} (Group)</b></span>
@@ -78,11 +67,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="message-wrapper" *ngFor="let msg of messageList">
-                                <!-- <div class="message-wrapper" *ngFor="let message of messageArray"> -->
                                 <div class="left" *ngIf="msg.senderId !== user._id">
-                                    <!-- <div class="left"  *ngIf="sender._id !== reciever._id && sender._id !== message.senderId"> -->
                                     <div class="chat-bubble left slide-left">
-                                        <!-- <div class="message">left meassge</div> -->
                                         <div class="small-f" style="color:#553d67">{{msg.senderName | titlecase}}</div>
                                         <div class="message">{{msg.body}}</div>
                                         <div class="small-f float-right">{{msg.created | date: 'dd-MM-yyyy'}}</div>
@@ -90,9 +76,7 @@
                                 </div>
 
                                 <div class="right" *ngIf="msg.senderId === user._id">
-                                    <!-- <div class="right" *ngIf="sender._id === message.senderId"> -->
                                     <div class="chat-bubble right slide-right">
-                                        <!-- <div class="message">right message</div> -->
                                         <div class="message">{{msg.body}}</div>
                                         <div class="small-f float-right">{{msg.created | date: 'dd-MM-yyyy'}}</div>
                                     </div>

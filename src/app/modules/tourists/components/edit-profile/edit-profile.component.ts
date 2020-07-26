@@ -45,7 +45,6 @@ export class EditProfileComponent implements OnInit {
 
   getUser() {
     this.userData = JSON.parse(this.userService.getUser('tourist'));
-    console.log(this.userData);
   }
 
   createPersonalDetailsForm() {
@@ -56,7 +55,6 @@ export class EditProfileComponent implements OnInit {
       email: new FormControl(this.userData.email, [Validators.required, Validators.email]),
       phoneNumber: new FormControl(this.userData.phoneNumber, [Validators.required, CustomValidators.contactNumber]),
       nationality: new FormControl(this.userData.nationality, [Validators.required]),
-      // language: new FormControl(this.userData.languages[0], [Validators.required]),
     })
   }
 
@@ -78,16 +76,8 @@ export class EditProfileComponent implements OnInit {
       this.userData.name = this.personalDetails.value.name;
       this.userData.age = this.personalDetails.value.age;
       this.userData.nationality = this.personalDetails.value.nationality;
-      // this.userData.languages[0] = this.personalDetails.value.language;
       this.userData.phoneNumber = this.personalDetails.value.phoneNumber;
-      console.log(this.userData);
-      // this.touristService.updateUserDetails(this.userData).subscribe( res => {
-      //   console.log(res);
-      //   this.userService.saveUser(res.profile, 'tourist');
-      //   this.getUser();
         this.modal1.hide(0);
-      //   this.toastr.success("Personal Details Updated Successfully!");
-      // });
     } else {
       this.toastr.error("Invalid Details!");
     }
@@ -95,26 +85,17 @@ export class EditProfileComponent implements OnInit {
 
   addInterest() {
     if(this.interestsDetails.valid) {
-      // if(this.interestsDetails.value.interest)
       let interest = this.userData.interests.filter( ele => {
         if(ele === this.interestsDetails.value.interest) {
           return ele;
         }
       });
-      console.log(interest);
       if(interest.length >= 1) {
           this.toastr.warning("Already Added!"); 
           this.modal3.hide(0);
       } else {
         this.userData.interests.push(this.interestsDetails.value.interest);
-        // this.touristService.updateUserDetails(this.userData).subscribe( res => {
-        //   console.log(res);
-        //   this.userService.saveUser(res.profile, 'tourist');
-        //   this.getUser();
           this.modal3.hide(0);
-        //   this.createInterestsForm();
-        //   this.toastr.success("Interest Added Successfully!");
-        // });
       }
     } else {
       this.toastr.error("Invalid Details!");
@@ -129,7 +110,6 @@ export class EditProfileComponent implements OnInit {
             return ele;
           }
         });
-        console.log(language);
         if(language.length >= 1) {
             this.toastr.warning("Already Added!"); 
             this.modal4.hide(0);
@@ -145,12 +125,6 @@ export class EditProfileComponent implements OnInit {
   removeInterests(item) {
     let index = this.userData.interests.indexOf(item);
     this.userData.interests.splice(index, 1);
-    // this.touristService.updateUserDetails(this.userData).subscribe( res => {
-    //   console.log(res);
-    //   this.userService.saveUser(res.profile, 'tourist');
-    //   this.getUser();
-    //   this.toastr.success("Interest Removed Successfully!");
-    // });
   }
 
   removeLanguage(item) {
@@ -160,11 +134,9 @@ export class EditProfileComponent implements OnInit {
 
   saveProfile() {
     this.touristService.updateUserDetails(this.userData).subscribe( res => {
-      console.log(res);
       this.userService.saveUser(res.profile, 'tourist');
       this.getUser();
       this.router.navigateByUrl('/tourists/touristshome/dashboard');
-      // this.modal1.hide(0);
       this.toastr.success("Personal Details Updated Successfully!");
     });
   }

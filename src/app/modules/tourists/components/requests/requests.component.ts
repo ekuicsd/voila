@@ -29,7 +29,6 @@ export class RequestsComponent implements OnInit {
 
   getAllRequestsList() {
     this.touristService.getAllBookingsByStatus('PENDING').subscribe( res => {
-      console.log(res);
       if(res.length > 0) {
         this.requestList = res;
       } else {
@@ -41,7 +40,6 @@ export class RequestsComponent implements OnInit {
   cancelRequest() {
     let request = {cancelReason: this.cancelReason };
     this.touristService.cancelrequest(this.selectedRequest._id, 'CANCELLED', request).subscribe( res => {
-      console.log(res);
       this.toastr.success("Request Cancelled successfully!");
       this.getAllRequestsList();
     })

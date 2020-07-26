@@ -34,7 +34,6 @@ export class HistoriesComponent implements OnInit {
 
   getAllPreviousList() {
     this.touristService.getAllBookingsByStatus('COMPLETED').subscribe( res => {
-      console.log(res);
       if(res.length > 0) {
         this.previousList = res;
       } else {

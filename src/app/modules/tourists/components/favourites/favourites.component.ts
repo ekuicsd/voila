@@ -19,7 +19,6 @@ export class FavouritesComponent implements OnInit {
 
   getAllFavouritesList() {
     this.touristService.getAllFavorites().subscribe( res => {
-      console.log(res);
       if(res.length > 0) {
         this.favouritesList = res;
       } else {

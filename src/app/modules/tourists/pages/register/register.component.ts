@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.createform();
     this.countryList = csc.getAllCountries();
-    // console.log(this.countryList);
   }
 
   createform() {
@@ -40,9 +39,7 @@ export class RegisterComponent implements OnInit {
 
   submitForm() {
     if(this.detailsForm.valid) {
-      console.log(this.detailsForm.value);
       this.touristsService.touristsSignup(this.detailsForm.value).subscribe( res => {
-        console.log(res);
         if(res.success) {
           this.toastr.success("Registered Successfully!");
         } else {

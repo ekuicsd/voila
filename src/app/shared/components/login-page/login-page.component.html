@@ -8,14 +8,11 @@
                         <div class="md-form form-group mb-5">
                             <input mdbInput type="email" formControlName="email" id="form1" class="form-control">
                             <label for="form1">Email</label>
-                            <!-- <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                         </div>
                         <div class="md-form form-group mb-5">
                             <input mdbInput [type]="show ? 'text' : 'password'" formControlName="password" id="form2" class="form-control">
                             <label for="form2">Password</label>
                            <div class="text-white"><input (change)="showPwd($event)" type="checkbox">&nbsp;<small class="text-muted">Show Password</small></div>
-                            <!-- <a class="mt-2 text-info float-right">Forgot Password?</a> -->
-                            <!-- <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                         </div>
                         <div class="md-form form-group mt-5 text-center">
                             <a class="mb-2 text-info ">Forgot Password?</a>
@@ -30,14 +27,12 @@
                         <div class="md-form form-group mb-5">
                             <input mdbInput type="email" formControlName="email" id="form3" class="form-control">
                             <label for="form3">Email</label>
-                            <!-- <small *ngIf="f.email.value == '' && (f.email.dirty || f.email.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                         </div>
                         <div class="md-form form-group mb-5">
                             <input mdbInput [type]="show ? 'text' : 'password'" formControlName="password" id="form4" class="form-control">
                             <label for="form4">Password </label>
                             <div class="text-white"><input (change)="showPwd($event)" type="checkbox">&nbsp;<small class="text-muted">Show Password</small></div>
                             
-                            <!-- <small *ngIf="f.password.value == '' && (f.password.dirty || f.password.touched )" id="passwordHelpBlock" class="form-text text-muted">This field is required.</small> -->
                         </div>
                         <div class="md-form form-group mt-5 text-center">
                             <a class="mb-2 text-info ">Forgot Password?</a>
@@ -63,8 +58,6 @@
             </div>
         </div>
     </div>
-    <!-- </div> -->
-    <!-- green guide pic attribution <a href='https://www.freepik.com/free-photos-vectors/travel'>Travel vector created by stories - www.freepik.com</a> -->
     <div class="d-block d-md-none ">
         <div class="login-wrap1">
             <div class="login-html1">
