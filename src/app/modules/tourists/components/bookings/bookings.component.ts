@@ -53,7 +53,7 @@ export class BookingsComponent implements OnInit {
   }
 
   openCancelRequest(content) {
-    this.modalService.open(content, {centered: true});
+    this.modalService.open(content, {scrollable: true, centered: true});
   }
 
   open(content, data) {

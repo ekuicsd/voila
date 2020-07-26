@@ -16,7 +16,7 @@ export class ChatHistoryListComponent implements OnInit {
 
   constructor(private userService: UserService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
     ) { }
 
   ngOnInit() {
@@ -28,6 +28,7 @@ export class ChatHistoryListComponent implements OnInit {
       this.getTouristMessageList();
     }
   }
+
 
   getGuideMessageList() {
     this.messageService.getGuideMessageList(this.user._id).subscribe( res => {

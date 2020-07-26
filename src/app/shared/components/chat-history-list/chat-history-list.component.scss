@@ -1,10 +1,17 @@
-.chat-list{
-  border-bottom: 1px solid #007bff;
-  display: flex;
-  flex-direction: column;
-  color:#007bff ;
-  // background: #b7e8eb;
+.chat-list {
+    // border-bottom: 1px solid #007bff;
+    display: flex;
+    flex-direction: column;
+    // color:#007bff ;
+    color: #553d67;
+    border-radius: 5px;
+    background-color: #f0eeee !important;
 }
-.date{
-  margin-top: auto;
+
+// .body {
+//     background: #f0eeee;
+//     height: 100%;
+// }
+.date {
+    margin-top: auto;
 }

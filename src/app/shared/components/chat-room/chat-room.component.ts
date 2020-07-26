@@ -5,6 +5,7 @@ import io from  'socket.io-client';
 import { environment } from 'src/environments/environment';
 import { UserService } from '../../service/user.service';
 import { MessageService } from '../../service/message.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-chat-room',
@@ -24,7 +25,8 @@ export class ChatRoomComponent implements OnInit {
     private router: Router,
     public userService: UserService,
     private messageService: MessageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
     ) { }
 
   ngOnInit() {
@@ -41,6 +43,11 @@ export class ChatRoomComponent implements OnInit {
         });
       }
     });
+  }
+
+  
+  back() {
+    this.location.back();
   }
 
   getAllMessages() {

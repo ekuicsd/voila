@@ -14,6 +14,7 @@ export class GuideProfileComponent implements OnInit {
   public guideId: any;
   public guide: any;
   public dealList: any[];
+  public ratings;
 
   constructor(private route: ActivatedRoute,
               private userService: UserService,
@@ -30,6 +31,7 @@ export class GuideProfileComponent implements OnInit {
       this.searchService.getGuideById(this.guideId).subscribe( res => {
         this.guide = res.guide;
         this.dealList = res.deals;
+        this.ratings = res.ratings;
         console.log(res);
       });
     }
@@ -39,8 +41,24 @@ export class GuideProfileComponent implements OnInit {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
     this.modal.show(content);
     } else {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login/tourist');
     }
+  }
+
+  getRating() : any {
+    let rating = 0;
+    this.ratings.filter( ele => {
+      if(ele.rating) {
+        rating = rating + ele.rating;
+        return ele;
+      }
+    });
+    rating = Math.floor(+rating / this.ratings.length );
+    let arr = [];
+    for(let i= 0; i< rating; i++) {
+      arr.push(i);
+    }
+    return arr;
   }
 
 }

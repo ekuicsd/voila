@@ -24,7 +24,7 @@ export class RequestsComponent implements OnInit {
   
   open(content, data) {
     this.selectedRequest = data;
-    this.modalService.open(content);
+    this.modalService.open(content, {scrollable: true, centered: true});
   } 
 
   getAllRequestsList() {

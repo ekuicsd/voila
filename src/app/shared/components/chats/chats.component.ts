@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import io from  'socket.io-client';
 import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-chats',
@@ -25,6 +26,7 @@ export class ChatsComponent implements OnInit {
 
   constructor(private msgService: MessageService,
     public userService: UserService,
+    private location: Location,
     private route: ActivatedRoute) {
       this.socket = io(environment.baseUrl);
     }
@@ -57,6 +59,10 @@ export class ChatsComponent implements OnInit {
 
   }
 
+  
+  back() {
+    this.location.back();
+  }
 
   getUserByEmail(email, receiverRole) {
     this.userService.getUserByEmail(email, receiverRole)
