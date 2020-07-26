@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
-import { Booking } from 'src/app/shared/models/booking.model';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,7 +9,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent implements OnInit {
-  public requestList: Booking[] = [];
+  public requestList: any[] = [];
   public selectedRequest: any;
   public cancelReason: string = 'cancel request';
 

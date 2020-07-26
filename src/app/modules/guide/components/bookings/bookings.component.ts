@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
-import { Booking } from 'src/app/shared/models/booking.model';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
@@ -9,8 +8,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./bookings.component.scss'],
 })
 export class BookingsComponent implements OnInit {
-  public bookingsList: Booking[] = [];
-  public selectedBooking: Booking;
+  public bookingsList: any[] = [];
+  public selectedBooking: any;
   public ongoingList = [];
 
   constructor(private guideService: GuideService,

@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Guide } from 'src/app/shared/models/guide.model';
 import { WizardComponent } from 'ng2-archwizard/dist';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   @ViewChild('wizard', {static: false}) wizard: WizardComponent;
-  guide: Guide = {};
+  guide: any = {};
   file: any;
 
   constructor(private toastr: ToastrService,

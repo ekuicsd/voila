@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/shared/service/user.service';
-import { Guide, Experience } from 'src/app/shared/models/guide.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { GuideService } from 'src/app/shared/service/guide.service';
@@ -25,9 +24,9 @@ export class ProfileComponent implements OnInit {
   @ViewChild('editbusiness', { static: false}) modal4: MDBModalService;
   
   public editExp : boolean = false;
-  public userData: Guide;
+  public userData: any;
   public interestList: string[];
-  public selectedExp: Experience;
+  public selectedExp: any;
   public languageList: any[] = [];
   public expVariable: string = '';
   public stateList: any[];
@@ -116,7 +115,7 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  editExpShow(content, data: Experience) {
+  editExpShow(content, data: any) {
     this.editExp = true;
     this.expVariable = 'Update Experience';
     this.selectedExp = data;

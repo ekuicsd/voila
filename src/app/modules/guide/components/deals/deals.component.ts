@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
-import { Deals } from 'src/app/shared/models/deals.model';
 
 @Component({
   selector: 'app-deals',
@@ -9,7 +8,7 @@ import { Deals } from 'src/app/shared/models/deals.model';
 })
 export class DealsComponent implements OnInit {
 
-  public DealsList: Deals[];
+  public DealsList: any[];
 
   constructor(
     private guideService: GuideService
