@@ -21,7 +21,6 @@ export class AdminService {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
             }, error => {
-                console.log(error);
             });
         });
     }
@@ -32,7 +31,6 @@ export class AdminService {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
             }, error => {
-                console.log(error);
             });
         });
     }

@@ -27,7 +27,6 @@ export class GuideProfileComponent implements OnInit {
 
   acceptRejectGuide(status: string) {
     this.adminService.approvedrejectGuide(this.userData._id, status).subscribe(res => {
-      console.log(res);
       this.router.navigateByUrl('/admin/dashboard');
     })
   }

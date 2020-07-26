@@ -24,7 +24,7 @@ export class HttpInterceptorService implements HttpInterceptor {
             // 'Content-Type': 'application/json',
             'Accept': 'application/json',
           };
-          console.log(token);
+          // console.log(token);
           if (token) {
             headersConfig['authorization'] = `${token}`;
           }
@@ -35,12 +35,7 @@ export class HttpInterceptorService implements HttpInterceptor {
               (event: HttpEvent<any>) => { },
               (err: any) => {
                   if (err instanceof HttpErrorResponse) {
-                      // if(err.status == 401) {
-                      //   this.userService.purgeAuth();
-                      //   this.router.navigateByUrl('/');
-                      // }
                       console.log("error",err);
-                    //   this.toastr.error();
                   }
               }
           )
