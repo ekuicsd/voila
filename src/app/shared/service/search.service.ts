@@ -136,6 +136,11 @@ export class SearchService {
             console.log(res);
             this.guidesList = res.body.guides;
             this.dealsList = res.body.deals;
+            if(this.guidesList.length <=0) {
+              this.guidesList = undefined;
+            } if(this.dealsList.length <=0) {
+              this.dealsList = undefined;
+            }
             console.log(this.guidesList);
         })
       }

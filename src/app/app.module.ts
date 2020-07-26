@@ -38,7 +38,10 @@ const routes: Routes = [
     HttpClientModule,
     // AdminModule,
     MDBBootstrapModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes,  {
+      // initialNavigation: 'enabled',
+      scrollPositionRestoration: 'disabled', // Add options right here
+    }),
     // GuideModule,
     ToastrModule.forRoot(),
   ],
@@ -51,6 +54,6 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
-  exports: []
+  exports: [RouterModule]
 })
 export class AppModule { }

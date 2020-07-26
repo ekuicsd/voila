@@ -24,6 +24,7 @@ export class GuidesListComponent implements OnInit {
 
   ngOnInit() {
     // this.guidesList = this.searchService.guidesList;
+    // window.scrollTo(0, 0);
     console.log(this.searchService.guidesList);
   }
 
@@ -42,7 +43,7 @@ export class GuidesListComponent implements OnInit {
   openModal(content, guide) {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
     this.guide = guide;
-    this.modal.show(content);
+    this.modal.show(content, { scrollable: true, centered: true});
     } else {
       this.router.navigateByUrl('/login/tourist');
       // this.toastr.warning("please login as tourist!");

@@ -13,7 +13,7 @@ import { StaticDataService } from '../../service/static-data.service';
 })
 export class DealsCardsComponent implements OnInit {
   
-  @Input() dealsList : any[] = [];
+  @Input() dealsList : any[];
   @Input() role: string; //guide or tourist
   @Input() isFav = '';
   @ViewChild('dealTour', {static: false}) modal1: MDBModalService;

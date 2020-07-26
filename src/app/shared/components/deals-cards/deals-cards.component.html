@@ -1,4 +1,4 @@
-<div class="row mx-lg-2 mx-2">
+<div *ngIf="dealsList" class="row mx-lg-2 mx-2">
     <div class="col-12 col-sm-6 col-md-5 col-lg-5 py-2 mb-4" *ngFor="let deal of dealsList" >
         <mdb-card>
             <div class="img-fav">
@@ -33,6 +33,12 @@
                 </div>
             </div>
         </mdb-card>
+    </div>
+</div>
+
+<div *ngIf="!dealsList" class="row">
+    <div class="col text-center">
+        <h1>No Deals available here!</h1>
     </div>
 </div>
 

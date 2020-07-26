@@ -1,4 +1,4 @@
-<div class="request-card d-none d-lg-block">
+<div *ngIf="searchService.guidesList" class="request-card d-none d-lg-block">
     <mdb-card class="w-auto ml-lg-4 my-3 mx-md-3" *ngFor="let guide of searchService.guidesList">
         <div class="container1">
             <mdb-card-body class="p-3">
@@ -150,8 +150,14 @@
     </mdb-card>
 </div>
 
+<div *ngIf="!searchService.guidesList"  class="row">
+    <div class="col text-center">
+        <h1>No Guides Availabel here!</h1>
+    </div>
+</div>
 
-<div class="row m-3">
+
+<div *ngIf="searchService.guidesList"  class="row m-3">
     <div class="col-12 col-sm-6 col-md-6  d-block d-lg-none mb-4" *ngFor="let guide of searchService.guidesList">
         <div class="view guide-card" style="position: relative;">
             <img [src]="guide.picUrl ? guide.picUrl : '../../../../../../../assets/images/grayman.png'" 
