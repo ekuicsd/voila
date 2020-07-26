@@ -19,7 +19,13 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
+}
+@media(max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    display: none;
+}
 }
 
  ::-webkit-scrollbar-track {

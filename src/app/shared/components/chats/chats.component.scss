@@ -282,3 +282,13 @@ emoji-content {
 .small-f {
     font-size: 1.5vmin;
 }
+
+.heading-size {
+    font-size: 30px;
+}
+
+@media(max-width: 576px) {
+    .heading-size {
+        font-size: 20px;
+    }
+}

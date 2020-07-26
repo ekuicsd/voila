@@ -69,3 +69,9 @@
 .col-4 {
     padding: 8px;
 }
+
+@media(min-width: 576px) {
+    h5 {
+        font-size: 25px;
+    }
+}

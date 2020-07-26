@@ -15,7 +15,7 @@ export class LanguagesComponent implements OnInit {
   public languageList: any;
   public selectedLanguageList = [];
   public status;
-  public langSearch;
+  public langSearch: string = '';
 
   constructor(private staticDataService: StaticDataService,
     private router: Router,

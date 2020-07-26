@@ -265,6 +265,16 @@ emoji-content {
     height: 42px;
 }
 
+.heading-size {
+    font-size: 30px;
+}
+
+@media(max-width: 576px) {
+    .heading-size {
+        font-size: 20px;
+    }
+}
+
 // body{
 //   margin: 0;
 //   padding: 0;
