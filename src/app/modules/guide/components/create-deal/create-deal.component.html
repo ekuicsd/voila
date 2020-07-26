@@ -1,5 +1,5 @@
-<div class="cards">
-  <mdb-card class="mt-md-5">
+<div class="bg cards m-0 pt-md-5 ">
+  <mdb-card>
     <mdb-card-body>
       <mdb-card-title>
         <h4 class="mb-3"><B>Create Deal</B></h4>
@@ -25,6 +25,7 @@
               <select formControlName="city" class="form-control" class="browser-default custom-select" id="form58">
                 <option value="" disabled>Select City</option>
                 <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
+                <small class="text-mute">May be your starting point</small>
               </select>
             </div>
           </div>
@@ -66,7 +67,8 @@
             <div class="form-group">
               <label for="form11">Group name</label>
               <input type="text" id="form11" formControlName="groupName" placeholder="enter group name" class="form-control">
-          </div>
+ <small class="text-mute">This will bw your chat group name</small>
+            </div>
           </div>
         </div>
       </form>
@@ -86,7 +88,7 @@
           </div>
           <div class="col-3 col-lg-2 mt-lg-4">
           <a mdbBtn size="sm" class="mt-2 mb-3"
-            (click)="addToPlacesList()" style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Add</a>
+            (click)="addToPlacesList()" style="background:rgba(255, 255, 255, 0.612); color:black;" mdbWavesEffect>Add</a>
           </div>
       </div>
       <h6 *ngIf="placesList.length > 0" class="text-black"><B>Tour Places List</B></h6>
@@ -117,7 +119,7 @@
       </div>
       </mdb-card-text>
       <a mdbBtn [routerLink]="['/guide/guidehome/deals']" style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Cancel</a>
-      <a mdbBtn (click)="saveDeal()" style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Create</a>
+      <a mdbBtn (click)="saveDeal()" style="background:rgba(255, 255, 255, 0.612); color: black;" mdbWavesEffect>Create</a>
     </mdb-card-body>
   </mdb-card>
 </div>

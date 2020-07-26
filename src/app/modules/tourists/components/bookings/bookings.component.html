@@ -58,7 +58,7 @@
         <div class="row cust-grid">
             <div class="col-12 text-center">
                 <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/cherry-list-is-empty-1.png">
-                <h1 style="font-family: 'Dancing Script', cursive;">No Bookings !!</h1>
+                <h1 style="font-family: 'Dancing Script', cursive; font-size: 4vh;">No Bookings !!</h1>
             </div>
         </div>
     </div>
@@ -182,8 +182,8 @@
             *ngIf="selectedBooking.tourType !== 'deal'"
              (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
             Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
-            <button type="button" mdbBtn color="deep-orange" 
-            *ngIf="selectedBooking.tourType === 'deal'" size="sm" class="btn-block waves-light" 
+            <button type="button" mdbBtn color="deep-orange"
+            *ngIf="selectedBooking.tourType === 'deal'" size="sm" class="btn-block waves-light"
             (click)="contactTouristRoom(content, selectedBooking.roomDetails._id)" mdbWavesEffect>
              Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
         </div>

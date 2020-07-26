@@ -4,7 +4,7 @@
       <h3 class="teal lighten-2 p-2 px-3">Chats</h3>
     </div>
   </div>
-  
+
   <div *ngIf="messageList">
     <div (click)="navigateToChat(item.userEmail, item.userName, item.roomId)" class="chat-list p-3 m-0" *ngFor="let item of messageList">
       <div class="row mx-0">
@@ -20,9 +20,13 @@
     </div>
   </div>
   <div *ngIf="!messageList" class="row">
-    <div class="col text-center">
-      <h1>No Messages Yet1!</h1>
-    </div>
+    <div class="row cust-grid">
+      <div class="col-12 text-center">
+          <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/fogg-87.png">
+          <h1 style="font-family: 'Dancing Script', cursive; font-size: 4vh;">No Message !!</h1>
+      </div>
   </div>
+  </div>
+
 </div>
 

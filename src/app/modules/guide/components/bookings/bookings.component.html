@@ -42,15 +42,14 @@
             </div>
         </div>
     </div>
-
     <div *ngIf="!bookingsList">
-        <div class="row cust-grid">
-            <div class="col-12 text-center">
-                <h1>No Bookings !!</h1>
-            </div>
-        </div>
-    </div>
-
+      <div class="row cust-grid">
+          <div class="col-12 text-center">
+              <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/cherry-list-is-empty-1.png">
+              <h1 style="font-family: 'Dancing Script', cursive; font-size: 4vh;">No Bookings !!</h1>
+          </div>
+      </div>
+  </div>
     <div class="d-block d-md-none mt-4">
         <mdb-card class="bag mb-4" *ngFor="let data of bookingsList">
             <mdb-card-body>
