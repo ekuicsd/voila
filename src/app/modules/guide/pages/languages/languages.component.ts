@@ -55,7 +55,6 @@ export class LanguagesComponent implements OnInit {
 
   outputLanguages() {
     if(this.selectedLanguageList.length > 0) {
-      console.log(this.selectedLanguageList);
       this.ouputLanguagesList.emit(this.selectedLanguageList);
     } else {
       this.toastr.warning("Please select atleast one language!");

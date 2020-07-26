@@ -15,7 +15,6 @@ export class ShowRegisterComponent implements OnInit {
 
   ngOnInit() {
     this.routerSubscription = this.router.events
-        // .filter(event => event instanceof NavigationEnd)
         .subscribe(event => {
             document.body.scrollTop = 0;
         });

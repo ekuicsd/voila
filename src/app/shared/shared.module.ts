@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CommonModule } from '@angular/common';
-import { DealsComponent } from './components/deals/deals.component';
 import { GuideProfileComponent } from './components/guide-profile/guide-profile.component';
 import { BookingProfileComponent } from './components/booking-profile/booking-profile.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -70,7 +69,6 @@ const routes: Routes = [
     declarations: [
         FooterComponent,
         HeaderComponent,
-        DealsComponent,
         GuideProfileComponent,
         BookingProfileComponent,
         LoginPageComponent,

@@ -15,10 +15,4 @@ export class QuestionDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  // createForm() {
-  //   this.questionDetails = new FormGroup({
-      
-  //   })
-  // }
-
 }

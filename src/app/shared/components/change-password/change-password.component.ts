@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CustomValidators } from 'src/app/validators/custom';
@@ -7,7 +7,6 @@ import { CustomValidators } from 'src/app/validators/custom';
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss'],
-  // encapsulation: ViewEncapsulation.None
 
 })
 export class ChangePasswordComponent implements OnInit {
@@ -34,7 +33,6 @@ export class ChangePasswordComponent implements OnInit {
       if(this.changePwd.value.oldPassword === this.changePwd.value.newPassword) {
         this.toastr.error("Your Old and new password is same!")
       }else {
-        console.log(this.changePwd.value);
         this.outputPassword.emit(this.changePwd.value);
       }
     } else {

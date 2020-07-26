@@ -1,9 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
-import { MessageService } from '../../service/message.service';
 import { JwtService } from '../../service/jwt.service';
-import { Location } from '@angular/common';
 import { NavbarComponent, MDBModalService } from 'angular-bootstrap-md';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GuideService } from '../../service/guide.service';
@@ -27,10 +24,7 @@ export class HeaderComponent implements OnInit{
   public chatList = [];
   
   constructor(
-    private router: Router,
     public jwtService: JwtService,
-    private msgService: MessageService,
-    private location: Location,
     private modalService: NgbModal,
     private guideService: GuideService,
     private touristService: TouristsService,
@@ -44,9 +38,6 @@ export class HeaderComponent implements OnInit{
     this.navbaridRef.toggle(); //Hide the collapse menu after click
    }
 
-  ngOnChanges() {
-  }
-
   logout(role: string) {
       this.userService.logout(role);
   }
@@ -59,7 +50,6 @@ export class HeaderComponent implements OnInit{
          this.onGoingEvents = undefined;
        }
        this.modal1.show(basicModal);
-       console.log(res);
      });
     } else {
      this.touristService.getAllBookingsByStatus('ONGOING').subscribe( res => {
@@ -67,7 +57,6 @@ export class HeaderComponent implements OnInit{
        if(res.length <= 0) {
          this.onGoingEvents = undefined;
        }
-       console.log(res);
        this.modal1.show(basicModal);
      });
     }

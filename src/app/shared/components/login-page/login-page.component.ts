@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import * as $ from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 @Component({
@@ -17,7 +16,6 @@ export class LoginPageComponent implements OnInit {
   public show = false;
 
   constructor(private userService: UserService,
-              private location: Location,
               private toastr: ToastrService,
               private route: ActivatedRoute,
                private router: Router) {  }
@@ -53,20 +51,17 @@ export class LoginPageComponent implements OnInit {
         this.userService.AttemptGuideLogin(this.LoginForm.value).subscribe(
           res => {
            if(res.success) {
-            console.log(res);
             this.router.navigateByUrl('guide/guidehome');
            } else {
              this.toastr.error(res.message);
            }
           }, error => {
-            console.log(error);
           }
         )
       } else {
         this.userService.AttemptTouristLogin(this.LoginForm.value).subscribe(
           res => {
             if(res.success) {
-              console.log(res);
               if(!res.languages && !res.interests) {
                 this.router.navigateByUrl('/tourists/touristshome/languagesInterests/languagesInterests');
               } else if(!res.languages) {
@@ -80,7 +75,6 @@ export class LoginPageComponent implements OnInit {
               this.toastr.error(res.message);
             }
           }, error => {
-            console.log(error);
           }
         )
       }
@@ -91,7 +85,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   showPwd(data) {
-    console.log(data.target.checked);
     if(data.target.checked) {
       this.show = true;
     } else {

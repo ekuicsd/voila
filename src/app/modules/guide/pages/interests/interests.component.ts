@@ -12,7 +12,6 @@ export class InterestsComponent implements OnInit {
   public gradientList: string[] = [];
   public interestsList: any;
   public selectedInterestsList = [];
-  // public status;
 
   constructor(private staticDataService: StaticDataService,
     private toastr: ToastrService,
@@ -54,7 +53,6 @@ export class InterestsComponent implements OnInit {
 
   outputInterests() {
     if(this.selectedInterestsList.length > 0) {
-      console.log(this.selectedInterestsList);
       this.ouputInterestsList.emit(this.selectedInterestsList);
     } else {
       this.toastr.warning("Please Select AtLeast one Interest!");

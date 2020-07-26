@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Experience } from 'src/app/shared/models/guide.model';
@@ -19,8 +18,7 @@ export class BussinessDetailsComponent implements OnInit {
   public experienceForm: FormGroup;
   public basicDetails: FormGroup;
 
-  constructor(private staticDataService: StaticDataService, 
-    private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit() {
     this.creatsBasicdetails();

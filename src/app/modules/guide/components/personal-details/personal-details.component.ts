@@ -10,8 +10,6 @@ import { CustomValidators } from 'src/app/validators/custom';
 })
 export class PersonalDetailsComponent implements OnInit {
 
-  // public countryCode: string = '101';
-  
   @Output() personalData: EventEmitter<any> = new EventEmitter<any>();
   @Output() profileData: EventEmitter<any> = new EventEmitter<any>();
   stateList: any[];
@@ -45,24 +43,19 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   getAllState(countryId: string) {
-    console.log(countryId);
     this.stateList = csc.getStatesOfCountry(countryId);
-    console.log(this.stateList);
   }
 
   getAllCity(stateId) {
     this.cityList = csc.getCitiesOfState(stateId);
-    console.log(this.cityList);
   }
 
   submitPersonalDetails() {
     if(this.personalDetails.valid) {
       let selectedState = csc.getStateById(this.personalDetails.value.state);
-      console.log(selectedState);
       this.personalDetails.patchValue({
         state: selectedState.name
       })
-      console.log(this.personalDetails.value);
       this.profileData.emit(this.myFiles);
       this.personalData.emit(this.personalDetails.value);
     } else {
@@ -72,7 +65,6 @@ export class PersonalDetailsComponent implements OnInit {
 
   onSelectFile(event) {
     this.myFiles=[];
-    console.log(event.target.files);
     for (var i = 0; i < event.target.files.length; i++) { 
       this.myFiles.push(event.target.files[i]);
       var reader = new FileReader();
@@ -81,7 +73,6 @@ export class PersonalDetailsComponent implements OnInit {
         this.urlArray.push(reader.result);
       }
     }
-    console.log(this.urlArray);
   }
 
 }
