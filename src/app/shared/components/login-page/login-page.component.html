@@ -1,4 +1,4 @@
-<div class="container-fluid bg px-0" >
+<div class="container-fluid bg px-0">
     <div class="container d-none d-md-block mb-5">
         <div class="welcome">
             <div class="pinkbox px-5 py-5" [ngClass]="role === 'tourist' ? 'zeroTransform' : 'eightyTransform'">
@@ -10,9 +10,9 @@
                             <label for="form1">Email</label>
                         </div>
                         <div class="md-form form-group mb-5">
-                            <input mdbInput [type]="show ? 'text' : 'password'" formControlName="password" id="form2" class="form-control">
+                            <input mdbInput [type]="guideShow ? 'text' : 'password'" formControlName="password" id="form2" class="form-control">
                             <label for="form2">Password</label>
-                           <div class="text-white"><input (change)="showPwd($event)" type="checkbox">&nbsp;<small class="text-muted">Show Password</small></div>
+                            <div class="text-white"><input (change)="showGuidePwd($event)" type="checkbox">&nbsp;<small class="text-muted">Show Password</small></div>
                         </div>
                         <div class="md-form form-group mt-5 text-center">
                             <a class="mb-2 text-info ">Forgot Password?</a>
@@ -29,10 +29,10 @@
                             <label for="form3">Email</label>
                         </div>
                         <div class="md-form form-group mb-5">
-                            <input mdbInput [type]="show ? 'text' : 'password'" formControlName="password" id="form4" class="form-control">
+                            <input mdbInput [type]="touristShow ? 'text' : 'password'" formControlName="password" id="form4" class="form-control">
                             <label for="form4">Password </label>
-                            <div class="text-white"><input (change)="showPwd($event)" type="checkbox">&nbsp;<small class="text-muted">Show Password</small></div>
-                            
+                            <div class="text-white"><input (change)="showTouristPwd($event)" type="checkbox">&nbsp;<small class="text-muted">Show Password</small></div>
+
                         </div>
                         <div class="md-form form-group mt-5 text-center">
                             <a class="mb-2 text-info ">Forgot Password?</a>
@@ -72,8 +72,8 @@
                             </div>
                             <div class="group1 form-group mb-5">
                                 <label for="form2" class="label">Password</label>
-                                <input mdbInput [type]="show ? 'text' : 'password'" formControlName="password" id="form2" class="input">
-                                <div class="text-white"><input (change)="showPwd($event)" type="checkbox">&nbsp;Show Password</div>
+                                <input mdbInput [type]="guideShow ? 'text' : 'password'" formControlName="password" id="form2" class="input">
+                                <div class="text-white"><input (change)="showGuidePwd($event)" type="checkbox">&nbsp;Show Password</div>
 
 
                                 <a class="mt-2 text-info float-right">Forgot Password?</a>
@@ -92,8 +92,8 @@
                             </div>
                             <div class="group1 form-group mb-5">
                                 <label for="form2" class="label">Password</label>
-                                <input mdbInput [type]="show ? 'text' : 'password'" formControlName="password" id="form2" class="input">
-                                <div class="text-white"><input (change)="showPwd($event)" type="checkbox">&nbsp;Show Password</div>
+                                <input mdbInput [type]="touristShow ? 'text' : 'password'" formControlName="password" id="form2" class="input">
+                                <div class="text-white"><input (change)="showTouristPwd($event)" type="checkbox">&nbsp;Show Password</div>
 
 
                                 <a class="mt-2 text-info float-right">Forgot Password?</a>

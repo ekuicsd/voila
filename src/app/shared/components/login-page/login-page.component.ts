@@ -13,7 +13,8 @@ export class LoginPageComponent implements OnInit {
 
   public LoginForm: FormGroup;
   public role: string = 'tourist';
-  public show = false;
+  public guideShow = false;
+  public touristShow = false;
 
   constructor(private userService: UserService,
               private toastr: ToastrService,
@@ -84,11 +85,20 @@ export class LoginPageComponent implements OnInit {
 
   }
 
-  showPwd(data) {
+ 
+  showGuidePwd(data) {
     if(data.target.checked) {
-      this.show = true;
+      this.guideShow = true;
     } else {
-      this.show = false;
+      this.guideShow = false;
+    }
+  }
+
+  showTouristPwd(data) {
+    if(data.target.checked) {
+      this.touristShow = true;
+    } else {
+      this.touristShow = false;
     }
   }
 

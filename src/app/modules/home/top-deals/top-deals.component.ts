@@ -16,7 +16,6 @@ export class TopDealsComponent implements OnInit {
     this.homeService.getHotDeals().subscribe( res => {
       if(res.success) {
         this.hotDealsList = res.data;
-        console.log(res.data);
       }
     });
     
