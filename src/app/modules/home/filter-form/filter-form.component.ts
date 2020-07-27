@@ -44,7 +44,7 @@ export class FilterFormComponent implements OnInit {
   }
 
   changeRange(event) {
-    console.log(event);
+    // console.log(event);
   }
 
   changeState(data) {

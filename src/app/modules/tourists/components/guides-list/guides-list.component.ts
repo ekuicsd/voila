@@ -27,11 +27,14 @@ export class GuidesListComponent implements OnInit {
   }
 
   getDealsList(guide) {
-    return this.searchService.dealsList.filter( ele => {
-      if(guide.email === ele.guideId.email) {
-        return ele;
-      }
-    });
+    if(this.searchService.dealsList) {
+      return this.searchService.dealsList.filter( ele => {
+        if(guide.email === ele.guideId.email) {
+          return ele;
+        }
+      });
+    }
+    return undefined;
   }
 
   openModal(content, guide) {

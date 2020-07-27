@@ -335,7 +335,7 @@ a {
     width: 100%;
     // height:100%;
     // position:absolute;
-    height: 93vh;
+    min-height: 93vh;
     padding: 40px 70px 20px 70px;
     background: rgba(40, 57, 101, .9);
 }
@@ -343,7 +343,7 @@ a {
 @media(max-width: 425px) {
     .login-html1 {
         width: 100%;
-        height: 93vh;
+        min-height: 93vh;
         // height:100%;
         // position:absolute;
         padding: 40px 40px 20px 40px;
