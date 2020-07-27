@@ -4,9 +4,9 @@
 @import '~mdbootstrap/css/bootstrap.css';
 @import '~mdbootstrap/css/mdb.min.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@mobiscroll/angular/dist/css/mobiscroll.scss";
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-
 // @import "scss/style";
 html,
 body {
@@ -14,10 +14,12 @@ body {
     // min-height: 50vh;
     overflow-x: hidden;
 }
+
 body {
-  min-height: 85vh;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+    min-height: 85vh;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -46,228 +48,248 @@ body {
 }
 
 .navbar {
-  z-index: 100;
+    z-index: 100;
 }
 
 .cust-grid {
     display: flex;
     justify-content: center;
-    flex-flow:row wrap;
-  }
+    flex-flow: row wrap;
+}
 
-  .vertical-center {
+.vertical-center {
     min-height: 100%;
     min-height: 72vh;
     display: flex;
     width: 100%;
     align-items: center;
+}
 
-  }
 
-    /* input error */
-    .form-control.ng-invalid.ng-touched {
-      border-color: red ;
-  }
+/* input error */
 
-  .form-control.ng-touched.ng-valid {
+.form-control.ng-invalid.ng-touched {
+    border-color: red;
+}
+
+.form-control.ng-touched.ng-valid {
     border-color: green;
-  }
+}
 
-  // loading work
-  @keyframes loader {
-    0%, 10%, 100% {
-      width: 80px;
-      height: 80px;
+// loading work
+@keyframes loader {
+    0%,
+    10%,
+    100% {
+        width: 80px;
+        height: 80px;
     }
     65% {
-      width: 150px;
-      height: 150px;
+        width: 150px;
+        height: 150px;
     }
-  }
-  @keyframes loaderBlock {
-    0%, 30% {
-      transform: rotate(0);
-    }
-    55% {
-      background-color: #F37272;
-    }
-    100% {
-      transform: rotate(90deg);
+}
 
-    }
-  }
-  @keyframes loaderBlockInverse {
-    0%, 20% {
-      transform: rotate(0);
+@keyframes loaderBlock {
+    0%,
+    30% {
+        transform: rotate(0);
     }
     55% {
-      background-color: #F37272;
+        background-color: #F37272;
     }
     100% {
-      transform: rotate(-90deg);
+        transform: rotate(90deg);
     }
-  }
-  .loader {
+}
+
+@keyframes loaderBlockInverse {
+    0%,
+    20% {
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #F37272;
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
+}
+
+.loader {
     position: fixed;
     z-index: 100;
     top: 50%;
     left: 50%;
     width: 80px;
     height: 80px;
-    transform: translate(-50%, -50%) rotate(45deg) translate3d(0,0,0);
+    transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
     animation: loader 1.2s infinite ease-in-out;
-       span {
-    z-index: 100;
-      position: fixed;
-      display: block;
-      width: 40px;
-      height: 40px;
-      background-color: #EE4040;
-      animation: loaderBlock 1.2s infinite ease-in-out both;
-
-      &:nth-child(1) {
-        top: 0;
-        left: 0;
-      }
-      &:nth-child(2) {
-        top: 0;
-        right: 0;
-        animation: loaderBlockInverse 1.2s infinite ease-in-out both;
-      }
-      &:nth-child(3) {
-        bottom: 0;
-        left: 0;
-        animation: loaderBlockInverse 1.2s infinite ease-in-out both;
-      }
-      &:nth-child(4) {
-        bottom: 0;
-        right: 0;
-      }
+    span {
+        z-index: 100;
+        position: fixed;
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: #EE4040;
+        animation: loaderBlock 1.2s infinite ease-in-out both;
+        &:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+        &:nth-child(2) {
+            top: 0;
+            right: 0;
+            animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+        }
+        &:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+        }
+        &:nth-child(4) {
+            bottom: 0;
+            right: 0;
+        }
     }
-  }
+}
+
 // loading css
-
 @keyframes loader {
-	0%, 10%, 100% {
-		width: 80px;
-		height: 80px;
-	}
-	65% {
-		width: 150px;
-		height: 150px;
-	}
+    0%,
+    10%,
+    100% {
+        width: 80px;
+        height: 80px;
+    }
+    65% {
+        width: 150px;
+        height: 150px;
+    }
 }
+
 @keyframes loaderBlock {
-	0%, 30% {
-		transform: rotate(0);
-	}
-	55% {
-		background-color: #F37272;
-	}
-	100% {
-		transform: rotate(90deg);
-
-	}
+    0%,
+    30% {
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #F37272;
+    }
+    100% {
+        transform: rotate(90deg);
+    }
 }
+
 @keyframes loaderBlockInverse {
-	0%, 20% {
-		transform: rotate(0);
-	}
-	55% {
-		background-color: #F37272;
-	}
-	100% {
-		transform: rotate(-90deg);
-	}
+    0%,
+    20% {
+        transform: rotate(0);
+    }
+    55% {
+        background-color: #F37272;
+    }
+    100% {
+        transform: rotate(-90deg);
+    }
 }
+
 .loader {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	width: 80px;
-	height: 80px;
-	transform: translate(-50%, -50%) rotate(45deg) translate3d(0,0,0);
-  animation: loader 1.2s infinite ease-in-out;
-  z-index: 100;
-
-	span {
-		position: fixed;
-    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+    animation: loader 1.2s infinite ease-in-out;
     z-index: 100;
-		width: 40px;
-		height: 40px;
-		background-color: #EE4040;
-		animation: loaderBlock 1.2s infinite ease-in-out both;
-
-		&:nth-child(1) {
-			top: 0;
-			left: 0;
-		}
-		&:nth-child(2) {
-			top: 0;
-			right: 0;
-			animation: loaderBlockInverse 1.2s infinite ease-in-out both;
-		}
-		&:nth-child(3) {
-			bottom: 0;
-			left: 0;
-			animation: loaderBlockInverse 1.2s infinite ease-in-out both;
-		}
-		&:nth-child(4) {
-			bottom: 0;
-			right: 0;
-		}
-	}
+    span {
+        position: fixed;
+        display: block;
+        z-index: 100;
+        width: 40px;
+        height: 40px;
+        background-color: #EE4040;
+        animation: loaderBlock 1.2s infinite ease-in-out both;
+        &:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+        &:nth-child(2) {
+            top: 0;
+            right: 0;
+            animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+        }
+        &:nth-child(3) {
+            bottom: 0;
+            left: 0;
+            animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+        }
+        &:nth-child(4) {
+            bottom: 0;
+            right: 0;
+        }
+    }
 }
-
 
 //////////////////////////////////////
 // class of color dynamic gradient
 .zero {
-  background-image: linear-gradient(45deg, rgb(47,68,57),rgb(197,233,155));
+    background-image: linear-gradient(45deg, rgb(47, 68, 57), rgb(197, 233, 155));
 }
+
 .first {
-  background-image: linear-gradient(45deg, rgb(35,36,58),rgb(77,241,192));
+    background-image: linear-gradient(45deg, rgb(35, 36, 58), rgb(77, 241, 192));
 }
+
 .second {
-  background-image: linear-gradient(45deg, rgb(44,17,17),rgb(249,52,52));
+    background-image: linear-gradient(45deg, rgb(44, 17, 17), rgb(249, 52, 52));
 }
+
 .third {
-  background-image: linear-gradient(45deg, rgb(25,31,68),rgb(169,249,52));
+    background-image: linear-gradient(45deg, rgb(25, 31, 68), rgb(169, 249, 52));
 }
+
 .forth {
-  background-image: linear-gradient(45deg, rgb(40, 23, 76),rgb(232, 90, 94));
+    background-image: linear-gradient(45deg, rgb(40, 23, 76), rgb(232, 90, 94));
 }
+
 .fifth {
-  background-image: linear-gradient(45deg, rgb(23,12,40),rgb(229,170,255));
+    background-image: linear-gradient(45deg, rgb(23, 12, 40), rgb(229, 170, 255));
 }
+
 .sixth {
-  background-image: linear-gradient(45deg, rgb(48,47,20),rgb(245,241,15));
+    background-image: linear-gradient(45deg, rgb(48, 47, 20), rgb(245, 241, 15));
 }
+
 .seventh {
-  background-image: linear-gradient(45deg, rgb(12,18,40),rgb(255,146,31));
+    background-image: linear-gradient(45deg, rgb(12, 18, 40), rgb(255, 146, 31));
 }
+
 .eighth {
-  background-image: linear-gradient(45deg, rgb(12,24,52),rgb(143,185,225));
+    background-image: linear-gradient(45deg, rgb(12, 24, 52), rgb(143, 185, 225));
 }
+
 .ninth {
-  background-image: linear-gradient(45deg, rgb(68,47,37),rgb(255,200,163));
+    background-image: linear-gradient(45deg, rgb(68, 47, 37), rgb(255, 200, 163));
 }
 
 //////////////////////////////////////////
-
 .activeClass {
-  background-color: black;
+    background-color: black;
 }
 
 .bottomFix {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
 }
 
-button:disabled, button[disabled], .btn.disabled, .btn:disabled {
-  background-color: #cccccc;
-  opacity: 0.5;
+button:disabled,
+button[disabled],
+.btn.disabled,
+.btn:disabled {
+    background-color: #cccccc;
+    opacity: 0.5;
 }

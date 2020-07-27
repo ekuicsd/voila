@@ -1,52 +1,51 @@
-<form [formGroup]="searchService.searchForm" class="pt-5 pb-4 px-4 bg" (ngSubmit)="submitForm()">
-  <div class="row cust-grid ">
-    <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-      <div class="form-group">
-        <select class="form-control" id="form58" formControlName="state" (change)="changeState($event)" class="browser-default custom-select">
-          <!-- <option value="" disabled>Select State</option> -->
-          <option *ngFor="let item of searchService.stateList" [value]="item.name">
-             {{ item?.name }}
-          </option>
-        </select>
-        <small>Enter State</small>
-        <!-- <input type="text" class="form-control" formControlName="city" [(ngModel)]="searchService.city" placeholder="Enter city"> -->
+<div class="mx-2 mx-md-5 my-4 search-box">
+    <form [formGroup]="searchService.searchForm" class="pt-5 pb-4 px-4 bg" (ngSubmit)="submitForm()">
+        <div class="row cust-grid ">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <select class="form-control" id="form58" formControlName="state" (change)="changeState($event)" class="browser-default custom-select">
+              <!-- <option value="" disabled>Select State</option> -->
+              <option *ngFor="let item of searchService.stateList" [value]="item.name">
+                 {{ item?.name }}
+              </option>
+            </select>
+                    <small>Enter State</small>
+                    <!-- <input type="text" class="form-control" formControlName="city" [(ngModel)]="searchService.city" placeholder="Enter city"> -->
+                </div>
+            </div>
+            <!--  -->
+
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 text-center">
+
+                <div class="form-group text-left">
+                    <div class="input-group">
+                        <!-- <label>From - To</label> -->
+                        <input angular-mydatepicker name="mydate" formControlName="range" [(ngModel)]="searchService.range" class="form-control" (ngModelChange)="changeRange($event)" [options]="myOptions" #dp="angular-mydatepicker" />
+                        <div class="input-group-append">
+                            <button class="btn calendar" (click)="dp.toggleCalendar()" type="button">
+                  <mdb-icon size="lg" far icon="calendar-alt"></mdb-icon>
+                </button>
+                        </div>
+                    </div>
+                    <small>From - To</small>
+                </div>
+            </div>
+
+            <div class="col-6 col-sm-8 col-md-7 col-lg-2">
+                <div class="form-group">
+                    <!-- <label>People</label> -->
+                    <input type="number" class="form-control" formControlName="noOfPeople" [(ngModel)]="searchService.noOfPeople" placeholder="people">
+                    <small>No. of People</small>
+                </div>
+            </div>
+            <!--  -->
+
+            <div class="col-6 col-sm-4 col-md-5 col-lg-2">
+                <div class="form-group">
+                    <button type="submit" style="background-color:#553d67" class="white-text btn btn-css btn-block px-2 px-sm-auto">Search</button>
+                </div>
+            </div>
+
         </div>
-    </div>
-    <!--  -->
-
-    <div class="col-12 col-sm-6 col-md-6 col-lg-4 text-center">
-      
-      <div class="form-group text-left">
-        <div class="input-group">
-        <!-- <label>From - To</label> -->
-          <input angular-mydatepicker name="mydate" formControlName="range" [(ngModel)]="searchService.range"
-          class="form-control"  (ngModelChange)="changeRange($event)"
-          [options]="myOptions" #dp="angular-mydatepicker"/>
-          <div class="input-group-append">
-            <button class="btn calendar" (click)="dp.toggleCalendar()" type="button">
-              <mdb-icon size="lg" far icon="calendar-alt"></mdb-icon>
-            </button>
-          </div>
-        </div>
-        <small>From - To</small>
-      </div>
-    </div>
-
-    <div class="col-6 col-sm-8 col-md-7 col-lg-2">
-      <div class="form-group">
-        <!-- <label>People</label> -->
-        <input type="number" class="form-control" formControlName="noOfPeople" [(ngModel)]="searchService.noOfPeople" placeholder="people">
-        <small>No. of People</small>
-      </div>
-    </div>
-    <!--  -->
-
-    <div class="col-6 col-sm-4 col-md-5 col-lg-2">
-      <div class="form-group">
-          <button type="submit" class="btn btn-success btn-css btn-block">Submit</button>
-      </div>
-    </div>
-
-  </div>
-</form>
-
+    </form>
+</div>
