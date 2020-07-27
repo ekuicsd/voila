@@ -26,6 +26,7 @@
     "@angular/platform-browser-dynamic": "^8.0.1",
     "@angular/router": "^8.0.1",
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "@mobiscroll/angular": "https://npm.mobiscroll.com/@mobiscroll/angular-trial/-/angular-trial-4.10.6.tgz",
     "@ng-bootstrap/ng-bootstrap": "^5.2.0",
     "@types/chart.js": "^2.9.15",
     "angular-bootstrap-md": "^8.10.1",
