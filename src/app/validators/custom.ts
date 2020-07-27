@@ -97,7 +97,6 @@ export class CustomValidators {
         let today = new Date();
         let dob = new Date(control.value);
         let diff = (today.getTime() - dob.getTime()) / (1000 * 3600 * 24 * 365.25); 
-        console.log(diff);
         return diff > 14 ? null : 'allowed only after 15 years old';
     }
 
@@ -106,7 +105,6 @@ export class CustomValidators {
             return null;
         }
         let isvalid = Number(control.value) >= 1 ;
-        console.log(control.value);
         const message = {
             compondValueValidate: {
                 message: 'This field only accepts numbers greater than 0'

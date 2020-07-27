@@ -14,7 +14,6 @@
   <h1>EDIT PROFILE</h1>
 </div>
 <div class="py-5 px-5 mx-lg-5">
-    <!-- <hr class="mt-0"> -->
     <div class="row font">
         <div class="col-md-3">
             <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
@@ -72,7 +71,6 @@
                     <a (click)="removeLanguage(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
-                    <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
             <a class="mb-3" (click)="addlanguage.show()"><b style="color: #4caf4f ">+Add more</b></a>
@@ -93,7 +91,6 @@
                     <a (click)="removeInterests(item)" class="float-right">
                         <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
                     </a>
-                    <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
             <a class="mb-3" (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
@@ -107,7 +104,6 @@
   </div>
 </div>
 
-<!-- edit profile modal -->
 <div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
@@ -200,7 +196,6 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="form1" class="">Interest</label>
-                        <!-- <input type="text" id="form1" formControlName="interest" class="form-control"> -->
                         <select formControlName="interest" class="form-control" class="browser-default custom-select" id="form1">
             <option value="" disabled>Select Interest</option>
             <option *ngFor="let item of interestList" [value]="item"> {{ item }}</option>
@@ -230,7 +225,6 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="form1" class="">language</label>
-                        <!-- <input type="text" id="form1" formControlName="language" class="form-control"> -->
                         <select formControlName="language" class="form-control" class="browser-default custom-select" id="form1">
                             <option value="" disabled>Select Language</option>
                             <option *ngFor="let item of languageList" [value]="item"> {{ item }}</option>

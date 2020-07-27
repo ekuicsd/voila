@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Booking } from 'src/app/shared/models/booking.model';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HistoriesComponent implements OnInit {
   val: number = 3;
-  public previousList: Booking[] = [];
+  public previousList: any[] = [];
   public selectedPrevious: any;
   public review: string = '';
 
@@ -34,7 +33,6 @@ export class HistoriesComponent implements OnInit {
 
   getAllPreviousList() {
     this.touristService.getAllBookingsByStatus('COMPLETED').subscribe( res => {
-      console.log(res);
       if(res.length > 0) {
         this.previousList = res;
       } else {

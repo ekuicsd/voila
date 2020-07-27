@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import { Options} from 'ng5-slider';
 import * as $ from 'jquery';
 import languages from 'country-language';
 import { SearchService } from 'src/app/shared/service/search.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './search-result-page.component.html',
   styleUrls: ['./search-result-page.component.scss']
 })
-export class SearchResultPageComponent implements OnInit {
+export class SearchResultPageComponent implements OnInit, OnDestroy {
 
 
   // slider 
@@ -31,12 +32,16 @@ export class SearchResultPageComponent implements OnInit {
   public cityMore: boolean = true;
   public langSearch: string = '';
   public citySearch: string = '';
-
+  routerSubscription: Subscription;
+  
   constructor( private staticDataService: StaticDataService,
     private router: Router,
-     public searchService: SearchService) { }
+     public searchService: SearchService) { 
+
+     }
   
   ngOnInit() {
+   
     var tabs = $('.tabs');
     var selector = $('.tabs').find('a').length;
     var activeItem = tabs.find('.active');
@@ -58,15 +63,22 @@ export class SearchResultPageComponent implements OnInit {
         "width": activeWidth + "px"
       });
     });
-
     this.languageList = languages.getLanguages().map(ele => ele.name[0]);
     this.interestList = this.staticDataService.getAllInterestList();
       this.searchService.getFilterData();
-      // console.log(this.router.url);
       if(this.router.url === '/tourists/touristshome/searchResult/dealsList') {
        this.router.navigateByUrl('/tourists/touristshome/searchResult/guidesList');
       }
+      this.routerSubscription = this.router.events
+        .subscribe(event => {
+            document.body.scrollTop = 0;
+        });
   }
+
+  ngOnDestroy() {
+    this.routerSubscription.unsubscribe();
+}
+
 
   changePrice($event) {
     this.searchService.getFilterData();
@@ -81,13 +93,10 @@ export class SearchResultPageComponent implements OnInit {
   }
 
   changeRating(data) {
-    // console.log(data.target.value);
-    // this.searchService.extra_filter.rating = data.target.value;
     this.searchService.getFilterData();
   }
 
   changeInterest(data) {
-    // console.log(data);
     if(data.checked) {
       this.searchService.extra_filter.interests.push(data.element.value)
     } else {
@@ -142,9 +151,6 @@ export class SearchResultPageComponent implements OnInit {
   }
 
   resetAll() {
-    // alert("reset");
-    // this.rating = null;
-    // $('input[name=star]').attr('checked', false);
     this.searchService.extra_filter = {
       minPrice: 100,
       maxPrice: 2000,

@@ -1,15 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {IMyDpOptions} from 'mydatepicker';
 import { ActivatedRoute, Router } from '@angular/router';
-import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { SearchService } from '../../service/search.service';
-import { StaticDataService } from '../../service/static-data.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { Booking } from '../../models/booking.model';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { UserService } from '../../service/user.service';
-import { TouristsService } from '../../service/tourists.service';
 @Component({
   selector: 'app-guide-profile',
   templateUrl: './guide-profile.component.html',
@@ -21,6 +14,7 @@ export class GuideProfileComponent implements OnInit {
   public guideId: any;
   public guide: any;
   public dealList: any[];
+  public ratings;
 
   constructor(private route: ActivatedRoute,
               private userService: UserService,
@@ -30,14 +24,12 @@ export class GuideProfileComponent implements OnInit {
      }
 
   ngOnInit() {
-    // this.createForm();
     this.guideId = this.route.snapshot.params.id;
-    console.log(this.guideId);
     if(this.guideId) {
       this.searchService.getGuideById(this.guideId).subscribe( res => {
         this.guide = res.guide;
-        this.dealList = res.guide.deals;
-        console.log(res);
+        this.dealList = res.deals;
+        this.ratings = res.ratings;
       });
     }
   }
@@ -46,8 +38,24 @@ export class GuideProfileComponent implements OnInit {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
     this.modal.show(content);
     } else {
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/login/tourist');
     }
+  }
+
+  getRating() : any {
+    let rating = 0;
+    this.ratings.filter( ele => {
+      if(ele.rating) {
+        rating = rating + ele.rating;
+        return ele;
+      }
+    });
+    rating = Math.floor(+rating / this.ratings.length );
+    let arr = [];
+    for(let i= 0; i< rating; i++) {
+      arr.push(i);
+    }
+    return arr;
   }
 
 }

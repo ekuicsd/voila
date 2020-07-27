@@ -13,7 +13,7 @@ import { StaticDataService } from '../../service/static-data.service';
 })
 export class DealsCardsComponent implements OnInit {
   
-  @Input() dealsList : any[] = [];
+  @Input() dealsList : any[];
   @Input() role: string; //guide or tourist
   @Input() isFav = '';
   @ViewChild('dealTour', {static: false}) modal1: MDBModalService;
@@ -31,23 +31,15 @@ export class DealsCardsComponent implements OnInit {
      private router: Router) { }
 
   ngOnInit() {
-    // this.getDealsFavourite();
     this.groupTypesList = this.staticDataService.getAllGroupTypes();
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
       this.userId = JSON.parse(this.userService.getUser('tourist'))._id;
     }
-    console.log(this.userId);
-    // this.createForm();
   }
 
   openModal1(content, deal) {
-    if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
       this.modal1.show(content, {ignoreBackdropClick: true});
       this.selectedDeal = deal;
-    } else {
-      this.toastr.warning("Please login as tourist!");
-      // this.router.navigateByUrl('/login/tourist');
-    }
   }
 
 
@@ -57,15 +49,13 @@ export class DealsCardsComponent implements OnInit {
        if(res.success) {
         this.toastr.success("added to favourites!");
         deal.favorites.push(this.userId);
-        console.log(res);
        } else {
         this.toastr.warning(res.message);
        }
       });
     } else {
-      this.toastr.warning("Please Login First!");
+      this.router.navigateByUrl('/login/tourist');
     }
-    console.log(this.dealsList);
   }
 
   removeFromFavourite(deal) {
@@ -83,16 +73,13 @@ export class DealsCardsComponent implements OnInit {
             this.dealsList.splice(index2, 1);
           }
           }
-          console.log(res);
         } else {
           this.toastr.warning(res.message);
         }
       });
-      console.log("removed");
     } else {
       this.router.navigateByUrl('/login/tourist');
     }
-    console.log(this.dealsList);
   }
 
 

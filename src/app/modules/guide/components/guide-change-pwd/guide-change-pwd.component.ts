@@ -21,7 +21,6 @@ export class GuideChangePwdComponent implements OnInit {
 
   getChangePwdData(data) {
     this.guideService.changePwd(data.newPassword).subscribe( res => {
-      console.log(res);
       this.userService.saveUser(res.user, 'guide');
       this.toastr.success("Password changed successfully!");
       this.router.navigateByUrl('/guide/guidehome/bookings');

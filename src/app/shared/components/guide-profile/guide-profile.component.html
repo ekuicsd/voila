@@ -1,45 +1,27 @@
-<div class="container guide-contain">
+<div class="container-fluid ">
     <div class="row">
-        <div class="col-md-4 pr-4">
-            <!--Card-->
-            <!-- cascade="true" -->
+        <div class="col-md-5 col-lg-4">
             <mdb-card class="sticky mt-4">
                 <div class="container mt-4">
                     <div class="row">
-
-                        <!--Card image-->
-                        <div class="col-md-4 view overlay waves-light " mdbWavesEffect>
-                            <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class="img-fluid rounded-circle z-depth-0" style="height:80px; width:80px;">
+                        <div class="col-4 col-sm-3 col-md-3 view overlay waves-light " mdbWavesEffect>
+                            <img [src]="guide?.picUrl ? guide?.picUrl : '../../assets/images/grayman.png'" 
+                            class="img-fluid rounded-circle z-depth-0" style="height:80px; width:80px;">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>
-                            <!--/Card image-->
                         </div>
-                        <div class="col-md-8">
-                            <h2>Aradhna Bhatnagar</h2>
+                        <div class="col-8 col-sm-9 col-md-9">
+                            <h2>{{guide?.name | titlecase}}</h2>
                             <div>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <mdb-icon fas icon="star"></mdb-icon>
-                                <strong> 22 Reviews</strong>
+                                <mdb-icon *ngFor="let star of getRating()" fas icon="star"></mdb-icon>
+                                <strong> {{ratings.length}}+ Reviews</strong>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
-                <hr class="myt-4 mx-3 mb-0">
-                <!-- cascade="true" -->
-
+                <hr class="mt-4 mx-3 mb-0">
                 <mdb-card-body style="font-size: 18px !important;">
-                    <!--Card content-->
-                    <!-- <h4 class="card-title">
-                        <strong>Billy Cullen</strong>
-                    </h4> -->
-                    <!-- Guide biodata -->
                     <div class="py-2">
                         <mdb-icon fas icon="check-circle" class="purple-text pr-1"></mdb-icon>Verified <strong>Local Tour Guide</strong>
                     </div>
@@ -47,7 +29,7 @@
                         <mdb-icon fas icon="map-marker-alt" class="purple-text pr-1"></mdb-icon>Lives in <strong>{{guide?.city}}, {{guide?.state}}</strong>
                     </div>
                     <div class="py-2">
-                        <mdb-icon fas icon="birthday-cake" class="purple-text pr-1"></mdb-icon><strong>27 years old</strong>
+                        <mdb-icon fas icon="birthday-cake" class="purple-text pr-1"></mdb-icon><strong>{{guide?.dob | age}} years old</strong>
                     </div>
                     <div class="py-2">
                         <mdb-icon fas icon="globe" class="purple-text pr-1"></mdb-icon>Speaks <strong>{{guide?.languages.toString()}}</strong>
@@ -55,121 +37,59 @@
                     <div class="py-2">
                         <mdb-icon fas icon="heart" class="purple-text pr-1"></mdb-icon>Loves <strong>{{guide?.interests.toString()}}</strong>
                     </div>
-
-                    <!-- Guide biodata -->
-                    <!-- <mdb-card-text>
-                        Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-                    </mdb-card-text> -->
                     <div class="text-center py-2">
-                        <button mdbBtn type="button" class="pink darken-3 white-text" rounded="true" mdbWavesEffect><b>Contact Me</b></button>
+                        <button mdbBtn type="button" class="pink darken-3 white-text" (click)="openModal(personalTour)" rounded="true" mdbWavesEffect><b>Contact Me</b></button>
                     </div>
                 </mdb-card-body>
-                <!--/.Card content-->
-
             </mdb-card>
-            <!--/.Card-->
         </div>
-        <div class="col-md-8">
-            <!-- <h2>hello people</h2> -->
-            <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px">
+        <div class="col-md-7 col-lg-8">
+            <img *ngIf="guide?.picUrl" [src]="guide?.picUrl" 
+            class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px">
+            <!-- <img *ngIf="!(guide?.picUrl)" src="" class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px"> -->
             <br>
             <br>
             <div>
                 <h2>Reviews</h2>
-                <div class="row">
+                <div class="row" *ngFor="let rate of ratings | slice:0:3">
                     <div class="col-sm-3">
                         <h6>
-                            <mdb-badge pill="true" primary="true">4.2</mdb-badge>
+                            <mdb-badge pill="true" primary="true">{{rate.rating}}</mdb-badge>
                         </h6>
-                        <p><b>Alexa sexy</b></p>
+                        <p><b>{{rate.tourType | titlecase}}</b></p>
                     </div>
                     <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
                         <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
                             <mdb-icon fas icon="check-double"></mdb-icon>
                         </mdb-badge>&nbsp;
-                        <p>Greate Experience and a really cool and hot man to roam with</p>
+                        <p>{{rate.review}}</p>
                     </div>
                 </div>
                 <hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <h6>
-                            <mdb-badge pill="true" danger="true">2.2</mdb-badge>
-                        </h6>
-                        <p><b>Hot Natasha</b></p>
-                    </div>
-                    <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
-                        <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
-                            <mdb-icon fas icon="check-double"></mdb-icon>
-                        </mdb-badge>&nbsp;
 
-                        <p>Great Experience and a really cool and hot man to roam with</p>
-                    </div>
-                </div>
             </div>
-            <!-- Card -->
             <div class="card my-4 bgclass">
-
-                <!--Card image-->
                 <div class="view overlay mx-auto pt-5">
-                    <img class="card-img rounded-circle " src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:100px; height:100px;" alt="Card image cap">
-                    <a href="#!">
+                    <img class="card-img rounded-circle " [src]="guide?.picUrl ? guide?.picUrl : '../../assets/images/grayman.png'" style="width:100px; height:100px;" alt="Card image cap">
+                    <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>
-
-                <!--Card content-->
                 <div class="card-body text-center white-text">
-
-                    <!--Title-->
                     <h3 class="card-title">Hi, I can personalize your experience!</h3>
-                    <!--Text-->
                     <h6>Just let me know your preferences for a private and personalized trip!
                     </h6>
-                    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <!-- <button type="button" class="btn  pink darken-3 btn-md" data-toggle="modal" data-target="#modalLoginAvatar">Request a personalized Tour</button> -->
-
                     <div class="text-center">
                         <a class="btn pink darken-3 btn-rounded " (click)="openModal(personalTour)">Request a personalized Tour</a>
                     </div>
-
                 </div>
-
             </div>
-            <!-- Card -->
             <div>
-                <h1 my-2>My Tour Deals in Pune</h1>
+                <h1 my-2>My Tour Deals in {{guide?.state}}</h1>
                 <app-deals-cards [dealsList]="dealList"></app-deals-cards>
-                <!-- <div class="d-flex flex-wrap my-4">
-                    <div class="w-50 p-2" *ngFor="let deal of dealList">
-                        <mdb-card>
-                            <div class="img-fav">
-                                <i class="fas fa-heart fa-lg pink-text" ></i>
-                                <mdb-card-img class="main-img" src="https://images.thrillophilia.com/image/upload/s--8pyG_oK_--/c_fill,dpr_1.0,f_auto,fl_strip_profile,g_center,h_450,q_auto,w_753/v1/images/photos/000/113/476/original/1501063349_Pune_Palace.jpg.jpg" alt="Card image cap"></mdb-card-img>
-                                <img class="card-img rounded-circle" src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="width:70px; height:70px; border:white 3px solid;" alt="Card image cap">
-                                <h5><span class="badge badge-default font-weight-normal">{{deal.city}} tour with Barkha Joshi</span></h5>
-                            </div>
-                            <mdb-card-body>
-                                <mdb-card-title>
-                                    <h5><strong>{{deal.places[0]}} Tour</strong></h5>
-                                </mdb-card-title>
-                      
-                                <mdb-card-text>
-                                    <div>{{deal.places.toString()}}.</div>
-                                    <div>&#x20b9;{{deal.price}} pp &#8226; From {{deal.startDate | date: 'dd-MM-yy'}} &#8226; To {{deal.endDate | date: 'dd-MM-yy'}}</div>
-                                </mdb-card-text>
-                      
-                            </mdb-card-body>
-                        </mdb-card>
-                    </div>
-                    
-                </div> -->
-
             </div>
-
         </div>
     </div>
-
 </div>
 
 
@@ -179,6 +99,6 @@
 
 <!--Modal: Login with Avatar Form-->
 <div mdbModal #personalTour="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel" aria-hidden="true">
-    <app-personal-modal></app-personal-modal>
+    <app-personal-modal [guide]="guide" (close)="personalTour.hide()"></app-personal-modal>
 </div>
 <!--Modal: Login with Avatar Form-->

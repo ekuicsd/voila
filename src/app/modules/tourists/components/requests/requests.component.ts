@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
-import { Booking } from 'src/app/shared/models/booking.model';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,7 +9,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent implements OnInit {
-  public requestList: Booking[] = [];
+  public requestList: any[] = [];
   public selectedRequest: any;
   public cancelReason: string = 'cancel request';
 
@@ -24,12 +23,11 @@ export class RequestsComponent implements OnInit {
   
   open(content, data) {
     this.selectedRequest = data;
-    this.modalService.open(content);
+    this.modalService.open(content, {scrollable: true, centered: true});
   } 
 
   getAllRequestsList() {
     this.touristService.getAllBookingsByStatus('PENDING').subscribe( res => {
-      console.log(res);
       if(res.length > 0) {
         this.requestList = res;
       } else {
@@ -41,7 +39,6 @@ export class RequestsComponent implements OnInit {
   cancelRequest() {
     let request = {cancelReason: this.cancelReason };
     this.touristService.cancelrequest(this.selectedRequest._id, 'CANCELLED', request).subscribe( res => {
-      console.log(res);
       this.toastr.success("Request Cancelled successfully!");
       this.getAllRequestsList();
     })

@@ -35,7 +35,7 @@ export class DealModalComponent implements OnInit {
 
     createForm() {
     this.dealForm = new FormGroup({
-      noOfPeople: new FormControl('', [Validators.required, CustomValidators.compondValueValidate])
+      noOfPeople: new FormControl('', [Validators.required, CustomValidators.noOfPeopleValidation])
     });
   }
 
@@ -49,7 +49,7 @@ export class DealModalComponent implements OnInit {
     if(this.userService.getRole() === 'tourist') {
       this.modal2.show(content, {ignoreBackdropClick: true});
     } else {
-      this.toastr.warning("Please login as tourists!");
+      this.router.navigateByUrl('/login/tourist');
     }
   }
 
@@ -59,9 +59,7 @@ export class DealModalComponent implements OnInit {
 
   submitDealForm() {
     if(this.dealForm.valid) {
-      console.log(this.dealForm.value);
       this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
-        console.log(res);
         this.toastr.success("Booked successfully!!");
         this.modal2.hide(0);
         this.router.navigateByUrl('/tourists/touristshome/bookings/now');

@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit {
 
   getGuideList() {
     this.adminService.getAllGuides().subscribe(res => {
-      console.log(res);
       if(res.success) {
         this.guideList = res.guides;
       } else {
@@ -33,7 +32,6 @@ export class DashboardComponent implements OnInit {
   }
 
   navigateToGuideProfile(guide) {
-    console.log(guide);
     this.adminService.selectedGuide = guide;
     this.router.navigateByUrl('/admin/guideProfile/' + guide._id);
   }

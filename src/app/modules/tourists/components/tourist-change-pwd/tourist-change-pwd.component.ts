@@ -20,9 +20,7 @@ export class TouristChangePwdComponent implements OnInit {
   }
 
   getChangePwdData(data) {
-    console.log(data);
     this.touristService.changePwd(data.newPassword).subscribe( res => {
-      console.log(res);
       this.userService.saveUser(res.user, 'tourist');
       this.router.navigateByUrl('/tourists/touristshome/dashboard');
       this.toastr.success("Password changed successfully!");

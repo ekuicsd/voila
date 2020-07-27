@@ -28,7 +28,6 @@ export class BookingsComponent implements OnInit {
 
   getAllBookingsList() {
     this.touristService.getAllBookingsByStatus('APPROVED').subscribe( res => {
-      console.log(res);
       if(res.length > 0) {
         this.bookingsList = res;
       } else {
@@ -53,7 +52,7 @@ export class BookingsComponent implements OnInit {
   }
 
   openCancelRequest(content) {
-    this.modalService.open(content, {centered: true});
+    this.modalService.open(content, {scrollable: true, centered: true});
   }
 
   open(content, data) {
@@ -64,7 +63,6 @@ export class BookingsComponent implements OnInit {
   cancelBooking(content, cancel) {
     let request = {cancelReason: this.cancelReason };
     this.touristService.cancelrequest(this.selectedBooking._id, 'CANCELLED', request).subscribe( res => {
-      console.log(res);
       this.toastr.success("Request Cancelled successfully!");
       this.modalService.dismissAll(content);
       this.modalService.dismissAll(cancel);
@@ -74,7 +72,6 @@ export class BookingsComponent implements OnInit {
 
   startTour(data) {
     this.touristService.cancelrequest(data._id, 'ONGOING', {}).subscribe( res => {
-      console.log(res);
       this.getAllBookingsList();
     });
   }

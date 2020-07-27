@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-requests',
@@ -12,7 +12,7 @@ export class RequestsComponent implements OnInit {
   public selectedRequest: any[]
 
   constructor(private guideService: GuideService,
-    config: NgbModalConfig, private modalService: NgbModal,
+     private modalService: NgbModal,
     ) { }
 
   ngOnInit() {
@@ -27,41 +27,32 @@ export class RequestsComponent implements OnInit {
         } else {
           this.requestList = undefined;
         }
-        console.log(res);
       }, error => {
-        console.log(error);
       }
     )
   }
 
   acceptRequest(content, id) {
-    console.log(id);
     this.guideService.reponseToTouristRequest(id, 'APPROVED').subscribe(
       res => {
-        console.log(res);
         this.getAllRequests();
       }, error => {
-        console.log(error);
       }
     );
     this.modalService.dismissAll(content);
   }
 
   rejectRequest(content, id) {
-    console.log(id);
     this.guideService.reponseToTouristRequest(id, 'REJECTED').subscribe(
       res => {
-        console.log(res);
         this.getAllRequests();
       }, error => {
-        console.log(error);
       }
     );
     this.modalService.dismissAll(content);
   }
 
   open(content, data) {
-    console.log(data);
     this.selectedRequest = data;
     this.modalService.open(content, { centered: true, scrollable: true});
   }

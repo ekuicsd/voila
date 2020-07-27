@@ -1,7 +1,8 @@
 <div class="container-fluid  m-0 p-0">
-    <div class="row mx-0" style="background-color: #22c1c3;">
-        <div class="col px-0">
-            <h3 class=" p-2 px-3">Chats</h3>
+    <div class="row py-3 mx-0" style="background-color: #22c1c3;">
+        <div class="col-12">
+            <span style="font-size: 30px;"><b>
+                CHATS</b></span>
         </div>
     </div>
 
@@ -9,8 +10,8 @@
         <div (click)="navigateToChat(item.userEmail, item.userName, item.roomId)" class="chat-list p-3 m-2 white" *ngFor="let item of messageList">
             <div class="row mx-0">
                 <div class="col-9 px-0">
-                    <h3 *ngIf="item.roomName"><b>{{item.roomName | titlecase}}</b></h3>
-                    <h3 *ngIf="!item.roomName"><b>{{item.userName | titlecase}}</b></h3>
+                    <h4 *ngIf="item.roomName"><b>{{item.roomName | titlecase}}</b></h4>
+                    <h4 *ngIf="!item.roomName"><b>{{item.userName | titlecase}}</b></h4>
                     <span class="text-muted">Message: </span>{{item.body | shorttext | titlecase}}
                 </div>
                 <div class="col-3 px-0 date text-right">
@@ -21,7 +22,10 @@
     </div>
 </div>
 <div *ngIf="!messageList" class="row">
-    <div class="col text-center">
-        <h1>No Messages Yet!</h1>
+  <div class="row cust-grid">
+    <div class="col-12 text-center">
+        <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/fogg-87.png">
+        <h1 style="font-family: 'Dancing Script', cursive; font-size: 4vh;">No Message !!</h1>
     </div>
+</div>
 </div>

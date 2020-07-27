@@ -14,7 +14,6 @@ export class ActivitiesComponent implements OnInit {
 
   constructor(private guideService: GuideService,
     config: NgbModalConfig, private modalService: NgbModal,
-
     ) { }
 
   ngOnInit() {
@@ -29,15 +28,12 @@ export class ActivitiesComponent implements OnInit {
         } else {
           this.previousBookingsList = undefined;
         }
-        console.log(res);
       }, error => {
-        console.log(error);
       }
     )
   }
 
   open(content, data) {
-    console.log(data);
     this.selectedPreviousBookings = data;
     this.modalService.open(content, { centered: true, scrollable: true});
   }

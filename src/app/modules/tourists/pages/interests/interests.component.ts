@@ -25,12 +25,9 @@ export class InterestsComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe( s => {
       this.status = this.route.snapshot.params.status;
-      console.log(this.status);
     });
     this.gradientList = this.staticDataService.getGradientClassesList();
-    // console.log(this.gradientList);
     this.interestsList = this.staticDataService.getAllInterestList();
-    // console.log(this.interestsList);
   }
 
   getGradientClass(index) {
@@ -51,14 +48,11 @@ export class InterestsComponent implements OnInit {
 
   addToSelectedIntList(item) {
     let flag = this.isSelected(item);
-    // console.log(flag);
-    // console.log(this.selectedInterestsList);
     if(flag) {
       this.selectedInterestsList.splice(this.selectedInterestsList.indexOf(item), 1);
     } else {
       this.selectedInterestsList.push(item);
     }
-    // console.log(this.selectedInterestsList);
   }
 
   removeFromSelectedList(item) {
@@ -68,7 +62,6 @@ export class InterestsComponent implements OnInit {
   saveInterests() {
     this.touristSerice.updateInterestAndLang( { interests: this.selectedInterestsList}).subscribe( res => {
       if(res.success) {
-        console.log(res);
         this.router.navigateByUrl('/tourists/touristshome/dashboard');
       } else {
         this.toastr.error(res.message);

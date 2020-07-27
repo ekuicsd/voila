@@ -15,7 +15,7 @@ export class LanguagesComponent implements OnInit {
   public languageList: any;
   public selectedLanguageList = [];
   public status;
-  public langSearch;
+  public langSearch: string = '';
 
   constructor(private staticDataService: StaticDataService,
     private router: Router,
@@ -26,12 +26,9 @@ export class LanguagesComponent implements OnInit {
   ngOnInit() {
     this.route.url.subscribe( s => {
       this.status = this.route.snapshot.params.status;
-      console.log(this.status);
     });
     this.gradientList = this.staticDataService.getGradientClassesList();
-    // console.log(this.gradientList);
     this.languageList = languages.getLanguages().map(ele => ele.name[0]);
-    // console.log(this.languageList);
   }
 
   getGradientClass(index) {
@@ -52,14 +49,11 @@ export class LanguagesComponent implements OnInit {
 
   addToSelectedLangList(item) {
     let flag = this.isSelected(item);
-    // console.log(flag);
-    // console.log(this.selectedLanguageList);
     if(flag) {
       this.selectedLanguageList.splice(this.selectedLanguageList.indexOf(item), 1);
     } else {
       this.selectedLanguageList.push(item);
     }
-    // console.log(this.selectedLanguageList);
   }
 
   removeFromSelectedList(item) {
@@ -69,7 +63,6 @@ export class LanguagesComponent implements OnInit {
   saveLanguages() {
     this.touristSerice.updateInterestAndLang( { languages: this.selectedLanguageList}).subscribe( res => {
       if(res.success) {
-        console.log(res);
         this.navigateToRoute();
       } else {
         this.toastr.error(res.message);

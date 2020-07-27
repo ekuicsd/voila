@@ -65,24 +65,12 @@ export class ApiService {
     };
     this.http = new HttpClient(this.httpBackend);
 
-    // console.log("path..." + environment.api_url + path);
-    console.log("body..."+ body);
     return this.http
       .post(`${environment.baseUrl}${path}`, body)
       .pipe(catchError(this.formatErrors));
   }
 
   putWithMedia(path: string, body): Observable<any> {
-    // const HttpUploadOptions = {
-    //   headers: new HttpHeaders({
-    //     // "Content-Type": "multipart/form-data",
-    //     authorization : this.jwtService.getToken()
-    //   })
-    // };
-    // this.http = new HttpClient(this.httpBackend);
-
-    // console.log("path..." + environment.api_url + path);
-    console.log("body..."+ body);
     return this.http
       .put(`${environment.baseUrl}${path}`, body)
       .pipe(catchError(this.formatErrors));

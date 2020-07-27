@@ -21,7 +21,14 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
+}
+
+@media(max-width: 767px) {
+     ::-webkit-scrollbar {
+        width: 4px;
+        display: none;
+    }
 }
 
  ::-webkit-scrollbar-track {
@@ -293,3 +300,6 @@ button[disabled],
     background-color: #cccccc;
     opacity: 0.5;
 }
+
+// ssss
+// Please change your favorite font-size!

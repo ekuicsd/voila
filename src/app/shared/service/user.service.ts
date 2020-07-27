@@ -36,21 +36,6 @@ export class UserService {
         
     }
 
-
-    // populate() {
-    //     // If JWT detected, attempt to get & store user's info
-    //     if (this.jwtService.getToken()) {
-    //         this.apiService.get('/user')
-    //         .subscribe(
-    //             data => this.setAuth(data.user),
-    //             err => this.purgeAuth()
-    //         );
-    //     } else {
-    //         // Remove any potential remnants of previous auth states
-    //         this.purgeAuth();
-    //     }
-    // }
-        
     setAuth(token) {
         this.jwtService.setToken(token);
         this.isAuthenticatedSubject.next(true);
@@ -61,7 +46,6 @@ export class UserService {
         let url = '/login/tourist';
         return this.apiService.post(url, credentials).pipe(
             map(data => {
-                console.log(data);
                 if(data.body.success) {
                     this.setAuth(data.body.token);
                     this.saveUser(data.body.Tourist, 'tourist');
@@ -78,7 +62,6 @@ export class UserService {
         let url = '/login/guide';
         return this.apiService.post(url, credentials).pipe(
             map(data => {
-                console.log(data);
                 if(data.body.success) {
                     this.setAuth(data.body.token);
                     this.saveUser(data.body.guide, 'guide');
@@ -93,11 +76,9 @@ export class UserService {
         let url = '/login/admin';
         return this.apiService.post(url, credentials).pipe(
             map(data => {
-                console.log(data);
                 if(data.body.success) {
                     this.setAuth(data.body.token);
                     window.localStorage['role'] = 'admin';
-                    // this.saveUser(data.body.guide, 'guide');
                 }
               return data.body;
             }
@@ -108,13 +89,11 @@ export class UserService {
         let url = '/'+ role + '/logout';
         this.apiService.get(url).subscribe(
             res=> {
-                console.log('logout');
                 this.purgeAuth();
                 this.searchService.extra_filter.interests = [];
                 this.searchService.extra_filter.languages = []
                 this.router.navigate(['/']);
             }, error => {
-                console.log(error);
             }
         ); 
     }

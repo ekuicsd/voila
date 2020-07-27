@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TouristsService } from '../../service/tourists.service';
@@ -17,11 +17,10 @@ export class PersonalModalComponent implements OnInit {
   @Input() guide;
   personalBooking;
   agree: boolean = false;
-  // public guide: any;
   public groupTypesList;
   totalPrice: number = 0;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
     private touristService: TouristsService,
     private router:Router,
     private staticDataService: StaticDataService,
@@ -62,16 +61,11 @@ export class PersonalModalComponent implements OnInit {
 
   submitPersonalBooking() {
     if(this.personalBooking.valid) {
-      console.log(this.personalBooking.value);
       this.personalBooking.value.price = this.totalPrice;
       this.touristService.bookForPersonalTour(this.guide._id, this.personalBooking.value).subscribe( res => {
-      //  if(res.success) {
         this.toastr.success("Requested For Personalized Tour!");
         this.emitClose();
         this.router.navigateByUrl('/tourists/touristshome/bookings/requests');
-      //  } else {
-
-      //  }
       });
     } else {
       this.toastr.error("Invalid deatils!");

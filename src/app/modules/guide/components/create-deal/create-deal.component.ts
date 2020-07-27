@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import csc from 'country-state-city';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/validators/custom';
@@ -11,7 +11,6 @@ import { UserService } from 'src/app/shared/service/user.service';
   selector: 'app-create-deal',
   templateUrl: './create-deal.component.html',
   styleUrls: ['./create-deal.component.scss'],
-  // encapsulation: ViewEncapsulation.None
 })
 export class CreateDealComponent implements OnInit {
 
@@ -23,8 +22,6 @@ export class CreateDealComponent implements OnInit {
   public groupType;
   public user;
   public today = new Date();
-
-  //ngModel
   public place: string = '';
   public date: Date;
 
@@ -58,9 +55,7 @@ export class CreateDealComponent implements OnInit {
   }
 
   getAllState(countryId: string) {
-    console.log(countryId);
     this.stateList = csc.getStatesOfCountry(countryId);
-    console.log(this.stateList);
   }
 
   getAllCity(statename) {
@@ -69,9 +64,7 @@ export class CreateDealComponent implements OnInit {
         return ele;
       }
     })[0].id;
-    console.log(stateId);
     this.cityList = csc.getCitiesOfState(stateId);
-    console.log(this.cityList);
   }
 
   addToPlacesList() {
@@ -109,19 +102,14 @@ export class CreateDealComponent implements OnInit {
 
   saveDeal() {
     if(this.dealForm.valid && this.placesList.length > 0) {
-      console.log(this.dealForm.value);
       this.deal = this.dealForm.value;
       this.deal['places'] = this.placesList;
-      console.log(this.deal);
       this.guideService.createDeal(this.deal).subscribe( res=> {
-          console.log(res);
           this.guideService.createGroupChatRoom(this.user._id, res.body.deal._id, this.dealForm.value.groupName).subscribe( res => {
-            console.log(res);
             this.toastr.success("Deal created successfully!");
             this.router.navigateByUrl('/guide/guidehome/deals');
           });
         }, error => {
-        console.log(error)
       });
     } else {
       this.toastr.error("Invalid Details!");

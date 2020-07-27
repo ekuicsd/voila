@@ -4,12 +4,12 @@
 <div  class="modal-dialog cascading-modal modal-avatar " role="document">
   <div class="modal-content">
       <div class="modal-header">
-          <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
+          <img [src]="deal?.guideId?.picUrl ? deal?.guideId?.picUrl : '../../assets/images/grayman.png'" style="height:100px; width:100px" alt="" class="rounded-circle img-responsive">
       </div>
       <div class="modal-body text-center mb-0 pb-0">
-        <!-- content -->
-        <h4>{{deal?.guideId?.gender}} {{deal?.guideId?.name | titlecase}}</h4>
-        <p>{{deal?.guideId?.city | titlecase}}, {{deal?.guideId?.state | titlecase}}</p>
+        <h4 *ngIf="role !== 'guide'" [routerLink]="['/tourists/touristshome/guideProfile', deal?.guideId?._id]">{{deal?.guideId?.gender}} {{deal?.guideId?.name | titlecase}}</h4>
+        <h4 *ngIf="role === 'guide'" >You</h4>
+        <p>{{deal?.city | titlecase}}, {{deal?.state | titlecase}}</p>
         <hr class="mt-0 mb-1">
         <div class="row">
           <div class="col-6">
@@ -45,10 +45,10 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <B>Price</B>
+            <B>Price per head</B>
           </div>
           <div class="col-6">
-            {{deal?.price}}
+            Rs. {{deal?.price}}/-
           </div>
         </div>
         <div class="row">
@@ -92,7 +92,8 @@
   <div class="modal-dialog cascading-modal modal-avatar " role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
+              <img [src]="deal?.guideId?.picUrl ? deal?.guideId?.picUrl : '../../assets/images/grayman.png'"
+               style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
           </div>
           <div class="modal-body text-center mb-1">
               <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>

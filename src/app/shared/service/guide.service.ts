@@ -51,8 +51,6 @@ export class GuideService{
         return new Observable<any>( obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res.deals);
-            }, error => {
-                console.log(error);
             });
         });
     }

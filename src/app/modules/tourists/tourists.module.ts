@@ -27,10 +27,6 @@ import { LanguagesComponent } from './pages/languages/languages.component';
 import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history-list/chat-history-list.component';
 import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
 import { Ng5SliderModule } from 'ng5-slider';
-import { StarRatingModule } from 'angular-star-rating';
-// import {RatingModule} from 'primeng/rating';
-// import { RatingModule } from 'ng-starrating';
-// import { RatingModule } from '@bit/primefaces.primeng.rating';
 
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -158,9 +154,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     Ng5SliderModule,
-    // StarRatingModule.forRoot(),
-    // StarRatingModule,
-    // RatingModule,
     NgbModule
   ],
   exports: [

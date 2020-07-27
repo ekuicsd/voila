@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 import { FeaturesComponent } from './features/features.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TopDealsComponent } from './top-deals/top-deals.component';
-import { MyDatePickerModule } from 'mydatepicker';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
@@ -39,7 +38,6 @@ const routes: Routes = [
       SharedModule,
       MDBBootstrapModule.forRoot(),
       NgbModule,
-      MyDatePickerModule,
       FormsModule,
       RouterModule.forChild(routes),
   ],

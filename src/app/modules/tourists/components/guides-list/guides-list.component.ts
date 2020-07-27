@@ -3,7 +3,6 @@ import { SearchService } from 'src/app/shared/service/search.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/service/user.service';
 import { MDBModalService } from 'angular-bootstrap-md';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-guides-list',
@@ -11,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./guides-list.component.scss']
 })
 export class GuidesListComponent implements OnInit {
-  // public guidesList: any[];
 
  @ViewChild('personalTour', { static: false}) modal: MDBModalService;
  public guide;
@@ -19,12 +17,9 @@ export class GuidesListComponent implements OnInit {
 
   constructor(public searchService: SearchService,
     private userService: UserService,
-    private toastr: ToastrService,
      private router: Router) { }
 
   ngOnInit() {
-    // this.guidesList = this.searchService.guidesList;
-    console.log(this.searchService.guidesList);
   }
 
   navigateToGuideProfile(id) {
@@ -42,10 +37,9 @@ export class GuidesListComponent implements OnInit {
   openModal(content, guide) {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
     this.guide = guide;
-    this.modal.show(content);
+    this.modal.show(content, { scrollable: true, centered: true});
     } else {
-      this.toastr.warning("please login as tourist!");
-    // this.router.navigateByUrl('/login/tourist');
+      this.router.navigateByUrl('/login/tourist');
     }
   }
 
@@ -57,5 +51,20 @@ export class GuidesListComponent implements OnInit {
     }
   }
 
+  getRating(guide) : any {
+    let rating = 0;
+    guide.reviewAndRating.filter( ele => {
+      if(ele.rating) {
+        rating = rating + ele.rating;
+        return ele;
+      }
+    });
+    rating = Math.floor(+rating / guide.reviewAndRating.length );
+    let arr = [];
+    for(let i= 0; i< rating; i++) {
+      arr.push(i);
+    }
+    return arr;
+  }
 
 }

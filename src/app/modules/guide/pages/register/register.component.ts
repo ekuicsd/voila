@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild , ViewEncapsulation} from '@angular/core';
-// import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Guide } from 'src/app/shared/models/guide.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { WizardComponent } from 'ng2-archwizard/dist';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
@@ -9,12 +7,11 @@ import { Router } from '@angular/router';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  // encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
 
   @ViewChild('wizard', {static: false}) wizard: WizardComponent;
-  guide: Guide = {};
+  guide: any = {};
   file: any;
 
   constructor(private toastr: ToastrService,
@@ -30,7 +27,6 @@ export class RegisterComponent implements OnInit {
 
   getPersonalData(data) {
     this.guide = data;
-    console.log(this.guide);
     this.wizard.navigation.goToNextStep();
   }
 
@@ -57,8 +53,6 @@ export class RegisterComponent implements OnInit {
 
   // terms and conditions 
   finalSubmit() {
-    console.log("done!");
-    console.log(this.guide);
     const formData = new FormData();
     formData.append("data", JSON.stringify(this.guide));
     for (var i = 0; i < this.file.length; i++) { 
@@ -66,7 +60,6 @@ export class RegisterComponent implements OnInit {
     }
     this.guideService.guideSignup(formData).subscribe( res => {
       if(res.success) {
-        console.log(res);
         this.toastr.success("Created Successfully!");
         this.router.navigateByUrl('/login/guide');
       } else {
