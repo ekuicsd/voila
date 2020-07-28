@@ -1,21 +1,41 @@
 .pro-bg {
-    width: 100%;
-    background-color: rgb(31, 110, 86);
+    min-height: 100vh;
+    background-image: radial-gradient(circle at center center, rgb(207,226,214),rgb(123,169,230));
 }
 .det{
-  font-size: 3vh;
+  font-size: 2vh;
 }
 @media(max-width:950px){
 .det{
-  font-size: 2vh;
+  font-size: 1.5vh;
 
 }}
 .head{
-  font-size: 5vh;
-  background-color: black;
-  color: white;
+  font-size: 4vh;
+  color: #0868E8;
 }
 .btn-size{
-  size: 5vh;
+  size: 4vh;
+
+}
+.ppp{
+  top: 0;
+  margin:0;
+  float:right;
+}
+.heading h3{
+  border-top: 1.5px solid rgba(80, 80, 82, 0.473);
+  border-bottom: 1.5px solid rgba(80, 80, 82, 0.473);
+  color:#553d67;
+}
+.bg{
+  min-height: 100vh;
+  border-left: 15px solid #553d67;
+}
+.mainh h1{
+  font-size: 5vh ;
+}
+.mainh h4{
+  font-size: 4vh ;
 
 }
