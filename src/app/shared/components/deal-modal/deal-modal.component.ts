@@ -60,9 +60,13 @@ export class DealModalComponent implements OnInit {
   submitDealForm() {
     if(this.dealForm.valid) {
       this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
-        this.toastr.success("Booked successfully!!");
-        this.modal2.hide(0);
-        this.router.navigateByUrl('/tourists/touristshome/bookings/now');
+        if(res.success) {
+          this.toastr.success("Booked successfully!!");
+          this.modal2.hide(0);
+          this.router.navigateByUrl('/tourists/touristshome/bookings/now');
+        } else {
+          this.toastr.error(res.msg);
+        }
       });
     } else {
       this.toastr.error("Invalid Details!");

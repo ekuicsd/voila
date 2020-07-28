@@ -52,6 +52,7 @@ export class SearchService {
 
     constructor(private calendar: NgbCalendar, 
         private router: Router,
+        private toastr: ToastrService,
         private apiService: ApiService,) 
     {
         this.createForm();
@@ -108,7 +109,7 @@ export class SearchService {
             endDate: this.convertDateIntoString(this.range.dateRange.endDate),
             noOfPeople: this.noOfPeople
           });
-          this.router.navigateByUrl('/tourists/touristshome/searchResult');
+          // this.router.navigateByUrl('/tourists/touristshome/searchResult');
           this.getGuidesAndDealsList();
       }
 
@@ -123,6 +124,7 @@ export class SearchService {
         request['extra_filter'] = this.extra_filter;
         let url = '/tourist/guides';
         this.apiService.post(url,request).subscribe( res => {
+          if(res.body.success) {
             this.guidesList = res.body.guides;
             this.dealsList = res.body.deals;
             if(this.guidesList.length <=0) {
@@ -130,7 +132,10 @@ export class SearchService {
             } if(this.dealsList.length <=0) {
               this.dealsList = undefined;
             }
-        })
+          } else {
+            this.toastr.warning("Oops something went wrong!");
+          }
+        });
       }
 
       getGuideById(id) : Observable<any> {

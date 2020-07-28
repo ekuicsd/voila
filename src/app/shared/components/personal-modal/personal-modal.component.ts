@@ -63,9 +63,13 @@ export class PersonalModalComponent implements OnInit {
     if(this.personalBooking.valid) {
       this.personalBooking.value.price = this.totalPrice;
       this.touristService.bookForPersonalTour(this.guide._id, this.personalBooking.value).subscribe( res => {
+       if(res.success) {
         this.toastr.success("Requested For Personalized Tour!");
         this.emitClose();
         this.router.navigateByUrl('/tourists/touristshome/bookings/requests');
+       } else {
+         this.toastr.error(res.message);
+       }
       });
     } else {
       this.toastr.error("Invalid deatils!");

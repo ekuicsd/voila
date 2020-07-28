@@ -1,4 +1,3 @@
-import { MbscModule } from '@mobiscroll/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -28,7 +27,6 @@ const routes: Routes = [
     AppComponent,
   ],
   imports: [ 
-    MbscModule, 
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

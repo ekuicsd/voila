@@ -130,5 +130,15 @@ export class StaticDataService {
             },
         ];
     }
+
+    getProfileData() : string[] {
+        return [ 
+            "Guide",
+            "Travel Agent", 
+            "Travel Assistant",
+            "Travel Manager",
+            "Professional Travellers"
+        ];
+    }
     
 }

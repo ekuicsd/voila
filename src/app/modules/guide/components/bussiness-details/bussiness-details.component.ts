@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CustomValidators } from 'src/app/validators/custom';
+import { StaticDataService } from 'src/app/shared/service/static-data.service';
 
 @Component({
   selector: 'app-bussiness-details',
@@ -13,13 +14,15 @@ export class BussinessDetailsComponent implements OnInit {
   @Output() experienceData: EventEmitter<any> = new EventEmitter<any>();
 
   public userExperienceList: any[] = [];
+  public profileList;
 
   public experienceForm: FormGroup;
   public basicDetails: FormGroup;
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService, private staticDataService: StaticDataService) { }
 
   ngOnInit() {
+    this.profileList = this.staticDataService.getProfileData();
     this.creatsBasicdetails();
     this.createExperienceForm();
   }
