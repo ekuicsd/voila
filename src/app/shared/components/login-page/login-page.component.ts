@@ -94,7 +94,7 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
-  showTouirstPwd(data) {
+  showTouristPwd(data) {
     if(data.target.checked) {
       this.touristShow = true;
     } else {

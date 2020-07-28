@@ -53,9 +53,9 @@ export class PersonalModalComponent implements OnInit {
     let end = new Date(this.personalBooking.value.endDate);
     let days = (end.getTime() - start.getTime())  / (1000 * 3600 * 24); 
     if(this.personalBooking.value.noOfPeople <= this.guide.peopleLimit) {
-      this.totalPrice = Number(this.personalBooking.value.noOfPeople) * Number(this.guide.perHeadCharge) * days;
+      this.totalPrice = Number(this.personalBooking.value.noOfPeople) * Number(this.guide.perHeadCharge) * (days + 1) ;
     } else {
-      this.totalPrice = Number(this.guide.perDayCharge) * days;
+      this.totalPrice = Number(this.guide.perDayCharge) * (days + 1);
     }
   }
 

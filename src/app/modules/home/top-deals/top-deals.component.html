@@ -24,12 +24,12 @@
                                     <mdb-carousel-item *ngFor="let deal of hotDealsList | slice:0:5">
                                         <div class="card deal-card">
                                             <div class="row">
-                                                <div class="col-5">
+                                                <div class="col-5 px-0">
                                                     <img class="deal-img card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="" height="100%" width="100%">
                                                 </div>
-                                                <div class="col-7 pl-3">
+                                                <div class="col-7 px-0">
                                                     <div class="card-body">
-                                                        <h3 class="card-title"><strong>{{deal.dealId?.city | titlecase}} City Tour</strong></h3>
+                                                        <h3 class="card-title"><strong>{{deal.dealId?.city | titlecase}}  Tour</strong></h3>
                                                         <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
                                                         <div class="card-text mt-0 pt-0 black-text">
                                                             <div>
@@ -49,13 +49,13 @@
                         </mdb-carousel>
                         <mdb-carousel class="carousel slide carousel-fade pb-5 pt-3 small-card" [type]="'carousel-thumbnails'" [animation]="'fade'">
                             <div class="row cust-grid">
-                                <div class="col-10">
+                                <div class="col-9">
                                     <mdb-carousel-item *ngFor="let deal of hotDealsList | slice:0:5">
                                         <mdb-card class="my-2">
                                             <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="">
                                             </mdb-card-img>
-                                            <div class="m-2">
-                                                <h4><strong>{{deal.dealId?.city | titlecase}} City Tour</strong></h4>
+                                            <div class="m-3">
+                                                <h4><strong>{{deal.dealId?.city | titlecase}} Tour</strong></h4>
                                                 <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
                                                 <div class="card-text my-0 pt-0 black-text">
                                                     <div>
