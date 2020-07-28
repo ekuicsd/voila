@@ -182,25 +182,20 @@
         </table>
     </div>
     <div class="modal-footer mx-0 ">
-       <div class="row w-100">
-        <div class="col-4 px-1">
-            <button mdbBtn class="btn-block waves-light px-1" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
-        </div>
-        <div class="col-4 px-1">
-            <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light px-1"
-            *ngIf="selectedBooking.tourType !== 'deal'"
-             (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
+        <div class="row w-100">
+            <div class="col-4 px-1">
+                <button mdbBtn class="btn-block waves-light px-1" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
+            </div>
+            <div class="col-4 px-1">
+                <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light px-1" *ngIf="selectedBooking.tourType !== 'deal'" (click)="contactGuide(content, selectedBooking?.guideId?.email)" mdbWavesEffect>
             Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
-            <button type="button" mdbBtn color="deep-orange"
-            *ngIf="selectedBooking.tourType === 'deal'" size="sm" class="btn-block waves-light px-1"
-            (click)="contactTouristRoom(content, selectedBooking.roomDetails._id)" mdbWavesEffect>
+                <button type="button" mdbBtn color="deep-orange" *ngIf="selectedBooking.tourType === 'deal'" size="sm" class="btn-block waves-light px-1" (click)="contactTouristRoom(content, selectedBooking.roomDetails._id)" mdbWavesEffect>
              Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
+            </div>
+            <div class="col-4 px-1">
+                <button type="button" mdbBtn color="secondary" [disabled]="disableStart(selectedBooking)" size="sm" class="waves-light btn-block px-1" mdbWavesEffect>Start Tour&nbsp;</button>
+            </div>
         </div>
-        <div class="col-4 px-1">
-            <button type="button" mdbBtn color="secondary" [disabled]="disableStart(selectedBooking)"
-            size="sm" class="waves-light btn-block px-1" mdbWavesEffect>Start Tour&nbsp;</button>
-        </div>
-       </div>
     </div>
 </ng-template>
 

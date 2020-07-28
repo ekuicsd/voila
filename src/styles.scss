@@ -23,11 +23,12 @@ body {
 ::-webkit-scrollbar {
     width: 4px;
 }
+
 @media(max-width: 767px) {
-  ::-webkit-scrollbar {
-    width: 4px;
-    display: none;
-}
+     ::-webkit-scrollbar {
+        width: 4px;
+        display: none;
+    }
 }
 
  ::-webkit-scrollbar-track {
@@ -292,9 +293,13 @@ body {
     display: flex;
 }
 
-button:disabled, button[disabled], .btn.disabled, .btn:disabled {
-  background-color: #cccccc;
-  opacity: 0.5;
+button:disabled,
+button[disabled],
+.btn.disabled,
+.btn:disabled {
+    background-color: #cccccc;
+    opacity: 0.5;
 }
+
 // ssss
 // Please change your favorite font-size!

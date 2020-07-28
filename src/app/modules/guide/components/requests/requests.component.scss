@@ -1,20 +1,21 @@
 .col {
     padding: 0;
-} 
-.card-title{
+}
+
+.card-title {
     font-size: 50px;
 }
 
-
-table.table th, table.table td {
+table.table th,
+table.table td {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 
-.bag{
-    background-image: linear-gradient(90deg, #ffffff 0%,transparent 100%),linear-gradient(90deg, #ffffff 0%,transparent 100%),linear-gradient(135deg, rgba(111, 111, 111, 0.01) 0%, rgba(111, 111, 111, 0.01) 24%,rgba(104, 104, 104, 0.01) 24%, rgba(104, 104, 104, 0.01) 100%),linear-gradient(45deg, rgba(143, 143, 143, 0.03) 0%, rgba(143, 143, 143, 0.03) 78%,rgba(8, 8, 8, 0.03) 78%, rgba(8, 8, 8, 0.03) 100%),linear-gradient(0deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.04) 73%,rgba(254, 254, 254, 0.04) 73%, rgba(254, 254, 254, 0.04) 100%),linear-gradient(135deg, rgba(165, 165, 165, 0.06) 0%, rgba(165, 165, 165, 0.06) 64%,rgba(85, 85, 85, 0.06) 64%, rgba(85, 85, 85, 0.06) 100%),linear-gradient(0deg, rgba(219, 219, 219, 0.08) 0%, rgba(219, 219, 219, 0.08) 55%,rgba(0, 0, 0, 0.08) 55%, rgba(0, 0, 0, 0.08) 100%),linear-gradient(135deg, rgba(234, 234, 234, 0.03) 0%, rgba(234, 234, 234, 0.03) 23%,rgba(40, 40, 40, 0.03) 23%, rgba(40, 40, 40, 0.03) 100%),linear-gradient(135deg, rgba(197, 197, 197, 0.06) 0%, rgba(197, 197, 197, 0.06) 70%,rgba(168, 168, 168, 0.06) 70%, rgba(168, 168, 168, 0.06) 100%),linear-gradient(45deg, rgba(205, 205, 205, 0.07) 0%, rgba(205, 205, 205, 0.07) 72%,rgba(183, 183, 183, 0.07) 72%, rgba(183, 183, 183, 0.07) 100%),linear-gradient(135deg, rgba(124, 124, 124, 0.06) 0%, rgba(124, 124, 124, 0.06) 85%,rgba(71, 71, 71, 0.06) 85%, rgba(71, 71, 71, 0.06) 100%),linear-gradient(90deg, rgb(161, 161, 161),rgb(167, 167, 167));
-  }
-  
-  .col-4 {
+.bag {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9671218829328606) 25%, rgba(221, 213, 226, 1) 75%, rgba(202, 194, 207, 1) 99%);
+}
+
+.col-4 {
     padding: 0 8px;
-  }
+}
