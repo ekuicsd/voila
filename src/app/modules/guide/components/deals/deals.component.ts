@@ -8,7 +8,8 @@ import { GuideService } from 'src/app/shared/service/guide.service';
 })
 export class DealsComponent implements OnInit {
 
-  public DealsList: any[];
+  public DealsList: any[] = [];
+  public isData = false;
 
   constructor(
     private guideService: GuideService
@@ -21,7 +22,7 @@ export class DealsComponent implements OnInit {
   getAllDeals() {
     this.guideService.getAllDeals().subscribe(res => {
       this.DealsList = res;
-    }, error => {
+      this.isData = true;
     })
   }
 

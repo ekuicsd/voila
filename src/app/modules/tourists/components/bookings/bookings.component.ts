@@ -13,6 +13,7 @@ export class BookingsComponent implements OnInit {
     public bookingsList: any[] = [];
     public selectedBooking: any = {};
     public cancelReason: string = '';
+    public isData = false;
 
   constructor(private touristService: TouristsService,
     private toastr: ToastrService,
@@ -28,11 +29,8 @@ export class BookingsComponent implements OnInit {
 
   getAllBookingsList() {
     this.touristService.getAllBookingsByStatus('APPROVED').subscribe( res => {
-      if(res.length > 0) {
         this.bookingsList = res;
-      } else {
-        this.bookingsList = undefined;
-      }
+        this.isData = true;
     });
   }
 

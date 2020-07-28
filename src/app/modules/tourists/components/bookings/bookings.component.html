@@ -1,5 +1,5 @@
 <div class="container-fluid px-0">
-    <div class="d-none d-md-block" *ngIf="bookingsList">
+    <div class="d-none d-md-block" *ngIf="bookingsList.length > 0 && isData">
         <div class="row mt-3">
             <div class="col-12 text-center">
                 <div class="card ripe-malinka-gradient" style="z-index: 100; width: 90%; margin-left: 5%;">
@@ -44,15 +44,7 @@
         </div>
     </div>
 
-    <div *ngIf="!bookingsList">
-        <div class="row cust-grid">
-            <div class="col-12 text-center">
-                <h1>No Bookings !!</h1>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="!bookingsList">
+    <div *ngIf="bookingsList <= 0 && isData">
         <div class="row cust-grid">
             <div class="col-12 text-center">
                 <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/cherry-list-is-empty-1.png">

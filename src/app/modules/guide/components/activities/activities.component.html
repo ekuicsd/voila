@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <app-blog></app-blog>
     <!--  -->
-    <div class="d-none d-md-block" *ngIf="previousBookingsList">
+    <div class="d-none d-md-block" *ngIf="previousBookingsList.length > 0 && isData">
         <div class="row mt-3">
             <div class="col-12 text-center">
                 <div class="card sunny-morning-gradient" style="z-index: 100; width: 90%; margin-left: 5%;">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div *ngIf="!previousBookingsList">
+    <div *ngIf="previousBookingsList.length <= 0 && isData">
       <div class="row cust-grid">
         <div class="col-12 text-center">
             <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/flamenco-list-is-empty-1.png">

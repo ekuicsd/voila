@@ -9,7 +9,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RequestsComponent implements OnInit {
   public requestList: any[] = [];
-  public selectedRequest: any[]
+  public selectedRequest: any[];
+  public isData = false;
 
   constructor(private guideService: GuideService,
      private modalService: NgbModal,
@@ -22,11 +23,8 @@ export class RequestsComponent implements OnInit {
   getAllRequests() {
     this.guideService.getAllBookingsByStatus('PENDING').subscribe(
       res => {
-        if(res.length > 0) {
           this.requestList = res;
-        } else {
-          this.requestList = undefined;
-        }
+          this.isData = true;
       }, error => {
       }
     )

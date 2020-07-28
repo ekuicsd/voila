@@ -11,6 +11,7 @@ export class ActivitiesComponent implements OnInit {
 
   public previousBookingsList: any[] = [];
   public selectedPreviousBookings: any;
+  public isData = false;
 
   constructor(private guideService: GuideService,
     config: NgbModalConfig, private modalService: NgbModal,
@@ -23,11 +24,8 @@ export class ActivitiesComponent implements OnInit {
   getAllPreviousBookings() {
     this.guideService.getAllBookingsByStatus('COMPLETED').subscribe(
       res => {
-        if(res.length > 0) {
           this.previousBookingsList = res;
-        } else {
-          this.previousBookingsList = undefined;
-        }
+          this.isData = true;
       }, error => {
       }
     )

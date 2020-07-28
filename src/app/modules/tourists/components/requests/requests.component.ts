@@ -12,6 +12,7 @@ export class RequestsComponent implements OnInit {
   public requestList: any[] = [];
   public selectedRequest: any;
   public cancelReason: string = 'cancel request';
+  public isData = false;
 
   constructor(private touristService: TouristsService, 
     config: NgbModalConfig, private modalService: NgbModal,
@@ -28,11 +29,8 @@ export class RequestsComponent implements OnInit {
 
   getAllRequestsList() {
     this.touristService.getAllBookingsByStatus('PENDING').subscribe( res => {
-      if(res.length > 0) {
         this.requestList = res;
-      } else {
-        this.requestList = undefined;
-      }
+        this.isData = true;
     })
   }
 

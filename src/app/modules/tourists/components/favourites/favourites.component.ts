@@ -9,6 +9,7 @@ import { TouristsService } from 'src/app/shared/service/tourists.service';
 export class FavouritesComponent implements OnInit {
 
   public favouritesList: any[] = [];
+  public isData = false;
 
   constructor(private touristService: TouristsService) { }
 
@@ -18,11 +19,8 @@ export class FavouritesComponent implements OnInit {
 
   getAllFavouritesList() {
     this.touristService.getAllFavorites().subscribe( res => {
-      if(res.length > 0) {
         this.favouritesList = res;
-      } else {
-        this.favouritesList = undefined;
-      }
+        this.isData = true;
     });
   }
 

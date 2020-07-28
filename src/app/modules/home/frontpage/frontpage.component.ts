@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-frontpage',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrontpageComponent implements OnInit {
 
-  constructor() { }
+  routerSubscription: Subscription;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.routerSubscription = this.router.events
+        .subscribe(event => {
+            document.body.scrollTop = 0;
+        });
+  }
+
+  ngOnDestroy() {
+    this.routerSubscription.unsubscribe();
   }
 
 }

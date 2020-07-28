@@ -11,6 +11,7 @@ export class BookingsComponent implements OnInit {
   public bookingsList: any[] = [];
   public selectedBooking: any;
   public ongoingList = [];
+  public isData = false;
 
   constructor(private guideService: GuideService,
     private modalService: NgbModal,
@@ -23,11 +24,8 @@ export class BookingsComponent implements OnInit {
   getAllBookings() {
     this.guideService.getAllBookingsByStatus('APPROVED').subscribe(
       res => {
-        if(res.length > 0) {
           this.bookingsList = res;
-        } else {
-          this.bookingsList = undefined;
-        }
+          this.isData = true;
       }, error => {
       }
     )

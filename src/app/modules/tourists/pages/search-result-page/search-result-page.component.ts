@@ -4,7 +4,7 @@ import { Options} from 'ng5-slider';
 import * as $ from 'jquery';
 import languages from 'country-language';
 import { SearchService } from 'src/app/shared/service/search.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 
@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./search-result-page.component.scss']
 })
 export class SearchResultPageComponent implements OnInit, OnDestroy {
-
 
   // slider 
   public minPrice: number = 100;
@@ -65,14 +64,14 @@ export class SearchResultPageComponent implements OnInit, OnDestroy {
     });
     this.languageList = languages.getLanguages().map(ele => ele.name[0]);
     this.interestList = this.staticDataService.getAllInterestList();
-      this.searchService.getFilterData();
-      if(this.router.url === '/tourists/touristshome/searchResult/dealsList') {
-       this.router.navigateByUrl('/tourists/touristshome/searchResult/guidesList');
-      }
-      this.routerSubscription = this.router.events
-        .subscribe(event => {
-            document.body.scrollTop = 0;
-        });
+    this.searchService.getFilterData();
+    if(this.router.url === '/tourists/touristshome/searchResult/dealsList') {
+      this.router.navigateByUrl('/tourists/touristshome/searchResult/guidesList');
+    }
+    this.routerSubscription = this.router.events
+      .subscribe(event => {
+          document.body.scrollTop = 0;
+    });
   }
 
   ngOnDestroy() {

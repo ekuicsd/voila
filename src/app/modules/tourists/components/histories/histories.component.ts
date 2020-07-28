@@ -13,6 +13,7 @@ export class HistoriesComponent implements OnInit {
   public previousList: any[] = [];
   public selectedPrevious: any;
   public review: string = '';
+  public isData = false;
 
   constructor(private touristService: TouristsService,
     private toastr: ToastrService,
@@ -33,11 +34,8 @@ export class HistoriesComponent implements OnInit {
 
   getAllPreviousList() {
     this.touristService.getAllBookingsByStatus('COMPLETED').subscribe( res => {
-      if(res.length > 0) {
         this.previousList = res;
-      } else {
-        this.previousList = undefined;
-      }
+        this.isData = true;
     });
   }
 
