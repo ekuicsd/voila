@@ -24,8 +24,15 @@ import { DealModalComponent } from './components/deal-modal/deal-modal.component
 import { RatingModalComponent } from './components/rating-modal/rating-modal.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+    { 
+        path: '', redirectTo: '/home', pathMatch: 'full'
+    },
+    {
+        path: 'home', redirectTo: '/home', pathMatch: 'full'
+    },
     {
         path: 'touristsRegister', redirectTo: 'tourists/register', pathMatch: 'full'
     },
@@ -58,7 +65,9 @@ const routes: Routes = [
     }, 
     {
         path: 'contact', component: ContactUsComponent
-    }   
+    }, 
+    
+   
 ];
 @NgModule({
     declarations: [
@@ -80,7 +89,8 @@ const routes: Routes = [
         DealModalComponent,
         RatingModalComponent,
         ChatRoomComponent,
-        FilterPipe
+        FilterPipe,
+        PageNotFoundComponent
     ],
     imports: [
         CommonModule,
@@ -107,7 +117,8 @@ const routes: Routes = [
         DealModalComponent,
         RatingModalComponent,
         ChatRoomComponent,
-        FilterPipe
+        FilterPipe,
+        PageNotFoundComponent
     ]
 }) 
 

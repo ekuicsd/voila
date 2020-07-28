@@ -31,6 +31,7 @@ import { Ng5SliderModule } from 'ng5-slider';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChatRoomComponent } from 'src/app/shared/components/chat-room/chat-room.component';
+import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'touristshome', component: TouristsHomeComponent, children: [
@@ -123,6 +124,12 @@ const routes: Routes = [
       canActivate: [TouristGuardService]
     }
   ]},
+  {
+    path: '404', component: PageNotFoundComponent
+  },
+  {
+      path: '**', redirectTo: '/404'
+  }
 ];
 
 @NgModule({

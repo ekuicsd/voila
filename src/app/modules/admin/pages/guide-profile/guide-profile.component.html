@@ -1,204 +1,178 @@
-<!-- <div class="pro-bg p-3">
-    <div>
-      <div class="row">
-     <h1 class="col-8 head text-center my-5" style="font-size: 4vh;">Pertional Info.</h1>
- <div class=" col-4 ppp mb-3">
-                <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class=" h-75 w-75 float-right mx-auto img-fluid">
-            </div>
-          </div>
-        <div class="row">
-
-            <div class="row col-12">
-            <div class="det col-6">
-              <div class="mb-4"><strong style="color : #00746e;">Name</strong>
-                <div class="float-right">   {{userData?.name}}
-                </div>
-            </div>
-              <div class="mb-4"><strong style="color : #00746e;">Address</strong>
-                  <div class="float-right"> {{userData.address | titlecase}}
-                  </div>
-              </div>
-              <div class="mb-4"><strong style="color : #00746e;">City</strong>
-                  <div class="float-right">{{userData.city | titlecase}}</div>
-              </div>
-              <div class="mb-4"><strong style="color : #00746e;">State</strong>
-                  <div class="float-right">{{userData.state | titlecase}}</div>
-              </div>
-              <div class="mb-4"><strong style="color : #00746e;">Speaks</strong>
-                  <div class="float-right" *ngFor="let item of userData.languages">{{item | titlecase}}&nbsp;,&nbsp;</div>
-              </div>
-              <div class="mb-4"><strong style="color : #00746e;">Loves</strong>
-                  <div class="float-right" *ngFor="let item of userData.interests">{{item | titlecase}}&nbsp;,&nbsp;</div>
-              </div>
-
-          </div>
-          <div class="det col-6">
-            <div class="mb-4"><strong style="color : #00746e;">Phone</strong>
-              <div class="float-right"> {{userData.phoneNumber}}</div>
-          </div>
-            <div class="mb-4"><strong style="color : #00746e;">Aadhar Number</strong>
-                <div class="float-right">{{userData.aadhaarNumber}}</div>
-            </div>
-            <div class="mb-4"><strong style="color : #00746e;">Nationality</strong>
-                <div class="float-right">India</div>
-            </div>
-            <div class="mb-4"><strong style="color : #00746e;">Date of Birth</strong>
-                <div class="float-right">{{userData.dob | date: 'dd-MM-yyyy'}}</div>
-            </div>
-            <div class="mb-4"><strong style="color : #00746e;">Email ID</strong>
-                <div class="float-right">{{userData.email}}</div>
-            </div>
+<div class=" bg ml-0 pl-0  pb-4 mt-5 mx-3 mb-0">
+    <div class="row">
+        <div class="col-12 col-md-6 mainh text-center mb-2">
+            <img [src]="userData?.picUrl ? userData?.picUrl : '../../../../../assets/images/grayman.png'" alt=""
+             height="300px" width="100%">
         </div>
-            </div>
-
-        </div>
-
-    </div>
-<div class="row">
-  <div class="col-6">
-    <div class="my-3 mx-3">
-        <h1 class="head mb-4 text-center">Business Info</h1>
-        <div class="container mt-3">
+        <div class="col-12 col-md-6 pl-4">
+            <h3 style="color: #553d67;">  {{userData?.name | titlecase}} </h3>
+            <h6>{{userData?.email}}</h6>
+            <hr class="my-1">
             <div class="row">
-                <div class="det col-12">
-                    <div><strong style="color : #00746e;">People Limit</strong>
-                        <div class="float-right">{{userData.peopleLimit}}
-                        </div>
-                    </div>
-                    <div><strong style="color : #00746e;">Charges Per Head</strong>
-                        <div class="float-right">Rs. {{userData.perHeadCharge}}</div>
-                    </div>
-                    <div><strong style="color : #00746e;">Charges Per Day </strong>
-                        <div class="float-right">Rs. {{userData.perDayCharge}}</div>
-                    </div>
-
-
+                <div class="col">
+                    <h6>Phone</h6>
                 </div>
-
+                <div class="col">
+                    <h6> {{userData?.phoneNumber}}</h6>
+                </div>
+            </div>
+            <hr class="my-1">
+            <div class="row">
+                <div class="col">
+                    <h6>Aadhar Number</h6>
+                </div>
+                <div class="col">
+                    <h6> {{userData?.aadhaarNumber}}</h6>
+                </div>
+            </div>
+            <hr class="my-1">
+            <div class="row">
+                <div class="col">
+                    <h6>Date of birth</h6>
+                </div>
+                <div class="col">
+                    <h6>D.O.B:{{userData?.dob | date: 'dd-MM-yyyy'}}</h6>
+                </div>
+            </div>
+            <hr class="my-1">
+            <div class="row">
+                <div class="col">
+                    <h6>Address</h6>
+                </div>
+                <div class="col">
+                    <h6> {{userData?.address | titlecase}}</h6>
+                </div>
+            </div>
+            <hr class="my-1">
+            <div class="row">
+                <div class="col">
+                    <h6>City</h6>
+                </div>
+                <div class="col">
+                    <h6> {{userData?.city}}</h6>
+                </div>
+            </div>
+            <hr class="my-1">
+            <div class="row">
+                <div class="col">
+                    <h6>State</h6>
+                </div>
+                <div class="col">
+                    <h6> {{userData?.state}}</h6>
+                </div>
+            </div>
+        </div>        
+    </div>  
+    <!-- rigt -->
+    <div class="row">
+        <div class="col pl-4 heading mt-4 text-left">
+            <h3 class="p-2">Business Info</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-7 pl-4 text-left">
+            <div class="row">
+                <div class="col">
+                    <h6>People Limit</h6>
+                </div>
+                <div class="col">
+                    <h6>{{userData?.peopleLimit}}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6>Per Head Charges</h6>
+                </div>
+                <div class="col">
+                    <h6>Rs.{{userData?.perHeadCharge}} /-</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6>Per Day Charges</h6>
+                </div>
+                <div class="col">
+                    <h6>Rs.{{userData?.perDayCharge}}</h6>
+                </div>
             </div>
         </div>
-    </div></div>
-  <div class="col-6">
-    <div class="my-3 mx-3">
-        <h1 class="head mb-4 text-center">Experiences</h1>
-        <div class="container mt-3">
-            <div class="row" *ngFor="let item of userData.experience">
-                <div class="det col-12">
-                    <div><strong style="color : #00746e;">Work Place</strong>
-                        <div class="float-right">{{item.work | titlecase}}
+    </div>
+    <div *ngIf="userData?.experience.length > 0" class="row">
+        <div class="col pl-4 heading mt-4 text-left">
+            <h3 class="p-2">Experience Info</h3>
+        </div>
+    </div>
+    <div *ngIf="userData?.experience.length > 0" class="row" >
+        <div class="col-12 pl-4 text-left" *ngFor="let item of userData?.experience">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            Work Place
+                        </div>
+                        <div class="col">
+                            <h6>{{item.work | titlecase}}</h6>
                         </div>
                     </div>
-                    <div><strong style="color : #00746e;">Work Profile</strong>
-                        <div class="float-right"> {{item.profile | titlecase}}</div>
+                    <div class="row">
+                        <div class="col">
+                            Work Profile
+                        </div>
+                        <div class="col">
+                            <h6>{{item.profile | titlecase}}</h6>
+                        </div>
                     </div>
-                    <div><strong style="color : #00746e;">Starting Year</strong>
-                        <div class="float-right"> {{item.startYear}}</div>
-                    </div>
-
-                    <div><strong style="color : #00746e;">Duration</strong>
-                        <div class="float-right">{{item.duration}} months</div>
-                    </div>
-
                 </div>
-
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            Duration
+                        </div>
+                        <div class="col">
+                            <h6>{{item.duration}} months</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Start Year
+                        </div>
+                        <div class="col">
+                            <h6>{{item.startYear}}</h6>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div></div>
-</div>
+    </div>
 
+    <div class="row">
+        <div class="col pl-4 heading mt-4 text-left">
+            <h3 class="p-2">Languages Known</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-md-4 pl-4 text-left" *ngFor="let item of userData?.languages">
+            {{item}}
+        </div>
+    </div>
 
-<div class="btn-size text-center mt-4 mb-5">
+    <div class="row">
+        <div class="col pl-4 heading mt-4 text-left">
+            <h3 class="p-2">Interests</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-md-4 pl-4 text-left" *ngFor="let item of userData?.interests">
+            {{item}}
+        </div>
+    </div>
+
+    
+<div class="btn-size text-center mt-4">
     <button type="button" mdbBtn (click)="acceptRejectGuide('REJECTED')" color="danger" mdbWavesEffect>Reject</button>
 
     <button type="button" mdbBtn color="success" (click)="acceptRejectGuide('APPROVED')" mdbWavesEffect>Accept</button>
 </div>
-</div> -->
-
-<!-- <div class="my-5 mx-3">
-    <h1 class="mb-4">Bookings</h1>
-    <h2>Completed</h2>
-    <mdb-card class="w-75 mx-auto my-4">
-
-        <mdb-card-body>
-            <div class="row">
-                <div class="col-4" style="font-size: 20px;">
-                    <div class="py-2"><i class="fas fa-calendar-alt fa-lg"></i> 2 Jul,20 <strong>TO</strong> 3 Jul,20</div>
-                    <div><i class="fas fa-clock fa-lg"></i> Total 6 Hours</div>
-                </div>
-                <div class="col-5 text-center" style="font-size: 20px; border-left:1px solid black;">
-                    <mdb-badge class="sunny-morning-gradient mb-2">Pre-Planned</mdb-badge>
-
-                    <div>The Great Indian Shopaholic tour</div>
-                </div>
-
-
-
-
-                <div class="col-3 text-center" style="font-size: 20px; border-left:1px solid black;">
-                    <div class="pb-2"><i class="fas fa-user-friends fa-lg"></i> </div>
-
-                    <div>Manish +2</div>
-                </div>
-
-
-            </div>
-
-        </mdb-card-body>
-    </mdb-card>
-</div> -->
-<!-- real kaam to ye hai -->
-<div class=" bg ml-0 pl-0 row mt-5 m-3">
-    <div class="col-12 m-3 px-5 px-3 mainh text-center">
-    <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" class=" h-75 w-75 pl-5 mx-auto img-fluid">
-    <h1 style="color: #553d67;">  {{userData?.name}} </h1>
-    <h4>{{userData.email}}</h4>
-  </div>
-    <!-- rigt -->
-    <div class="row col-12 col-md-6">
-
-
-<div class="col-12 heading my-4">
-    <h3 class="text-center">Address</h3>
-    <h6> {{userData.address | titlecase}}</h6>
-    <h6>City: {{userData.city | titlecase}}</h6>
-    <h6>state: {{userData.state | titlecase}}</h6>
-</div>
-<div class="col-12 heading my-4">
-    <h3 class="text-center">More Info</h3>
-    <h6> Phone:{{userData.phoneNumber}}</h6>
-    <h6>Nationality: {{userData.city | titlecase}}</h6>
-    <h6>Aadhar:{{userData.aadhaarNumber}}</h6>
-    <h6>D.O.B:{{userData.dob | date: 'dd-MM-yyyy'}}</h6>
 
 </div>
-<div class="col-12 heading my-4">
-    <h3 class="text-center">Business</h3>
-    <h6> People limit:{{userData.peopleLimit}}</h6>
-    <h6>Charge per head: Rs. {{userData.perHeadCharge}}</h6>
-    <h6>Charge per day: Rs. {{userData.perDayCharge}}</h6>
-</div>
-<div class="col-12 heading my-4">
-    <h3 class="text-center">Experience</h3>
-    <div *ngFor="let item of userData.experience">
-        <h6>Work Place:{{item.work | titlecase}}</h6>
-    <h6>Work Profile: {{item.profile | titlecase}}</h6>
-    <h6>Start Year: {{item.startYear}}</h6>
-    <h6>Duration: Rs. {{userData.perDayCharge}}</h6>
 
-
-    </div>
-</div>
-    </div>
-    <!-- left -->
-    <div class="row col-12 col-md-6">
-        <div class="col-12 heading my-3 px-5">
-            <h3 class="text-center">Language</h3>
-            <div class="float-right" *ngFor="let item of userData.languages">{{item | titlecase}}&nbsp;,&nbsp;</div>
-
-        </div>
-        <div class="col-12 heading my-3 px-5">
-            <h3 class="text-center">Interests</h3>
-            <div class="float-right" *ngFor="let item of userData.interests">{{item | titlecase}}&nbsp;,&nbsp;</div>
-       </div>
-    </div>
-</div>

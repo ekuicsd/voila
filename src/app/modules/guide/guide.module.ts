@@ -27,6 +27,7 @@ import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history
 import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
 import { CreateDealComponent } from './components/create-deal/create-deal.component';
 import { ChatRoomComponent } from 'src/app/shared/components/chat-room/chat-room.component';
+import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {path: 'register', component: RegisterComponent},
@@ -85,6 +86,12 @@ const routes: Routes = [
       //    path: 'show-register', component: ShowRegisterComponent
       // }
     ]},
+    {
+      path: '404', component: PageNotFoundComponent
+    },
+    {
+        path: '**', redirectTo: '/404'
+    }
 ];
 
 @NgModule({
