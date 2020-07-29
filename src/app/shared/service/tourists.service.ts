@@ -68,7 +68,7 @@ export class TouristsService {
         let url = '/tourist/guides/offer/' + id; 
         return new Observable<any>( obs => {
             this.apiService.post(url, body).subscribe( res => {
-                obs.next(res);
+                obs.next(res.body);
             });
         })
     }
@@ -95,7 +95,7 @@ export class TouristsService {
         let url = '/tourist/guides/deals/' + id;
         return new Observable<any>( obs => {
             this.apiService.post(url, body).subscribe(res => {
-                obs.next(res);
+                obs.next(res.body);
             })
         })
     }
