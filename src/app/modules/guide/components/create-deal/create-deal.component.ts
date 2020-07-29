@@ -105,8 +105,9 @@ export class CreateDealComponent implements OnInit {
       this.deal = this.dealForm.value;
       this.deal['places'] = this.placesList;
       this.guideService.createDeal(this.deal).subscribe( res=> {
+        console.log(res);
           if(res.success) {
-            this.guideService.createGroupChatRoom(this.user._id, res.body.deal._id, this.dealForm.value.groupName).subscribe( res => {
+            this.guideService.createGroupChatRoom(this.user._id, res.deal._id, this.dealForm.value.groupName).subscribe( res => {
               this.toastr.success("Deal created successfully!");
               this.router.navigateByUrl('/guide/guidehome/deals');
             });

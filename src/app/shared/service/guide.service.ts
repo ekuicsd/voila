@@ -41,7 +41,7 @@ export class GuideService{
         let url = '/guide/deals/add';
         return new Observable<any>( obs => {
             this.apiService.post(url, body).subscribe( res => {
-                obs.next(res);
+                obs.next(res.body);
             });
         });
     }
