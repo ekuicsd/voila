@@ -45,6 +45,7 @@ export class PersonalModalComponent implements OnInit {
 
   emitClose() {
     this.agree = false;
+    this.createForm();
     this.close.emit();
   }
 
@@ -65,6 +66,7 @@ export class PersonalModalComponent implements OnInit {
       this.touristService.bookForPersonalTour(this.guide._id, this.personalBooking.value).subscribe( res => {
        if(res.success) {
         this.toastr.success("Requested For Personalized Tour!");
+        this.createForm();
         this.emitClose();
         this.router.navigateByUrl('/tourists/touristshome/bookings/requests');
        } else {

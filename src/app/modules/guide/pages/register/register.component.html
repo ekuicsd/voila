@@ -1,4 +1,30 @@
-<div class="container-fluid bg">
+<div class="container-fluid bg d-block d-sm-none">
+  <div class="row">
+    <div class="col-12">
+      <wizard #wizard class="arc-wizard background" navBarLayout="large-filled-symbols">
+        <wizard-step navigationSymbol="1">
+          <app-personal-details (personalData)="getPersonalData($event)" (profileData)="getProfileData($event)"></app-personal-details>
+        </wizard-step>
+        <wizard-step navigationSymbol="2">
+          <app-bussiness-details (basicData)="getBasicData($event)"
+            (experienceData)="getExperienceData($event)"
+          ></app-bussiness-details>
+        </wizard-step>
+        <wizard-step navigationSymbol="3">
+          <app-languages (ouputLanguagesList)="getLanguageData($event)"></app-languages>
+        </wizard-step>
+        <wizard-step navigationSymbol="4">
+          <app-interests (ouputInterestsList)="getInterestData($event)"></app-interests>
+        </wizard-step>
+        <wizard-step navigationSymbol="5">
+          <app-terms-conditions (tc)="finalSubmit()"></app-terms-conditions>
+        </wizard-step>
+      </wizard>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg d-none d-sm-block">
   <div class="row">
     <div class="col-12">
       <wizard #wizard class="arc-wizard background" navBarLayout="large-filled-symbols">

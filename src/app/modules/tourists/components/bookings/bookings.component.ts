@@ -50,6 +50,7 @@ export class BookingsComponent implements OnInit {
   }
 
   openCancelRequest(content) {
+    this.cancelReason = '';
     this.modalService.open(content, {scrollable: true, centered: true});
   }
 
@@ -62,6 +63,7 @@ export class BookingsComponent implements OnInit {
     let request = {cancelReason: this.cancelReason };
     this.touristService.cancelrequest(this.selectedBooking._id, 'CANCELLED', request).subscribe( res => {
       this.toastr.success("Request Cancelled successfully!");
+      this.cancelReason = '';
       this.modalService.dismissAll(content);
       this.modalService.dismissAll(cancel);
       this.getAllBookingsList();

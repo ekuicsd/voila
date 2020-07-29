@@ -41,6 +41,7 @@ export class DealModalComponent implements OnInit {
 
   emitClose() {
     this.agree = false;
+    this.createForm();
     this.close.emit();
   }
 
@@ -62,6 +63,7 @@ export class DealModalComponent implements OnInit {
       this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
         if(res.success) {
           this.toastr.success("Booked successfully!!");
+          this.createForm();
           this.modal2.hide(0);
           this.router.navigateByUrl('/tourists/touristshome/bookings/now');
         } else {
