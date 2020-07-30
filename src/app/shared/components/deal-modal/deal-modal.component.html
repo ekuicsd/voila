@@ -1,128 +1,127 @@
 <!-- <div mdbModal #dealTour="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel" aria-hidden="true">  
 </div> -->
 
-<div  class="modal-dialog cascading-modal modal-avatar " role="document">
-  <div class="modal-content">
-      <div class="modal-header">
-          <img [src]="deal?.guideId?.picUrl ? deal?.guideId?.picUrl : '../../assets/images/grayman.png'" style="height:100px; width:100px" alt="" class="rounded-circle img-responsive">
-      </div>
-      <div class="modal-body text-center mb-0 pb-0">
-        <h4 *ngIf="role !== 'guide'" [routerLink]="['/tourists/touristshome/guideProfile', deal?.guideId?._id]">{{deal?.guideId?.gender}} {{deal?.guideId?.name | titlecase}}</h4>
-        <h4 *ngIf="role === 'guide'" >You</h4>
-        <p>{{deal?.city | titlecase}}, {{deal?.state | titlecase}}</p>
-        <hr class="mt-0 mb-1">
-        <div class="row">
-          <div class="col-6">
-            <B>Start-Date</B>
-          </div>
-          <div class="col-6">
-            {{deal?.startDate | date: 'dd-MM-yyyy'}}
-          </div>
+<div class="modal-dialog cascading-modal modal-avatar " role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <img [src]="deal?.guideId?.picUrl ? deal?.guideId?.picUrl : '../../assets/images/grayman.png'" style="height:100px; width:100px" alt="" class="rounded-circle img-responsive">
         </div>
-        <div class="row">
-          <div class="col-6">
-            <B>End-Date</B>
-          </div>
-          <div class="col-6">
-            {{deal?.endDate | date: 'dd-MM-yyyy'}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <B>People Limit</B>
-          </div>
-          <div class="col-6">
-            {{deal?.peopleLimit}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <B>People Left</B>
-          </div>
-          <div class="col-6">
-            {{deal?.peopleLeft}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <B>Price per head</B>
-          </div>
-          <div class="col-6">
-            Rs. {{deal?.price}}/-
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <B>Group Type</B>
-          </div>
-          <div class="col-6">
-            {{deal?.groupType}}
-          </div>
-        </div>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th><b>Sr no.</b></th>
-              <th><b>Tour Places</b></th>
-              <th><b>Visit Date</b></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of deal?.places; let i = index">
-              <td>{{i+1}}</td>
-              <td>{{item.place | titlecase}}</td>
-              <td>{{item.date | date: 'dd-MM-yyyy'}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="modal-body text-center mb-0 pb-0">
+            <h4 *ngIf="role !== 'guide'" [routerLink]="['/tourists/touristshome/guideProfile', deal?.guideId?._id]">{{deal?.guideId?.gender}} {{deal?.guideId?.name | titlecase}}</h4>
+            <h4 *ngIf="role === 'guide'">You</h4>
+            <p>{{deal?.city | titlecase}}, {{deal?.state | titlecase}}</p>
+            <hr class="mt-0 mb-1">
+            <div class="row">
+                <div class="col-6">
+                    <B>Start-Date</B>
+                </div>
+                <div class="col-6">
+                    {{deal?.startDate | date: 'dd-MM-yyyy'}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <B>End-Date</B>
+                </div>
+                <div class="col-6">
+                    {{deal?.endDate | date: 'dd-MM-yyyy'}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <B>People Limit</B>
+                </div>
+                <div class="col-6">
+                    {{deal?.peopleLimit}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <B>People Left</B>
+                </div>
+                <div class="col-6">
+                    {{deal?.peopleLeft}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <B>Price per head</B>
+                </div>
+                <div class="col-6">
+                    Rs. {{deal?.price}}/-
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <B>Group Type</B>
+                </div>
+                <div class="col-6">
+                    {{deal?.groupType}}
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th><b>Sr no.</b></th>
+                        <th><b>Tour Places</b></th>
+                        <th><b>Visit Date</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of deal?.places; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.place | titlecase}}</td>
+                        <td>{{item.date | date: 'dd-MM-yyyy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-      </div>
-      <div class="text-center mt-2">
-        <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm" (click)="emitClose()" type="button" class="btn btn-secondary mt-1">Close</button>
-          <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm" (click)="openModal2(dealTour2)" type="button" class="btn btn-cyan mt-1">Book</button>
-          <button  *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" (click)="emitClose()" type="button" class="btn btn-cyan mt-1">Ok</button>
-      </div>
-  </div>
+        </div>
+        <div class="text-center mt-2">
+            <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm" (click)="emitClose()" type="button" class="btn btn-secondary mt-1">Close</button>
+            <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm" (click)="openModal2(dealTour2)" type="button" class="btn btn-cyan mt-1">Book</button>
+            <button *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" (click)="emitClose()" type="button" class="btn btn-cyan mt-1">Ok</button>
+        </div>
+    </div>
 </div>
 
 
 
 
 <div style="overflow-y: auto;" mdbModal #dealTour2="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel2" aria-hidden="true">
-  <div class="modal-dialog cascading-modal modal-avatar " role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <img [src]="deal?.guideId?.picUrl ? deal?.guideId?.picUrl : '../../assets/images/grayman.png'"
-               style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
-          </div>
-          <div class="modal-body text-center mb-1">
-              <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>
-              <hr mx-3>
-              <h5 class="text-left black-text">How many You Are?</h5>
-              <form [formGroup]="dealForm" (ngSubmit)="submitDealForm()">
-                  <div class="row">
-                      <div class="col">
-                          <div class="form-group">
-                              <p class="text-left mb-2">People Count</p>
-                              <input type="number" (keyup)="calculatePrice($event)" formControlName="noOfPeople" class="form-control" placeholder="no of people">
-                          </div>
-                      </div>
-                  </div>
-                  <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
-                    <div class="col">
-                      <h4 class="text-left">Your Total Price: Rs. {{totalPrice}}/- 
-                        <span class="float-right">
-                          <button type="button" (click)="agree = true" class="btn btn-info" size="sm" mdbBtn>Agree</button>
-                        </span>
-                      </h4>
+    <div class="modal-dialog cascading-modal modal-avatar " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img [src]="deal?.guideId?.picUrl ? deal?.guideId?.picUrl : '../../assets/images/grayman.png'" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
+            </div>
+            <div class="modal-body text-center mb-1">
+                <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>
+                <hr mx-3>
+                <h5 class="text-left black-text">How many You Are?</h5>
+                <form [formGroup]="dealForm" (ngSubmit)="submitDealForm()">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <p class="text-left mb-2">People Count</p>
+                                <input type="number" (keyup)="calculatePrice($event)" formControlName="noOfPeople" class="form-control" placeholder="no of people">
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="text-center mt-4">
-                    <button type="button" (click)="this.agree = false; dealTour2.hide()" class="btn btn-danger mt-1">Cancel</button>
-                    <button type="submit" [disabled]="!agree" class="btn btn-cyan mt-1">Book</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
+                    <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
+                        <div class="col">
+                            <h4 class="text-left">Your Total Price: Rs. {{totalPrice}}/-
+                                <span class="float-right">
+                          <button type="button" (click)="agree = true" style="background:#553d67"  class="btn white-text" size="sm" mdbBtn>Agree</button>
+                        </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="button" (click)="this.agree = false; dealTour2.hide()" class="btn btn-danger mt-1">Cancel</button>
+                        <button type="submit" color="success" [disabled]="!agree" class="btn mt-1">Book</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
