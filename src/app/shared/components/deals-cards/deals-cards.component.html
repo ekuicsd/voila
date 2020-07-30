@@ -5,10 +5,13 @@
                 <i *ngIf="!isFavourite(deal) && role !== 'guide'" (click)="addToFavourite(deal)" class="far fa-heart fa-lg pink-text"></i>
                 <i *ngIf="isFavourite(deal) && role !== 'guide'" (click)="removeFromFavourite(deal)" class="fas fa-heart fa-lg pink-text"></i>
                 <img class="main-img" height="240px" width="100%"
-                src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                [src]="deal.state === 'Delhi' || deal.state === 'Andhra Pradesh' || deal.state === 'telangana' || deal.state === 'Uttrakhand' ?
+                'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + deal.state + '/' + deal.city + '.jpg' : 
+                'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'" 
+                alt="">
                 
                 <img class="card-img rounded-circle" 
-                [src]="deal.guideId?.picUrl ? deal.guideId?.picUrl : '../../../../../../../assets/images/grayman.png'"
+                [src]="deal.guideId?.picUrl ? deal.guideId?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'"
                 style="width:70px; height:70px; border:white 3px solid;" alt="">
                 <h5 *ngIf="role !== 'guide'"><span class="badge badge-default font-weight-normal">With {{deal.guideId.name | titlecase}}</span></h5>
                 <h5 *ngIf="role === 'guide'"><span class="badge badge-default font-weight-normal">With You</span></h5>
