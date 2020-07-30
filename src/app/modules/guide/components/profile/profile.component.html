@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="col-6">
-            <img src="assets\images\undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
+            <img src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
         </div>
     </div>
 </div>
@@ -20,7 +20,7 @@
             <h4 style="color: #22c1c3">Personal Info</h4>
         </div>
         <div class="col-5 d-block d-md-none text-right  mb-2" *ngIf="urlArray.length <= 0">
-            <img [src]="userData.picUrl ? userData.picUrl : '../../../../../assets/images/grayman.png'" height="60px" width="60px" style="border-radius: 50%;" alt="">
+            <img [src]="userData.picUrl ? userData.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" height="60px" width="60px" style="border-radius: 50%;" alt="">
         </div>
         <div class="col-5 d-block d-md-none text-right  mb-2" *ngIf="urlArray.length > 0">
             <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" style="border-radius: 50%;" alt="">
@@ -68,7 +68,7 @@
                     <div> {{userData.state | titlecase}}</div>
                 </div>
                 <div class="col-6 d-none d-md-block" *ngIf="urlArray.length <= 0">
-                    <img [src]="userData.picUrl ? userData.picUrl : '../../../../../assets/images/grayman.png'" height="60px" width="60px" style="border-radius: 50%;" alt="">
+                    <img [src]="userData.picUrl ? userData.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" height="60px" width="60px" style="border-radius: 50%;" alt="">
                 </div>
                 <div class="col-6 d-none d-md-block" *ngIf="urlArray.length > 0">
                     <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" style="border-radius: 50%;" alt="">

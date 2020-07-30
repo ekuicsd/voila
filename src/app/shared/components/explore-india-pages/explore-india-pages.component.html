@@ -1,0 +1,166 @@
+<!-- Jumbotron -->
+<div class="jumbotron pt-0" style="position: relative;" >
+  <!-- Card image -->
+
+  <div class="view overlay my-4 waves-light" mdbWavesEffect style="height: 30vh">
+    <img [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + state + '.jpg'"
+    style="background-repeat: no-repeat; background-size: cover;" width="100%" height="100%"
+     class=" mt-0" style="filter: blur(3px) grayscale(30%);" alt="">
+  <h6 class="white-text text-center h1 mb-4" style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" >Explore {{state | titlecase}}</h6>
+ 
+  </div>
+
+  <h5 class="indigo-text h5 mb-4 text-center">{{state | titlecase}}</h5>
+
+  <p class="card-text text-center">{{stateData?.info}}</p>
+  <hr>
+
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Essential {{state}}</h2>
+
+<!-- Section: Blog v.1 -->
+<section class=" d-none d-md-block my-5" *ngFor="let city of stateData?.tourismCities; let i = index">
+
+  <!-- Section heading -->
+  <!-- Section description -->
+  <!-- <p class="text-center w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum.</p> -->
+
+  <!-- Grid row -->
+  <div *ngIf="i%2 === 0" class="row">
+
+    <!-- Grid column -->
+    <div class="col-lg-5">
+
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+        <img class="img-fluid" 
+        [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city?.name +'.jpg'" 
+        alt="Sample image">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-7">
+
+      <!-- Category -->
+      <!-- <a href="#!" class="green-text">
+        <h6 class="font-weight-bold mb-3"><mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>Food</h6>
+      </a> -->
+      <!-- Post title -->
+      <h3 class="font-weight-bold mb-3"><strong>{{city?.name}}</strong></h3>
+      <!-- Excerpt -->
+      <p>{{city?.info}}</p>
+      <!-- Post data -->
+      <!-- <p>by <a><strong>Carine Fox</strong></a>, 19/08/2018</p> -->
+      <!-- Read more button -->
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  <hr class="my-5">
+
+  <!-- Grid row -->
+  <div *ngIf="i%2 === 1" class="row">
+
+    <!-- Grid column -->
+    <div class="col-lg-7">
+
+      <!-- Category -->
+      <!-- <a href="#!" class="pink-text">
+        <h6 class="font-weight-bold mb-3"><mdb-icon far icon="image" class="pr-2"></mdb-icon>Lifestyle</h6>
+      </a> -->
+      <!-- Post title -->
+      <h3 class="font-weight-bold mb-3"><strong>{{city?.name}}</strong></h3>
+      <!-- Excerpt -->
+      <p>{{city?.info}}</p>
+      <!-- Post data -->
+      <!-- <p>by <a><strong>Carine Fox</strong></a>, 14/08/2018</p> -->
+      <!-- Read more button -->
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-5">
+
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-2 waves-light" mdbWavesEffect>
+        <img class="img-fluid" [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city?.name +'.jpg'" alt="Sample image">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+ 
+  <!-- Grid row -->
+
+</section>
+
+
+
+<!-- Section: Blog v.1 -->
+<!-- small screen -->
+<!-- Section: Blog v.1 -->
+
+<section class=" d-block d-md-none my-5" *ngFor="let city of stateData?.tourismCities">
+
+  <!-- Section heading -->
+ 
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-lg-5">
+
+      <!-- Featured image -->
+      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+        <img class="img-fluid"  [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city.name +'.jpg'" alt="">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-lg-7">
+
+      <!-- Category -->
+      <!-- <a href="#!" class="green-text">
+        <h6 class="font-weight-bold mb-3"><mdb-icon fas icon="utensils" class="pr-2"></mdb-icon>Food</h6>
+      </a> -->
+      <!-- Post title -->
+      <h3 class="font-weight-bold mb-3"><strong>{{city?.name}}</strong></h3>
+      <!-- Excerpt -->
+      <p>{{city?.info}}</p>
+      <!-- Post data -->
+      <!-- <p>by <a><strong>Carine Fox</strong></a>, 19/08/2018</p> -->
+      <!-- Read more button -->
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+</section>
+<!-- Section: Blog v.1 -->
+</div>
+<!-- Jumbotron -->

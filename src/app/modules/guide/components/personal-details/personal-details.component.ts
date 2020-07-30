@@ -46,16 +46,24 @@ export class PersonalDetailsComponent implements OnInit {
     this.stateList = csc.getStatesOfCountry(countryId);
   }
 
-  getAllCity(stateId) {
+  // getAllCity(stateId) {
+  //   this.cityList = csc.getCitiesOfState(stateId);
+  // }
+  getAllCity(statename) {
+    let stateId = this.stateList.filter(ele => {
+      if(ele.name === statename) {
+        return ele;
+      }
+    })[0].id;
     this.cityList = csc.getCitiesOfState(stateId);
   }
 
   submitPersonalDetails() {
     if(this.personalDetails.valid) {
-      let selectedState = csc.getStateById(this.personalDetails.value.state);
-      this.personalDetails.patchValue({
-        state: selectedState.name
-      })
+      // let selectedState = csc.getStateById(this.personalDetails.value.state);
+      // this.personalDetails.patchValue({
+      //   state: selectedState.name
+      // })
       this.profileData.emit(this.myFiles);
       this.personalData.emit(this.personalDetails.value);
     } else {

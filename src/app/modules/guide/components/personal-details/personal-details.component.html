@@ -91,16 +91,16 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form7" class="">State</label>
-                                <select class="form-control" formControlName="state" id="form0" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
+                                <select class="form-control" formControlName="state" id="form7" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
                 <option value="" disabled>Select State</option>
-                <option *ngFor="let item of stateList" [value]="item.id"> {{ item?.name }}</option>
+                <option *ngFor="let item of stateList" [value]="item.name"> {{ item?.name }}</option>
               </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form8" class="">City</label>
-                                <select class="form-control" formControlName="city" class="browser-default custom-select" id="form1">
+                                <select class="form-control" formControlName="city" class="browser-default custom-select" id="form8">
                 <option value="" disabled>Select City</option>
                 <option *ngFor="let item of cityList" [value]="item.name"> {{ item?.name }}</option>
               </select>
