@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
-import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import * as moment from 'moment';
@@ -50,8 +48,7 @@ export class SearchService {
     public dealsList: any[] = [];
 
 
-    constructor(private calendar: NgbCalendar, 
-        private router: Router,
+    constructor(
         private toastr: ToastrService,
         private apiService: ApiService,) 
     {

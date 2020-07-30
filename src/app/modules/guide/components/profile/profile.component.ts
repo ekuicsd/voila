@@ -6,7 +6,6 @@ import { GuideService } from 'src/app/shared/service/guide.service';
 import { ToastrService } from 'ngx-toastr';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import csc from 'country-state-city';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import languages from 'country-language';
 import { CustomValidators } from 'src/app/validators/custom';
 
@@ -37,7 +36,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UserService, 
     private guideService: GuideService,
-     private modalService: NgbModal,
     private staticDataService: StaticDataService,
     private toastr: ToastrService
     ) {  }

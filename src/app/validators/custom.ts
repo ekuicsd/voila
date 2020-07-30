@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 export class CustomValidators {
 
     static contactNumber(control: AbstractControl): ValidationErrors {

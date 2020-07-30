@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
 import { ToastrService } from 'ngx-toastr';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,7 +16,7 @@ export class RequestsComponent implements OnInit {
   public isData = false;
 
   constructor(private touristService: TouristsService, 
-    config: NgbModalConfig, private modalService: NgbModal,
+    private modalService: NgbModal,
     private toastr: ToastrService) { }
 
   ngOnInit() {
