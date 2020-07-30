@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import io from  'socket.io-client';
 import { environment } from 'src/environments/environment';
 import { UserService } from '../../service/user.service';

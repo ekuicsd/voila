@@ -3,9 +3,6 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable } from 'rxjs/internal/Observable';
 import { JwtService } from './jwt.service';
 import { tap } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
-import { UserService } from './user.service';
-import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -13,10 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-    constructor(private jwtService: JwtService,
-      private router: Router,
-       private userService: UserService,
-       private toastr: ToastrService) { }
+    constructor(private jwtService: JwtService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const token = this.jwtService.getToken();

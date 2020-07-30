@@ -28,6 +28,8 @@ export class RatingModalComponent implements OnInit {
       this.touristService.cancelrequest(this.bookingId, 'COMPLETED', request).subscribe( res => {
       this.toastr.success("rated successfully!");
     });
+    this.reviews = '';
+    this.rating = 0;
     this.close.emit();
  }
 

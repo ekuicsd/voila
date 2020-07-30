@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 export class CustomValidators {
 
     static contactNumber(control: AbstractControl): ValidationErrors {
@@ -104,7 +104,7 @@ export class CustomValidators {
         if (!control.value) {
             return null;
         }
-        let isvalid = Number(control.value) >= 1 ;
+        let isvalid = Number(control.value) >= 1  && Number(control.value) <= 500;
         const message = {
             compondValueValidate: {
                 message: 'This field only accepts numbers greater than 0'

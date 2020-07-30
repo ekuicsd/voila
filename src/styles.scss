@@ -1,12 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~ngx-toastr/toastr';
-@import '~mdbootstrap/css/bootstrap.css';
-@import '~mdbootstrap/css/mdb.min.css';
+// @import '~mdbootstrap/css/bootstrap.css';
+// @import '~mdbootstrap/css/mdb.min.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
-html,
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neuton:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 body {
     height: 100%;
     // min-height: 50vh;

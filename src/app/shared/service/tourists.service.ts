@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { UserService } from './user.service';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 
@@ -8,7 +7,7 @@ import { ApiService } from './api.service';
 })
 export class TouristsService {
 
-    constructor(private userService: UserService, private apiService: ApiService) {}
+    constructor(private apiService: ApiService) {}
 
     touristsSignup(body) : Observable<any> {
         let url = '/signup/tourist';

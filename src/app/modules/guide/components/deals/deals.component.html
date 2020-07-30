@@ -15,8 +15,8 @@
             </div>
         </div>
     </div>
-    <div *ngIf="DealsList.length > 0 && isData" class="mx-5 mb-5">
-        <h1>Your Deals</h1>
+    <div *ngIf="DealsList.length > 0 && isData" class=" mb-5">
+        <h1 class="ml-4">Your Deals</h1>
         <app-deals-cards [dealsList]="DealsList" [role]="'guide'"></app-deals-cards>
     </div>
     <div *ngIf="DealsList.length <= 0 && isData">

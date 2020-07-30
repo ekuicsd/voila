@@ -3,6 +3,7 @@ import { TouristsService } from 'src/app/shared/service/tourists.service';
 import { Router } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
@@ -50,6 +51,7 @@ export class BookingsComponent implements OnInit {
   }
 
   openCancelRequest(content) {
+    this.cancelReason = '';
     this.modalService.open(content, {scrollable: true, centered: true});
   }
 
@@ -62,6 +64,7 @@ export class BookingsComponent implements OnInit {
     let request = {cancelReason: this.cancelReason };
     this.touristService.cancelrequest(this.selectedBooking._id, 'CANCELLED', request).subscribe( res => {
       this.toastr.success("Request Cancelled successfully!");
+      this.cancelReason = '';
       this.modalService.dismissAll(content);
       this.modalService.dismissAll(cancel);
       this.getAllBookingsList();
@@ -69,8 +72,18 @@ export class BookingsComponent implements OnInit {
   }
 
   startTour(data) {
-    this.touristService.cancelrequest(data._id, 'ONGOING', {}).subscribe( res => {
-      this.getAllBookingsList();
+    Swal.fire({
+      text: "Are you want to start the tour?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Start'
+    }).then((result) => {
+      if (result.value) {
+        this.touristService.cancelrequest(data._id, 'ONGOING', {}).subscribe( res => {
+        this.getAllBookingsList();
+        });
+      }
     });
   }
 

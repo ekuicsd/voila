@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { JwtService } from './jwt.service';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { UserService } from './user.service';
 
@@ -9,7 +8,6 @@ import { UserService } from './user.service';
 export class AdminHomeGuardService implements CanActivate {
 
   constructor(
-    private jwtService: JwtService,
     private userService: UserService, 
     private router: Router
     ) { }
