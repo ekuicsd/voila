@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
 
   getProfileData(data) {
     this.file = data;
+    this.wizard.navigation.goToNextStep();
   }
 
   getPersonalData(data) {

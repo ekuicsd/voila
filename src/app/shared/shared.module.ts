@@ -68,8 +68,11 @@ const routes: Routes = [
         path: 'contact', component: ContactUsComponent
     },
     {
-         path: 'exploreIndia' , component: ExploreIndiaPagesComponent
+         path: 'exploreIndia/:state' , component: ExploreIndiaPagesComponent
     }   
+    
+    
+   
 ];
 @NgModule({
     declarations: [

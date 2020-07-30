@@ -15,6 +15,10 @@
     fill: #453252 ;
 }
 
+.selectedState {
+  fill: #453252;
+}
+
 .map-detail{
   font-family: 'Bebas Neue', cursive;
     text-align: center;
@@ -27,8 +31,7 @@
 }
 .row{
   // background: linear-gradient(to bottom, rgba(152, 226, 195, 0.925) 0%, #453252 100%);
-  background:rgba(182, 224, 207, 0.925);
-  margin: 0;
+ margin: 0;
 }
 // .col-md-6{
 //   padding: 0px;
