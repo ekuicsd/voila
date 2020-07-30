@@ -1,13 +1,22 @@
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
+import io from  'socket.io-client';
+import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GuideService{
 
-    constructor(private apiService: ApiService) {}
+    public socket = io(environment.baseUrl);
+
+    constructor(private apiService: ApiService, private toastr: ToastrService) {
+        this.socket.on('new_notification_guide', (data) => {
+            this.toastr.info(data);
+        });
+    }
 
     guideSignup(body) : Observable<any> {
         let url = '/signup/guide';
