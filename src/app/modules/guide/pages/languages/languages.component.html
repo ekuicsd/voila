@@ -1,47 +1,45 @@
-<div class="card card-body pannel px-4 py-0 mb-5" >
-  <h2 style="font-size: 30px;" class="card-title text-center mt-3 mb-4">Languages</h2>
-  <div class="px-lg-4">
-    <div *ngIf="selectedLanguageList.length > 0">
-      <h4>Selected 
-      </h4>
-      <hr>
-      <small class="text-muted">Tap on selected language again to remove it</small>
-      <div class="row my-4">
-        <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="removeFromSelectedList(item)" *ngFor="let item of selectedLanguageList; let i = index;">
-            <mdb-card [ngClass]="getGradientClass(i+1)">
-                <mdb-card-body class="waves-effect waves-light">
-                    <div class="m-auto text-center white-text">
-                        <h5 class="my-0">{{item}}</h5>
-                    </div>
-                </mdb-card-body>
-            </mdb-card>
+<div class="card card-body pannel px-4 py-0 mb-5">
+    <h2 style="font-size: 30px;" class="card-title text-center mt-3 mb-4">Languages</h2>
+    <div class="px-lg-4">
+        <div *ngIf="selectedLanguageList.length > 0">
+            <h4>Selected
+            </h4>
+            <hr>
+            <small class="text-muted">Tap on selected language again to remove it</small>
+            <div class="row my-4">
+                <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="removeFromSelectedList(item)" *ngFor="let item of selectedLanguageList; let i = index;">
+                    <mdb-card [ngClass]="getGradientClass(i+1)">
+                        <mdb-card-body class="waves-effect waves-light">
+                            <div class="m-auto text-center white-text">
+                                <h5 class="my-0">{{item}}</h5>
+                            </div>
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <h4>All
-      <button class="btn btn-success my-0 py-2 float-right"  mdbBtn type="button" (click)="outputLanguages()" >Next</button>
-      <button class="btn btn-danger my-0 py-2 float-right" mdbBtn type="button" previousStep>Previous</button>
-    </h4>
-    <hr>
-   <form autocomplete="off">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-        <input type="text" class="form-control" mdbInput  [(ngModel)]="langSearch" placeholder="Search for languages" name="langSearch">
-      </div>
-    </div>
-   </form>
-    <div class="row my-4">
-        <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="addToSelectedLangList(item)"
-         *ngFor="let item of languageList | filter:langSearch; let i = index;">
-            <mdb-card [ngClass]="isSelected(item) ? 'activeClass' : getGradientClass(i+1)">
-                <mdb-card-body class="waves-effect waves-light">
-                    <div class="m-auto text-center white-text">
-                        <h5 class="my-0">{{item}}</h5>
-                    </div>
-                </mdb-card-body>
-            </mdb-card>
+        <h4>All
+            <button class="btn dpurple white-text my-0 py-2 float-right" mdbBtn nextStep type="button" (click)="outputLanguages()">Next</button>
+            <button class="btn bgrey white-text my-0 py-2 float-right" mdbBtn type="button" previousStep>Previous</button>
+        </h4>
+        <hr>
+        <form autocomplete="off">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                    <input type="text" class="form-control" mdbInput [(ngModel)]="langSearch" placeholder="Search for languages" name="langSearch">
+                </div>
+            </div>
+        </form>
+        <div class="row my-4">
+            <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="addToSelectedLangList(item)" *ngFor="let item of languageList | filter:langSearch; let i = index;">
+                <mdb-card [ngClass]="isSelected(item) ? 'activeClass' : getGradientClass(i+1)">
+                    <mdb-card-body class="waves-effect waves-light">
+                        <div class="m-auto text-center white-text">
+                            <h5 class="my-0">{{item}}</h5>
+                        </div>
+                    </mdb-card-body>
+                </mdb-card>
+            </div>
         </div>
     </div>
-  </div>
 </div>
-

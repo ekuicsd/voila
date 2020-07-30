@@ -1,73 +1,73 @@
 <div class="card card-body pannel px-4 py-0 mb-5">
-  <h3 style="font-size: 30px;" class="card-title text-center mt-3 mb-3">Business Details</h3>
-  <div class="row">
-    <div class="col-lg-7">
-       <div class="card-text">
-        <form [formGroup]="basicDetails">
-            <div class="col-12">
-              <div class="form-group">
-                <label>People Limit</label>
-                <input type="number" formControlName="peopleLimit" placeholder="Enter people limit" class="form-control">
-                <small class="text-muted">Maximum no of people for which charges per head applied</small>
-              </div>
+    <h3 style="font-size: 30px;" class="card-title text-center mt-3 mb-3">Business Details</h3>
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="card-text">
+                <form [formGroup]="basicDetails">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>People Limit</label>
+                            <input type="number" formControlName="peopleLimit" placeholder="Enter people limit" class="form-control">
+                            <small class="text-muted">Maximum no of people for which charges per head applied</small>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Charges Per Head</label>
+                            <input type="number" formControlName="perHeadCharge" placeholder="Enter per head charges " class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Charges per Day</label>
+                            <input type="number" formControlName="perDayCharge" placeholder="Enter per day charge" class="form-control">
+                            <small class="text-muted">Amount will be applied when tourist count exceeds people limit</small>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-12">
-              <div class="form-group">
-                <label>Charges Per Head</label>
-                <input type="number" formControlName="perHeadCharge" placeholder="Enter per head charges " class="form-control">
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-group">
-                <label>Charges per Day</label>
-                <input type="number" formControlName="perDayCharge" placeholder="Enter per day charge" class="form-control">
-                <small class="text-muted">Amount will be applied when tourist count exceeds people limit</small>
-              </div>
-            </div>
-        </form>
-        </div>
-        <h5 class="mt-3" style="font-size: 25px;">Past Experience</h5>
-        <p>*You can add more experiences in the edit profile section</p>
-        <form [formGroup]="experienceForm" (ngSubmit)="submitExperienceForm()">
-          <div class="row card-body">
-            <div class="col-6 ">
-              <div class="form-group">
-                <label>Work</label>
-                <input type="text" class="form-control" placeholder="Enter Work" formControlName="work">
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <label>Work Profile</label>
-                <!-- <input type="text" class="form-control" placeholder="Enter work profile" formControlName="profile"> -->
-                <select id="form1" class="form-control" formControlName="profile">
+            <h5 class="mt-3" style="font-size: 25px;">Past Experience</h5>
+            <p>*You can add more experiences in the edit profile section</p>
+            <form [formGroup]="experienceForm" (ngSubmit)="submitExperienceForm()">
+                <div class="row card-body">
+                    <div class="col-6 ">
+                        <div class="form-group">
+                            <label>Work</label>
+                            <input type="text" class="form-control" placeholder="Enter Work" formControlName="work">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>Work Profile</label>
+                            <!-- <input type="text" class="form-control" placeholder="Enter work profile" formControlName="profile"> -->
+                            <select id="form1" class="form-control" formControlName="profile">
                   <option value='' disabled>Select</option>
                   <option *ngFor="let item of profileList" [value]="item"> {{ item }}</option>
                 </select>
-              </div>
-            </div>
-            <div class="col-6 ">
-              <div class="form-group ">
-                <label>Start Year</label>
-                <input type="number" class="form-control" placeholder="Enter start year" formControlName="startYear">
-              </div>
-            </div>
-            <div class="col-6 ">
-              <div class="form-group ">
-                <label>Duration (in months)</label>
-                <input type="text" class="form-control" placeholder="Enter work duration" formControlName="duration">
-              </div>
-            </div>
-            <div class="col-md-12 text-center pt-2">
-                <button type="submit" class="btn btn-success">Add</button>
-            </div>
-          </div>
-      </form>
-       </div>
+                        </div>
+                    </div>
+                    <div class="col-6 ">
+                        <div class="form-group ">
+                            <label>Start Year</label>
+                            <input type="number" class="form-control" placeholder="Enter start year" formControlName="startYear">
+                        </div>
+                    </div>
+                    <div class="col-6 ">
+                        <div class="form-group ">
+                            <label>Duration (in months)</label>
+                            <input type="text" class="form-control" placeholder="Enter work duration" formControlName="duration">
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center pt-2">
+                        <button type="submit" class="btn btn-sm dpurple white-text">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-    <div class="col-lg-5 d-none d-lg-block">
-      <div class="svg1 align-self-center d-flex justify-content-center">
-        <svg width="744" height="591" viewBox="0 0 744 591" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="col-lg-5 d-none d-lg-block">
+            <div class="svg1 align-self-center d-flex justify-content-center">
+                <svg width="744" height="591" viewBox="0 0 744 591" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M560.056 585.278C565.305 585.278 569.56 581.023 569.56 575.773C569.56 570.524 565.305 566.269 560.056 566.269C554.806 566.269 550.551 570.524 550.551 575.773C550.551 581.023 554.806 585.278 560.056 585.278Z" fill="#3F3D56"/>
           <path d="M561.352 378.334L536.294 311.801C536.294 311.801 540.182 299.272 529.813 300.136C519.445 301 491.794 310.505 491.794 310.505C491.794 310.505 482.29 311.369 495.251 324.762L517.716 395.183L525.061 391.727L500.867 321.738C500.867 321.738 499.571 316.985 504.323 315.689C509.076 314.393 527.221 306.616 528.949 311.369C530.677 316.121 553.143 384.382 553.143 384.382L561.352 378.334Z" fill="#3F3D56"/>
           <path d="M493.954 424.13L542.342 568.861C546.257 571.457 550.505 573.51 554.971 574.966C559.009 576.353 563.171 577.347 567.4 577.934C568.976 578.057 570.56 577.932 572.097 577.562C596.977 572.594 682.321 526.954 682.321 526.954C682.321 526.954 638.686 390.863 631.341 374.446C623.997 358.028 607.579 364.077 607.579 364.077C607.579 364.077 524.651 386.469 512.748 390.63C512.502 390.716 512.286 390.794 512.1 390.863C506.858 392.754 502.331 396.224 499.143 400.795L499.139 400.8C487.042 408.144 493.954 424.13 493.954 424.13Z" fill="#6C63FF"/>
@@ -93,43 +93,43 @@
           <path d="M364.408 87.7094C362.728 85.1237 363.577 81.6078 362.398 78.7582C360.548 74.2834 354.799 73.2352 349.974 72.8269C346.777 72.4166 343.541 72.4253 340.347 72.8527C338.935 73.0873 337.598 73.6468 336.439 74.4868C335.28 75.3269 334.333 76.4246 333.671 77.6934C332.957 79.125 333.137 74.6394 333.594 68.8814C334.057 63.0054 336.374 57.4281 340.21 52.9531C344.046 48.4781 349.204 45.3364 354.94 43.9808C355.008 43.9648 355.076 43.949 355.143 43.9336C361.017 42.5784 367.074 41.5811 373.062 42.2846C379.049 42.988 385.018 45.5727 388.754 50.3037C390.462 52.466 391.67 55.0158 393.576 57.0051C396.926 60.5004 401.892 61.7723 406.453 63.3941C411.683 65.0805 416.495 67.857 420.573 71.5402C424.518 75.3361 427.315 80.5376 427.398 86.0121C427.494 92.3981 423.432 98.9884 416.886 100.247C415.748 100.446 414.673 100.91 413.747 101.602C407.497 106.448 414.627 111.521 414.578 116.977C414.536 121.529 409.469 124.496 404.921 124.708C400.669 124.785 396.524 123.38 393.194 120.735C389.865 118.09 387.559 114.369 386.672 110.211C385.986 106.475 386.516 102.637 386.962 98.8654C387.472 94.5476 378.174 84.3805 384.316 91.8327C385.515 93.2491 386.324 94.9532 386.664 96.7774C387.687 102.731 382.269 104.733 378.853 108.032C376.977 109.898 375.662 112.252 375.056 114.828C374.45 117.403 374.578 120.097 375.426 122.603C372.609 120.051 370.771 116.596 370.229 112.833C369.688 109.07 370.477 105.237 372.46 101.994C373.56 100.306 374.978 98.8375 376.022 97.114C377.65 94.4245 378.099 88.5747 373.541 88.7354C370.288 88.8501 366.908 91.5586 364.408 87.7094Z" fill="#2F2E41"/>
           </svg>
 
-           </div>
+            </div>
 
-  </div>
-  </div>
-  <div *ngIf="userExperienceList.length > 0" class="row card-body">
-    <div class="col-md-12 table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Sr. No</th>
-            <th>Work</th>
-            <th>Work Profile</th>
-            <th>Start Year</th>
-            <th>Duration</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of userExperienceList; let i = index">
-            <td>{{i+1}}</td>
-            <td>{{item.work}}</td>
-            <td>{{item.profile}}</td>
-            <td>{{item.startYear}}</td>
-            <td>{{item.duration}}</td>
-            <td>
-              <button (click)="editExperience(item)"><mdb-icon class="edit-icon" fas icon="edit"></mdb-icon></button>
-              <button (click)="removeExperience(item)"><mdb-icon fas class="delete-icon" icon="trash-alt"></mdb-icon></button>
-            </td>
-          </tr>
-        </tbody>
-       </table>
+        </div>
     </div>
-  </div>
-  <div class="row card-body mx-0 px-0">
-    <div class="col-md-12 text-center">
-      <button class="btn btn-danger"  style="width: 120px;" mdbBtn type="button" previousStep>Previous</button>
-      <button class="btn btn-success"  style="width: 120px;" mdbBtn type="button" (click)="finalSubmit()" >Next</button>
+    <div *ngIf="userExperienceList.length > 0" class="row card-body">
+        <div class="col-md-12 table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Work</th>
+                        <th>Work Profile</th>
+                        <th>Start Year</th>
+                        <th>Duration</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of userExperienceList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.work}}</td>
+                        <td>{{item.profile}}</td>
+                        <td>{{item.startYear}}</td>
+                        <td>{{item.duration}}</td>
+                        <td>
+                            <button (click)="editExperience(item)"><mdb-icon class="edit-icon" fas icon="edit"></mdb-icon></button>
+                            <button (click)="removeExperience(item)"><mdb-icon fas class="delete-icon" icon="trash-alt"></mdb-icon></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
+    <div class="row card-body mx-0 px-0">
+        <div class="col-md-12 text-center">
+            <button class="btn bgrey white-text" style="width: 120px;" mdbBtn type="button" previousStep>Previous</button>
+            <button class="btn dpurple white-text" nextStep style="width: 120px;" mdbBtn type="button" (click)="finalSubmit()">Next</button>
+        </div>
+    </div>
 </div>
