@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit{
     }
 
   ngOnInit() {
+    this.user = this.userService.getUser(this.userService.getRole());
   }
 
   onLinkClick() {

@@ -72,7 +72,7 @@
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
-                    <mdb-icon fas icon="question-circle" style="height:32px; width:32px;"></mdb-icon><span class="caret"></span></a>
+                    <mdb-icon fas icon="question-circle" style="width:32px;"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
@@ -83,7 +83,8 @@
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
 
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <mdb-icon fas icon="user"></mdb-icon>
+                    <!-- <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;"> -->
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -138,7 +139,7 @@
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user.picUrl ? user.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -165,7 +166,7 @@
             </li>
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user.picUrl ? user.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome']" routerLinkActive="active">Dashboard</a>
@@ -289,7 +290,8 @@
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
 
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <mdb-icon fas icon="user"></mdb-icon>
+                    <!-- <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;"> -->
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -344,7 +346,7 @@
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user.picUrl ? user.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -371,7 +373,7 @@
             </li>
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user.picUrl ? user.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome']" routerLinkActive="active">Dashboard</a>
