@@ -27,6 +27,7 @@ import { DealModalComponent } from './components/deal-modal/deal-modal.component
 import { RatingModalComponent } from './components/rating-modal/rating-modal.component';
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ExploreIndiaPagesComponent } from './components/explore-india-pages/explore-india-pages.component';
 
 const routes: Routes = [
     {
@@ -64,6 +65,9 @@ const routes: Routes = [
     }, 
     {
         path: 'contact', component: ContactUsComponent
+    },
+    {
+         path: 'exploreIndia' , component: ExploreIndiaPagesComponent
     }   
 ];
 @NgModule({
@@ -88,7 +92,8 @@ const routes: Routes = [
         DealModalComponent,
         RatingModalComponent,
         ChatRoomComponent,
-        FilterPipe
+        FilterPipe,
+        ExploreIndiaPagesComponent
     ],
     imports: [
         CommonModule,
@@ -116,7 +121,8 @@ const routes: Routes = [
         DealModalComponent,
         RatingModalComponent,
         ChatRoomComponent,
-        FilterPipe
+        FilterPipe,
+        ExploreIndiaPagesComponent
     ]
 }) 
 
