@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TouristsService } from '../../service/tourists.service';
 import { CustomValidators } from 'src/app/validators/custom';
 import { StaticDataService } from '../../service/static-data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-personal-modal',
@@ -61,21 +62,31 @@ export class PersonalModalComponent implements OnInit {
   }
 
   submitPersonalBooking() {
-    if(this.personalBooking.valid) {
-      this.personalBooking.value.price = this.totalPrice;
-      this.touristService.bookForPersonalTour(this.guide._id, this.personalBooking.value).subscribe( res => {
-       if(res.success) {
-        this.toastr.success("Requested For Personalized Tour!");
-        this.createForm();
-        this.emitClose();
-        this.router.navigateByUrl('/tourists/touristshome/bookings/requests');
-       } else {
-         this.toastr.error(res.message);
-       }
-      });
-    } else {
-      this.toastr.error("Invalid deatils!");
-    }
+    Swal.fire({
+      text: "Are you sure to book for personally?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        if(this.personalBooking.valid) {
+          this.personalBooking.value.price = this.totalPrice;
+          this.touristService.bookForPersonalTour(this.guide._id, this.personalBooking.value).subscribe( res => {
+           if(res.success) {
+            this.toastr.success("Requested For Personalized Tour!");
+            this.createForm();
+            this.emitClose();
+            this.router.navigateByUrl('/tourists/touristshome/bookings/requests');
+           } else {
+             this.toastr.error(res.message);
+           }
+          });
+        } else {
+          this.toastr.error("Invalid deatils!");
+        }
+      }
+    }); 
   }
 
 }

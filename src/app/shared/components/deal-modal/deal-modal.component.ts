@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TouristsService } from '../../service/tourists.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-deal-modal',
@@ -59,20 +60,30 @@ export class DealModalComponent implements OnInit {
   }
 
   submitDealForm() {
-    if(this.dealForm.valid) {
-      this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
-        if(res.success) {
-          this.toastr.success("Booked successfully!!");
-          this.createForm();
-          this.modal2.hide(0);
-          this.router.navigateByUrl('/tourists/touristshome/bookings/now');
+    Swal.fire({
+      text: "Are you sure to book deal?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        if(this.dealForm.valid) {
+          this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
+            if(res.success) {
+              this.toastr.success("Booked successfully!!");
+              this.createForm();
+              this.modal2.hide(0);
+              this.router.navigateByUrl('/tourists/touristshome/bookings/now');
+            } else {
+              this.toastr.error(res.msg);
+            }
+          });
         } else {
-          this.toastr.error(res.msg);
+          this.toastr.error("Invalid Details!");
         }
-      });
-    } else {
-      this.toastr.error("Invalid Details!");
-    }
+      }
+    }); 
   }
 
 }
