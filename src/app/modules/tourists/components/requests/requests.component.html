@@ -28,7 +28,7 @@
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
-                                        <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn white-text" style="margin: auto; background:#553d67;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                                         <b>VIEW</b>
                                         </button>
                                     </td>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </mdb-card-text>
-                <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+                <a size="sm" class="float-right white-text" (click)="open(content, data)" mdbBtn style="background: #553d67;" mdbWavesEffect>VIEW</a>
                 <!-- <a size="sm" class="float-right"  mdbBtn style="background: #0ec8b9;" mdbWavesEffect>START</a> -->
             </mdb-card-body>
         </mdb-card>
@@ -174,7 +174,11 @@
             <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
         </div>
         <div class="col">
+<<<<<<< HEAD
             <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="pink" (click)="cancelRequest(content)" mdbWavesEffect>Cancel Request</button>
+=======
+            <button mdbBtn class="btn-block waves-light" type="button" size="sm" color="danger" (click)="cancelRequest()" mdbWavesEffect>Cancel Request</button>
+>>>>>>> origin/vidhi
         </div>
     </div>
 </ng-template>

@@ -28,10 +28,10 @@
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
-                                        <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn white-text" style="margin: auto; background-color: #553d67;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                                         <b>VIEW</b>
                                         </button>&nbsp;
-                                        <button class="btn" color="info" style="margin: auto;" [disabled]="disableStart(data)" (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn white-text" style="margin: auto;" color="success" [disabled]="disableStart(data)" (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                                         <b>START</b>
                                     </button>
                                     </td>
@@ -76,8 +76,8 @@
                         </div>
                     </div>
                 </mdb-card-text>
-                <button size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</button>
-                <button size="sm" class="float-right" (click)="startTour(data)" mdbBtn [disabled]="disableStart(data)" style="background: #0ec8b9;" mdbWavesEffect>START</button>
+                <button size="sm" class="float-right white-text" (click)="open(content, data)" mdbBtn style="background: #553d67;" mdbWavesEffect>VIEW</button>
+                <button size="sm" color="success" class="float-right white-text" (click)="startTour(data)" mdbBtn [disabled]="disableStart(data)" mdbWavesEffect>START</button>
             </mdb-card-body>
         </mdb-card>
     </div>
@@ -176,7 +176,7 @@
     <div class="modal-footer mx-0 ">
         <div class="row w-100">
             <div class="col-4 px-1">
-                <button mdbBtn class="btn-block waves-light px-1" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel</button>
+                <button mdbBtn class="btn-block waves-light px-1" type="button" size="sm" color="danger" (click)="openCancelRequest(cancel)" mdbWavesEffect>Cancel Booking</button>
             </div>
             <div class="col-4 px-1">
                 <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light px-1" *ngIf="selectedBooking.tourType !== 'deal'" (click)="contactGuide(content, selectedBooking?.guideId?.email, selectedBooking?.guideId?.name)" mdbWavesEffect>
@@ -185,7 +185,7 @@
              Contact&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
             </div>
             <div class="col-4 px-1">
-                <button type="button" mdbBtn color="secondary" [disabled]="disableStart(selectedBooking)" size="sm" class="waves-light btn-block px-1" mdbWavesEffect>Start Tour&nbsp;</button>
+                <button type="button" color="success" mdbBtn [disabled]="disableStart(selectedBooking)" size="sm" class="waves-light btn-block px-1" mdbWavesEffect>Start Tour&nbsp;</button>
             </div>
         </div>
     </div>
@@ -193,7 +193,7 @@
 
 
 <ng-template #cancel let-c1="close" let-d1="dismiss">
-    <div class="modal-header">
+    <div class="modal-header white-text" style="background-color: #FF3547;">
         <h5 class="modal-title" id="modal-basic-title">Cancel Booking</h5>
         <button type="button" class="close" aria-label="Close" (click)="d1('Cross click')">
       <span aria-hidden="true">&times;</span>
@@ -206,7 +206,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button mdbBtn type="button" color="danger" size="sm" class="btn" (click)="c1('Save click')">Close</button>
-        <button mdbBtn type="button" color="deep-orange" size="sm" class="btn " (click)="cancelBooking(content, cancel)">Cancel</button>
+        <button mdbBtn type="button" color="secondary" size="sm" class="btn" (click)="c1('Save click')">Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+        <button mdbBtn type="button" color="danger" size="sm" class="btn " (click)="cancelBooking(content, cancel)">Cancel</button>
     </div>
 </ng-template>

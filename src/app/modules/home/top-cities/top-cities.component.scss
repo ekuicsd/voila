@@ -4,6 +4,13 @@
     border-left: 2px solid black;
 }
 
+.explore-bt {
+    border: 1px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    opacity: 0.8;
+}
+
 .parallax {
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -27,7 +34,7 @@ b {
     color: white;
 }
 
-.hover:hover{
+.hover:hover {
     color: white;
 }
 
@@ -35,4 +42,4 @@ b {
     position: absolute;
     bottom: 8px;
     right: 16px;
- }
+}

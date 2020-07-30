@@ -43,13 +43,13 @@ body {
  ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 0px;
-    background: #553d67;
+    background: #ba9dcf;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
  ::-webkit-scrollbar-thumb:window-inactive {
-    background-color: #553d67;
+    background-color: #ba9dcf;
 }
 
 .navbar {
@@ -69,9 +69,11 @@ body {
     width: 100%;
     align-items: center;
 }
+
 .card {
     position: initial;
 }
+
 
 /* input error */
 
