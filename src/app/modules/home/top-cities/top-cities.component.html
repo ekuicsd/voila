@@ -12,8 +12,7 @@
     <div class=" col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 my-3">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3" *ngFor="let place of topCitiesList | slice:0:3">
-                <mdb-card [ngStyle]="{'background-image':'url(' + place.imgUrl + ')'}"
-                style="background-size:cover; min-height: 240px">
+                <mdb-card [ngStyle]="{'background-image':'url(' + place.imgUrl + ')'}" style="background-size:cover; min-height: 240px">
                     <mdb-card-body class="waves-effect waves-light">
                         <div class="white-text">
                             <mdb-card-title>
@@ -24,9 +23,7 @@
                                 <!-- <p>{{place.description | truncatetext}}</p> -->
                             </mdb-card-text>
                             <div class="text-center">
-                                <button class="btn black hover bottom-right" (click)="navigateToSearchResultPage(place)"
-                                 style="border:1px solid white;  padding-top: 10px;
-                                padding-bottom: 10px;">Explore</button>
+                                <button class="btn black hover bottom-right explore-bt" (click)="navigateToSearchResultPage(place)">Explore</button>
                             </div>
                         </div>
 
@@ -36,8 +33,7 @@
 
 
             <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3 d-block d-md-none d-xl-block" *ngFor="let place of topCitiesList | slice:3:4">
-                <mdb-card [ngStyle]="{'background-image':'url(' + place.imgUrl + ')'}"
-                style="background-size:cover; min-height: 240px">
+                <mdb-card [ngStyle]="{'background-image':'url(' + place.imgUrl + ')'}" style="background-size:cover; min-height: 240px">
                     <mdb-card-body class="waves-effect waves-light">
                         <div class="white-text">
                             <mdb-card-title>
@@ -48,9 +44,8 @@
                                 <!-- <p>{{place.description | truncatetext}}</p> -->
                             </mdb-card-text>
                             <div class="text-center">
-                                <button class="btn black hover bottom-right" (click)="navigateToSearchResultPage(place)"
-                                style="border:1px solid white; padding-top: 10px;
-                                padding-bottom: 10px;"> Explore</button>
+                                <button class="btn black hover bottom-right explore-bt" (click)="navigateToSearchResultPage(place)"> 
+                                    Explore</button>
                             </div>
                         </div>
 
@@ -61,4 +56,3 @@
     </div>
 
 </div>
-
