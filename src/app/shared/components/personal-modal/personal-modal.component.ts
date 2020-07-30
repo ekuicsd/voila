@@ -46,6 +46,7 @@ export class PersonalModalComponent implements OnInit {
 
   emitClose() {
     this.agree = false;
+    this.totalPrice = 0;
     this.createForm();
     this.close.emit();
   }

@@ -57,7 +57,7 @@ export class LoginPageComponent implements OnInit {
           res => {
            if(res.success) {
             this.router.navigateByUrl('guide/guidehome');
-            this.socket.emit('initial_connect', { userType: 'GUIDE', _id: 'res.guide._id'});
+            this.socket.emit('initial_connect', { userType: 'GUIDE', _id: res.guide._id});
            } else {
              this.toastr.error(res.message);
            }
@@ -77,7 +77,7 @@ export class LoginPageComponent implements OnInit {
               } else {
                 this.router.navigateByUrl('/tourists/touristshome');
               }
-              this.socket.emit('initial_connect', { userType: 'TOURISTS', _id: 'res.Tourist._id'});
+              this.socket.emit('initial_connect', { userType: 'TOURISTS', _id: res.Tourist._id});
             } else {
               this.toastr.error(res.message);
             }

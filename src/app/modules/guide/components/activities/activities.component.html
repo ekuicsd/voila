@@ -30,7 +30,9 @@
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
-                                        <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn text-white dpurple" 
+                                        style="margin: auto;" (click)="open(content, data)" 
+                                        mdbBtn type="button" size="sm" mdbWavesEffect>
                                             <b>VIEW</b>
                                         </button>
                                     </td>
@@ -74,7 +76,8 @@
                         </div>
                     </div>
                 </mdb-card-text>
-                <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+                <a size="sm" class="float-right text-white dpurple" (click)="open(content, data)"
+                 mdbBtn  mdbWavesEffect>VIEW</a>
             </mdb-card-body>
         </mdb-card>
     </div>
@@ -189,9 +192,11 @@
             </tbody>
         </table>
     </div>
-    <div class="modal-footer row mx-0 ">
+    <div class="modal-footer row mx-0 w-100">
         <div class="col">
-            <button type="button" mdbBtn color="secondary" size="sm" class="waves-light flost-right" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+            <button type="button" mdbBtn
+             size="sm" class="waves-light flost-right dpurple text-white" (click)="d('Cross click')"
+              mdbWavesEffect>Close</button>
         </div>
     </div>
 </ng-template>

@@ -42,16 +42,16 @@
                 </div>
                 <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
                     <div class="col">
-                        <h5 class="text-left">Your Total : Rs. {{totalPrice}}/-
+                        <h6 class="text-left">Your Total : Rs. {{totalPrice}}/-
                             <span class="float-right">
-                      <button type="button" style="background:#553d67" (click)="agree = true" class="btn white-text" size="sm" mdbBtn>Agree</button>
+                      <button type="button" style="background:#553d67" (click)="agree = true" class="btn white-text m-0" size="sm" mdbBtn>Agree</button>
                     </span>
-                        </h5>
+                        </h6>
                     </div>
                 </div>
                 <div class="text-center mt-4">
-                    <button type="button" (click)="emitClose()" class="btn btn-danger mt-1 ">Cancel</button>
-                    <button type="submit" color="success" [disabled]="!agree" class="btn mt-1 ">Request</button>
+                    <button type="button" (click)="emitClose()" class="btn btn-sm mt-1 bgrey">Cancel</button>
+                    <button type="submit"  [disabled]="!agree" class="btn mt-1 btn-sm dpurple">Request</button>
                 </div>
             </div>
         </form>

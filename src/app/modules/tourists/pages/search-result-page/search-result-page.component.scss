@@ -165,3 +165,28 @@ mdb-card-text div {
 .cursor {
     cursor: pointer;
 }
+
+.bgrey {
+    background-color: #757575;
+    color: white;
+}
+.dpurple {
+    background-color: #553d67;
+    color: white;
+}
+.dblue {
+    background-color: #22c1c3;
+    color: white;
+}
+::ng-deep ngb-accordion {
+    .btn-link, .btn-link.collapsed {
+    text-align: left;
+    width: 100%;
+    text-decoration: none !important;
+    }
+    .btn-link:hover {
+    text-align: left;
+    width: 100%;
+    text-decoration: none !important;
+    }
+}

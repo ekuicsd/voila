@@ -35,6 +35,7 @@ export class MapComponent implements OnInit {
   
 
   getStateData(state) {
+    console.log(state);
     this.getDataByState(state);
   }
 

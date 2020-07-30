@@ -41,6 +41,7 @@ export class DealModalComponent implements OnInit {
   }
 
   emitClose() {
+    this.totalPrice = 0;
     this.agree = false;
     this.createForm();
     this.close.emit();
@@ -49,6 +50,8 @@ export class DealModalComponent implements OnInit {
   
   openModal2(content) {
     if(this.userService.getRole() === 'tourist') {
+      this.totalPrice = 0;
+      this.createForm();
       this.modal2.show(content, {ignoreBackdropClick: true});
     } else {
       this.router.navigateByUrl('/login/tourist');

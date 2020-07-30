@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~ngx-toastr/toastr';
-// @import '~mdbootstrap/css/bootstrap.css';
-// @import '~mdbootstrap/css/mdb.min.css';
+@import '~mdbootstrap/css/bootstrap.css';
+@import '~mdbootstrap/css/mdb.min.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
@@ -307,11 +307,16 @@ button[disabled],
 
 .dpurple {
     background-color: #553d67;
+    color: white;
 }
 
 .bgrey {
     background-color: #757575;
+    color: white;
 }
-
+.dblue {
+    background-color: #22c1c3;
+    color: white;
+}
 // ssss
 // Please change your favorite font-size!

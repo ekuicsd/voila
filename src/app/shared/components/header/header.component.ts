@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit{
     }
 
   ngOnInit() {
-    this.user = this.userService.getUser(this.userService.getRole());
+    this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
   }
 
   onLinkClick() {
@@ -47,6 +47,7 @@ export class HeaderComponent implements OnInit{
     if(this.userService.getRole() === 'guide') {
      this.guideService.getAllBookingsByStatus('ONGOING').subscribe( res => {
        this.onGoingEvents = res;
+       console.log(res);
        if(res.length <= 0) {
          this.onGoingEvents = undefined;
        }
@@ -58,6 +59,7 @@ export class HeaderComponent implements OnInit{
        if(res.length <= 0) {
          this.onGoingEvents = undefined;
        }
+       console.log(res);
        this.modal1.show(basicModal);
      });
     }

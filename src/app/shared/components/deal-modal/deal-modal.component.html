@@ -77,10 +77,13 @@
             </table>
 
         </div>
-        <div class="text-center mt-2">
-            <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm" (click)="emitClose()" type="button" class="btn btn-secondary mt-1">Close</button>
-            <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm" (click)="openModal2(dealTour2)" type="button" class="btn btn-cyan mt-1">Book</button>
-            <button *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" (click)="emitClose()" type="button" class="btn btn-cyan mt-1">Ok</button>
+        <div class="text-center mt-2 mb-4">
+            <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm"
+             (click)="emitClose()" type="button" class="btn mt-1 bgrey">Close</button>
+            <button *ngIf="userService.getRole() !== 'guide'" mdbBtn size="sm" 
+            (click)="openModal2(dealTour2)" type="button" class="btn mt-1 dpurple">Book</button>
+            <button *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" 
+            (click)="emitClose()" type="button" class="btn mt-1 dpurple">Ok</button>
         </div>
     </div>
 </div>
@@ -109,16 +112,16 @@
                     </div>
                     <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
                         <div class="col">
-                            <h4 class="text-left">Your Total Price: Rs. {{totalPrice}}/-
+                            <h6 class="text-left">Your Total Price: Rs. {{totalPrice}}/-
                                 <span class="float-right">
-                          <button type="button" (click)="agree = true" style="background:#553d67"  class="btn white-text" size="sm" mdbBtn>Agree</button>
+                          <button type="button" (click)="agree = true"  class="btn white-text m-0 dpurple" size="sm" mdbBtn>Agree</button>
                         </span>
-                            </h4>
+                            </h6>
                         </div>
                     </div>
-                    <div class="text-center mt-4">
-                        <button type="button" (click)="this.agree = false; dealTour2.hide()" class="btn btn-danger mt-1">Cancel</button>
-                        <button type="submit" color="success" [disabled]="!agree" class="btn mt-1">Book</button>
+                    <div class="text-center mt-4 mb-4">
+                        <button type="button" (click)="this.agree = false; dealTour2.hide()" class="btn bgrey mt-1">Cancel</button>
+                        <button type="submit" [disabled]="!agree" class="btn mt-1 dpurple">Book</button>
                     </div>
                 </form>
             </div>

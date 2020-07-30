@@ -2,7 +2,8 @@
 <div class="px-lg-4 px-3">
   <div *ngIf="selectedInterestsList.length > 0">
     <h4>Selected 
-      <button class="btn my-0 py-2 float-right" (click)="saveInterests()" type="button" mdbBtn color="info" mdbWavesEffect>Save</button>
+      <button class="btn my-0 py-2 float-right text-white dpurple" (click)="saveInterests()" type="button"
+       mdbBtn mdbWavesEffect>Save</button>
     </h4>
     <hr>
     <div class="row my-4">
@@ -19,7 +20,9 @@
   </div>
   <h4>All
     <button *ngIf="selectedInterestsList.length <= 0" 
-      class="btn float-right my-0 py-2" [routerLink]="['/tourists/touristshome/dashboard']" type="button" mdbBtn color="info" mdbWavesEffect>
+      class="btn float-right my-0 py-2 text-white dblue" 
+      [routerLink]="['/tourists/touristshome/dashboard']" type="button" 
+      mdbBtn mdbWavesEffect>
       Skip
     </button>
   </h4>

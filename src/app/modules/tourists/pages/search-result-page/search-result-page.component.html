@@ -26,7 +26,7 @@
                     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
                         <ngb-panel>
                             <ng-template ngbPanelTitle>
-                                <b>PRICE RANGE</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
+                                <b style="text-decoration: none !important;">PRICE RANGE</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
                                 <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
@@ -98,8 +98,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
-                    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.hide()" mdbWavesEffect>Done!</button>
+                    <button type="button" mdbBtn class="waves-light bgrey btn-sm" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                    <button type="button" mdbBtn class="relative waves-light btn-sm dpurple" (click)="basicModal.hide()" mdbWavesEffect>Done!</button>
                 </div>
             </div>
         </div>
