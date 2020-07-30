@@ -1,42 +1,52 @@
-<div class=" row px-3 py-4 bg">
+<div class=" row px-3 py-4">
     <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 my-3">
-        <div class="trending px-2">
+        <div class="d-none d-sm-block trending px-2">
             TRENDING DESTINATIONS
+        </div>
+        <div class="parallax d-block d-sm-none">
+            <div class="white-text centered text-center">
+                <h1><strong> TRENDING DESTINATIONS</strong></h1>
+            </div>
         </div>
     </div>
     <div class=" col-12 col-sm-12 col-md-12 col-lg-8 col-xl-9 my-3">
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3"
-                *ngFor="let place of topCitiesList | slice:0:3">
-                <mdb-card style="background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0a/c4/72/f6/jal-mahal-jaipur-tour.jpg); background-size:cover;">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3" *ngFor="let place of topCitiesList | slice:0:3">
+                <mdb-card [ngStyle]="{'background-image':'url(' + place.imgUrl + ')'}" style="background-size:cover; min-height: 240px">
                     <mdb-card-body class="waves-effect waves-light">
                         <div class="white-text">
                             <mdb-card-title>
-                                <h4>{{place.place}}</h4>
+                                <h3>{{place.place}}</h3>
                             </mdb-card-title>
-                            <mdb-card-text >
-                                <b>{{place.city}}, {{place.state}}</b>
-                                <p>{{place.description | truncatetext}}</p>
+                            <mdb-card-text>
+                                <h5> <b>{{place.city}}, {{place.state}}</b></h5>
+                                <!-- <p>{{place.description | truncatetext}}</p> -->
                             </mdb-card-text>
+                            <div class="text-center">
+                                <button class="btn black hover bottom-right explore-bt" (click)="navigateToSearchResultPage(place)">Explore</button>
+                            </div>
                         </div>
 
                     </mdb-card-body>
                 </mdb-card>
             </div>
-            
-        
-            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3 d-block d-md-none d-xl-block"
-                *ngFor="let place of topCitiesList | slice:3:4">
-                <mdb-card style="background-image: url(https://media-cdn.tripadvisor.com/media/photo-s/0a/c4/72/f6/jal-mahal-jaipur-tour.jpg); background-size:cover;">
+
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-3 d-block d-md-none d-xl-block" *ngFor="let place of topCitiesList | slice:3:4">
+                <mdb-card [ngStyle]="{'background-image':'url(' + place.imgUrl + ')'}" style="background-size:cover; min-height: 240px">
                     <mdb-card-body class="waves-effect waves-light">
                         <div class="white-text">
                             <mdb-card-title>
-                                <h4>{{place.place}}</h4>
+                                <h3>{{place.place}}</h3>
                             </mdb-card-title>
-                            <mdb-card-text >
-                                <b>{{place.city}}, {{place.state}}</b>
-                                <p>{{place.description | truncatetext}}</p>
+                            <mdb-card-text>
+                                <h5> <b>{{place.city}}, {{place.state}}</b></h5>
+                                <!-- <p>{{place.description | truncatetext}}</p> -->
                             </mdb-card-text>
+                            <div class="text-center">
+                                <button class="btn black hover bottom-right explore-bt" (click)="navigateToSearchResultPage(place)"> 
+                                    Explore</button>
+                            </div>
                         </div>
 
                     </mdb-card-body>
@@ -44,4 +54,5 @@
             </div>
         </div>
     </div>
+
 </div>

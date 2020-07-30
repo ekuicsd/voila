@@ -1,11 +1,8 @@
 import { Injectable } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
-import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
-import { Deals } from '../models/deals.model';
 import * as moment from 'moment';
 import { Filter } from '../models/filters.model';
 import csc from 'country-state-city';
@@ -48,14 +45,12 @@ export class SearchService {
     public cityList: any[];
 
     public guidesList: any[] = [];
-    public dealsList: Deals[] = [];
+    public dealsList: any[] = [];
 
 
-    constructor(private calendar: NgbCalendar, 
-        private router: Router,
-        // private userService: UserService,
-        private apiService: ApiService,
-        private toastr: ToastrService) 
+    constructor(
+        private toastr: ToastrService,
+        private apiService: ApiService,) 
     {
         this.createForm();
         this.getAllState('101');
@@ -71,9 +66,7 @@ export class SearchService {
     }
 
     getAllState(countryId: string) {
-      console.log(countryId);
       this.stateList = csc.getStatesOfCountry(countryId);
-      console.log(this.stateList);
     }
 
     getAllCity(statename) {
@@ -82,15 +75,12 @@ export class SearchService {
           return ele;
         }
       })[0].id;
-      console.log(stateId);
       this.cityList = csc.getCitiesOfState(stateId);
-      console.log(this.cityList);
       this.cityList = this.cityList.map(ele => ele.name);
     }
 
 
     dateToFormat() : string {
-      // "15-07-2020 - 17-07-2020"
       return this.today.getDate() + '-' + this.today.getMonth() +
        '-' + this.today.getFullYear() + ' - ' + this.afterFour.getDate() + '-' 
        + this.afterFour.getMonth() + '-' + this.afterFour.getFullYear()
@@ -116,8 +106,7 @@ export class SearchService {
             endDate: this.convertDateIntoString(this.range.dateRange.endDate),
             noOfPeople: this.noOfPeople
           });
-          console.log(this.searchForm.value);
-          this.router.navigateByUrl('/tourists/touristshome/searchResult');
+          // this.router.navigateByUrl('/tourists/touristshome/searchResult');
           this.getGuidesAndDealsList();
       }
 
@@ -130,14 +119,20 @@ export class SearchService {
       getGuidesAndDealsList() {
         let request = this.searchForm.value;
         request['extra_filter'] = this.extra_filter;
-        console.log(request);
         let url = '/tourist/guides';
         this.apiService.post(url,request).subscribe( res => {
-            console.log(res);
+          if(res.body.success) {
             this.guidesList = res.body.guides;
             this.dealsList = res.body.deals;
-            console.log(this.guidesList);
-        })
+            if(this.guidesList.length <=0) {
+              this.guidesList = undefined;
+            } if(this.dealsList.length <=0) {
+              this.dealsList = undefined;
+            }
+          } else {
+            this.toastr.warning("Oops something went wrong!");
+          }
+        });
       }
 
       getGuideById(id) : Observable<any> {

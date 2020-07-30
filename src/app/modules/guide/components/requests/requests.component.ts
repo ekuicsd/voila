@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/service/guide.service';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-requests',
@@ -9,10 +10,11 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class RequestsComponent implements OnInit {
   public requestList: any[] = [];
-  public selectedRequest: any[]
+  public selectedRequest: any[];
+  public isData = false;
 
   constructor(private guideService: GuideService,
-    config: NgbModalConfig, private modalService: NgbModal,
+     private modalService: NgbModal,
     ) { }
 
   ngOnInit() {
@@ -22,46 +24,54 @@ export class RequestsComponent implements OnInit {
   getAllRequests() {
     this.guideService.getAllBookingsByStatus('PENDING').subscribe(
       res => {
-        if(res.length > 0) {
           this.requestList = res;
-        } else {
-          this.requestList = undefined;
-        }
-        console.log(res);
+          this.isData = true;
       }, error => {
-        console.log(error);
       }
     )
   }
 
   acceptRequest(content, id) {
-    console.log(id);
-    this.guideService.reponseToTouristRequest(id, 'APPROVED').subscribe(
-      res => {
-        console.log(res);
-        this.getAllRequests();
-      }, error => {
-        console.log(error);
+    Swal.fire({
+      text: "Are you sure to accept the request?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Accept'
+    }).then((result) => {
+      if (result.value) {
+        this.guideService.reponseToTouristRequest(id, 'APPROVED').subscribe(
+          res => {
+            this.getAllRequests();
+          }, error => {
+          }
+        );
+        this.modalService.dismissAll(content);
       }
-    );
-    this.modalService.dismissAll(content);
+    }); 
   }
 
   rejectRequest(content, id) {
-    console.log(id);
-    this.guideService.reponseToTouristRequest(id, 'REJECTED').subscribe(
-      res => {
-        console.log(res);
-        this.getAllRequests();
-      }, error => {
-        console.log(error);
+    Swal.fire({
+      text: "Are you sure to cancel the request?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        this.guideService.reponseToTouristRequest(id, 'REJECTED').subscribe(
+          res => {
+            this.getAllRequests();
+          }, error => {
+          }
+        );
+        this.modalService.dismissAll(content);
       }
-    );
-    this.modalService.dismissAll(content);
+    }); 
   }
 
   open(content, data) {
-    console.log(data);
     this.selectedRequest = data;
     this.modalService.open(content, { centered: true, scrollable: true});
   }

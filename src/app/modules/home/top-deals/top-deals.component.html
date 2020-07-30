@@ -4,42 +4,73 @@
         <div class="all">
             <section style="background-color: rgb(56,50,48);">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
-                        <img class="dealImg" src="assets/images/dealimg.png"  alt="" height="100%" width="100%">
+                    <div class="d-block col-12 d-sm-none d-lg-block col-lg-5 col-xl-5">
+                        <img class="dealImg" src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/dealimg.png" alt="" height="100%" width="100%">
                     </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 deal-text">
+                    <div class="parallax d-none d-sm-block d-lg-none col-12">
+                        <div class="white-text centered text-center">
+                            <h1><strong>DEALS OF THE DAY</strong></h1>
+                        </div>
+                    </div>
+                    <div class="col-0 col-sm-12 col-md-12 col-lg-7 col-xl-7">
                         <!-- <h1>Select from our hot deals</h1> -->
-                        <h1><p>select from wide range of hand picked deals by our experts and explore the world with us
-                        through our selected hot deals
-                        </p></h1>
-                        <mdb-carousel class="carousel slide carousel-fade pb-5 pt-3" [type]="'carousel-thumbnails'" [animation]="'fade'">
+                        <h4 class="white-text m-3" style="font-family: 'Neuton', serif;">
+                            Select from wide range of hand picked deals by our experts and explore the world with us through our selected hot deals
+
+                        </h4>
+                        <mdb-carousel class="carousel slide carousel-fade pb-5 pt-3 large-card" [type]="'carousel-thumbnails'" [animation]="'fade'">
                             <div class="row cust-grid">
-                                <div class="col-11 col-sm-9 col-md-8 col-lg-8 col-xl-8">
-                                    <mdb-carousel-item *ngFor="let deal of hotDealsList | slice:0:5">
+                                <div class="col-10 col-sm-9 col-md-8 col-lg-8 col-xl-8">
+                                    <mdb-carousel-item *ngFor="let deal of hotDealsList | slice:0:5"
+                                        (click)="navigateToSearchResultPage(deal)">
                                         <div class="card deal-card">
                                             <div class="row">
-                                                <div class="col-4">
-                                                    <img class="deal-img card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="" height="100%" width="100%">
+                                                <div class="col-5 px-0">
+                                                    <img class="deal-img" [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'" alt="" width="100%" height="200vh">
                                                 </div>
-                                                <div class="col-8 pl-3">
+                                                <div class="col-7 px-0">
                                                     <div class="card-body">
-                                                        <h3 class="card-title"><strong>{{deal.dealId?.city | titlecase}} City Tour</strong></h3>
+                                                        <h3 class="card-title"><strong>{{deal.city | titlecase}} Tour</strong></h3>
                                                         <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
                                                         <div class="card-text mt-0 pt-0 black-text">
                                                             <div>
-                                                                <p><i class="far fa-calendar-alt"></i> From: <b>{{deal.dealId?.startDate | date: 'short'}}</b> &nbsp; To: <b>{{deal.dealId?.endDate | date: 'short'}}</b></p>
+                                                                <p><i class="far fa-calendar-alt"></i> From: <b>{{deal.startDate | date: 'yyyy-mm-dd'}}</b> &nbsp;
+                                                                     To: <b>{{deal.endDate | date: 'yyyy-mm-dd'}}</b></p>
                                                             </div>
-                                                            <h5 class="text-right">In only Rs. <b>{{deal.dealId?.price}}</b>/-</h5>
+                                                            <h5>In only Rs. <b>{{deal.price}}</b>/-</h5>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                      </mdb-carousel-item>
-                                    </div>
+                                    </mdb-carousel-item>
                                 </div>
-                            </mdb-carousel>
 
+
+                            </div>
+                        </mdb-carousel>
+                        <mdb-carousel class="carousel slide carousel-fade pb-5 pt-3 small-card" [type]="'carousel-thumbnails'" [animation]="'fade'">
+                            <div class="row cust-grid">
+                                <div class="col-9">
+                                    <mdb-carousel-item *ngFor="let deal of hotDealsList | slice:0:5"
+                                        (click)="navigateToSearchResultPage(deal)">
+                                        <mdb-card class="my-2">
+                                            <img class="deal-img" [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'" alt="" width="100%" height="200vh">
+                                            <div class="m-3">
+                                                <h4><strong>{{deal.city | titlecase}} Tour</strong></h4>
+                                                <hr class="px-3 py-0 ml-0" style="width:60px; border-top: 1px solid deeppink;">
+                                                <div class="card-text my-0 pt-0 black-text">
+                                                    <div>
+                                                        <p><i class="far fa-calendar-alt"></i> From: <b>{{deal.startDate | date: 'yyyy-mm-dd'}}</b> &nbsp; To: <b>{{deal.endDate | date: 'yyyy-mm-dd'}}</b></p>
+                                                    </div>
+                                                    <h6>In only Rs. <b>{{deal.price}}</b>/-</h6>
+                                                </div>
+                                            </div>
+                                        </mdb-card>
+                                    </mdb-carousel-item>
+                                </div>
+                            </div>
+                        </mdb-carousel>
                     </div>
                 </div>
             </section>

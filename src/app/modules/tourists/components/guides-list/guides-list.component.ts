@@ -3,7 +3,6 @@ import { SearchService } from 'src/app/shared/service/search.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/service/user.service';
 import { MDBModalService } from 'angular-bootstrap-md';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-guides-list',
@@ -11,7 +10,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./guides-list.component.scss']
 })
 export class GuidesListComponent implements OnInit {
-  // public guidesList: any[];
 
  @ViewChild('personalTour', { static: false}) modal: MDBModalService;
  public guide;
@@ -19,12 +17,9 @@ export class GuidesListComponent implements OnInit {
 
   constructor(public searchService: SearchService,
     private userService: UserService,
-    private toastr: ToastrService,
      private router: Router) { }
 
   ngOnInit() {
-    // this.guidesList = this.searchService.guidesList;
-    console.log(this.searchService.guidesList);
   }
 
   navigateToGuideProfile(id) {
@@ -32,20 +27,22 @@ export class GuidesListComponent implements OnInit {
   }
 
   getDealsList(guide) {
-    return this.searchService.dealsList.filter( ele => {
-      if(guide.email === ele.guideId.email) {
-        return ele;
-      }
-    });
+    if(this.searchService.dealsList) {
+      return this.searchService.dealsList.filter( ele => {
+        if(guide.email === ele.guideId.email) {
+          return ele;
+        }
+      });
+    }
+    return undefined;
   }
 
   openModal(content, guide) {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
     this.guide = guide;
-    this.modal.show(content);
+    this.modal.show(content, { scrollable: true, centered: true});
     } else {
       this.router.navigateByUrl('/login/tourist');
-      // this.toastr.warning("please login as tourist!");
     }
   }
 

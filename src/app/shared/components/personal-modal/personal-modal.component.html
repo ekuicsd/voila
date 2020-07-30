@@ -2,58 +2,58 @@
 //content
 </div> -->
 <div class="modal-dialog cascading-modal modal-avatar " role="document">
-  <div class="modal-content">
-      <form [formGroup]="personalBooking" (ngSubmit)="submitPersonalBooking()">
-          <div class="modal-header">
-              <img src="assets\images\jyotirmoy-gupta-leQOdFApLRw-unsplash.jpg" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
-          </div>
-          <div class="modal-body text-center mb-1">
-              <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>
-              <hr mx-3>
-              <h5 class="text-left black-text">Tell me your preferred Date</h5>
-             <div class="row">
-               <div class="col-6">
-                 <p >From</p>
-                 <input type="date" class="form-control" (change)="calculatePrice($event)" formControlName="startDate" placeholder="enter start date"> 
-               </div>
-               <div class="col-6">
-                 <p>To</p>
-                <input type="date" class="form-control" (change)="calculatePrice($event)" formControlName="endDate" placeholder="enter end date"> 
-              </div>
-             </div>
-              <div class="font-small text-left mt-0">You can opt for a single day tour as well as multiple days' tours.</div>
-              <h5 class="text-left black-text mt-2">So how many Travellers are you?</h5>
-              <div class="row">
-                  <div class="col">
-                      <div class="form-group">
-                        <p>Group Type</p>
-                          <select formControlName="groupType" class="form-control">
+    <div class="modal-content">
+        <form [formGroup]="personalBooking" (ngSubmit)="submitPersonalBooking()">
+            <div class="modal-header">
+                <img [src]="guide?.picUrl ? guide?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" style="height:100px; width:100px" alt="avatar" class="rounded-circle img-responsive">
+            </div>
+            <div class="modal-body text-center mb-1">
+                <h5 class="mt-1 mb-3">Hi! Lets personalize your experience</h5>
+                <hr mx-3>
+                <h5 class="text-left black-text">Tell me your preferred Date</h5>
+                <div class="row">
+                    <div class="col-6">
+                        <p>From</p>
+                        <input type="date" class="form-control" (change)="calculatePrice($event)" formControlName="startDate" placeholder="enter start date">
+                    </div>
+                    <div class="col-6">
+                        <p>To</p>
+                        <input type="date" class="form-control" (change)="calculatePrice($event)" formControlName="endDate" placeholder="enter end date">
+                    </div>
+                </div>
+                <div class="font-small text-left mt-0">You can opt for a single day tour as well as multiple days' tours.</div>
+                <h5 class="text-left black-text mt-4">So how many Travellers are you?</h5>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <p>Group Type</p>
+                            <select formControlName="groupType" class="form-control">
                           <option value="" disabled>Select Group type</option>
                           <option *ngFor="let item of groupTypesList" [value]="item">{{item}}</option>
                       </select>
-                      </div>
-                  </div>
-                  <div class="col">
-                      <div class="form-group">
-                        <p>People</p>
-                          <input type="number" (change)="calculatePrice($event)" formControlName="noOfPeople" class="form-control" placeholder="no of people">
-                      </div>
-                  </div>
-              </div>
-              <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
-                <div class="col">
-                  <h4 class="text-left">Your Total Price: Rs. {{totalPrice}}/- 
-                    <span class="float-right">
-                      <button type="button" (click)="agree = true" class="btn btn-info" size="sm" mdbBtn>Agree</button>
-                    </span>
-                  </h4>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <p>People</p>
+                            <input type="number" (keyup)="calculatePrice($event)" formControlName="noOfPeople" class="form-control" placeholder="no of people">
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="text-center mt-4">
-                  <button type="button" (click)="emitClose()" class="btn btn-danger mt-1">Cancel</button>
-                  <button type="submit" [disabled]="!agree" class="btn btn-cyan mt-1">Request a personalized Tour</button>
-              </div>
-          </div>
-      </form>
-  </div>
+                <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
+                    <div class="col">
+                        <h5 class="text-left">Your Total : Rs. {{totalPrice}}/-
+                            <span class="float-right">
+                      <button type="button" style="background:#553d67" (click)="agree = true" class="btn white-text" size="sm" mdbBtn>Agree</button>
+                    </span>
+                        </h5>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="button" (click)="emitClose()" class="btn btn-danger mt-1 ">Cancel</button>
+                    <button type="submit" color="success" [disabled]="!agree" class="btn mt-1 ">Request</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>

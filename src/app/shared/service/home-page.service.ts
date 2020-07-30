@@ -19,7 +19,7 @@ export class HomeService {
     }
 
     getHotDeals() : Observable<any> {
-        let url = '/allHotDeals';
+        let url = '/randomDeals';
         return new Observable<any>(obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);

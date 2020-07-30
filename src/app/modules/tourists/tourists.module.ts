@@ -27,14 +27,11 @@ import { LanguagesComponent } from './pages/languages/languages.component';
 import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history-list/chat-history-list.component';
 import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
 import { Ng5SliderModule } from 'ng5-slider';
-import { StarRatingModule } from 'angular-star-rating';
-// import {RatingModule} from 'primeng/rating';
-// import { RatingModule } from 'ng-starrating';
-// import { RatingModule } from '@bit/primefaces.primeng.rating';
 
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChatRoomComponent } from 'src/app/shared/components/chat-room/chat-room.component';
+import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'touristshome', component: TouristsHomeComponent, children: [
@@ -127,6 +124,12 @@ const routes: Routes = [
       canActivate: [TouristGuardService]
     }
   ]},
+  {
+    path: '404', component: PageNotFoundComponent
+  },
+  {
+      path: '**', redirectTo: '/404'
+  }
 ];
 
 @NgModule({
@@ -158,9 +161,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     Ng5SliderModule,
-    // StarRatingModule.forRoot(),
-    // StarRatingModule,
-    // RatingModule,
     NgbModule
   ],
   exports: [

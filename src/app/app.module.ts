@@ -26,20 +26,17 @@ const routes: Routes = [
   declarations: [
     AppComponent,
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     BrowserAnimationsModule,
-    // ReactiveFormsModule,
-    // FormsModule,
     AppRoutingModule,
     SharedModule,
-    // TouristsModule,
     HomeModule,
     HttpClientModule,
-    // AdminModule,
     MDBBootstrapModule,
-    RouterModule.forRoot(routes),
-    // GuideModule,
+    RouterModule.forRoot(routes,  {
+      scrollPositionRestoration: 'disabled', // Add options right here
+    }),
     ToastrModule.forRoot(),
   ],
   providers: [
@@ -51,6 +48,6 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA],
-  exports: []
+  exports: [RouterModule]
 })
 export class AppModule { }

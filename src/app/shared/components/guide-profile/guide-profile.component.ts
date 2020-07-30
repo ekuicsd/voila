@@ -24,15 +24,12 @@ export class GuideProfileComponent implements OnInit {
      }
 
   ngOnInit() {
-    // this.createForm();
     this.guideId = this.route.snapshot.params.id;
-    console.log(this.guideId);
     if(this.guideId) {
       this.searchService.getGuideById(this.guideId).subscribe( res => {
         this.guide = res.guide;
         this.dealList = res.deals;
         this.ratings = res.ratings;
-        console.log(res);
       });
     }
   }

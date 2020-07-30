@@ -12,22 +12,24 @@ export class AppComponent {
 
   ShowLoadingIndicator = true;
 
- constructor(private loadRouter : Router,
+ constructor(private router : Router,
     public userService: UserService,
     public jwtService: JwtService,
-  ){
-      this.loadRouter.events.subscribe((routerEvent :Event) =>
-      {
-        if(routerEvent instanceof NavigationStart){
+
+  ){ 
+    this.router.events.subscribe((routerEvent :Event) =>
+    {
+      if(routerEvent instanceof NavigationStart){
           this.ShowLoadingIndicator = true;
-        }
-        if(routerEvent instanceof NavigationEnd ||
-          routerEvent instanceof NavigationCancel ||
-          routerEvent instanceof NavigationError){
-          this.ShowLoadingIndicator = false;
-        }
-      });
- }
+      }
+      if(routerEvent instanceof NavigationEnd ||
+        routerEvent instanceof NavigationCancel ||
+        routerEvent instanceof NavigationError){
+            this.ShowLoadingIndicator = false;
+      }
+    });
+
+   }
 
 
 }

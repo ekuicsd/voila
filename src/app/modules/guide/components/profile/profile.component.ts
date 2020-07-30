@@ -1,13 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/shared/service/user.service';
-import { Guide, Experience } from 'src/app/shared/models/guide.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { ToastrService } from 'ngx-toastr';
 import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import csc from 'country-state-city';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import languages from 'country-language';
 import { CustomValidators } from 'src/app/validators/custom';
 
@@ -25,9 +23,9 @@ export class ProfileComponent implements OnInit {
   @ViewChild('editbusiness', { static: false}) modal4: MDBModalService;
   
   public editExp : boolean = false;
-  public userData: Guide;
+  public userData: any;
   public interestList: string[];
-  public selectedExp: Experience;
+  public selectedExp: any;
   public languageList: any[] = [];
   public expVariable: string = '';
   public stateList: any[];
@@ -38,7 +36,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UserService, 
     private guideService: GuideService,
-    config: NgbModalConfig, private modalService: NgbModal,
     private staticDataService: StaticDataService,
     private toastr: ToastrService
     ) {  }
@@ -64,7 +61,6 @@ export class ProfileComponent implements OnInit {
 
   getUser() {
     this.userData = JSON.parse(this.userService.getUser('guide'));
-    console.log(this.userData);
   }
 
   convertDateToString(strdate) : string {
@@ -117,20 +113,19 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  editExpShow(content, data: Experience) {
+  editExpShow(content, data: any) {
     this.editExp = true;
     this.expVariable = 'Update Experience';
     this.selectedExp = data;
-    console.log(this.selectedExp);
     this.experienceDetails.patchValue(data);
-    this.modal.show(content);
+    this.modal.show(content, {scrollable: true, centered: true});
   }
 
   addExpShow(content) {
     this.editExp = false;
     this.expVariable = 'Add Experience';
     this.createExperienceDetailsForm();
-    this.modal.show(content);
+    this.modal.show(content, {scrollable: true, centered: true});
   }
 
   updateExperience() {
@@ -140,7 +135,6 @@ export class ProfileComponent implements OnInit {
       this.userData.experience[index].profile = this.experienceDetails.value.profile;
       this.userData.experience[index].startYear = this.experienceDetails.value.startYear;
       this.userData.experience[index].work = this.experienceDetails.value.work;
-      console.log(this.userData);
       this.modal.hide(0);
     } else {
       this.toastr.error("Invalid Details!");
@@ -153,9 +147,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getAllState(countryId: string) {
-    console.log(countryId);
     this.stateList = csc.getStatesOfCountry(countryId);
-    console.log(this.stateList);
   }
 
   getAllCity(statename) {
@@ -164,9 +156,7 @@ export class ProfileComponent implements OnInit {
         return ele;
       }
     })[0].id;
-    console.log(stateId);
     this.cityList = csc.getCitiesOfState(stateId);
-    console.log(this.cityList);
   }
 
 
@@ -212,7 +202,6 @@ export class ProfileComponent implements OnInit {
             return ele;
           }
         });
-        console.log(language);
         if(language.length >= 1) {
             this.toastr.warning("Already Added!"); 
             this.modal2.hide(0);
@@ -227,13 +216,11 @@ export class ProfileComponent implements OnInit {
 
   addInterest() {
     if(this.interestsDetails.valid) {
-      // if(this.interestsDetails.value.interest)
       let interest = this.userData.interests.filter( ele => {
         if(ele === this.interestsDetails.value.interest) {
           return ele;
         }
       });
-      console.log(interest);
       if(interest.length >= 1) {
           this.toastr.warning("Already Added!"); 
           this.modal3.hide(0);
@@ -259,7 +246,6 @@ export class ProfileComponent implements OnInit {
 
   onSelectFile(event) {
     this.myFiles = [];
-    console.log(event.target.files);
     for (var i = 0; i < event.target.files.length; i++) { 
       this.myFiles.push(event.target.files[i]);
       var reader = new FileReader();
@@ -268,22 +254,18 @@ export class ProfileComponent implements OnInit {
       this.urlArray.push(reader.result);
       }
     }
-    console.log(this.urlArray);
   }
 
 
   saveRecord() {
-    console.log(this.userData);
     const formData = new FormData();
     formData.append("data", JSON.stringify(this.userData));
-    console.log(formData);
     if(this.myFiles.length > 0) {
       for (var i = 0; i < this.myFiles.length; i++) { 
         // console.log("in for loop");
         formData.append("profilePic", this.myFiles[i]);
       }
     }
-    console.log(formData);
     this.guideService.updateUserDetails(formData).subscribe( res => {
         console.log(res);
         this.userService.saveUser(res.profile, 'guide');

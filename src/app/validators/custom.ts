@@ -1,5 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 export class CustomValidators {
 
     static contactNumber(control: AbstractControl): ValidationErrors {
@@ -97,7 +97,6 @@ export class CustomValidators {
         let today = new Date();
         let dob = new Date(control.value);
         let diff = (today.getTime() - dob.getTime()) / (1000 * 3600 * 24 * 365.25); 
-        console.log(diff);
         return diff > 14 ? null : 'allowed only after 15 years old';
     }
 
@@ -105,8 +104,7 @@ export class CustomValidators {
         if (!control.value) {
             return null;
         }
-        let isvalid = Number(control.value) >= 1 ;
-        console.log(control.value);
+        let isvalid = Number(control.value) >= 1  && Number(control.value) <= 500;
         const message = {
             compondValueValidate: {
                 message: 'This field only accepts numbers greater than 0'

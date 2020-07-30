@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!--  -->
     <app-blog></app-blog>
-    <div class="d-none d-md-block" *ngIf="requestList">
+    <div class="d-none d-md-block" *ngIf="requestList.length > 0 && isData">
         <div class="row mt-3">
             <div class="col-12 text-center">
                 <div class="card dusty-grass-gradient" style="z-index: 100; width: 90%; margin-left: 5%;">
@@ -43,10 +43,10 @@
         </div>
     </div>
 
-    <div *ngIf="!requestList">
+    <div *ngIf="requestList.length <= 0 && isData">
       <div class="row cust-grid">
           <div class="col-12 text-center">
-              <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/fogg-87.png">
+              <img class="img-fluid my-5 h-50 w-25" src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/fogg-87.png">
               <h1 style="font-family: 'Dancing Script', cursive; font-size: 4vh;">No Requests !!</h1>
           </div>
       </div>

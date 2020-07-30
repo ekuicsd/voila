@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { GuideHomeComponent } from './pages/guide-home/guide-home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
@@ -20,7 +19,6 @@ import { GuideChangePwdComponent } from './components/guide-change-pwd/guide-cha
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
 import { BussinessDetailsComponent } from './components/bussiness-details/bussiness-details.component';
-import { QuestionDetailsComponent } from './components/question-details/question-details.component';
 import { TermsConditionsComponent } from './components/terms-conditions/terms-conditions.component';
 import { LanguagesComponent } from './pages/languages/languages.component';
 import { InterestsComponent } from './pages/interests/interests.component';
@@ -29,6 +27,7 @@ import { ChatHistoryListComponent } from 'src/app/shared/components/chat-history
 import { ChatsComponent } from 'src/app/shared/components/chats/chats.component';
 import { CreateDealComponent } from './components/create-deal/create-deal.component';
 import { ChatRoomComponent } from 'src/app/shared/components/chat-room/chat-room.component';
+import { PageNotFoundComponent } from 'src/app/shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {path: 'register', component: RegisterComponent},
@@ -87,13 +86,18 @@ const routes: Routes = [
       //    path: 'show-register', component: ShowRegisterComponent
       // }
     ]},
+    {
+      path: '404', component: PageNotFoundComponent
+    },
+    {
+        path: '**', redirectTo: '/404'
+    }
 ];
 
 @NgModule({
   declarations: [
     RegisterComponent,
     GuideHomeComponent,
-    DashboardComponent,
     ProfileComponent,
     MessagesComponent,
     ActivitiesComponent,
@@ -104,7 +108,6 @@ const routes: Routes = [
     GuideChangePwdComponent,
     PersonalDetailsComponent,
     BussinessDetailsComponent,
-    QuestionDetailsComponent,
     TermsConditionsComponent,
     LanguagesComponent,
     InterestsComponent,
@@ -112,7 +115,6 @@ const routes: Routes = [
     CreateDealComponent
     ],
   imports: [
-    //   BrowserModule,
       CommonModule,
       RouterModule.forChild(routes),
       NgbModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import csc from 'country-state-city';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/validators/custom';
@@ -6,12 +6,13 @@ import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { UserService } from 'src/app/shared/service/user.service';
+
 @Component({
   selector: 'app-create-deal',
   templateUrl: './create-deal.component.html',
   styleUrls: ['./create-deal.component.scss'],
-  // encapsulation: ViewEncapsulation.None
 })
 export class CreateDealComponent implements OnInit {
 
@@ -23,8 +24,6 @@ export class CreateDealComponent implements OnInit {
   public groupType;
   public user;
   public today = new Date();
-
-  //ngModel
   public place: string = '';
   public date: Date;
 
@@ -58,9 +57,7 @@ export class CreateDealComponent implements OnInit {
   }
 
   getAllState(countryId: string) {
-    console.log(countryId);
     this.stateList = csc.getStatesOfCountry(countryId);
-    console.log(this.stateList);
   }
 
   getAllCity(statename) {
@@ -69,9 +66,7 @@ export class CreateDealComponent implements OnInit {
         return ele;
       }
     })[0].id;
-    console.log(stateId);
     this.cityList = csc.getCitiesOfState(stateId);
-    console.log(this.cityList);
   }
 
   addToPlacesList() {
@@ -108,24 +103,35 @@ export class CreateDealComponent implements OnInit {
   }
 
   saveDeal() {
-    if(this.dealForm.valid && this.placesList.length > 0) {
-      console.log(this.dealForm.value);
-      this.deal = this.dealForm.value;
-      this.deal['places'] = this.placesList;
-      console.log(this.deal);
-      this.guideService.createDeal(this.deal).subscribe( res=> {
-          console.log(res);
-          this.guideService.createGroupChatRoom(this.user._id, res.body.deal._id, this.dealForm.value.groupName).subscribe( res => {
+    Swal.fire({
+      text: "Are you sure to create deal?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        if(this.dealForm.valid && this.placesList.length > 0) {
+          this.deal = this.dealForm.value;
+          this.deal['places'] = this.placesList;
+          this.guideService.createDeal(this.deal).subscribe( res=> {
             console.log(res);
-            this.toastr.success("Deal created successfully!");
-            this.router.navigateByUrl('/guide/guidehome/deals');
+              if(res.success) {
+                this.guideService.createGroupChatRoom(this.user._id, res.deal._id, this.dealForm.value.groupName).subscribe( res => {
+                  this.toastr.success("Deal created successfully!");
+                  this.router.navigateByUrl('/guide/guidehome/deals');
+                });
+              } else {
+                this.toastr.error(res.message);
+              }
+            }, error => {
           });
-        }, error => {
-        console.log(error)
-      });
-    } else {
-      this.toastr.error("Invalid Details!");
-    }
+        } else {
+          this.toastr.error("Invalid Details!");
+        }
+      }
+    }); 
+
   }
 
 }

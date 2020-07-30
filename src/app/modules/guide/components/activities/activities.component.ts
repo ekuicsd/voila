@@ -11,10 +11,10 @@ export class ActivitiesComponent implements OnInit {
 
   public previousBookingsList: any[] = [];
   public selectedPreviousBookings: any;
+  public isData = false;
 
   constructor(private guideService: GuideService,
     config: NgbModalConfig, private modalService: NgbModal,
-
     ) { }
 
   ngOnInit() {
@@ -24,20 +24,14 @@ export class ActivitiesComponent implements OnInit {
   getAllPreviousBookings() {
     this.guideService.getAllBookingsByStatus('COMPLETED').subscribe(
       res => {
-        if(res.length > 0) {
           this.previousBookingsList = res;
-        } else {
-          this.previousBookingsList = undefined;
-        }
-        console.log(res);
+          this.isData = true;
       }, error => {
-        console.log(error);
       }
     )
   }
 
   open(content, data) {
-    console.log(data);
     this.selectedPreviousBookings = data;
     this.modalService.open(content, { centered: true, scrollable: true});
   }

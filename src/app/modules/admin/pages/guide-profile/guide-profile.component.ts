@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-guide-profile',
@@ -26,10 +27,20 @@ export class GuideProfileComponent implements OnInit {
   }
 
   acceptRejectGuide(status: string) {
-    this.adminService.approvedrejectGuide(this.userData._id, status).subscribe(res => {
-      console.log(res);
-      this.router.navigateByUrl('/admin/dashboard');
-    })
+    Swal.fire({
+      text: "Are you sure to" + status + "the profile?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        this.adminService.approvedrejectGuide(this.userData._id, status).subscribe(res => {
+          this.router.navigateByUrl('/admin/dashboard');
+        })
+      }
+    }); 
+   
   }
 
 

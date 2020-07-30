@@ -1,4 +1,4 @@
-import { Injectable, DefaultIterableDiffer } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 
@@ -41,7 +41,7 @@ export class GuideService{
         let url = '/guide/deals/add';
         return new Observable<any>( obs => {
             this.apiService.post(url, body).subscribe( res => {
-                obs.next(res);
+                obs.next(res.body);
             });
         });
     }
@@ -51,8 +51,6 @@ export class GuideService{
         return new Observable<any>( obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res.deals);
-            }, error => {
-                console.log(error);
             });
         });
     }

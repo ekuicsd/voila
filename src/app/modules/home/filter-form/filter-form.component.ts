@@ -44,7 +44,8 @@ export class FilterFormComponent implements OnInit {
   }
 
   changeRange(event) {
-    console.log(event);
+    // this.searchService.getFilterData();
+    // console.log(event);
   }
 
   changeState(data) {
@@ -52,6 +53,12 @@ export class FilterFormComponent implements OnInit {
     this.searchService.state = data.target.value;
     this.searchService.state = data.target.value;
     this.searchService.getAllCity(data.target.value);
+    this.searchService.getFilterData();
+  }
+
+  changeNoOfPeople(data) {
+    this.searchService.noOfPeople = data.target.value;
+    this.searchService.getFilterData();
   }
 
 }

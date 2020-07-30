@@ -8,13 +8,13 @@ import { CommonModule } from '@angular/common';
 import { FeaturesComponent } from './features/features.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TopDealsComponent } from './top-deals/top-deals.component';
-import { MyDatePickerModule } from 'mydatepicker';
 import {NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeCarouselComponent } from './home-carousel/home-carousel.component';
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminHomeGuardService } from 'src/app/shared/service/admin.guard';
+
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -38,7 +38,6 @@ const routes: Routes = [
       SharedModule,
       MDBBootstrapModule.forRoot(),
       NgbModule,
-      MyDatePickerModule,
       FormsModule,
       RouterModule.forChild(routes),
   ],

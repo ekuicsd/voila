@@ -1,10 +1,11 @@
 <div class="card card-body pannel px-4 py-0 mb-5" >
-  <h2 style="font-size: 30px;" class="card-title text-center mt-3 mb-4">Intrests</h2>
+  <h2 style="font-size: 30px;" class="card-title text-center mt-3 mb-4">Area of Expertise</h2>
   <div class="px-lg-4">
     <div *ngIf="selectedInterestsList.length > 0">
       <h4>Selected 
       </h4>
       <hr>
+      <small class="text-muted">Tap on selected interest again to remove it</small>
       <div class="row my-4">
         <div class="col-6 col-md-4 col-lg-3 mb-4" (click)="removeFromSelectedList(item)" *ngFor="let item of selectedInterestsList; let i = index;">
             <mdb-card [ngClass]="getGradientClass(i+1)">

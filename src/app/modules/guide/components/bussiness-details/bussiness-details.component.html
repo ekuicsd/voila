@@ -8,7 +8,7 @@
               <div class="form-group">
                 <label>People Limit</label>
                 <input type="number" formControlName="peopleLimit" placeholder="Enter people limit" class="form-control">
-                <small class="text-mute">Number of people you can deal with at a time</small>
+                <small class="text-muted">Maximum no of people for which charges per head applied</small>
               </div>
             </div>
             <div class="col-12">
@@ -21,6 +21,7 @@
               <div class="form-group">
                 <label>Charges per Day</label>
                 <input type="number" formControlName="perDayCharge" placeholder="Enter per day charge" class="form-control">
+                <small class="text-muted">Amount will be applied when tourist count exceeds people limit</small>
               </div>
             </div>
         </form>
@@ -38,7 +39,11 @@
             <div class="col-6">
               <div class="form-group">
                 <label>Work Profile</label>
-                <input type="text" class="form-control" placeholder="Enter work profile" formControlName="profile">
+                <!-- <input type="text" class="form-control" placeholder="Enter work profile" formControlName="profile"> -->
+                <select id="form1" class="form-control" formControlName="profile">
+                  <option value='' disabled>Select</option>
+                  <option *ngFor="let item of profileList" [value]="item"> {{ item }}</option>
+                </select>
               </div>
             </div>
             <div class="col-6 ">

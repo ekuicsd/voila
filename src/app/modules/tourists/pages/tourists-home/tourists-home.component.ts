@@ -9,7 +9,8 @@ import {Router , NavigationCancel,NavigationEnd,NavigationError,NavigationStart,
 export class TouristsHomeComponent implements OnInit {
   ShowLoadingIndicator = true;
 
-  constructor(private loadRouter : Router){
+  constructor(private loadRouter : Router,
+    ){
     this.loadRouter.events.subscribe((routerEvent :Event) =>
     {
       if(routerEvent instanceof NavigationStart){

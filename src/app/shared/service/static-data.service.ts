@@ -39,28 +39,28 @@ export class StaticDataService {
     getTopDestinations() : TopDestination[] {
         return [
             {
-                imgUrl: '',
+                imgUrl: 'https://voila2020.herokuapp.com/profileImages/trending/golden.jpeg',
                 place: 'Golden Temple',
                 state: 'Punjab',
                 city: 'Amritsar',
                 description: 'The Golden Temple is also referred to as "Darbar Sahib” or “Harmandar Sahib", and is one of the oldest worship places for the Indian Sikh. It is located in Amritsar, Punjab. 2. The entire top of the temple is made of pure gold, adding to the beauty of the temple'
             },
             {
-                imgUrl: '',
+                imgUrl: 'https://voila2020.herokuapp.com/profileImages/trending/unity.jpeg',
                 place: 'Statue of Unity',
                 state: 'Gujarat',
                 city: 'Surat',
                 description: "world's tallest statue with a height of 182 metres (597 ft). It is located on a river facing the Sardar Sarovar Dam on the river Narmada in the Kevadiya colony, 100 kilometres (62 mi) southeast of the city of Vadodara and 150 kilometres (93 mi) from Sura"
             },
             {
-                imgUrl: '',
+                imgUrl: 'https://voila2020.herokuapp.com/profileImages/trending/taj.jpeg',
                 place: 'Taj Mahal',
                 state: 'Uttar Pradesh',
                 city: 'Lucknow',
                 description:"The Taj Mahal is a white tomb built in the 16th century by the Mughal emperor, Shah Jahan in memory of his wife, Mumtaz Mahal. The building is in the city of Agra, Uttar Pradesh. Widely thought as one of the most beautiful buildings in the world, it is one of India's biggest tourist attractions."
             },
             {
-                imgUrl: '',
+                imgUrl: 'https://voila2020.herokuapp.com/profileImages/trending/hawa.jpeg',
                 place: 'Hawa Mahal',
                 state: 'Rajasthan',
                 city: 'Jaipur',
@@ -128,6 +128,16 @@ export class StaticDataService {
                 instagram: '_archit.jain_',
                 github: 'architjain808'
             },
+        ];
+    }
+
+    getProfileData() : string[] {
+        return [ 
+            "Guide",
+            "Travel Agent", 
+            "Travel Assistant",
+            "Travel Manager",
+            "Professional Travellers"
         ];
     }
     

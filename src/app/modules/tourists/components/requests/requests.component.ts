@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
-import { Booking } from 'src/app/shared/models/booking.model';
 import { ToastrService } from 'ngx-toastr';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-requests',
@@ -10,12 +10,13 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent implements OnInit {
-  public requestList: Booking[] = [];
+  public requestList: any[] = [];
   public selectedRequest: any;
   public cancelReason: string = 'cancel request';
+  public isData = false;
 
   constructor(private touristService: TouristsService, 
-    config: NgbModalConfig, private modalService: NgbModal,
+    private modalService: NgbModal,
     private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -29,22 +30,29 @@ export class RequestsComponent implements OnInit {
 
   getAllRequestsList() {
     this.touristService.getAllBookingsByStatus('PENDING').subscribe( res => {
-      console.log(res);
-      if(res.length > 0) {
         this.requestList = res;
-      } else {
-        this.requestList = undefined;
-      }
+        this.isData = true;
     })
   }
 
-  cancelRequest() {
-    let request = {cancelReason: this.cancelReason };
-    this.touristService.cancelrequest(this.selectedRequest._id, 'CANCELLED', request).subscribe( res => {
-      console.log(res);
-      this.toastr.success("Request Cancelled successfully!");
-      this.getAllRequestsList();
-    })
+  cancelRequest(content) {
+    Swal.fire({
+      text: "Are you sure to cancel the request?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        let request = {cancelReason: this.cancelReason };
+        this.touristService.cancelrequest(this.selectedRequest._id, 'CANCELLED', request).subscribe( res => {
+          this.toastr.success("Request Cancelled successfully!");
+          this.modalService.dismissAll(content);
+          this.getAllRequestsList();
+        })
+      }
+    });
+    
   }
 
 }

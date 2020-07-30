@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="d-none d-md-block" *ngIf="previousList">
+    <div class="d-none d-md-block" *ngIf="previousList.length > 0 && isData">
         <div class="row mt-3">
             <div class="col-12 text-center">
                 <div class="card sunny-morning-gradient" style="z-index: 100; width: 90%; margin-left: 5%;">
@@ -28,7 +28,7 @@
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
-                                        <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn white-text" style="margin: auto; background:#553d67" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                                         <b>VIEW</b>
                                         </button>
                                     </td>
@@ -41,10 +41,10 @@
         </div>
     </div>
 
-    <div *ngIf="!previousList">
+    <div *ngIf="previousList.length <=0 && isData">
         <div class="row cust-grid">
             <div class="col-12 text-center">
-                <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/flamenco-list-is-empty-1.png">
+                <img class="img-fluid my-5 h-50 w-25" src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/flamenco-list-is-empty-1.png">
                 <h1 style="font-family: 'Dancing Script', cursive;">No Previous Booking !!</h1>
             </div>
         </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </mdb-card-text>
-                <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+                <a size="sm" class="float-right white-text" (click)="open(content, data)" mdbBtn style="background: #553d67;" mdbWavesEffect>VIEW</a>
                 <!-- <a size="sm" class="float-right"  mdbBtn style="background: #0ec8b9;" mdbWavesEffect>START</a> -->
             </mdb-card-body>
         </mdb-card>

@@ -1,10 +1,10 @@
-<div class="request-card d-none d-lg-block">
+<div *ngIf="searchService.guidesList" class="request-card d-none d-lg-block">
     <mdb-card class="w-auto ml-lg-4 my-3 mx-md-3" *ngFor="let guide of searchService.guidesList">
         <div class="container1">
             <mdb-card-body class="p-3">
                 <div class="row">
                     <div class="col-md-4 col-lg-3">
-                        <img [src]="guide.picUrl ? guide.picUrl : '../../../../../../../assets/images/grayman.png'" 
+                        <img [src]="guide.picUrl ? guide.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 
                             class="" width="100%" height="100%" alt="...">
                     </div>
                     <div class="col-md-4 col-lg-5">
@@ -25,7 +25,6 @@
                             </div>
                         </div>
                         <span class="float-right">
-                            <!-- <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" class="text-decoration-none">View more</a> -->
                             <a (click)="setSelectedGuide(guide)" class="text-info" [attr.aria-expanded]="selectedGuide == guide" [attr.aria-controls]="i" class="text-decoration-none">View more</a>
                         </span>
                     </div>
@@ -119,10 +118,10 @@
                     </div>
                     <div class="tab-pane fade" id="deal" role="tabpanel" aria-labelledby="deal-tab">
                         <h3 class="text-black">Recommended deals</h3>
-                        <div class="row p-2 text-center" *ngIf="getDealsList(guide).length > 0">
+                        <div class="row p-2 text-center" *ngIf="getDealsList(guide)">
                             <div class="col-lg-3 col-md-4" *ngFor="let deal of getDealsList(guide) | slice:0:3">
                                 <div class="view deal-card guide-card">
-                                    <img src="https://images.pexels.com/photos/3974152/pexels-photo-3974152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-fluid" width="100%" alt="">
+                                    <img [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'" class="img-fluid" width="100%" alt="">
                                     <div class="mask rgba-purple-light white-text">
                                         <div class="text-center" style="overflow-wrap: break-word;">
                                             <h5>{{deal.places[0]?.place | titlecase}} and more</h5>
@@ -140,7 +139,7 @@
                                  size="sm" color="primary" mdbWavesEffect>More Deals</button>
                             </div>
                         </div>
-                        <div *ngIf="getDealsList(guide).length <= 0" class="row p-2 text-center">
+                        <div *ngIf="!getDealsList(guide)" class="row p-2 text-center">
                             <h2>No Deals Avialable</h2>
                         </div>
                     </div>
@@ -150,11 +149,17 @@
     </mdb-card>
 </div>
 
+<div *ngIf="!searchService.guidesList"  class="row">
+    <div class="col text-center">
+        <h1>No Guides Availabel here!</h1>
+    </div>
+</div>
 
-<div class="row m-3">
+
+<div *ngIf="searchService.guidesList"  class="row m-3">
     <div class="col-12 col-sm-6 col-md-6  d-block d-lg-none mb-4" *ngFor="let guide of searchService.guidesList">
         <div class="view guide-card" style="position: relative;">
-            <img [src]="guide.picUrl ? guide.picUrl : '../../../../../../../assets/images/grayman.png'" 
+            <img [src]="guide.picUrl ? guide.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 
             width="100%" height="100%" alt="">
             <div class="mask mygradient white-text">
                 <div class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
@@ -179,6 +184,6 @@
 
 
 <!-- personal Tour Book -->
-<div mdbModal #personalTour="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel" aria-hidden="true">
+<div style="overflow-y: auto;" mdbModal #personalTour="mdbModal" class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="mytourLabel" aria-hidden="true">
     <app-personal-modal [guide]="guide" (close)="personalTour.hide()"></app-personal-modal>
 </div>

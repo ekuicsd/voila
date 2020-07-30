@@ -1,10 +1,11 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TouristsService } from '../../service/tourists.service';
 import { CustomValidators } from 'src/app/validators/custom';
 import { StaticDataService } from '../../service/static-data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-personal-modal',
@@ -17,11 +18,10 @@ export class PersonalModalComponent implements OnInit {
   @Input() guide;
   personalBooking;
   agree: boolean = false;
-  // public guide: any;
   public groupTypesList;
   totalPrice: number = 0;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
     private touristService: TouristsService,
     private router:Router,
     private staticDataService: StaticDataService,
@@ -46,6 +46,7 @@ export class PersonalModalComponent implements OnInit {
 
   emitClose() {
     this.agree = false;
+    this.createForm();
     this.close.emit();
   }
 
@@ -54,28 +55,38 @@ export class PersonalModalComponent implements OnInit {
     let end = new Date(this.personalBooking.value.endDate);
     let days = (end.getTime() - start.getTime())  / (1000 * 3600 * 24); 
     if(this.personalBooking.value.noOfPeople <= this.guide.peopleLimit) {
-      this.totalPrice = Number(this.personalBooking.value.noOfPeople) * Number(this.guide.perHeadCharge) * days;
+      this.totalPrice = Number(this.personalBooking.value.noOfPeople) * Number(this.guide.perHeadCharge) * (days + 1) ;
     } else {
-      this.totalPrice = Number(this.guide.perDayCharge) * days;
+      this.totalPrice = Number(this.guide.perDayCharge) * (days + 1);
     }
   }
 
   submitPersonalBooking() {
-    if(this.personalBooking.valid) {
-      console.log(this.personalBooking.value);
-      this.personalBooking.value.price = this.totalPrice;
-      this.touristService.bookForPersonalTour(this.guide._id, this.personalBooking.value).subscribe( res => {
-      //  if(res.success) {
-        this.toastr.success("Requested For Personalized Tour!");
-        this.emitClose();
-        this.router.navigateByUrl('/tourists/touristshome/bookings/requests');
-      //  } else {
-
-      //  }
-      });
-    } else {
-      this.toastr.error("Invalid deatils!");
-    }
+    Swal.fire({
+      text: "Are you sure to book for personally?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        if(this.personalBooking.valid) {
+          this.personalBooking.value.price = this.totalPrice;
+          this.touristService.bookForPersonalTour(this.guide._id, this.personalBooking.value).subscribe( res => {
+           if(res.success) {
+            this.toastr.success("Requested For Personalized Tour!");
+            this.createForm();
+            this.emitClose();
+            this.router.navigateByUrl('/tourists/touristshome/bookings/requests');
+           } else {
+             this.toastr.error(res.message);
+           }
+          });
+        } else {
+          this.toastr.error("Invalid deatils!");
+        }
+      }
+    }); 
   }
 
 }

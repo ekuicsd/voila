@@ -5,11 +5,11 @@
             <div class="content1  m-auto">
                 <div class="row top-bar pt-4 pb-4 m-0 mb-2">
                     <div class="col-5 text-center">
-                        <img [src]="user.picUrl ? user.picUrl : '../../../../../assets/images/grayman.png'" class="img-fluid z-depth-1 rounded-circle" alt="Responsive image">
+                        <img [src]="user.picUrl ? user.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" class="img-fluid z-depth-1 rounded-circle" alt="Responsive image">
 
                     </div>
                     <div class="col-7 guide-name m-auto">
-                        <b>{{user.name}}</b>
+                        <b>{{user.name | titlecase}}</b>
                     </div>
                 </div>
                 <div class="row">
@@ -22,7 +22,7 @@
                             <a class="nav-link mb-2 py-3" id="v-pills-deals-tab" data-toggle="pill" [routerLink]="['deals']" routerLinkActive="active" role="tab" aria-controls="v-pills-deals" aria-selected="false">Your Deals</a>
                             <a class="nav-link mb-2 py-3" id="v-pills-profile-tab" data-toggle="pill" [routerLink]="['editProfile']" routerLinkActive="active" role="tab" aria-controls="v-pills-profile" aria-selected="false">Edit Profile</a>
                             <a class="nav-link mb-2 py-3" id="v-pills-changepwd-tab" data-toggle="pill" [routerLink]="['changepassword']" routerLinkActive="active" role="tab" aria-controls="v-pills-changepwd" aria-selected="false">Change Password</a>
-                            <a class="nav-link mb-2 py-3" id="v-pills-profile-tab" data-toggle="pill" role="tab" (click)="logout()" aria-controls="v-pills-profile" aria-selected="false">Logout</a>
+                            <a class="nav-link mb-2 py-3" id="v-pills-profile-tab" data-toggle="pill" role="tab" (click)="logout()" routerLinkActive="active" aria-controls="v-pills-profile" aria-selected="false">Logout</a>
                         </div>
                     </div>
                 </div>

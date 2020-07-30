@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
-import { Deals } from 'src/app/shared/models/deals.model';
 
 @Component({
   selector: 'app-favourites',
@@ -9,7 +8,8 @@ import { Deals } from 'src/app/shared/models/deals.model';
 })
 export class FavouritesComponent implements OnInit {
 
-  public favouritesList: Deals[] = [];
+  public favouritesList: any[] = [];
+  public isData = false;
 
   constructor(private touristService: TouristsService) { }
 
@@ -19,12 +19,8 @@ export class FavouritesComponent implements OnInit {
 
   getAllFavouritesList() {
     this.touristService.getAllFavorites().subscribe( res => {
-      console.log(res);
-      if(res.length > 0) {
         this.favouritesList = res;
-      } else {
-        this.favouritesList = undefined;
-      }
+        this.isData = true;
     });
   }
 

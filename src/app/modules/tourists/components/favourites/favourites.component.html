@@ -1,15 +1,18 @@
-<div class="container-fluid" *ngIf="favouritesList" >
+<div class="container-fluid" *ngIf="favouritesList.length > 0 && isData" >
+    <h1 class="headup text-center">Your Favourites</h1>
     <div class="row">
-        <div class="col-12">
-            <h1 class="headup">Your Favourites</h1>
-           <app-deals-cards [dealsList]="favouritesList" [isFav]="'true'"></app-deals-cards>
+        <div class="col-12 col-md-10 col-lg-9 col-xl-7">
+            <app-deals-cards [dealsList]="favouritesList" [isFav]="'true'"></app-deals-cards>
+        </div>
+        <div class=" d-none d-xl-block col-xl-5">
+            <h1>Drop something here!</h1>
         </div>
     </div>
 </div>
-<div *ngIf="!favouritesList"  class="container-fluid">
+<div *ngIf="favouritesList.length <= 0 && isData"  class="container-fluid">
     <div class="row vertical-center" style="min-height: 85vh;">
       <div class="col-12 text-center">
-        <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/bermuda-166.png">
+        <img class="img-fluid my-5 h-50 w-25" src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/bermuda-166.png">
         <h1 style="font-family: 'Dancing Script', cursive; font-size: 4vh;">Nothing here !!</h1>
     </div>
     </div>
