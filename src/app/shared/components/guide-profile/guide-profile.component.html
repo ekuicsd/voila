@@ -13,9 +13,12 @@
                         </div>
                         <div class="col-8 col-sm-9 col-md-9">
                             <h2>{{guide?.name | titlecase}}</h2>
-                            <div>
+                            <div *ngIf="getRating().length > 0">
                                 <mdb-icon *ngFor="let star of getRating()" fas icon="star"></mdb-icon>
                                 <strong> {{ratings.length}}+ Reviews</strong>
+                            </div>
+                            <div *ngIf="getRating().length <= 0">
+                                <strong>New Guide</strong>
                             </div>
                         </div>
                     </div>

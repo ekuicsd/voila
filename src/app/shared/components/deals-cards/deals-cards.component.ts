@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TouristsService } from '../../service/tourists.service';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { StaticDataService } from '../../service/static-data.service';
+import { JwtService } from '../../service/jwt.service';
 
 @Component({
   selector: 'app-deals-cards',
@@ -26,13 +27,15 @@ export class DealsCardsComponent implements OnInit {
 
   constructor(private userService: UserService,
     private touristService: TouristsService,
+    public jwtService: JwtService,
     private toastr: ToastrService,
     private staticDataService: StaticDataService,
      private router: Router) { }
 
   ngOnInit() {
     this.groupTypesList = this.staticDataService.getAllGroupTypes();
-    if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+    // this.groupTypesList = this.staticDataService.getAllGroupTypes();
+    if(this.jwtService.getToken()) {
       this.userId = JSON.parse(this.userService.getUser('tourist'))._id;
     }
   }

@@ -32,7 +32,9 @@ export class HeaderComponent implements OnInit{
     }
 
   ngOnInit() {
-    this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
+    if(this.jwtService.getToken()) {
+      this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
+    }
   }
 
   onLinkClick() {
