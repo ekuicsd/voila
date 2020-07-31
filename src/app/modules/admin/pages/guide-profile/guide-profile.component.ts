@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-guide-profile',
@@ -14,6 +15,7 @@ export class GuideProfileComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
     private router: Router,
+    private location: Location,
     private adminService: AdminService
     ) { }
   
@@ -37,10 +39,14 @@ export class GuideProfileComponent implements OnInit {
       if (result.value) {
         this.adminService.approvedrejectGuide(this.userData._id, status).subscribe(res => {
           this.router.navigateByUrl('/admin/dashboard');
-        })
+        });
       }
     }); 
    
+  }
+
+  back() {
+    this.location.back();
   }
 
 

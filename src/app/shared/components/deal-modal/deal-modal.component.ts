@@ -40,6 +40,24 @@ export class DealModalComponent implements OnInit {
     });
   }
 
+  deleteDeal() {
+    Swal.fire({
+      text: "Are you sure to delete deal?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        if(this.deal.leftPeople === this.deal.peopleLimit) {
+          //api for delete deal
+        } else {
+          this.toastr.error("this deal can't be deleted!");
+        }
+      }
+    }); 
+  }
+
   emitClose() {
     this.totalPrice = 0;
     this.agree = false;

@@ -84,6 +84,8 @@
             (click)="openModal2(dealTour2)" type="button" class="btn mt-1 dpurple">Book</button>
             <button *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" 
             (click)="emitClose()" type="button" class="btn mt-1 dpurple">Ok</button>
+            <button *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" 
+            (click)="deleteDeal()" type="button" class="btn mt-1 text-white bgrey">Delete Deal</button>
         </div>
     </div>
 </div>

@@ -169,7 +169,11 @@
 
     
 <div class="btn-size text-center mt-4">
-    <button type="button" mdbBtn (click)="acceptRejectGuide('REJECTED')" style="background: #757575; color: white;" mdbWavesEffect>Reject</button>
+    <button type="button" mdbBtn (click)="back()" 
+    style="background: #757575; color: white;" mdbWavesEffect>Back</button>
+
+    <button type="button" mdbBtn (click)="acceptRejectGuide('REJECTED')" style="background:
+     #22c1c3; color: white;" mdbWavesEffect>Reject</button>
 
     <button type="button" mdbBtn style="background: #553d67; color: white;" (click)="acceptRejectGuide('APPROVED')" mdbWavesEffect>Accept</button>
 </div>

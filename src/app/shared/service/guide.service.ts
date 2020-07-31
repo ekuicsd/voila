@@ -20,7 +20,7 @@ export class GuideService{
             this.socket.emit('initial_connect', { userType: 'GUIDE', _id: JSON.parse(this.userService.getUser('guide'))._id});
         }
         this.socket.on('new_notification_guide', (data) => {
-            this.toastr.info(data);
+            this.toastr.info(data.notificationText);
         });
     }
 
