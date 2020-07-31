@@ -38,17 +38,33 @@
                         <mdb-icon fas icon="heart" class="purple-text pr-1"></mdb-icon>Loves <strong>{{guide?.interests.toString()}}</strong>
                     </div>
                     <div class="text-center py-2">
-                        <button mdbBtn type="button" class="pink darken-3 white-text" (click)="openModal(personalTour)" rounded="true" mdbWavesEffect><b>Contact Me</b></button>
+                        <button mdbBtn type="button" class="white-text" style="background: #553d67;" (click)="openModal(personalTour)" rounded="true" mdbWavesEffect><b>Contact Me</b></button>
                     </div>
                 </mdb-card-body>
             </mdb-card>
         </div>
         <div class="col-md-7 col-lg-8">
-            <img *ngIf="guide?.picUrl" [src]="guide?.picUrl" 
-            class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px">
+            <!-- <img *ngIf="guide?.picUrl" [src]="guide?.picUrl" 
+            class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px"> -->
             <!-- <img *ngIf="!(guide?.picUrl)" src="" class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px"> -->
-            <br>
-            <br>
+           
+           
+            <div class="card my-4 bgclass">
+                <div class="view overlay mx-auto pt-5">
+                    <img class="card-img rounded-circle " [src]="guide?.picUrl ? guide?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" style="width:100px; height:100px;" alt="Card image cap">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center white-text">
+                    <h3 class="card-title">Hi, I can personalize your experience!</h3>
+                    <h6>Just let me know your preferences for a private and personalized trip!
+                    </h6>
+                    <div class="text-center">
+                        <a class="btn white-text btn-rounded" style="background: #553d67;" (click)="openModal(personalTour)">Request a personalized Tour</a>
+                    </div>
+                </div>
+            </div>
             <div>
                 <h2>Reviews</h2>
                 <div class="row" *ngFor="let rate of ratings | slice:0:3">
@@ -67,22 +83,6 @@
                 </div>
                 <hr>
 
-            </div>
-            <div class="card my-4 bgclass">
-                <div class="view overlay mx-auto pt-5">
-                    <img class="card-img rounded-circle " [src]="guide?.picUrl ? guide?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" style="width:100px; height:100px;" alt="Card image cap">
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <div class="card-body text-center white-text">
-                    <h3 class="card-title">Hi, I can personalize your experience!</h3>
-                    <h6>Just let me know your preferences for a private and personalized trip!
-                    </h6>
-                    <div class="text-center">
-                        <a class="btn pink darken-3 btn-rounded " (click)="openModal(personalTour)">Request a personalized Tour</a>
-                    </div>
-                </div>
             </div>
             <div>
                 <h1 my-2>My Tour Deals in {{guide?.state}}</h1>

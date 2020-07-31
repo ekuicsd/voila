@@ -202,8 +202,8 @@
 
     <div class="row mt-4">
         <div class="col-12 text-center">
-            <button type="button" [routerLink]="['/guide/guidehome/']" class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
-            <button type="button" class="btn save-btn" (click)="saveRecord()" mdbBtn size="md">Save</button>
+            <button type="button" [routerLink]="['/guide/guidehome/']" class="btn text-white" style="background: #757575; color:white;" mdbBtn size="md">Cancel</button> &nbsp;
+            <button type="button" class="btn save-btn" (click)="saveRecord()"  style="background: #553d67;" mdbBtn size="md">Save</button>
         </div>
     </div>
 </div>
@@ -319,8 +319,8 @@
                     </div>
                 </div>
                 <div class="float-right">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit"  style="background: #22c1c3;" mdbBtn class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -363,8 +363,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editbusiness.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" (click)="submitBusinessDetails()" mdbBtn class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" class="waves-light" aria-label="Close" (click)="editbusiness.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" (click)="submitBusinessDetails()"  style="background: #553d67;" mdbBtn class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -413,9 +413,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editexperience.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn *ngIf="!editExp" (click)="addExperience()" class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
-                    <button type="submit" mdbBtn (click)="updateExperience()" *ngIf="editExp" class="save-btn white-text relative waves-light" mdbWavesEffect>Update!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" class="waves-light" aria-label="Close" (click)="editexperience.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn *ngIf="!editExp" (click)="addExperience()"  style="background: #f06191;" class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="submit" mdbBtn (click)="updateExperience()" *ngIf="editExp"  style="background: #f06191;" class="save-btn white-text relative waves-light" mdbWavesEffect>Update!</button>
                 </div>
             </form>
         </div>
@@ -443,8 +443,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" class="waves-light" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" style="background-color: rgba(76, 175, 80, 0.7); color: white;" mdbBtn class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -472,8 +472,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" class="waves-light" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn  style="background-color: rgba(255, 152, 0, 0.7); color: white;" class="save-btn relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>

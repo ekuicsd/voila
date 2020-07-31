@@ -244,14 +244,14 @@
             </svg>
          </div>
       </div>
-      <div class="col-lg-4 col-xl-4 text-center">
-         <div class="map-detail">
+      <div class="col-lg-4 col-xl-4 text-center p-5" style="width: fit-content;">
+         <div class="card map-detail card-body" style="background: rgba(255, 255, 255, 0.658);width: fit-content;">
             <h1>{{selectedState?.state}}</h1>
             <br>
             <h4>Tourists visited - <b>{{selectedState?.tourists}}</b></h4>
             <h4>Total Guides - <b>{{selectedState?.guides}}</b></h4>
             <h4>Attractive Places - <b>{{selectedState?.cities}}</b></h4>
-            <button type="button" mdbBtn class="btn" style="background-color:#553d67; color: white;"
+            <button type="button" mdbBtn class="btn btn-sm" width="300px" style="background-color:#553d67; color: white; font-family: Arial, Helvetica, sans-serif;"
              (click)="exploreState()">Know More</button>
          </div>
       </div>

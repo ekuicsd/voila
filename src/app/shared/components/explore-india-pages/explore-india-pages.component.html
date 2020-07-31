@@ -2,7 +2,7 @@
 <div class="jumbotron pt-0" style="position: relative;" >
   <!-- Card image -->
 
-  <div class="view overlay my-4 waves-light" mdbWavesEffect style="height: 30vh">
+  <div class="view overlay my-4 waves-light" style="object-fit: cover;" mdbWavesEffect style="height: 50vh">
     <img [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + state + '.jpg'"
     style="background-repeat: no-repeat; background-size: cover;" width="100%" height="100%"
      class=" mt-0" style="filter: blur(3px) grayscale(30%);" alt="">
@@ -34,7 +34,7 @@
 
       <!-- Featured image -->
       <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
-        <img class="img-fluid" 
+        <img class="img-fluid"  style="height: fit-content; width: fit-content;" 
         [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city?.name +'.jpg'" 
         alt="Sample image">
         <a>
@@ -94,7 +94,7 @@
 
       <!-- Featured image -->
       <div class="view overlay rounded z-depth-2 waves-light" mdbWavesEffect>
-        <img class="img-fluid" [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city?.name +'.jpg'" alt="Sample image">
+        <img class="img-fluid" style="height: fit-content; width: fit-content;" [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city?.name +'.jpg'" alt="Sample image">
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>
@@ -130,7 +130,7 @@
 
       <!-- Featured image -->
       <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
-        <img class="img-fluid"  [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city.name +'.jpg'" alt="">
+        <img class="img-fluid"  style="height: fit-content; width: fit-content;"   [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city.name +'.jpg'" alt="">
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>
