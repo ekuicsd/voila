@@ -79,7 +79,11 @@ a {
         font-size: 25px;
     }
 }
-
 .cardHeight {
     min-height: 87vh;
+}
+@media(max-width: 800px){
+    .cardHeight {
+        background: white !important;
+    }
 }
