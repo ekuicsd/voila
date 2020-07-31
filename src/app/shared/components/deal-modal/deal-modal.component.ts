@@ -7,6 +7,7 @@ import { TouristsService } from '../../service/tourists.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import Swal from 'sweetalert2';
+import { GuideService } from '../../service/guide.service';
 
 @Component({
   selector: 'app-deal-modal',
@@ -23,14 +24,20 @@ export class DealModalComponent implements OnInit {
   public dealForm: FormGroup;
   agree: boolean = false;
   totalPrice: number = 0;
+  peopleLimit = true;
+  public user;
 
   constructor(private toastr: ToastrService,
     private touristService: TouristsService,
     public userService: UserService,
+    private guideService: GuideService,
     private router: Router
     ) { }
 
   ngOnInit() {
+    if(this.userService.isAuthenticated) {
+      this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
+    }
     this.createForm();
   }
 
@@ -49,10 +56,19 @@ export class DealModalComponent implements OnInit {
       confirmButtonText: 'Submit'
     }).then((result) => {
       if (result.value) {
-        if(this.deal.leftPeople === this.deal.peopleLimit) {
+        if(this.deal.peopleLimit === this.deal.peopleLimit) {
           //api for delete deal
+          this.guideService.deleteDeal(this.deal._id).subscribe( res => {
+            // console.log(res);
+            if(res.success) {
+              this.toastr.success(res.message);
+              this.emitClose();
+            } else {
+              this.toastr.error(res.message);
+            }
+          });
         } else {
-          this.toastr.error("this deal can't be deleted!");
+          this.toastr.error("This deal can't be deleted!");
         }
       }
     }); 
@@ -77,7 +93,12 @@ export class DealModalComponent implements OnInit {
   }
 
   calculatePrice(data) {
-    this.totalPrice = this.dealForm.value.noOfPeople * Number(this.deal.price);
+    if(this.dealForm.value.noOfPeople > this.deal.peopleLeft) {
+      this.peopleLimit = false;
+    } else {
+      this.peopleLimit = true;
+      this.totalPrice = this.dealForm.value.noOfPeople * Number(this.deal.price);
+    }
   }
 
   submitDealForm() {

@@ -28,10 +28,12 @@
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
-                                        <button class="btn white-text" style="margin: auto; background-color: #553d67;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn text-white" style="margin: auto; background-color: #553d67;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                                         <b>VIEW</b>
                                         </button>&nbsp;
-                                        <button class="btn white-text" style=" background-color: #22c1c3;" style="margin: auto;" [disabled]="disableStart(data)" (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn text-white" style="background-color: #22c1c3; margin: auto;"
+                                         [disabled]="disableStart(data)" 
+                                        (click)="startTour(data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                                         <b>START</b>
                                     </button>
                                     </td>

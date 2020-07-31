@@ -66,11 +66,11 @@ export class HeaderComponent implements OnInit{
   }
  
   openModal(content) {
-   this.modalService.open(content);
+   this.modalService.open(content, {scrollable: true, centered: true});
   }
  
   open(content) {
-   this.modalService.open(content);
+   this.modalService.open(content, {scrollable: true, centered: true});
    }
  
    getEndDate(data) {

@@ -20,7 +20,7 @@ export class MapComponent implements OnInit {
       if(res.success) {
         this.mapDataList = res.data;
         this.getDataByState('Delhi');
-        console.log(res);
+        // console.log(res);
       }
     })
   }
@@ -35,7 +35,7 @@ export class MapComponent implements OnInit {
   
 
   getStateData(state) {
-    console.log(state);
+    // console.log(state);
     this.getDataByState(state);
   }
 

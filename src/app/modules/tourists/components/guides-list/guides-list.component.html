@@ -100,13 +100,13 @@
                                 <h4>More Reviews</h4>
                                 <br>
                                 <div class="row" *ngFor="let item of guide.reviewAndRating | slice:0:2">
-                                    <div class="col-sm-3">
+                                    <div *ngIf="item.rating" class="col-sm-3">
                                         <h6>
                                             <mdb-badge pill="true" primary="true">{{item.rating}}</mdb-badge>
                                         </h6>
                                         <p><b>{{item.tourType | titlecase}} Tour</b></p>
                                     </div>
-                                    <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
+                                    <div  *ngIf="item.rating" class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
                                         <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
                                             <mdb-icon fas icon="check-double"></mdb-icon>
                                         </mdb-badge>&nbsp;

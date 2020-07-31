@@ -96,4 +96,13 @@ export class GuideService{
             });
         });  
     }
+
+    deleteDeal(dealId) : Observable<any> {
+        let url = '/guide/deleteDeal/' + dealId;
+        return new Observable<any>( obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
 }

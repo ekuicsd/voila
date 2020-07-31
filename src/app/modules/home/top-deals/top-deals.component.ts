@@ -20,7 +20,7 @@ export class TopDealsComponent implements OnInit {
   ngOnInit() {
     this.homeService.getHotDeals().subscribe( res => {
       if(res.success) {
-        console.log(res);
+        // console.log(res);
         this.hotDealsList = res.deals;
       }
     });

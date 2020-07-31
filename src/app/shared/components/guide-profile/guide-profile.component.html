@@ -66,15 +66,15 @@
                 </div>
             </div>
             <div>
-                <h2>Reviews</h2>
-                <div class="row" *ngFor="let rate of ratings | slice:0:3">
-                    <div class="col-sm-3">
+                <h2 *ngIf="ratings.length > 0">Reviews</h2>
+                <div class="row" *ngFor="let rate of ratings | slice:0:4">
+                    <div *ngIf="rate.rating" class="col-sm-3">
                         <h6>
                             <mdb-badge pill="true" primary="true">{{rate.rating}}</mdb-badge>
                         </h6>
                         <p><b>{{rate.tourType | titlecase}}</b></p>
                     </div>
-                    <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
+                    <div *ngIf="rate.rating" class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
                         <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
                             <mdb-icon fas icon="check-double"></mdb-icon>
                         </mdb-badge>&nbsp;

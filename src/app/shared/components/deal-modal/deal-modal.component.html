@@ -84,7 +84,7 @@
             (click)="openModal2(dealTour2)" type="button" class="btn mt-1 dpurple">Book</button>
             <button *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" 
             (click)="emitClose()" type="button" class="btn mt-1 dpurple">Ok</button>
-            <button *ngIf="userService.getRole() === 'guide'" mdbBtn size="sm" 
+            <button *ngIf="userService.getRole() === 'guide' && user._id === deal?.guideId" mdbBtn size="sm" 
             (click)="deleteDeal()" type="button" class="btn mt-1 text-white bgrey">Delete Deal</button>
         </div>
     </div>
@@ -112,12 +112,18 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
+                    <div *ngIf="totalPrice && totalPrice > 0 && peopleLimit" class="row mt-4 text-black">
                         <div class="col">
                             <h6 class="text-left">Your Total Price: Rs. {{totalPrice}}/-
                                 <span class="float-right">
                           <button type="button" (click)="agree = true"  class="btn white-text m-0 dpurple" size="sm" mdbBtn>Agree</button>
                         </span>
+                            </h6>
+                        </div>
+                    </div>
+                    <div *ngIf="!peopleLimit" class="row mt-4 text-black">
+                        <div class="col">
+                            <h6 class="text-left">Allowed upto {{deal?.peopleLeft}} only!
                             </h6>
                         </div>
                     </div>
