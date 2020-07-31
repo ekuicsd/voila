@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="col-3 col-lg-2 mt-lg-4">
-                        <a mdbBtn size="sm" class="mt-2 mb-3" (click)="addToPlacesList()" color="yellow" mdbWavesEffect>Add</a>
+                        <a mdbBtn size="sm" class="mt-2 mb-3" (click)="addToPlacesList()" style="background: #22c1c3;" mdbWavesEffect>Add</a>
                     </div>
                 </div>
                 <h6 *ngIf="placesList.length > 0" class="text-black">
@@ -116,8 +116,8 @@
                     </div>
                 </div>
             </mdb-card-text>
-            <a mdbBtn [routerLink]="['/guide/guidehome/deals']" style="background:rgba(255, 255, 255, 0.612);" mdbWavesEffect>Cancel</a>
-            <a mdbBtn (click)="saveDeal()" style="background:rgba(255, 255, 255, 0.612); color: black;" mdbWavesEffect>Create</a>
+            <a mdbBtn [routerLink]="['/guide/guidehome/deals']" style="background:#757575; color: white;" mdbWavesEffect>Cancel</a>
+            <a mdbBtn (click)="saveDeal()" style="background:#553d67; color: white;" mdbWavesEffect>Create</a>
         </mdb-card-body>
     </mdb-card>
 </div>
