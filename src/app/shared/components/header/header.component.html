@@ -580,6 +580,9 @@
          <button type="button" mdbBtn size="sm" class="waves-light btn-block bgrey" (click)="d('Cross click')" mdbWavesEffect>Close</button>
       </div>
       <div class="col">
+        <button type="button" mdbBtn size="sm" class="waves-light btn-block btn-danger" mdbWavesEffect>SOS</button>
+     </div>
+      <div class="col">
         <button type="button" mdbBtn size="sm" class="btn-block waves-light dpurple"
           *ngIf="userService.getRole() === 'tourist'"  (click)="open(rating)"  
           [disabled]="getEndDate(onGoingEvents[0])"
