@@ -9,6 +9,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuideProfileComponent } from './pages/guide-profile/guide-profile.component';
 import { AdminGuardService } from './services/admin.auth.guard';
 import { AdminHomeGuardService } from 'src/app/shared/service/admin.guard';
+import { EmergencyPageComponent } from './pages/emergency-page/emergency-page.component';
 
 const routes: Routes = [
     { 
@@ -25,6 +26,10 @@ const routes: Routes = [
     {
         path: 'guideProfile/:guideId', component: GuideProfileComponent,
         canActivate: [AdminGuardService]
+    },
+    {
+      path: 'emergency', component: EmergencyPageComponent,
+      canActivate: [AdminGuardService]
     }
  
 ];
@@ -34,6 +39,7 @@ const routes: Routes = [
     LoginPageComponent,
     DashboardComponent,
     GuideProfileComponent,
+    EmergencyPageComponent,
   ],
   imports: [
     CommonModule,
