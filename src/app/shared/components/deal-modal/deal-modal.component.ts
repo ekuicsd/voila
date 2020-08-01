@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import Swal from 'sweetalert2';
 import { GuideService } from '../../service/guide.service';
+import { JwtService } from '../../service/jwt.service';
 
 @Component({
   selector: 'app-deal-modal',
@@ -30,15 +31,16 @@ export class DealModalComponent implements OnInit {
   constructor(private toastr: ToastrService,
     private touristService: TouristsService,
     public userService: UserService,
+    private jwtService: JwtService,
     private guideService: GuideService,
     private router: Router
     ) { }
 
   ngOnInit() {
-    if(this.userService.isAuthenticated) {
-      this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
-    }
     this.createForm();
+    if(this.jwtService.getToken()) {
+      this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
+    } 
   }
 
     createForm() {
