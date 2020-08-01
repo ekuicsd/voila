@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
 
   public newGuideList: any[] = [];
   public contactedGuideList: any[] = [];
+  public activeTab: string = 'new';
 
   constructor(private adminService: AdminService,
     private router: Router,
@@ -19,18 +20,28 @@ export class DashboardComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.newGuideList = this.getguideList('PENDING');
-    this.contactedGuideList = this.getguideList('CONTACTED');
+    this.getNewGuideList();
+    this.getContactedGuideList();
   }
 
-  getguideList(status) : any {
-    this.adminService.getAllGuides(status).subscribe(res => {
+  getNewGuideList() {
+    this.adminService.getAllGuides('PENDING').subscribe(res => {
       if(res.success) {
-        console.log(res);
-        return  res.guides;
+        this.newGuideList = res.guides;
+        console.log(res.guides);
       } else {
         this.toastr.error(res.message);
-        return []
+      }
+    });
+  }
+
+  getContactedGuideList() {
+    this.adminService.getAllGuides('CONTACTED').subscribe(res => {
+      if(res.success) {
+        this.contactedGuideList = res.guides;
+        console.log(res.guides);
+      } else {
+        this.toastr.error(res.message);
       }
     });
   }
