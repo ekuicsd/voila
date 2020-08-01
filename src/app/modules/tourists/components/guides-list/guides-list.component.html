@@ -130,7 +130,9 @@
                         <div class="row p-2 text-center" *ngIf="getDealsList(guide)">
                             <div class="col-lg-3 col-md-4" *ngFor="let deal of getDealsList(guide) | slice:0:3">
                                 <div class="view deal-card guide-card">
-                                    <img [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'" class="img-fluid" width="100%" alt="">
+                                    <img 
+                                        [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'"
+                                         width="100%" alt="" style="height:100px;">
                                     <div class="mask rgba-purple-light white-text">
                                         <div class="text-center" style="overflow-wrap: break-word;">
                                             <h5>{{deal.places[0]?.place | titlecase}} and more</h5>
@@ -167,7 +169,7 @@
 </div>
 
 
-<div *ngIf="searchService.guidesList"  class="row m-3 d-block d-lg-none">
+<div *ngIf="searchService.guidesList"  class="row my-3 d-block d-lg-none">
     <div class="col-12 col-sm-6 col-md-6  mb-4" *ngFor="let guide of searchService.guidesList">
         <div class="view guide-card" style="position: relative;">
             <img [src]="guide.picUrl ? guide.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 

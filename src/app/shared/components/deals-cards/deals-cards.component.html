@@ -9,10 +9,15 @@
                 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + deal.state + '/' + deal.city + '.jpg' : 
                 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'" 
                 alt="">
-                
-                <img class="card-img rounded-circle" 
+
+                <img *ngIf="userService.getRole() !== 'guide'" class="card-img rounded-circle" 
                 [src]="deal.guideId?.picUrl ? deal.guideId?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'"
                 style="width:70px; height:70px; border:white 3px solid;" alt="">
+
+                <img *ngIf="userService.getRole() === 'guide'" class="card-img rounded-circle" 
+                [src]="user?.picUrl ? user?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'"
+                style="width:70px; height:70px; border:white 3px solid;" alt="">
+
                 <h5 *ngIf="role !== 'guide'"><span class="badge badge-default font-weight-normal">With {{deal.guideId.name | titlecase}}</span></h5>
                 <h5 *ngIf="role === 'guide'"><span class="badge badge-default font-weight-normal">With You</span></h5>
             </div>
@@ -41,7 +46,8 @@
 
 <div *ngIf="!dealsList" class="row">
     <div class="col text-center">
-        <img class="image-fluid h-25 m-auto " src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/lime-396.png" alt="">
+        <img class="image-fluid h-25 m-auto " 
+        src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/lime-396.png" alt="">
         <h1>No Deals available here!</h1>
     </div>
 </div>
