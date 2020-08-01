@@ -15,8 +15,8 @@ export class AdminService {
         return window.localStorage['role'];
     }
 
-    getAllGuides() : Observable<any> {
-        let url = '/admin/Guides';
+    getAllGuides(status) : Observable<any> {
+        let url = '/admin/Guides/' + status;
         return new Observable<any>( obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);

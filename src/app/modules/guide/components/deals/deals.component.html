@@ -18,15 +18,9 @@
         <h1 class="ml-4">Your Deals</h1>
         <app-deals-cards [dealsList]="DealsList" [role]="'guide'"></app-deals-cards>
     </div>
-<<<<<<< HEAD
     <div *ngIf="DealsList.length <= 0 && isData">
         <img class="w-17 float-center m-auto " style="height: 150px;"
         src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/lime-396.png" alt="">
         <h4 class="text-center">No Deals Yet</h4>
-=======
-    <div class="text-center" *ngIf="DealsList.length <= 0 && isData">
-        <img class="image-fluid w-50 h-50" src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/lime-396.png" alt="">
-        <h4 >No Deals Yet</h4>
->>>>>>> origin/archit
     </div>
 </div>
