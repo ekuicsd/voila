@@ -422,7 +422,7 @@
       </div>
       <div *ngIf="onGoingEvents" class="modal-body">
         <h5 *ngIf="userService.getRole() === 'tourist'">{{onGoingEvents[0]?.guideId?.city}}, {{onGoingEvents[0]?.guideId?.state}}</h5>
-        <h5 *ngIf="userService.getRole() === 'guide'">{{user.city}}, {{user.state}}</h5>
+        <h5 *ngIf="userService.getRole() === 'guide'">{{user?.city}}, {{user?.state}}</h5>
         <!-- <p>With {{onGoingEvents[0]?.guideId?.gender}} {{onGoingEvents[0]?.guideId?.name | titlecase}}</p> -->
         <div class="row">
           <div class="col">

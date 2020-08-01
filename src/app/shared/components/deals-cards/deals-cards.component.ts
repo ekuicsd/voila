@@ -20,7 +20,7 @@ export class DealsCardsComponent implements OnInit {
   @ViewChild('dealTour', {static: false}) modal1: MDBModalService;
 
   isValid: boolean;
-  public userId: any;
+  public user: any;
   public groupTypesList: string[];
   public selectedDeal: any;
 
@@ -36,7 +36,7 @@ export class DealsCardsComponent implements OnInit {
     this.groupTypesList = this.staticDataService.getAllGroupTypes();
     // this.groupTypesList = this.staticDataService.getAllGroupTypes();
     if(this.jwtService.getToken()) {
-      this.userId = JSON.parse(this.userService.getUser('tourist'))._id;
+      this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
     }
   }
 
@@ -51,7 +51,7 @@ export class DealsCardsComponent implements OnInit {
       this.touristService.addToFavourite(deal._id).subscribe( res => {
        if(res.success) {
         this.toastr.success("added to favourites!");
-        deal.favorites.push(this.userId);
+        deal.favorites.push(this.user._id);
        } else {
         this.toastr.warning(res.message);
        }
@@ -66,7 +66,7 @@ export class DealsCardsComponent implements OnInit {
       this.touristService.removeFromFavourite(deal._id).subscribe( res => {
         if(res.success) {
           this.toastr.success("removed from favourites!");
-          let index = deal.favorites.indexOf(this.userId);
+          let index = deal.favorites.indexOf(this.user._id);
           if(index !== -1) {
             deal.favorites.splice(index, 1);
           }
@@ -89,7 +89,7 @@ export class DealsCardsComponent implements OnInit {
   isFavourite(deal) {
     if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
       let list = deal.favorites.filter(ele => {
-        if(ele == this.userId) {
+        if(ele == this.user._id) {
           return ele;
         }
       });

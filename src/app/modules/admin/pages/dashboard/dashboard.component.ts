@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DashboardComponent implements OnInit {
 
-  public guideList: any[] = [];
+  public newGuideList: any[] = [];
+  public contactedGuideList: any[] = [];
 
   constructor(private adminService: AdminService,
     private router: Router,
@@ -18,15 +19,18 @@ export class DashboardComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getGuideList();
+    this.newGuideList = this.getguideList('PENDING');
+    this.contactedGuideList = this.getguideList('CONTACTED');
   }
 
-  getGuideList() {
-    this.adminService.getAllGuides().subscribe(res => {
+  getguideList(status) : any {
+    this.adminService.getAllGuides(status).subscribe(res => {
       if(res.success) {
-        this.guideList = res.guides;
+        console.log(res);
+        return  res.guides;
       } else {
         this.toastr.error(res.message);
+        return []
       }
     });
   }
