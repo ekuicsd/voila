@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+import { StaticDataService } from 'src/app/shared/service/static-data.service';
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
@@ -18,6 +19,7 @@ export class BookingsComponent implements OnInit {
 
   constructor(private touristService: TouristsService,
     private toastr: ToastrService,
+    private staticDataService: StaticDataService, 
     private router: Router, config: NgbModalConfig, private modalService: NgbModal
     ) {
       config.backdrop = 'static';

@@ -26,6 +26,7 @@ import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExploreIndiaPagesComponent } from './components/explore-india-pages/explore-india-pages.component';
+import { PricePipe } from './pipes/price.pipe';
 
 const routes: Routes = [
     { 
@@ -96,7 +97,8 @@ const routes: Routes = [
         ChatRoomComponent,
         FilterPipe,
         PageNotFoundComponent,
-        ExploreIndiaPagesComponent
+        ExploreIndiaPagesComponent,
+        PricePipe
     ],
     imports: [
         CommonModule,
@@ -125,7 +127,8 @@ const routes: Routes = [
         ChatRoomComponent,
         FilterPipe,
         PageNotFoundComponent,
-        ExploreIndiaPagesComponent
+        ExploreIndiaPagesComponent,
+        PricePipe
     ]
 }) 
 

@@ -32,7 +32,7 @@
                         <div>
                             <div>Price Per Head Per Day</div>
                             <div>
-                                <h2>₹ {{guide.perHeadCharge}}</h2>
+                                <h2>{{staticService.currency.name}} {{(guide.perHeadCharge)*staticService.currency.value | price}}</h2>
                             </div>
                         </div>
                         <div class="text-center mb-2 mt-2">

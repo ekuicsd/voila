@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { Filter } from '../models/filters.model';
 import csc from 'country-state-city';
 import { CustomValidators } from 'src/app/validators/custom';
+import { StaticDataService } from './static-data.service';
 @Injectable({
     providedIn: 'root'
 })
@@ -47,22 +48,30 @@ export class SearchService {
     public guidesList: any[] = [];
     public dealsList: any[] = [];
 
-
+    
     constructor(
         private toastr: ToastrService,
+        private staticDataService: StaticDataService,
         private apiService: ApiService,) 
     {
         this.createForm();
         this.getAllState('101');
         this.getAllCity('Delhi');
         this.extra_filter = {
-          minPrice: 100,
-          maxPrice: 2000,
+          minPrice:  100,
+          maxPrice:  2000,
           rating: null,
           interests: [],
           languages: [],
           city: []
         }
+        // this.options = {
+        //   floor: this.staticDataService.currency.value * 100,
+        //   ceil: this.staticDataService.currency.value * 10000,
+        //   translate: (value: number): string => {
+        //     return this.staticDataService.currency.name + value;
+        //   }
+        // }
     }
 
     getAllState(countryId: string) {

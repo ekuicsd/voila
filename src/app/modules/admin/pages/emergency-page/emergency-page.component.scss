@@ -1,0 +1,45 @@
+mdb-card-text div {
+    font-size: medium;
+}
+
+.fa-phone-alt {
+    display: none;
+}
+
+.small-badge {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer-btn {
+        display: none;
+    }
+    .fa-phone-alt {
+        display: initial;
+        margin: auto;
+        color: lightseagreen;
+    }
+    .big-badge {
+        display: none;
+    }
+    .small-badge {
+        display: initial;
+    }
+}
+
+.col {
+    padding: 0;
+}
+
+.card-title {
+    font-size: 50px;
+}
+
+table.table th,
+table.table td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.col-4 {
+    padding: 0 8px;
+}

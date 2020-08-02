@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TouristsService } from 'src/app/shared/service/tourists.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { StaticDataService } from 'src/app/shared/service/static-data.service';
 
 @Component({
   selector: 'app-histories',
@@ -17,6 +18,7 @@ export class HistoriesComponent implements OnInit {
 
   constructor(private touristService: TouristsService,
     private toastr: ToastrService,
+    private staticDataService: StaticDataService,
     config: NgbModalConfig, private modalService: NgbModal)
    {
     config.backdrop = 'static';
