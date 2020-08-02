@@ -140,12 +140,21 @@ export class UserService {
     }
 
     getProfile(role: string) : Observable<any> {
-        console.log(role);
+        // console.log(role);
         let url = '/' + role + '/myProfile';
         return new Observable<any>(obs => {
             this.apiService.get(url).subscribe(res => {
                 obs.next(res.user);
             })
+        });
+    }
+
+    sosAlert(role, request) {
+        let url = '/' + role + '/report';
+        return new Observable<any>(obs => {
+            this.apiService.post(url, request).subscribe(res => {
+                obs.next(res);
+            });
         });
     }
 

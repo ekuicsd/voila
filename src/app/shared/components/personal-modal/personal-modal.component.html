@@ -42,7 +42,9 @@
                 </div>
                 <div *ngIf="totalPrice && totalPrice > 0" class="row mt-4 text-black">
                     <div class="col">
-                        <h6 class="text-left">Your Total : Rs. {{totalPrice}}/-
+                        <h6 class="text-left">Your Total :
+                            {{staticDataService.currency.name}} {{totalPrice*(staticDataService.currency.value) | price}}/-
+
                             <span class="float-right">
                       <button type="button" style="background:#553d67" (click)="agree = true" class="btn white-text m-0" size="sm" mdbBtn>Agree</button>
                     </span>

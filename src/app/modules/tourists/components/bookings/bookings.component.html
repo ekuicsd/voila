@@ -124,7 +124,7 @@
                 <B>Price</B>
             </div>
             <div class="col-6">
-                Rs. {{selectedBooking.price}}/-
+                {{staticDataService.currency.name}}. {{selectedBooking.price*(staticDataService.currency.value) | price}}/-
             </div>
         </div>
         <div class="row">

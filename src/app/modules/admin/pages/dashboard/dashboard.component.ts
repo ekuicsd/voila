@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
     this.adminService.getAllGuides('PENDING').subscribe(res => {
       if(res.success) {
         this.newGuideList = res.guides;
-        console.log(res.guides);
+        // console.log(res.guides);
       } else {
         this.toastr.error(res.message);
       }
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     this.adminService.getAllGuides('CONTACTED').subscribe(res => {
       if(res.success) {
         this.contactedGuideList = res.guides;
-        console.log(res.guides);
+        // console.log(res.guides);
       } else {
         this.toastr.error(res.message);
       }
