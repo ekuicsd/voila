@@ -17,7 +17,12 @@ export class TouristsService {
         if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
             this.socket.emit('initial_connect', { userType: 'TOURISTS', _id: JSON.parse(this.userService.getUser('tourist'))._id});
         }
+        this.onSocket();
+    }
+
+    onSocket() {
         this.socket.on('new_notification_tourist', (data) => {
+            console.log(data);
             this.toastr.info(data.notificationText);
         });
     }
