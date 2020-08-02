@@ -29,7 +29,7 @@ export class DealsCardsComponent implements OnInit {
     private touristService: TouristsService,
     public jwtService: JwtService,
     private toastr: ToastrService,
-    private staticDataService: StaticDataService,
+    public staticDataService: StaticDataService,
      private router: Router) { }
 
   ngOnInit() {

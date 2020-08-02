@@ -53,7 +53,7 @@
                     <B>Price per head</B>
                 </div>
                 <div class="col-6">
-                    Rs. {{deal?.price}}/-
+                {{staticDataService.currency.name}}. {{deal?.price*(staticDataService.currency.value) | price}}/-
                 </div>
             </div>
             <div class="row">
@@ -80,6 +80,7 @@
                     </tr>
                 </tbody>
             </table>
+            <div id='map'></div>
 
         </div>
         <div class="text-center mt-2 mb-4">

@@ -3,6 +3,7 @@ import { SearchService } from 'src/app/shared/service/search.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/service/user.service';
 import { MDBModalService } from 'angular-bootstrap-md';
+import { StaticDataService } from 'src/app/shared/service/static-data.service';
 
 @Component({
   selector: 'app-guides-list',
@@ -17,6 +18,7 @@ export class GuidesListComponent implements OnInit {
 
   constructor(public searchService: SearchService,
     private userService: UserService,
+    public staticService: StaticDataService,
      private router: Router) { }
 
   ngOnInit() {

@@ -40,7 +40,7 @@
                 <!-- </a> -->
                 <!-- <select  -->
                     <!-- <select class="inputStyle" [(ngModel)]="curr" (change)="changeCurrency($event)" id="form7" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
-                        <option *ngFor="let item of currencyData" [value]="item.name"> {{ item?.name }}</option>
+                        <option class="inputStyle" *ngFor="let item of currencyData" [value]="item.name"> {{ item?.name }}</option>
                     </select> -->
             </li>
             <li class="nav-item dropdown" dropdown >
@@ -259,9 +259,8 @@
                 <!-- <a class="nav-link waves-light" mdbWavesEffect> -->
                     <!-- <input type="text" class="inputStyle" mdbInput [(ngModel)]="curr" (change)="changeCurrency($event)">  -->
                 <!-- </a> -->
-                <select class="inputStyle" [(ngModel)]="curr" (change)="changeCurrency($event)" id="form7" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
-                    <!-- <option value="" disabled></option> -->
-                    <option *ngFor="let item of currencyData" [value]="item.name"> {{ item?.name }}</option>
+                <select class="inputStyle" [(ngModel)]="curr" (change)="changeCurrency($event)" id="form7" class="browser-default custom-select">
+                    <option class="inputStyle" *ngFor="let item of currencyData" [value]="item.name"> {{ item?.name }}</option>
                 </select>
             </li>
             <li class="nav-item dropdown" dropdown >

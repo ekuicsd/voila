@@ -7,6 +7,7 @@ import { GuideService } from '../../service/guide.service';
 import { TouristsService } from '../../service/tourists.service';
 import { ToastrService } from 'ngx-toastr';
 import { StaticDataService } from '../../service/static-data.service';
+import { SearchService } from '../../service/search.service';
 
 @Component({
   selector: 'app-header',
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit{
   public onGoingEvents: any[] = [];
   public chatList = [];
   public curr = 'INR';
-  public currencyData;
+  public currencyData = [];
  
   
   constructor(
@@ -35,6 +36,7 @@ export class HeaderComponent implements OnInit{
     private StaticDataService: StaticDataService,
     private touristService: TouristsService,
     private toastr: ToastrService,
+    public searchService: SearchService,
     public userService: UserService) {
     }
 
@@ -48,7 +50,20 @@ export class HeaderComponent implements OnInit{
   }
 
   changeCurrency(data) {
-    console.log(data.target.value);
+    // console.log(data);
+    // console.log(data.target.value);
+    let index = this.StaticDataService.currencyList.map(ele => ele.name).indexOf(data.target.value);
+    this.StaticDataService.currency = this.StaticDataService.currencyList[index];
+
+    // this.searchService.extra_filter.minPrice = this.StaticDataService.currency.value * 100;
+    // this.searchService.extra_filter.maxPrice = this.StaticDataService.currency.value * 2000;
+    // this.searchService.options = {
+    //   floor: this.StaticDataService.currency.value * 100,
+    //   ceil: this.StaticDataService.currency.value * 10000,
+    //   translate: (value: number): string => {
+    //     return this.StaticDataService.currency.name + value;
+    //   }
+    // }
   }
 
   onLinkClick() {

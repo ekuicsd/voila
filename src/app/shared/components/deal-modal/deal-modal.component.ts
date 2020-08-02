@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { MDBModalService } from 'angular-bootstrap-md';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/validators/custom';
@@ -9,13 +9,15 @@ import { UserService } from '../../service/user.service';
 import Swal from 'sweetalert2';
 import { GuideService } from '../../service/guide.service';
 import { JwtService } from '../../service/jwt.service';
-
+import { StaticDataService } from '../../service/static-data.service';
+import * as L from 'leaflet';
 @Component({
   selector: 'app-deal-modal',
   templateUrl: './deal-modal.component.html',
-  styleUrls: ['./deal-modal.component.scss']
+  styleUrls: ['./deal-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DealModalComponent implements OnInit {
+export class DealModalComponent implements OnInit, OnChanges {
 
   
   @ViewChild('dealTour2', {static: false}) modal2: MDBModalService;
@@ -27,21 +29,62 @@ export class DealModalComponent implements OnInit {
   totalPrice: number = 0;
   peopleLimit = true;
   public user;
+  public  mbUrl;
 
   constructor(private toastr: ToastrService,
     private touristService: TouristsService,
     public userService: UserService,
     private jwtService: JwtService,
     private guideService: GuideService,
+    public staticDataService: StaticDataService,
     private router: Router
     ) { }
+
+    ngOnChanges() {
+      if(this.deal) {
+        console.log(this.deal);
+        console.log(this.deal.placeCoordinates);
+        var cities = L.layerGroup();
+        for(let ele of this.deal.placeCoordinates) {
+          console.log(ele);
+          L.marker([this.deal.placeCoordinates[0]['lat']['$numberDecimal'], this.deal.placeCoordinates[0]['lng']['$numberDecimal']]).bindPopup('TourPlace').addTo(cities)
+        }
+        //  this.deal.placeCoordinates.forEach(ele => {
+        //   });
+        this.mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+      var grayscale   = L.tileLayer(this.mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1})
+          	var map = L.map('map', {
+        // center: [20.5937, 78.9629],
+        center: [this.deal.placeCoordinates[0]['lat']['$numberDecimal'], this.deal.placeCoordinates[0]['lng']['$numberDecimal']],
+        zoom: 10,
+        layers: [grayscale, cities]
+      });
+      
+      map.touchZoom.disable();
+      map.doubleClickZoom.disable();
+      map.scrollWheelZoom.disable();
+      map.boxZoom.disable();
+      map.keyboard.disable();
+      }
+    }
 
   ngOnInit() {
     this.createForm();
     if(this.jwtService.getToken()) {
       this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
     } 
-  }
+   
+   
+    // L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
+    // L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
+    // L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
+    // L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
+  
+
+
+	
+    }
 
     createForm() {
     this.dealForm = new FormGroup({

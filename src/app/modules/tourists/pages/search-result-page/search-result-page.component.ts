@@ -22,9 +22,10 @@ export class SearchResultPageComponent implements OnInit, OnDestroy {
     floor: 100,
     ceil: 10000,
     translate: (value: number): string => {
-      return '₹' + value;
+      return 'INR' + value;
     }
   };
+  
   public interestList: string[]; 
   public languageList: string[];
   public langMore: boolean = true;
@@ -40,6 +41,8 @@ export class SearchResultPageComponent implements OnInit, OnDestroy {
      }
   
   ngOnInit() {
+    // this.minPrice = this.staticDataService.currency.value * 100;
+    // this.maxPrice = this.staticDataService.currency.value * 2000;
    
     var tabs = $('.tabs');
     var selector = $('.tabs').find('a').length;
@@ -151,6 +154,8 @@ export class SearchResultPageComponent implements OnInit, OnDestroy {
 
   resetAll() {
     this.searchService.extra_filter = {
+      // minPrice: this.staticDataService.currency.value * 100,
+      // maxPrice:  this.staticDataService.currency.value * 2000,
       minPrice: 100,
       maxPrice: 2000,
       rating: null,

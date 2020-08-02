@@ -6,6 +6,9 @@ import { TopDestination } from '../models/topDestinations.model';
 })
 export class StaticDataService {
 
+    public currencyList: any[] = [];
+    public currency;
+
     constructor() {}
 
     getAllInterestList() : string[] {
@@ -142,9 +145,109 @@ export class StaticDataService {
     }
 
     getCurrencyData() : any[] {
-        return [
-            {}
-        ]
+        this.currencyList =  [
+            {name: 'INR',
+            value: 1.0
+            },
+            {name: 'CAD',
+            value: 0.0179363799
+            },
+            {name: 'HKD',
+            value: 0.1035984453
+            },
+            {name: 'ISK',
+            value: 1.8051457937
+            },
+            {name: 'PHP',
+            value: 0.6557643382
+            },
+            {name: 'DKK',
+            value: 0.0839866645
+            },
+            {name: 'HUF',
+            value: 3.8917815097
+            },
+            {name: 'CZK',
+            value: 0.2953105697
+            },
+            {name: 'GBP',
+            value: 0.0101599246
+            },
+            {name: 'RON',
+            value: 0.0545097619
+            },
+            {name: 'SEK',
+            value: 0.1160201048
+            },
+            {name: 'IDR',
+            value: 195.9034472644
+            },
+            {name: 'BRL',
+            value: 0.0690682627
+            },
+            {name: 'RUB',
+            value: 0.9893327166
+            },
+            {name: 'HRK',
+            value: 0.0844074891
+            },
+            {name: 'JPY',
+            value: 1.4024854601
+            },
+            {name: 'THB',
+            value: 0.4168532924
+            },
+            {name: 'CHF',
+            value: 0.0121497594
+            },
+            {name: 'EUR',
+            value: 0.0112821612
+            },
+            {name: 'MYR',
+            value: 0.0566702958
+            },
+            {name: 'BGN',
+            value: 0.0220656509
+            },
+            {name: 'TRY',
+            value: 0.0931850105
+            },
+            {name: 'CNY',
+            value: 0.0932323956
+            },
+            {name: 'NOK',
+            value: 0.1210835388
+            },
+            {name: 'NZD',
+            value: 0.0200495287
+            },
+            {name: 'ZAR',
+            value: 0.2267263117
+            },
+            {name: 'USD',
+            value: 0.0133671046
+            },
+            {name: 'MXN',
+            value: 0.2964726323
+            },
+            {name: 'SGD',
+            value: 0.0183278709
+            },
+            {name: 'AUD',
+            value: 0.0186020274
+            },
+            {name: 'ILS',
+            value: 0.0454806483
+            },
+            {name: 'KRW',
+            value: 15.9028831563
+            },
+            {name: 'PLN',
+            value: 0.0496798687
+            }
+          ];
+          this.currency = this.currencyList[0];
+          return this.currencyList;
     }
     
 }
