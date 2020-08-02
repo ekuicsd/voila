@@ -30,6 +30,7 @@ export class DealModalComponent implements OnInit, OnChanges {
   peopleLimit = true;
   public user;
   public  mbUrl;
+  public orderIdJson;
 
   constructor(private toastr: ToastrService,
     private touristService: TouristsService,
@@ -183,7 +184,13 @@ export class DealModalComponent implements OnInit, OnChanges {
   }
 
   public async initPay() {
-    // this.orderIdJson = await this.orderService.initOrder(this.cartId);
+    let request = {
+      amount : this.totalPrice,
+      currency: this.staticDataService.currency.name,
+      receipt: this.user.email
+    }
+    this.orderIdJson = await this.touristService.initPay(request, this.deal._id, this.user._id);
+    console.log(this.orderIdJson);
     // if (!this.orderIdJson['success']) {
     //     alert('could not get orderid');
     //     console.log(this.orderIdJson);
