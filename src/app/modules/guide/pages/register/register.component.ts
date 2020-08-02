@@ -3,6 +3,8 @@ import { WizardComponent } from 'ng2-archwizard/dist';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -23,6 +25,7 @@ export class RegisterComponent implements OnInit {
 
   getProfileData(data) {
     this.file = data;
+    this.wizard.navigation.goToNextStep();
   }
 
   getPersonalData(data) {
@@ -60,8 +63,13 @@ export class RegisterComponent implements OnInit {
     }
     this.guideService.guideSignup(formData).subscribe( res => {
       if(res.success) {
-        this.toastr.success("Created Successfully!");
-        this.router.navigateByUrl('/login/guide');
+        Swal.fire({
+          title: 'Signup successfully!',
+          text: "Your Application as a guide submiited and under review process. After Review you will be contacted by our employee for verification via call or email",
+          confirmButtonColor: '#553d67',
+          confirmButtonText: 'Ok'
+        });
+        this.router.navigateByUrl('/');
       } else {
         this.toastr.error(res.message);
         this.wizard.navigation.reset();

@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="col-6">
-            <img src="assets\images\undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
+            <img src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
         </div>
     </div>
 </div>
@@ -17,20 +17,18 @@
 <div class=" font mx-4 mb-5">
     <div class="row" style="margin-top: 40px;">
         <div class=" col-7 col-md-3">
-            <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
+            <h4 style="color: #22c1c3">Personal Info</h4>
         </div>
         <div class="col-5 d-block d-md-none text-right  mb-2" *ngIf="urlArray.length <= 0">
-            <img [src]="userData.picUrl ? userData.picUrl : '../../../../../assets/images/grayman.png'" height="60px" width="60px" 
-                style="border-radius: 50%;" alt="">
+            <img [src]="userData.picUrl ? userData.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" height="60px" width="60px" style="border-radius: 50%;" alt="">
         </div>
         <div class="col-5 d-block d-md-none text-right  mb-2" *ngIf="urlArray.length > 0">
-            <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" 
-                style="border-radius: 50%;" alt="">
+            <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" style="border-radius: 50%;" alt="">
         </div>
         <div class="col-12 col-md-9">
             <div class="row">
                 <div class="col-10">
-                    <h4 style="color: rgba(3, 169, 244, 0.7)">{{userData.name}}</h4>
+                    <h4 style="color: #22c1c3">{{userData.name}}</h4>
                 </div>
                 <div class="col-2 float-right edit-btn">
                     <a (click)="editpersonal.show()">
@@ -40,66 +38,64 @@
             </div>
             <div class="row my-2">
                 <div class="col-6 mb-3  mb-md-4  ">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Aadhar Number </b>
+                    <b style="color: #22c1c3">Aadhar Number </b>
                     <div> {{userData.aadhaarNumber}}</div>
                 </div>
                 <div class="col-6 mb-3  mb-md-4  ">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Date of birth </b>
+                    <b style="color: #22c1c3">Date of birth </b>
                     <div>{{userData.dob | date: 'dd-MM-yyyy'}}</div>
                 </div>
             </div>
             <div class="row my-2">
                 <div class="col-12 col-md-6 mb-3  mb-md-4  ">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
+                    <b style="color: #22c1c3">Email </b>
                     <div> {{userData.email}}</div>
                 </div>
                 <div class="col-6 mb-3  mb-md-4  ">
-                    <b style="color: rgba(3, 169, 244, 0.7)"> Phone </b>
+                    <b style="color: #22c1c3"> Phone </b>
                     <div>{{userData.phoneNumber}}</div>
                 </div>
                 <div class="col-6 mb-3  mb-md-4  ">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Address </b>
+                    <b style="color: #22c1c3">Address </b>
                     <div>{{userData.address | titlecase}}</div>
                 </div>
                 <div class="col-6 mb-3  mb-md-4  ">
-                    <b style="color: rgba(3, 169, 244, 0.7)">City </b>
+                    <b style="color: #22c1c3">City </b>
                     <div>{{userData.city | titlecase}}</div>
                 </div>
-            <div class="col-6 mb-3  mb-md-4  ">
-                <b style="color: rgba(3, 169, 244, 0.7)">State  </b>
-            <div> {{userData.state | titlecase}}</div>
+                <div class="col-6 mb-3  mb-md-4  ">
+                    <b style="color: #22c1c3">State  </b>
+                    <div> {{userData.state | titlecase}}</div>
+                </div>
+                <div class="col-6 d-none d-md-block" *ngIf="urlArray.length <= 0">
+                    <img [src]="userData.picUrl ? userData.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" height="60px" width="60px" style="border-radius: 50%;" alt="">
+                </div>
+                <div class="col-6 d-none d-md-block" *ngIf="urlArray.length > 0">
+                    <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" style="border-radius: 50%;" alt="">
+                </div>
             </div>
-            <div class="col-6 d-none d-md-block" *ngIf="urlArray.length <= 0">
-                <img [src]="userData.picUrl ? userData.picUrl : '../../../../../assets/images/grayman.png'" height="60px" width="60px" 
-                    style="border-radius: 50%;" alt="">
-            </div>
-            <div class="col-6 d-none d-md-block" *ngIf="urlArray.length > 0">
-                <img *ngFor="let url of urlArray" [src]="url" height="60px" width="60px" 
-                    style="border-radius: 50%;" alt="">
-            </div>
-        </div>
         </div>
     </div>
     <hr>
     <!--  -->
     <div class="row">
         <div class="col-12 col-md-3">
-            <h4 style="color: rgb(3, 168, 244)">Business Info</h4>
+            <h4 style="color: #553d67">Business Info</h4>
         </div>
         <div class="col-12 col-md-9">
             <div class="row">
                 <div class="col-10">
                     <div class="row my-2">
                         <div class="col-6 mb-3  mb-md-4  ">
-                            <b style="color: rgba(3, 169, 244, 0.7)">People Limit </b>
+                            <b style="color: #553d67">People Limit </b>
                             <div>{{userData.peopleLimit}}</div>
                         </div>
                         <div class="col-6 mb-3  mb-md-4  ">
-                            <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Head</b>
+                            <b style="color: #553d67">Charges Per Head</b>
                             <div>Rs. {{userData.perHeadCharge}}</div>
                         </div>
                         <div class="col-6 mb-3  mb-md-4  ">
-                            <b style="color: rgba(3, 169, 244, 0.7)">Charges Per Day </b>
+                            <b style="color: #553d67">Charges Per Day </b>
                             <div>Rs. {{userData.perDayCharge}}</div>
                         </div>
                     </div>
@@ -145,16 +141,16 @@
                     </div>
                 </div>
                 <div class="col-3 m-0 mt-sm-2 p-0">
-                  <div class="col-6 m-0 p-0 float-left">
-                    <a (click)="removeExperience(item)">
-                        <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
-                    </a>
-                  </div>
-                  <div class="col-6 m-0 p-0 float-right">
-                     <a (click)="editExpShow(editexperience, item)">
-                        <mdb-icon fas icon="edit"></mdb-icon>
-                    </a>
-                  </div>
+                    <div class="col-6 m-0 p-0 float-left">
+                        <a (click)="removeExperience(item)">
+                            <mdb-icon fas icon="trash-alt" class="red-text pr-3"></mdb-icon>
+                        </a>
+                    </div>
+                    <div class="col-6 m-0 p-0 float-right">
+                        <a (click)="editExpShow(editexperience, item)">
+                            <mdb-icon fas icon="edit"></mdb-icon>
+                        </a>
+                    </div>
                     <!-- <a class="float-right" (click)="editexperienceWithData.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
@@ -185,12 +181,12 @@
     <hr>
     <div class="row">
         <div class="col-12 col-md-3">
-            <h4 style="color: rgb(255, 153, 0) ">Interests</h4>
+            <h4 style="color: rgb(255, 153, 0)">Interests</h4>
         </div>
         <div class="col-12 col-md-9">
             <div class="row mb-2" *ngFor="let item of userData.interests">
                 <div class="col-10">
-                    <b style="color: rgba(255, 152, 0, 0.7) ">{{item | titlecase}}</b>
+                    <b style="color: rgba(255, 152, 0, 0.7)">{{item | titlecase}}</b>
                 </div>
                 <div class="col-2">
                     <a (click)="removeInterests(item)" class="float-right">
@@ -199,15 +195,15 @@
                     <!-- <a class="float-right" (click)="addintrest.show()" ><mdb-icon fas icon="edit"></mdb-icon></a> -->
                 </div>
             </div>
-            <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0) ">+Add more</b></a>
+            <a (click)="addintrest.show()"><b style="color: rgb(255, 153, 0)">+Add more</b></a>
         </div>
     </div>
     <hr>
 
     <div class="row mt-4">
         <div class="col-12 text-center">
-            <button type="button" [routerLink]="['/guide/guidehome/']" class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
-            <button type="button" class="btn btn-info" (click)="saveRecord()" mdbBtn size="md">Save</button>
+            <button type="button" [routerLink]="['/guide/guidehome/']" class="btn text-white" style="background: #757575; color:white;" mdbBtn size="md">Cancel</button> &nbsp;
+            <button type="button" class="btn save-btn" (click)="saveRecord()"  style="background: #553d67;" mdbBtn size="md">Save</button>
         </div>
     </div>
 </div>
@@ -216,7 +212,7 @@
 <div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
+            <div class="modal-header" style="background-color: #22c1c3; color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
           <span aria-hidden="true">×</span>
         </button>
@@ -256,7 +252,7 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="form3">Date Of Birth</label>
-                                <input type="text" id="form3"  formControlName="dob" class="form-control" disabled>
+                                <input type="text" id="form3" formControlName="dob" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -281,8 +277,7 @@
                             <div class="form-group">
                                 <label for="form6">State</label>
                                 <!-- <input type="text" id="form6" formControlName="state" class="form-control"> -->
-                                <select class="form-control" id="form58" formControlName="state" class="browser-default custom-select" #state
-                                    (change)="getAllCity(state.value)">
+                                <select class="form-control" id="form58" formControlName="state" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
                                     <option value="" disabled>Select State</option>
                                     <option *ngFor="let item of stateList" [value]="item.name"> {{ item?.name }}</option>
                                 </select>
@@ -312,20 +307,22 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <div class="upload-image">
-                                  <label class=" control-label upload"  for="filebutton">
+                                    <label class=" control-label upload" for="filebutton">
                                     <mdb-icon fas icon="camera-retro"></mdb-icon>&nbsp;
                                     <span>Upload file<br></span>
                                     <input id="filebutton" name="filebutton" #inputFile (change)="onSelectFile($event)" type="file" >
                                   </label>
                                 </div>
-                              </div>
-                              <!-- <small class="text-mute">If want to change or upload!</small> -->
+                            </div>
+                            <!-- <small class="text-mute">If want to change or upload!</small> -->
                         </div>
                     </div>
                 </div>
                 <div class="float-right">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" class="waves-light btn-sm" 
+                    aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit"  style="background: #22c1c3;" mdbBtn class="save-btn btn-sm relative waves-light"
+                     mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -335,7 +332,7 @@
 <div style="overflow-y: auto" mdbModal #editbusiness="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myeditbusinessLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: rgba(233, 30, 99, 0.7); color: white; ">
+            <div class="modal-header" style="background-color: #553d67; color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editbusiness.hide()">
           <span aria-hidden="true">×</span>
         </button>
@@ -368,8 +365,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editbusiness.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" (click)="submitBusinessDetails()" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;"
+                     class="waves-light btn-sm" aria-label="Close" (click)="editbusiness.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" (click)="submitBusinessDetails()"  
+                    style="background: #553d67;" mdbBtn class="save-btn btn-sm relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -418,9 +417,15 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editexperience.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn color="primary" *ngIf="!editExp" (click)="addExperience()" class="relative waves-light" mdbWavesEffect>Save!</button>
-                    <button type="submit" mdbBtn color="primary" (click)="updateExperience()" *ngIf="editExp" class="relative waves-light" mdbWavesEffect>Update!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" 
+                    class="waves-light btn-sm" aria-label="Close" (click)="editexperience.hide()"
+                     mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn *ngIf="!editExp" (click)="addExperience()" 
+                     style="background: #f06191;" class="save-btn btn-sm relative waves-light" 
+                     mdbWavesEffect>Save!</button>
+                    <button type="submit" mdbBtn (click)="updateExperience()" *ngIf="editExp"  
+                    style="background: #f06191;" class="save-btn white-text btn-sm relative waves-light"
+                     mdbWavesEffect>Update!</button>
                 </div>
             </form>
         </div>
@@ -448,8 +453,11 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn style="background: #757575; color:white;" 
+                    class="waves-light btn-sm" aria-label="Close" (click)="addlanguage.hide()" 
+                    mdbWavesEffect>Close</button>
+                    <button type="submit" style="background-color: rgba(76, 175, 80, 0.7); color: white;" 
+                    mdbBtn class="save-btn btn-sm relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -477,8 +485,12 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn size="sm"
+                    style="background: #757575; color:white;" class="waves-light btn-sm"
+                     aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn size="sm"
+                     style="background-color: rgba(255, 152, 0, 0.7); color: white;"
+                      class="save-btn relative waves-light btn-sm" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>

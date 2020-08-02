@@ -25,6 +25,7 @@ import { RatingModalComponent } from './components/rating-modal/rating-modal.com
 import { ChatRoomComponent } from './components/chat-room/chat-room.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ExploreIndiaPagesComponent } from './components/explore-india-pages/explore-india-pages.component';
 
 const routes: Routes = [
     { 
@@ -65,7 +66,11 @@ const routes: Routes = [
     }, 
     {
         path: 'contact', component: ContactUsComponent
-    }, 
+    },
+    {
+         path: 'exploreIndia/:state' , component: ExploreIndiaPagesComponent
+    }   
+    
     
    
 ];
@@ -90,7 +95,8 @@ const routes: Routes = [
         RatingModalComponent,
         ChatRoomComponent,
         FilterPipe,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        ExploreIndiaPagesComponent
     ],
     imports: [
         CommonModule,
@@ -118,7 +124,8 @@ const routes: Routes = [
         RatingModalComponent,
         ChatRoomComponent,
         FilterPipe,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        ExploreIndiaPagesComponent
     ]
 }) 
 

@@ -6,7 +6,9 @@ import { StaticDataService } from 'src/app/shared/service/static-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { GuideService } from 'src/app/shared/service/guide.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { UserService } from 'src/app/shared/service/user.service';
+
 @Component({
   selector: 'app-create-deal',
   templateUrl: './create-deal.component.html',
@@ -101,24 +103,35 @@ export class CreateDealComponent implements OnInit {
   }
 
   saveDeal() {
-    if(this.dealForm.valid && this.placesList.length > 0) {
-      this.deal = this.dealForm.value;
-      this.deal['places'] = this.placesList;
-      this.guideService.createDeal(this.deal).subscribe( res=> {
-        console.log(res);
-          if(res.success) {
-            this.guideService.createGroupChatRoom(this.user._id, res.deal._id, this.dealForm.value.groupName).subscribe( res => {
-              this.toastr.success("Deal created successfully!");
-              this.router.navigateByUrl('/guide/guidehome/deals');
-            });
-          } else {
-            this.toastr.error(res.message);
-          }
-        }, error => {
-      });
-    } else {
-      this.toastr.error("Invalid Details!");
-    }
+    Swal.fire({
+      text: "Are you sure to create deal?",
+      showCancelButton: true,
+      confirmButtonColor: '#553d67',
+      cancelButtonColor: '#757575',
+      confirmButtonText: 'Submit'
+    }).then((result) => {
+      if (result.value) {
+        if(this.dealForm.valid && this.placesList.length > 0) {
+          this.deal = this.dealForm.value;
+          this.deal['places'] = this.placesList;
+          this.guideService.createDeal(this.deal).subscribe( res=> {
+            // console.log(res);
+              if(res.success) {
+                this.guideService.createGroupChatRoom(this.user._id, res.deal._id, this.dealForm.value.groupName).subscribe( res => {
+                  this.toastr.success("Deal created successfully!");
+                  this.router.navigateByUrl('/guide/guidehome/deals');
+                });
+              } else {
+                this.toastr.error(res.message);
+              }
+            }, error => {
+          });
+        } else {
+          this.toastr.error("Invalid Details!");
+        }
+      }
+    }); 
+
   }
 
 }

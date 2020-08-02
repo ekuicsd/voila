@@ -68,7 +68,6 @@ $lavender: #CBC0D3;
 $pale: #EAC7CC;
 $white: #f6f6f6;
 $pink: darken($pale, 20%);
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
 $sans-serif: 'Open Sans',
 sans-serif;
 $serif: 'Lora',
@@ -77,6 +76,7 @@ serif;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.9671218829328606) 0%, rgba(235, 216, 219, 1) 100%);
     // min-height: 100vh;
 }
+
 .container-fluid {
     overflow-x: auto !important;
 }
@@ -211,8 +211,8 @@ button {
     font-family: $sans-serif;
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 11px;
-    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
     margin: auto;
     outline: none;
     display: block;
@@ -266,7 +266,7 @@ button {
 input {
     background: $pale;
     // width: 65%;
-    color: $pink;
+    color: #ba9dcf;
     border: none;
     border-bottom: 1px solid rgba($white, 0.5) !important;
     padding: 9px;
@@ -278,9 +278,9 @@ input {
         font-weight: 100;
     }
     &:focus {
-        color: $pink !important;
+        color: #ba9dcf !important;
         outline: none;
-        border-bottom: 1.2px solid rgba($pink, 0.7) !important;
+        border-bottom: 1.2px solid rgba(#ba9dcf, 0.7) !important;
         font-size: 1em;
         transition: .8s all ease;
         &::placeholder {
@@ -291,7 +291,8 @@ input {
 
 label {
     font-family: $sans-serif;
-    color: $pink;
+    // color: $pink;
+    color: #ba9dcf;
     font-size: 0.8em;
     letter-spacing: 1px;
 }
@@ -337,7 +338,8 @@ a {
     // position:absolute;
     min-height: 93vh;
     padding: 40px 70px 20px 70px;
-    background: rgba(40, 57, 101, .9);
+    // background: rgba(40, 57, 101, .9);
+    background: #553d67;
 }
 
 @media(max-width: 425px) {
@@ -347,7 +349,8 @@ a {
         // height:100%;
         // position:absolute;
         padding: 40px 40px 20px 40px;
-        background: rgba(40, 57, 101, .9);
+        // background: rgba(40, 57, 101, .9);
+        background: #553d67;
     }
 }
 
@@ -388,7 +391,7 @@ a {
 .login-html1 .sign-in:checked+.tab,
 .login-html1 .sign-up:checked+.tab {
     color: #fff;
-    border-color: #1161ee;
+    border-color: #22c1c3;
 }
 
 .login-form1 {
@@ -414,7 +417,7 @@ a {
 .login-form1 .group1 .button {
     border: none;
     padding: 10px 20px;
-    border-radius: 25px;
+    // border-radius: 25px;
     background: rgba(255, 255, 255, .1);
 }
 
@@ -428,7 +431,8 @@ a {
 }
 
 .login-form1 .group1 .button {
-    background: #1161ee;
+    // background: #1161ee;
+    background: #ba9dcf;
 }
 
 .login-form1 .group1 label .icon {
@@ -468,7 +472,7 @@ a {
 }
 
 .login-form1 .group1 .check:checked+label .icon {
-    background: #1161ee;
+    background: #22c1c3;
 }
 
 .login-form1 .group1 .check:checked+label .icon:before {
@@ -497,17 +501,10 @@ a {
     text-align: center;
 }
 
-// @media (max-width: 800px){
-//   .large-screen{
-//     display: none;
-//   }
-//   .small-screen{
-//     display: block;
-//   }
-//   form{
-//     all: unset;
-//   }
-// }
+.forgot {
+    font-size: 14px;
+}
+
 // @media (min-width: 800px){
 //   .large-screen{
 //     display: block;

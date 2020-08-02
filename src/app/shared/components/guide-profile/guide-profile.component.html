@@ -5,7 +5,7 @@
                 <div class="container mt-4">
                     <div class="row">
                         <div class="col-4 col-sm-3 col-md-3 view overlay waves-light " mdbWavesEffect>
-                            <img [src]="guide?.picUrl ? guide?.picUrl : '../../assets/images/grayman.png'" 
+                            <img [src]="guide?.picUrl ? guide?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 
                             class="img-fluid rounded-circle z-depth-0" style="height:80px; width:80px;">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
@@ -13,9 +13,12 @@
                         </div>
                         <div class="col-8 col-sm-9 col-md-9">
                             <h2>{{guide?.name | titlecase}}</h2>
-                            <div>
+                            <div *ngIf="getRating().length > 0">
                                 <mdb-icon *ngFor="let star of getRating()" fas icon="star"></mdb-icon>
                                 <strong> {{ratings.length}}+ Reviews</strong>
+                            </div>
+                            <div *ngIf="getRating().length <= 0">
+                                <strong>New Guide</strong>
                             </div>
                         </div>
                     </div>
@@ -38,39 +41,20 @@
                         <mdb-icon fas icon="heart" class="purple-text pr-1"></mdb-icon>Loves <strong>{{guide?.interests.toString()}}</strong>
                     </div>
                     <div class="text-center py-2">
-                        <button mdbBtn type="button" class="pink darken-3 white-text" (click)="openModal(personalTour)" rounded="true" mdbWavesEffect><b>Contact Me</b></button>
+                        <button mdbBtn type="button" class="white-text" style="background: #553d67;" (click)="openModal(personalTour)" rounded="true" mdbWavesEffect><b>Contact Me</b></button>
                     </div>
                 </mdb-card-body>
             </mdb-card>
         </div>
         <div class="col-md-7 col-lg-8">
-            <img *ngIf="guide?.picUrl" [src]="guide?.picUrl" 
-            class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px">
+            <!-- <img *ngIf="guide?.picUrl" [src]="guide?.picUrl" 
+            class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px"> -->
             <!-- <img *ngIf="!(guide?.picUrl)" src="" class="mt-4 img-fluid z-depth-2" style="height:430px; width:750px"> -->
-            <br>
-            <br>
-            <div>
-                <h2>Reviews</h2>
-                <div class="row" *ngFor="let rate of ratings | slice:0:3">
-                    <div class="col-sm-3">
-                        <h6>
-                            <mdb-badge pill="true" primary="true">{{rate.rating}}</mdb-badge>
-                        </h6>
-                        <p><b>{{rate.tourType | titlecase}}</b></p>
-                    </div>
-                    <div class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
-                        <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
-                            <mdb-icon fas icon="check-double"></mdb-icon>
-                        </mdb-badge>&nbsp;
-                        <p>{{rate.review}}</p>
-                    </div>
-                </div>
-                <hr>
-
-            </div>
+           
+           
             <div class="card my-4 bgclass">
                 <div class="view overlay mx-auto pt-5">
-                    <img class="card-img rounded-circle " [src]="guide?.picUrl ? guide?.picUrl : '../../assets/images/grayman.png'" style="width:100px; height:100px;" alt="Card image cap">
+                    <img class="card-img rounded-circle " [src]="guide?.picUrl ? guide?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" style="width:100px; height:100px;" alt="Card image cap">
                     <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -80,9 +64,28 @@
                     <h6>Just let me know your preferences for a private and personalized trip!
                     </h6>
                     <div class="text-center">
-                        <a class="btn pink darken-3 btn-rounded " (click)="openModal(personalTour)">Request a personalized Tour</a>
+                        <a class="btn white-text btn-rounded" style="background: #553d67;" (click)="openModal(personalTour)">Request a personalized Tour</a>
                     </div>
                 </div>
+            </div>
+            <div>
+                <h2 *ngIf="ratings.length > 0">Reviews</h2>
+                <div class="row" *ngFor="let rate of ratings | slice:0:4">
+                    <div *ngIf="rate.rating" class="col-sm-3">
+                        <h6>
+                            <mdb-badge pill="true" primary="true">{{rate.rating}}</mdb-badge>
+                        </h6>
+                        <p><b>{{rate.tourType | titlecase}}</b></p>
+                    </div>
+                    <div *ngIf="rate.rating" class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
+                        <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
+                            <mdb-icon fas icon="check-double"></mdb-icon>
+                        </mdb-badge>&nbsp;
+                        <p>{{rate.review}}</p>
+                    </div>
+                </div>
+                <hr>
+
             </div>
             <div>
                 <h1 my-2>My Tour Deals in {{guide?.state}}</h1>

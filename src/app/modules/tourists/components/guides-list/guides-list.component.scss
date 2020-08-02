@@ -51,7 +51,7 @@
     -moz-box-shadow: 5px 5px 15px -7px rgba(102, 102, 102, 1);
     box-shadow: 5px 5px 15px -7px rgba(102, 102, 102, 1);
     border-radius: 6px;
-    height: 40vh;
+    // height: 40vh;
 }
 
 @media screen and (max-width: 380px) {
@@ -64,4 +64,16 @@
     .guide-name {
         font-size: 1em;
     }
+}
+
+.fa-star:before {
+    content: "\f005";
+    color: black;
+}
+.name{
+    cursor: pointer; 
+    color: #22c1c3;
+}
+.name:hover{
+    color: #553d67;
 }

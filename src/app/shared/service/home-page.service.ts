@@ -27,5 +27,14 @@ export class HomeService {
         });
     }
 
+    getExplarePageData(state) : Observable<any> {
+        let url = '/showCity/' + state;
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            })
+        });
+    }
+
     
 }

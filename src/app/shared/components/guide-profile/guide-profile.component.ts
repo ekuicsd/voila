@@ -14,7 +14,7 @@ export class GuideProfileComponent implements OnInit {
   public guideId: any;
   public guide: any;
   public dealList: any[];
-  public ratings;
+  public ratings = [];
 
   constructor(private route: ActivatedRoute,
               private userService: UserService,
@@ -44,13 +44,16 @@ export class GuideProfileComponent implements OnInit {
 
   getRating() : any {
     let rating = 0;
-    this.ratings.filter( ele => {
-      if(ele.rating) {
-        rating = rating + ele.rating;
-        return ele;
-      }
-    });
-    rating = Math.floor(+rating / this.ratings.length );
+    if(this.ratings) {
+      this.ratings.filter( ele => {
+        if(ele.rating) {
+          rating = rating + ele.rating;
+          return ele;
+        }
+      });
+      rating = Math.floor(+rating / this.ratings.length );
+    }
+    
     let arr = [];
     for(let i= 0; i< rating; i++) {
       arr.push(i);

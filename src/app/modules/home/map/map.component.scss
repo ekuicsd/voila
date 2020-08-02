@@ -4,7 +4,7 @@
 //     width: 100%;
 //     height: 100%;
 // }
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&display=swap');
+
 
 .state{
     fill: #ffffff;
@@ -15,8 +15,13 @@
     fill: #453252 ;
 }
 
+.selectedState {
+  fill: #453252;
+}
+
 .map-detail{
   font-family: 'Bebas Neue', cursive;
+  padding: 20px 70px;
     text-align: center;
     position: relative;
     top: 50%;
@@ -27,8 +32,7 @@
 }
 .row{
   // background: linear-gradient(to bottom, rgba(152, 226, 195, 0.925) 0%, #453252 100%);
-  background:rgba(182, 224, 207, 0.925);
-  margin: 0;
+ margin: 0;
 }
 // .col-md-6{
 //   padding: 0px;

@@ -26,44 +26,44 @@
                     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
                         <ngb-panel>
                             <ng-template ngbPanelTitle>
-                                <b>PRICE RANGE</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
+                                <b style="text-decoration: none !important;">PRICE RANGE</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
                                 <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
-                                <p>Max price(₹): <input type="number" class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
-                                <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)"  [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
-                        </ng-template>
+                                <p>Max price(₹): <input type="number" class="form-control" [(ngModel)]="searchService.extra_filter.maxPrice"></p>
+                                <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)" [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
+                            </ng-template>
                         </ngb-panel>
                         <ngb-panel>
                             <ng-template ngbPanelTitle>
                                 <b>RATINGS</b>&nbsp;&nbsp;&nbsp;<span><i class="fas fa-angle-down"></i></span>
                             </ng-template>
                             <ng-template ngbPanelContent>
-                                <input type="radio"   value="5" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <input type="radio" value="5" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1">&nbsp;
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
-                            <br>
-                            <input type="radio"   value="4" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <br>
+                                <input type="radio" value="4" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1">&nbsp;
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
-                            <br>
-                            <input type="radio"   value="3" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <br>
+                                <input type="radio" value="3" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1">&nbsp;
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
-                            <br>
-                            <input type="radio"   value="2" (change)="changeRating($event)"   [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <br>
+                                <input type="radio" value="2" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1">&nbsp;
                                 <i class="fa fa-star star" aria-hidden="true"></i>
                                 <i class="fa fa-star star" aria-hidden="true"></i>
-                            <br>
-                            <input type="radio"   value="1" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1" >&nbsp;
+                                <br>
+                                <input type="radio" value="1" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star1">&nbsp;
                                 <i class="fa fa-star star" aria-hidden="true"></i>
-                            <br>
+                                <br>
                             </ng-template>
                         </ngb-panel>
                         <ngb-panel>
@@ -72,8 +72,7 @@
                             </ng-template>
                             <ng-template ngbPanelContent>
                                 <input type="text" name="citySearch" [(ngModel)]="citySearch" class="form-control mb-2" placeholder="search for city">
-                                <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch" [checked]="getCities(city)"
-                                [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>                            
+                                <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch" [checked]="getCities(city)" [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>
                             </ng-template>
                         </ngb-panel>
                         <ngb-panel>
@@ -99,8 +98,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
-                    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.hide()" mdbWavesEffect>Done!</button>
+                    <button type="button" mdbBtn class="waves-light bgrey btn-sm" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                    <button type="button" mdbBtn class="relative waves-light btn-sm dpurple" (click)="basicModal.hide()" mdbWavesEffect>Done!</button>
                 </div>
             </div>
         </div>
@@ -117,9 +116,9 @@
             <div class="col-lg-12">
                 <div class="mb-0"><b>PRICE RANGE</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
-                <p>Min price(₹): <input type="number"  class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
-                <p>Max price(₹): <input type="number"  class="form-control"  [(ngModel)]="searchService.extra_filter.maxPrice"></p>
-                <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)"  [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
+                <p>Min price(₹): <input type="number" class="form-control" [(ngModel)]="searchService.extra_filter.minPrice"></p>
+                <p>Max price(₹): <input type="number" class="form-control" [(ngModel)]="searchService.extra_filter.maxPrice"></p>
+                <ng5-slider [(value)]="searchService.extra_filter.minPrice" (userChange)="changePrice($event)" [(highValue)]="searchService.extra_filter.maxPrice" [options]="options"></ng5-slider>
 
             </div>
         </div>
@@ -129,30 +128,30 @@
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
 
                 <!-- Default unchecked -->
-                <input type="radio" (change)="changeRating($event)" value="5"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <input type="radio" (change)="changeRating($event)" value="5" [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star">&nbsp;
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
                 <br>
-                <input type="radio" (change)="changeRating($event)"  value="4" [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"   [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <input type="radio" (change)="changeRating($event)" value="4" [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star">&nbsp;
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
                 <br>
-                <input type="radio" (change)="changeRating($event)"  value="3"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <input type="radio" (change)="changeRating($event)" value="3" [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star">&nbsp;
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
                 <br>
-                <input type="radio" (change)="changeRating($event)"  value="2"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
-                    <i class="fa fa-star star" aria-hidden="true"></i>
-                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <input type="radio" (change)="changeRating($event)" value="2" [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star">&nbsp;
+                <i class="fa fa-star star" aria-hidden="true"></i>
+                <i class="fa fa-star star" aria-hidden="true"></i>
                 <br>
-                <input type="radio" (change)="changeRating($event)"  value="1"  [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)"  [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star" >&nbsp;
-                    <i class="fa fa-star star" aria-hidden="true"></i>
+                <input type="radio" (change)="changeRating($event)" value="1" [(ngModel)]="searchService.extra_filter.rating" (change)="changeRating($event)" [(ngModel)]="searchService.extra_filter.rating" class="defaultGroupExample2" name="star">&nbsp;
+                <i class="fa fa-star star" aria-hidden="true"></i>
                 <br>
             </div>
         </div>
@@ -163,19 +162,17 @@
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
                 <input type="text" name="citySearch" [(ngModel)]="citySearch" class="form-control mb-2" placeholder="search for city">
                 <div *ngIf="cityMore">
-                    <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch | slice:0:15" [checked]="getCities(city)"
-                    [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>
+                    <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch | slice:0:15" [checked]="getCities(city)" [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>
                     <p class="my-2 text-info cursor" *ngIf="searchService.cityList.length > 15" (click)="moreLessCity()">More+</p>
                 </div>
                 <div *ngIf="!cityMore">
-                    <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch" [checked]="getCities(city)"
-                    [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>
-                    <p class="my-2 text-info cursor" *ngIf="searchService.cityList.length < 15"  (click)="moreLessCity()">Less-</p>
+                    <mdb-checkbox *ngFor="let city of searchService.cityList | filter:citySearch" [checked]="getCities(city)" [value]="city" (change)="changeCity($event)" [default]="true">{{ city }}</mdb-checkbox>
+                    <p class="my-2 text-info cursor" *ngIf="searchService.cityList.length < 15" (click)="moreLessCity()">Less-</p>
                 </div>
 
             </div>
         </div>
-        
+
         <div class="row my-lg-2">
             <div class="col-lg-12">
                 <!-- Default unchecked -->
@@ -193,11 +190,11 @@
                 <div class="mb-0"><b>LANGUAGES</b></div>
                 <hr class="px-3 py-0 ml-0 my-0 mb-2" style="width:50%; border-top: 1px solid deeppink;">
                 <input type="text" name="langSearch" [(ngModel)]="langSearch" class="form-control mb-2" placeholder="search for language">
-                <div *ngIf="!langMore" >
+                <div *ngIf="!langMore">
                     <mdb-checkbox *ngFor="let language of languageList | filter:langSearch" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
-                    <p  class="my-2 text-info cursor" *ngIf="languageList.length <= 15" (click)="moreLess()">Less-</p>
+                    <p class="my-2 text-info cursor" *ngIf="languageList.length <= 15" (click)="moreLess()">Less-</p>
                 </div>
-                <div *ngIf="langMore" >
+                <div *ngIf="langMore">
                     <mdb-checkbox *ngFor="let language of languageList | filter:langSearch | slice:0:15" [checked]="getLanguage(language)" [value]="language" (change)="changeLangauge($event)" [default]="true">{{ language }}</mdb-checkbox>
                     <p class="my-2 text-info cursor" *ngIf="languageList.length > 15" (click)="moreLess()">More+</p>
                 </div>
@@ -208,7 +205,7 @@
 
     <div class="col-12 col-lg-9 col-xl-8">
 
-        <button type="button" mdbBtn color="primary" class="d-block d-lg-none relative waves-light px-3 py-2 float-right" (click)="basicModal.show()" mdbWavesEffect>FILTERS <mdb-icon fas icon="filter"></mdb-icon></button>
+        <button type="button" style="background:#22c1c3" mdbBtn class="white-text d-block d-lg-none relative waves-light px-3 py-2 float-right" (click)="basicModal.show()" mdbWavesEffect>FILTERS <mdb-icon fas icon="filter"></mdb-icon></button>
 
         <div class="text-center mt-2 mb-4 mx-auto">
             <!-- <h2>Elastic Tabs</h2> -->
@@ -216,17 +213,15 @@
             <nav class="tabs">
                 <div class="selector"></div>
                 <a [routerLink]="['guidesList']" routerLinkActive="active" class="active">
-                    <i class="im im-user-male"></i>
-                    Guides
+                    <i class="im im-user-male"></i> Guides
                 </a>
-                <a [routerLink]="['dealsList']" routerLinkActive="active" >
-                    <i class="im im-user-male"></i>
-                    Deals
+                <a [routerLink]="['dealsList']" routerLinkActive="active">
+                    <i class="im im-user-male"></i> Deals
                 </a>
             </nav>
         </div>
 
         <router-outlet></router-outlet>
-        
+
     </div>
 </div>

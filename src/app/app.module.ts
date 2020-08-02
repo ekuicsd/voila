@@ -35,7 +35,7 @@ const routes: Routes = [
     HttpClientModule,
     MDBBootstrapModule,
     RouterModule.forRoot(routes,  {
-      scrollPositionRestoration: 'disabled', // Add options right here
+      scrollPositionRestoration: 'top', // Add options right here
     }),
     ToastrModule.forRoot(),
   ],

@@ -28,7 +28,7 @@
                                     <td>{{data.startDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{data.duration}} days</td>
                                     <td>
-                                        <button class="btn" color="info" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
+                                        <button class="btn white-text dpurple" style="margin: auto;" (click)="open(content, data)" mdbBtn type="button" size="sm" mdbWavesEffect>
                                         <b>VIEW</b>
                                         </button>
                                     </td>
@@ -44,7 +44,7 @@
     <div *ngIf="previousList.length <=0 && isData">
         <div class="row cust-grid">
             <div class="col-12 text-center">
-                <img class="img-fluid my-5 h-50 w-25" src="../../../../../assets/images/flamenco-list-is-empty-1.png">
+                <img class="img-fluid my-5 h-50 w-25" src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/flamenco-list-is-empty-1.png">
                 <h1 style="font-family: 'Dancing Script', cursive;">No Previous Booking !!</h1>
             </div>
         </div>
@@ -52,7 +52,7 @@
 
 
     <div class="d-block d-md-none mt-4">
-        <mdb-card class="bag mb-4" *ngFor="let data of previousList">
+        <mdb-card class="bag mb-4" *ngFor="let data of previousList"  style=" background: linear-gradient(180deg, rgba(255, 255, 255, 0.9671218829328606) 25%, rgba(221, 213, 226, 1) 75%, rgba(202, 194, 207, 1) 99%);">
             <mdb-card-body>
                 <mdb-card-title>
                     <h4>{{data.tourType | titlecase}} Tour</h4>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </mdb-card-text>
-                <a size="sm" class="float-right" (click)="open(content, data)" mdbBtn style="background: #0ec8b9;" mdbWavesEffect>VIEW</a>
+                <a size="sm" class="float-right white-text dpurple" (click)="open(content, data)" mdbBtn mdbWavesEffect>VIEW</a>
                 <!-- <a size="sm" class="float-right"  mdbBtn style="background: #0ec8b9;" mdbWavesEffect>START</a> -->
             </mdb-card-body>
         </mdb-card>
@@ -173,10 +173,10 @@
     </div>
     <div class="modal-footer row mx-0 ">
         <div class="col">
-            <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Close&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+            <button type="button" mdbBtn size="sm" class="waves-light btn-block bgrey white-text" (click)="d('Cross click')" mdbWavesEffect>Close</button>
         </div>
         <div class="col">
-            <button mdbBtn class="btn-block waves-light" [disabled]="selectedPrevious.rating" (click)="openRating(rating)" type="button" size="sm" color="pink" mdbWavesEffect>Rate Now</button>
+            <button mdbBtn class="btn-block waves-light white-text" style=" background-color: #22c1c3;" [disabled]="selectedPrevious.rating" (click)="openRating(rating)" type="button" size="sm" mdbWavesEffect>Rate Now</button>
         </div>
     </div>
 </ng-template>

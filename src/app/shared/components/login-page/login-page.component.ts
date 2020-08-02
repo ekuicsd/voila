@@ -4,6 +4,9 @@ import { UserService } from '../../service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
 import { ToastrService } from 'ngx-toastr';
+import io from  'socket.io-client';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -15,6 +18,7 @@ export class LoginPageComponent implements OnInit {
   public role: string = 'tourist';
   public guideShow = false;
   public touristShow = false;
+  public socket = io(environment.baseUrl);
 
   constructor(private userService: UserService,
               private toastr: ToastrService,
@@ -53,6 +57,7 @@ export class LoginPageComponent implements OnInit {
           res => {
            if(res.success) {
             this.router.navigateByUrl('guide/guidehome');
+            this.socket.emit('initial_connect', { userType: 'GUIDE', _id: res.guide._id});
            } else {
              this.toastr.error(res.message);
            }
@@ -72,6 +77,7 @@ export class LoginPageComponent implements OnInit {
               } else {
                 this.router.navigateByUrl('/tourists/touristshome');
               }
+              this.socket.emit('initial_connect', { userType: 'TOURISTS', _id: res.Tourist._id});
             } else {
               this.toastr.error(res.message);
             }

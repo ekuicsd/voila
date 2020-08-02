@@ -3,7 +3,6 @@ import { HttpClient, HttpParams, HttpHeaders, HttpBackend } from '@angular/commo
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { environment } from 'src/environments/environment';
-import { JwtService } from './jwt.service';
 
 
 @Injectable({
@@ -14,7 +13,6 @@ export class ApiService {
   constructor(
     private http: HttpClient,
     private httpBackend: HttpBackend,
-    private jwtService: JwtService
   ) { }
 
   private formatErrors(error: any) {

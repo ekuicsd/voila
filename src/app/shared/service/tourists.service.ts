@@ -1,14 +1,26 @@
 import { Injectable } from "@angular/core";
-import { UserService } from './user.service';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
-
+import io from  'socket.io-client';
+import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from './user.service';
 @Injectable({
     providedIn: 'root'
 })
 export class TouristsService {
+    public socket = io(environment.baseUrl);
 
-    constructor(private userService: UserService, private apiService: ApiService) {}
+    constructor(private apiService: ApiService,
+        private userService: UserService,
+         private toastr: ToastrService) {
+        if(this.userService.isAuthenticated && this.userService.getUser('tourist')) {
+            this.socket.emit('initial_connect', { userType: 'TOURISTS', _id: JSON.parse(this.userService.getUser('tourist'))._id});
+        }
+        this.socket.on('new_notification_tourist', (data) => {
+            this.toastr.info(data.notificationText);
+        });
+    }
 
     touristsSignup(body) : Observable<any> {
         let url = '/signup/tourist';

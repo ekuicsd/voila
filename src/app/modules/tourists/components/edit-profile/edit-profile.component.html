@@ -1,27 +1,27 @@
 <div class="edittop d-none d-md-block">
-  <div class="row">
-      <div class="col-6 p-5">
-          <div class="edit-font white-text">
-              EDIT PROFILE
-          </div>
-      </div>
-      <div class="col-6">
-          <img src="assets\images\undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
-      </div>
-  </div>
+    <div class="row">
+        <div class="col-6 p-5">
+            <div class="edit-font white-text">
+                EDIT PROFILE
+            </div>
+        </div>
+        <div class="col-6">
+            <img src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/undraw_wall_post_83ul (1).svg" class="float-right m-4" style="height: 280px; width:auto">
+        </div>
+    </div>
 </div>
 <div class="edittopsmall d-block d-md-none ">
-  <h1>EDIT PROFILE</h1>
+    <h1>EDIT PROFILE</h1>
 </div>
 <div class="py-5 px-5 mx-lg-5">
     <div class="row font">
         <div class="col-md-3">
-            <h4 style="color: rgb(3, 168, 244)">Personal Info</h4>
+            <h4 style="color: #22c1c3">Personal Info</h4>
         </div>
         <div class="col-md-9">
             <div class="row">
                 <div class="col-10 col-md-11">
-                    <h5 style="color: rgba(3, 169, 244, 0.7)">{{userData.name | titlecase}}</h5>
+                    <h5 style="color: #22c1c3">{{userData.name | titlecase}}</h5>
                 </div>
                 <div class="col-2 col-md-1 edit-btn">
                     <a (click)="editpersonal.show()">
@@ -32,23 +32,23 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-6 mb-3">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Email </b>
+                    <b style="color: #22c1c3">Email </b>
                     <div> {{userData.email}}</div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <b style="color: rgba(3, 169, 244, 0.7)"> Phone </b>
+                    <b style="color: #22c1c3"> Phone </b>
                     <div> {{userData.phoneNumber}}</div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6 mb-3">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Nationality </b>
+                    <b style="color: #22c1c3">Nationality </b>
                     <div>{{userData.nationality}}</div>
                 </div>
                 <div class="col-6 mb-3">
-                    <b style="color: rgba(3, 169, 244, 0.7)">Age </b>
-                    <div>{{userData.age | age}} years old</div>
+                    <b style="color: #22c1c3">Age </b>
+                    <div>{{userData.age }} years old</div>
                 </div>
 
             </div>
@@ -98,16 +98,16 @@
     </div>
 </div>
 <div class="row">
-  <div class="col-12 text-center">
-      <button type="button"  class="btn btn-danger" mdbBtn size="md">Cancel</button> &nbsp;
-      <button type="button" (click)="saveProfile()" class="btn btn-info"  mdbBtn size="md">Save</button>
-  </div>
+    <div class="col-12 text-center">
+        <button type="button" class="btn bgrey white-text" mdbBtn size="md">Cancel</button> &nbsp;
+        <button type="button" (click)="saveProfile()" class="btn dpurple white-text" mdbBtn size="md">Save</button>
+    </div>
 </div>
 
 <div style="overflow-y: auto" mdbModal #editpersonal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: rgba(3, 169, 244, 0.7); color: white; ">
+            <div class="modal-header aquab" style="color: white; ">
                 <button type="button" class="close pull-right" aria-label="Close" (click)="editpersonal.hide()">
           <span aria-hidden="true">×</span>
         </button>
@@ -174,8 +174,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn class="waves-light bgrey btn-sm white-text" aria-label="Close" (click)="editpersonal.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn class="relative waves-light btn-sm aquab white-text" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -203,8 +203,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn class=" btn-sm waves-light bgrey white-text" aria-label="Close" (click)="addintrest.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" mdbBtn style="background-color: rgba(255, 152, 0, 0.7);" class="btn-sm relative waves-light" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>
@@ -232,8 +232,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
-                    <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+                    <button type="button" mdbBtn class="btn-sm waves-light bgrey white-text" aria-label="Close" (click)="addlanguage.hide()" mdbWavesEffect>Close</button>
+                    <button type="submit" style="background-color: rgba(76, 175, 80, 0.7);" mdbBtn class="btn-sm relative waves-light white-text" mdbWavesEffect>Save!</button>
                 </div>
             </form>
         </div>

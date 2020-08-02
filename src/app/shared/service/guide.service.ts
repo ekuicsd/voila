@@ -1,13 +1,28 @@
-import { Injectable, DefaultIterableDiffer } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
+import io from  'socket.io-client';
+import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from './user.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GuideService{
 
-    constructor(private apiService: ApiService) {}
+    public socket = io(environment.baseUrl);
+
+    constructor(private apiService: ApiService,
+        private userService: UserService,
+         private toastr: ToastrService) {
+        if(this.userService.isAuthenticated && this.userService.getUser('guide')) {
+            this.socket.emit('initial_connect', { userType: 'GUIDE', _id: JSON.parse(this.userService.getUser('guide'))._id});
+        }
+        this.socket.on('new_notification_guide', (data) => {
+            this.toastr.info(data.notificationText);
+        });
+    }
 
     guideSignup(body) : Observable<any> {
         let url = '/signup/guide';
@@ -80,5 +95,14 @@ export class GuideService{
                 obs.next(res);
             });
         });  
+    }
+
+    deleteDeal(dealId) : Observable<any> {
+        let url = '/guide/deleteDeal/' + dealId;
+        return new Observable<any>( obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            });
+        });
     }
 }

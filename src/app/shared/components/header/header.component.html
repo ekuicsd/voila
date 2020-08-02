@@ -72,7 +72,7 @@
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
-                    <mdb-icon fas icon="question-circle" style="height:32px; width:32px;"></mdb-icon><span class="caret"></span></a>
+                    <mdb-icon fas icon="question-circle" style="width:32px;"></mdb-icon><span class="caret"></span></a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/aboutUs']" routerLinkActive="active">About</a>
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/contact']" routerLinkActive="active">Contact us</a>
@@ -83,7 +83,8 @@
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
 
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <mdb-icon fas icon="user"></mdb-icon>
+                    <!-- <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;"> -->
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -138,7 +139,7 @@
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user?.picUrl ? user?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -165,7 +166,7 @@
             </li>
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user?.picUrl ? user?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome']" routerLinkActive="active">Dashboard</a>
@@ -180,6 +181,12 @@
               <a (click)="logout('admin')" (click)="onLinkClick()" class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                   Logout</a>
+          </li>
+          <li>
+            <a [routerLink]="['/admin/emergency']" (click)="onLinkClick()" routerLinkActive="router-link-active"  class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
+                <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                SOS Alerts
+                </a>
           </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown" dropdown >
@@ -289,7 +296,8 @@
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
 
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <mdb-icon fas icon="user"></mdb-icon>
+                    <!-- <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;"> -->
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/tourists/touristshome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -344,7 +352,7 @@
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- More<span class="caret"></span> -->
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user?.picUrl ? user?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome/editProfile']" routerLinkActive="active">Edit Profile</a>
@@ -371,7 +379,7 @@
             </li>
             <li class="nav-item avatar dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
+                    <img [src]="user?.picUrl ? user?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" alt="" class="img-fluid rounded-circle z-depth-0" style="height:32px; width:32px;">
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a (click)="onLinkClick()" class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/guide/guidehome']" routerLinkActive="active">Dashboard</a>
@@ -386,6 +394,12 @@
               <a (click)="logout('admin')" class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                   Logout</a>
+          </li>
+          <li>
+            <a [routerLink]="['/admin/emergency']" routerLinkActive="router-link-active"  class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
+                <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                SOS Alerts
+                </a>
           </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown" dropdown >
@@ -416,18 +430,22 @@
         <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
           <span aria-hidden="true">×</span>
         </button>
-        <h6 class="modal-title w-100" id="myModalLabel">On Going Events</h6>
+        <h6 class="modal-title w-100" id="myModalLabel">Your On Going Events</h6>
       </div>
       <div *ngIf="onGoingEvents" class="modal-body">
+        <h5 *ngIf="userService.getRole() === 'tourist'">{{onGoingEvents[0]?.guideId?.city}}, {{onGoingEvents[0]?.guideId?.state}}</h5>
+        <h5 *ngIf="userService.getRole() === 'guide'">{{user?.city}}, {{user?.state}}</h5>
+        <!-- <p>With {{onGoingEvents[0]?.guideId?.gender}} {{onGoingEvents[0]?.guideId?.name | titlecase}}</p> -->
         <div class="row">
           <div class="col">
-            <b>{{onGoingEvents[0]?.startDate | date: 'yyyy/dd/MM'}}</b> -
-            <b>{{onGoingEvents[0]?.endDate  | date: 'yyyy/dd/MM'}}</b>
+
+            <b>From - {{onGoingEvents[0]?.startDate | date: 'yyyy/dd/MM'}}</b><br>
+            <b>To - {{onGoingEvents[0]?.endDate  | date: 'yyyy/dd/MM'}}</b>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <p>{{onGoingEvents[0]?.tourType | titlecase}}</p>
+            <p class="mb-0 mt-3">Tour type - {{onGoingEvents[0]?.tourType | titlecase}}</p>
           </div>
         </div>
       </div>
@@ -438,19 +456,19 @@
         <!-- [routerLink]="['/tourists/touristshome/bookings/now']" -->
         <button type="button" *ngIf="userService.getRole() === 'tourist'"
          mdbBtn size="sm"
-         color="secondary" class="waves-light" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
+         class="waves-light bgrey" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
          View
         </button>
         <!-- [routerLink]="['/guide/guidehome/bookings']" -->
         <button type="button" *ngIf="userService.getRole() === 'guide'"
           mdbBtn size="sm"
-         color="secondary" class="waves-light" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
+         class="waves-light bgrey" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
          View
         </button>
 
         <button type="button" (click)="open(rating)" *ngIf="userService.getRole() === 'tourist'"
            routerLinkActive="router-link-active"
-          mdbBtn size="sm" color="primary" class="relative waves-light" [disabled]="getEndDate(onGoingEvents[0])" mdbWavesEffect>
+          mdbBtn size="sm" class="relative dpurple waves-light" [disabled]="getEndDate(onGoingEvents[0])" mdbWavesEffect>
           Completed
         </button>
       </div>
@@ -476,6 +494,14 @@
         </div>
       </div>
       <hr class="mt-0">
+      <div *ngIf="userService.getRole() === 'tourist'" class="row">
+        <div class="col-6">
+          <B>Guide Name</B>
+        </div>
+        <div class="col-6">
+            {{onGoingEvents[0]?.guideId?.gender}}  {{onGoingEvents[0]?.guideId?.name | titlecase}}
+        </div>
+      </div>
       <div class="row">
         <div class="col-6">
           <B>Price</B>
@@ -516,42 +542,47 @@
           {{onGoingEvents[0]?.groupType | titlecase}}
         </div>
       </div>
-      <!-- <table class="table">
+      <table *ngIf="onGoingEvents?.tourType === 'deal'" class="table">
+        <thead>
+          <tr>
+            <th><b>Sr no.</b></th>
+            <th><b>Tour Places</b></th>
+            <th><b>Visit Date</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of onGoingEvents?.places; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item.place | titlecase}}</td>
+            <td>{{item.date | date: 'dd-MM-yyyy'}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table *ngIf="userService.getRole() === 'guide'" class="table">
         <thead>
           <tr>
             <th><b>Sr no.</b></th>
             <th><b>Tourist Name</b></th>
+            <th><b>Nationality</b></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of onGoingEvents[0]?.touristId; let i = index">
             <td>{{i+1}}</td>
             <td>{{item.name | titlecase}}</td>
+            <td>{{item.nationality}}</td>
           </tr>
         </tbody>
-      </table> -->
-      <!-- <table *ngIf="onGoingEvents?.tourType === 'deal'" class="table">
-        <thead>
-          <tr>
-            <th><b>Sr no.</b></th>
-            <th><b>Tour Places</b></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of onGoingEvents?.places; let i = index">
-            <td>{{i+1}}</td>
-            <td>{{item | titlecase}}</td>
-          </tr>
-        </tbody>
-      </table> -->
+      </table> 
   </div>
   <div class="modal-footer row mx-0 ">
        <div class="col">
-         <button type="button" mdbBtn color="secondary" size="sm" class="waves-light btn-block" (click)="d('Cross click')" mdbWavesEffect>Ok&nbsp;<mdb-icon fas icon="ban"></mdb-icon></button>
+         <button type="button" mdbBtn size="sm" class="waves-light btn-block bgrey" (click)="d('Cross click')" mdbWavesEffect>Close</button>
       </div>
       <div class="col">
-        <button type="button" mdbBtn color="deep-orange" size="sm" class="btn-block waves-light"
-          *ngIf="userService.getRole() === 'tourist'" (click)="open(rating)"  [disabled]="getEndDate(onGoingEvents[0])"
+        <button type="button" mdbBtn size="sm" class="btn-block waves-light dpurple"
+          *ngIf="userService.getRole() === 'tourist'"  (click)="open(rating)"  
+          [disabled]="getEndDate(onGoingEvents[0])"
           mdbWavesEffect>
           Completed!&nbsp;<mdb-icon fas icon="headset"></mdb-icon></button>
       </div>

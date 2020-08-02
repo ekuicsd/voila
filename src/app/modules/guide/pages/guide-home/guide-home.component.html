@@ -1,11 +1,12 @@
-<!-- side navbar -->
-<div class="row">
-    <div class="col-3 pr-0  d-none d-lg-flex">
+<div class="container-fluid">
+    <!-- side navbar -->
+<div class="row ">
+    <div class="col-3 px-0  d-none d-lg-flex">
         <div class="navside p-0">
             <div class="content1  m-auto">
                 <div class="row top-bar pt-4 pb-4 m-0 mb-2">
                     <div class="col-5 text-center">
-                        <img [src]="user.picUrl ? user.picUrl : '../../../../../assets/images/grayman.png'" class="img-fluid z-depth-1 rounded-circle" alt="Responsive image">
+                        <img [src]="user.picUrl ? user.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" class="img-fluid z-depth-1 rounded-circle" alt="Responsive image">
 
                     </div>
                     <div class="col-7 guide-name m-auto">
@@ -30,7 +31,7 @@
         </div>
     </div>
     <!-- main content on the right -->
-    <div class="col-12 col-lg-9 main ">
+    <div class="col-12 col-lg-9 main px-0">
         <div *ngIf="ShowLoadingIndicator" class="loader">
             <span></span>
             <span></span>
@@ -39,4 +40,5 @@
         </div>
         <router-outlet></router-outlet>
     </div>
+</div>
 </div>

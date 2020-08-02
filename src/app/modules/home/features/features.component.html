@@ -1,28 +1,30 @@
 <!-- Card test -->
 <section id="timeline">
-  <div class="tl-item">
-    <div class="tl-bg" style="background-image: url(https://placeimg.com/1002/1002/nature)"></div>
-    <div class="tl-year">
-      <p class="f2 heading--sanSerif">Tourist</p>
+    <div class="tl-item">
+        <div class="tl-bg" style="background-image: url(https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/nature2.jpeg)"></div>
+        <div class="tl-year">
+            <p class="f2 heading--sanSerif">Tourist</p>
+        </div>
+        <div class="tl-content">
+            <h1 class="f3 text--accent ttu">Join <b>Voila</b> as Tourist</h1>
+            <div>Explore places like a local without any hassle.</div>
+            <div>Find a tourist guide and a tour according to your preferences, bearing no middle man and extra charges.</div>
+            <button [routerLink]="['/login/tourist']" mdbBtn type="button" color="transparent" mdbWavesEffect>Sign In</button>
+            <button [routerLink]="['/tourists/register']" mdbBtn type="button" mdbWavesEffect>Sign Up</button>
+        </div>
     </div>
-    <div class="tl-content">
-      <h1 class="f3 text--accent ttu">Join <b>Voila</b> as Tourist</h1>
-      <p>Suspendisse potenti. Sed sollicitudin eros lorem, eget accumsan risus dictum id. Maecenas dignissim ipsum vel mi rutrum egestas. Donec mauris nibh, facilisis ut hendrerit vel, fringilla sed felis. Morbi sed nisl et arcu.</p>
-      <button [routerLink]="['/login/tourist']" mdbBtn type="button" color="transparent" mdbWavesEffect>Sign In</button>
-      <button [routerLink]="['/tourists/register']" mdbBtn type="button"  mdbWavesEffect>Sign Up</button>
-    </div>
-  </div>
 
-  <div class="tl-item">
-    <div class="tl-bg" style="background-image: url(https://placeimg.com/1000/1000/nature)"></div>
-    <div class="tl-year">
-      <p class="f2 heading--sanSerif">Guide</p>
+    <div class="tl-item">
+        <div class="tl-bg" style="background-image: url(https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/nature.jpeg)"></div>
+        <div class="tl-year">
+            <p class="f2 heading--sanSerif">Guide</p>
+        </div>
+        <div class="tl-content">
+            <h1 class="f3 text--accent ttu">Join <b>Voila</b> as Guide</h1>
+            <div>Share love for your city and earn for your passion.</div>
+            <div>Voila helps you find travellers in your city and a convenient platform for managing the bookings.</div>
+            <button [routerLink]="['/login/guide']" mdbBtn type="button" mdbWavesEffect>Sign In</button>
+            <button [routerLink]="['/guide/show-register']" mdbBtn type="button" mdbWavesEffect>Sign Up</button>
+        </div>
     </div>
-    <div class="tl-content">
-      <h1 class="f3 text--accent ttu">Join <b>Voila</b> as Guide</h1>
-      <p>Suspendisse ac mi at dolor sodales faucibus. Nunc sagittis ornare purus non euismod. Donec vestibulum efficitur tortor, eget efficitur enim facilisis consequat. Vivamus laoreet laoreet elit. Ut ut varius metus, bibendum imperdiet ex. Curabitur diam quam, blandit at risus nec, pulvinar porttitor lorem. Pellentesque dolor elit.</p>
-      <button [routerLink]="['/login/guide']" mdbBtn type="button"  mdbWavesEffect>Sign In</button>
-      <button [routerLink]="['/guide/show-register']" mdbBtn type="button" mdbWavesEffect>Sign Up</button>
-    </div>
-  </div>
 </section>

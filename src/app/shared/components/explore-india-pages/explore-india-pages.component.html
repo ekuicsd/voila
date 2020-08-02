@@ -1,0 +1,67 @@
+<div class="jumbotron pt-0" style="position: relative;" >
+  <div class="view overlay my-4 waves-light" style="object-fit: cover;" mdbWavesEffect style="height: 50vh">
+    <img [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + state + '.jpg'"
+    style="background-repeat: no-repeat; background-size: cover;" width="100%" height="100%"
+     class=" mt-0" style="filter: blur(3px) grayscale(30%);" alt="">
+  <h6 class="white-text text-center h1 mb-4" style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" >Explore {{state | titlecase}}</h6>
+  </div>
+  <h5 class="indigo-text h5 mb-4 text-center">{{state | titlecase}}</h5>
+  <p class="card-text text-center">{{stateData?.info}}</p>
+  <hr>
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Essential {{state}}</h2>
+<section class=" d-none d-md-block my-5" *ngFor="let city of stateData?.tourismCities; let i = index">
+  <div *ngIf="i%2 === 0" class="row">
+    <div class="col-lg-5">
+      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect style="height: 220px;">
+        <img  height="100%" width="100%"
+        [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city?.name +'.jpg'" 
+        alt="">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <h3 class="font-weight-bold mb-3"><strong>{{city?.name}}</strong></h3>
+      <p>{{city?.info}}</p>
+    </div>
+  </div>
+  <hr class="my-5">
+  <div *ngIf="i%2 === 1" class="row">
+    <div class="col-lg-7">
+      <h3 class="font-weight-bold mb-3"><strong>{{city?.name}}</strong></h3>
+      <p>{{city?.info}}</p>
+    </div>
+    <div class="col-lg-5">
+      <div class="view overlay rounded z-depth-2 waves-light" mdbWavesEffect style="height: 220px;">
+        <img  height="100%" width="100%"
+        [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city?.name +'.jpg'" 
+        alt="">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class=" d-block d-md-none my-5" *ngFor="let city of stateData?.tourismCities">
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" style="height: 220px;" mdbWavesEffect>
+        <img    height="100%" width="100%"
+         [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/' + state + '/' + city.name +'.jpg'" 
+         alt="">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <div class="col-lg-7">
+      <h3 class="font-weight-bold mb-3"><strong>{{city?.name}}</strong></h3>
+      <p>{{city?.info}}</p>
+    </div>
+  </div>
+  <hr>
+</section>
+</div>
