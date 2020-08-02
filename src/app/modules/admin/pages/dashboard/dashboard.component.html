@@ -1,9 +1,20 @@
-<div class="container-fluid">
+<div class="row mx-4">
+ <div class="col-12 mt-3">
+  <button type="button" mdbBtn class="waves-light white-text float-right mx-0 px-0" style="width:120px"
+  [ngClass]="activeTab === 'contacted' ? 'dpurple' : 'bgrey'" (click)="activeTab = 'contacted'"
+   mdbWavesEffect>Contacted</button>
+  <button type="button" mdbBtn class="save-btn  relative waves-light white-text mx-0 px-0 float-right" style="width:120px"
+  [ngClass]="activeTab === 'new' ? 'dpurple' : 'bgrey'" (click)="activeTab = 'new'"
+   mdbWavesEffect>New</button>
+</div> 
+</div>
+
+<div *ngIf="activeTab === 'new'" class="container-fluid">
 <div class="d-none d-sm-block">
   <div class="row mt-3">
     <div class="col-12 text-center">
       <div class="card first" style="z-index: 10; width: 90%; margin-left: 5%;">
-        <h5 class="text-center white-text py-2 my-0">Admin Dashboard</h5>
+        <h5 class="text-center white-text py-2 my-0">New Registered Guides</h5>
       </div>
     </div>
   </div>
@@ -22,7 +33,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let guide of guideList; let i = index">
+              <tr *ngFor="let guide of newGuideList; let i = index">
                 <td>{{i+1}}</td>
                 <td>{{guide.name | titlecase}}</td>
                 <td>{{guide.dob | date: 'MMM dd, y'}}</td>
@@ -40,7 +51,7 @@
 </div>
 
 <div class="d-block   d-sm-none mt-4">
-  <mdb-card class="mb-4" *ngFor="let guide of guideList; let i = index">
+  <mdb-card class="mb-4" *ngFor="let guide of newGuideList; let i = index">
     <mdb-card-body>
       <mdb-card-title>
         <h4>{{guide.name | titlecase}}</h4>
@@ -68,3 +79,76 @@
   </mdb-card>
 </div>
 </div>
+
+
+<div *ngIf="activeTab === 'contacted'" class="container-fluid">
+  <div class="d-none d-sm-block">
+    <div class="row mt-3">
+      <div class="col-12 text-center">
+        <div class="card first" style="z-index: 10; width: 90%; margin-left: 5%;">
+          <h5 class="text-center white-text py-2 my-0">Contacted Guides</h5>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-5" style="margin-top: -25px;">
+      <div class="card-body">
+        <div class="mt-3 mb-3">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead >
+                <tr>
+                  <th scope="col">Sr no.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Date of birth</th>
+                  <th scope="col">State</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let guide of contactedGuideList; let i = index">
+                  <td>{{i+1}}</td>
+                  <td>{{guide.name | titlecase}}</td>
+                  <td>{{guide.dob | date: 'MMM dd, y'}}</td>
+                  <td>{{guide.state}}</td>
+                  <td>
+                    <a (click)="navigateToGuideProfile(guide)" size="sm" class="btn mx-0" mdbBtn style="background: #553d67;" mdbWavesEffect>VIEW</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="d-block   d-sm-none mt-4">
+    <mdb-card class="mb-4" *ngFor="let guide of contactedGuideList; let i = index">
+      <mdb-card-body>
+        <mdb-card-title>
+          <h4>{{guide.name | titlecase}}</h4>
+        </mdb-card-title>
+        <mdb-card-text >
+          <div class="row">
+            <div class="col-6 col-sm-4 mb-2">
+            <div><b>Date of birth</b></div>
+            <div>{{guide.dob | date: 'MMM dd, y'}}</div>
+          </div>
+          <div class="col-6 col-sm-4mb-2">
+            <div><b>State</b></div>
+            <div>{{guide.state}}</div>
+          </div>
+          <div class="col-6 col-sm-4">
+            <div><b>Contact No.</b></div>
+            <div>{{guide.phoneNumber}}</div>
+          </div>
+          <div class="col-6 col-sm-4">
+            <a (click)="navigateToGuideProfile(guide)" size="sm" class="btn mx-0" mdbBtn style="background: #553d67;" mdbWavesEffect>VIEW</a>
+          </div>
+          </div>
+        </mdb-card-text>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+  </div>
+  

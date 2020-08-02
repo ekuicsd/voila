@@ -182,6 +182,12 @@
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                   Logout</a>
           </li>
+          <li>
+            <a [routerLink]="['/admin/emergency']" (click)="onLinkClick()" routerLinkActive="router-link-active"  class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
+                <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                SOS Alerts
+                </a>
+          </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
@@ -388,6 +394,12 @@
               <a (click)="logout('admin')" class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
                   <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
                   Logout</a>
+          </li>
+          <li>
+            <a [routerLink]="['/admin/emergency']" routerLinkActive="router-link-active"  class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
+                <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+                SOS Alerts
+                </a>
           </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown" dropdown >
