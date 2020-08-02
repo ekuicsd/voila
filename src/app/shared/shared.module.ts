@@ -27,6 +27,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExploreIndiaPagesComponent } from './components/explore-india-pages/explore-india-pages.component';
 import { PricePipe } from './pipes/price.pipe';
+import { TimelinePageComponent } from './components/timeline-page/timeline-page.component';
 
 const routes: Routes = [
     { 
@@ -70,7 +71,10 @@ const routes: Routes = [
     },
     {
          path: 'exploreIndia/:state' , component: ExploreIndiaPagesComponent
-    }   
+    },
+    {
+        path: 'timeline', component: TimelinePageComponent
+    }  
     
     
    
@@ -98,7 +102,8 @@ const routes: Routes = [
         FilterPipe,
         PageNotFoundComponent,
         ExploreIndiaPagesComponent,
-        PricePipe
+        PricePipe,
+        TimelinePageComponent
     ],
     imports: [
         CommonModule,

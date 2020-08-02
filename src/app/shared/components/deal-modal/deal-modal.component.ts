@@ -30,6 +30,7 @@ export class DealModalComponent implements OnInit, OnChanges {
   peopleLimit = true;
   public user;
   public  mbUrl;
+  public orderIdJson;
 
   constructor(private toastr: ToastrService,
     private touristService: TouristsService,
@@ -74,16 +75,8 @@ export class DealModalComponent implements OnInit, OnChanges {
     if(this.jwtService.getToken()) {
       this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
     } 
-   
-   
-    // L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
-    // L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
-    // L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
-    // L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
-  
+    this.loadScript('https://checkout.razorpay.com/v1/checkout.js');
 
-
-	
     }
 
     createForm() {
@@ -172,5 +165,84 @@ export class DealModalComponent implements OnInit, OnChanges {
       }
     }); 
   }
+
+  public loadScript(url: string) {
+    const body = <HTMLDivElement>document.body;
+    const script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = url;
+    script.async = false;
+    script.defer = true;
+    body.appendChild(script);
+    body.appendChild(script);
+    console.log(script);
+  }
+
+  async responseEvent(event) {
+    // await this.postPayment(event.detail.resp.razorpay_payment_id)
+    // redirect to the order placed page
+  }
+
+  public async initPay() {
+    let request = {
+      amount : this.totalPrice,
+      currency: this.staticDataService.currency.name,
+      receipt: this.user.email
+    }
+    this.orderIdJson = await this.touristService.initPay(request, this.deal._id, this.user._id);
+    console.log(this.orderIdJson);
+    // if (!this.orderIdJson['success']) {
+    //     alert('could not get orderid');
+    //     console.log(this.orderIdJson);
+    //     return;
+    // }
+    // this.orderService.initOrder(this.cartId).subscribe( res => {
+    //   this.orderIdJson = res;
+    //   console.log(res);
+    //   if (!this.orderIdJson['success']) {
+    //     alert('could not get orderid');
+    //     console.log(this.orderIdJson);
+    //     return;
+    //   } else {
+    //     console.log(this.orderIdJson);
+    //   this.razorpayOrderId = this.orderIdJson['data']['id']
+    //   this.options = {
+    //       'key': key.test, // Enter the Key ID generated from the Dashboard
+    //       'amount': this.orderIdJson['data']['amount'], // Amount is in currency subunits. Default currency is INR.
+    //       'currency': 'INR',
+    //       'name': this.productData.productFrontData.productInfo[0].product_name,
+    //       'description': this.productData.productFrontData.productInfo[0].productDescription,
+    //       'image': '',
+    //       'order_id': this.razorpayOrderId,
+    //       'handler': function (response) {
+    //           console.log('razor pay response ', response);
+    //           const resEvent = new CustomEvent('resp', {
+    //               bubbles: true,
+    //               detail: { resp: response }
+    //           });
+    //           // alert(response.razorpay_payment_id);
+    //           window.dispatchEvent(resEvent);
+    //       },
+    //       'prefill': {
+    //           'name': this.user.name,
+    //           'email': this.user.email
+    //           // 'contact': this.user.contact
+    //       },
+    //       'notes': {
+    //           'address': this.address + ',' + this.state
+    //       },
+    //       'theme': {
+    //           'color': '#F37254'
+    //       }
+    //   }
+    //   this.rzp1 = new this.winRef.nativeWindow.Razorpay(this.options);
+    //       // console.log(this.rzp1);
+    //       this.rzp1.open();
+    //       console.log(this.rzp1);
+    //     }
+    // });
+    
+  }
+
 
 }

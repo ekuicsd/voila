@@ -121,4 +121,13 @@ export class TouristsService {
         })
     }
 
+    initPay(request, bookingId, touristId) : Observable<any> {
+        let url = '/tourist/makePayment/' + bookingId + '/' + touristId;
+        return new Observable<any>( obs => {
+            this.apiService.post(url, request).subscribe(res => {
+                obs.next(res.body);
+            })
+        })
+    }
+
 }

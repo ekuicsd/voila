@@ -26,7 +26,7 @@
                               <th scope="row">{{i+1}}</th>
                               <td>{{alert.name}}</td>
                               <td>{{alert.userType}}</td>
-                              <td>{{alert.latitude}} - {{alert.longitude}}</td>
+                              <td>{{alert.latitude['$numberDecimal']}} - {{alert.longitude['$numberDecimal']}}</td>
                               <td>
                                   <button class="btn dpurple" (click)="openContent(content, alert._id)" style="margin: auto; color:white"
                                     mdbBtn type="button" size="sm" mdbWavesEffect>
@@ -60,7 +60,7 @@
                   </div>
                   <div class="col-6">
                     <div><b>location</b></div>
-                    <div>{{item.latitude}} - {{item.longitude}}</div>
+                    <div>{{item.latitude['$numberDecimal']}} - {{item.longitude['$numberDecimal']}}</div>
                 </div>
                 <div class="col-6">
                   <a size="sm" class="float-right" (click)="openContent(content, item._id)" mdbBtn style="background: #553d67;" mdbWavesEffect>VIEW</a>
