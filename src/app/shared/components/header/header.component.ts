@@ -5,6 +5,8 @@ import { NavbarComponent, MDBModalService } from 'angular-bootstrap-md';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GuideService } from '../../service/guide.service';
 import { TouristsService } from '../../service/tourists.service';
+import { ToastrService } from 'ngx-toastr';
+import { StaticDataService } from '../../service/static-data.service';
 
 @Component({
   selector: 'app-header',
@@ -22,19 +24,31 @@ export class HeaderComponent implements OnInit{
   public userRole;
   public onGoingEvents: any[] = [];
   public chatList = [];
+  public curr = 'INR';
+  public currencyData;
+ 
   
   constructor(
     public jwtService: JwtService,
     private modalService: NgbModal,
     private guideService: GuideService,
+    private StaticDataService: StaticDataService,
     private touristService: TouristsService,
+    private toastr: ToastrService,
     public userService: UserService) {
     }
 
   ngOnInit() {
+    this.currencyData = this.StaticDataService.getCurrencyData();
     if(this.jwtService.getToken()) {
+      if(this.userService.getRole() !== 'admin') {
       this.user = JSON.parse(this.userService.getUser(this.userService.getRole()));
+      }
     }
+  }
+
+  changeCurrency(data) {
+    console.log(data.target.value);
   }
 
   onLinkClick() {
@@ -86,5 +100,27 @@ export class HeaderComponent implements OnInit{
      }
      return false;
    }
+
+   sosAlert() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.showPosition);
+    }
+   }
+
+   showPosition(position) {
+    //  console.log(position.coords.latitude);
+    //  console.log(position.coords.longitude);
+     let request = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude
+     };
+     this.userService.sosAlert(this.userService.getRole(), request).subscribe( res => {
+      if(res.success) {
+        this.toastr.success(res.message);
+      } else {
+        this.toastr.error(res.message);
+      }
+     });
+  }
 
 }

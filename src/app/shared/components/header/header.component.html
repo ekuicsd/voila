@@ -34,6 +34,15 @@
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/guideRegister']" routerLinkActive="active">Guide</a>
                 </div>
             </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link waves-light" mdbWavesEffect> -->
+                    <!-- <input type="text" class="inputStyle" mdbInput [(ngModel)]="curr" >  -->
+                <!-- </a> -->
+                <!-- <select  -->
+                    <!-- <select class="inputStyle" [(ngModel)]="curr" (change)="changeCurrency($event)" id="form7" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
+                        <option *ngFor="let item of currencyData" [value]="item.name"> {{ item?.name }}</option>
+                    </select> -->
+            </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <!-- <mdb-icon fas icon="user"></mdb-icon>  -->
@@ -183,10 +192,9 @@
                   Logout</a>
           </li>
           <li>
-            <a [routerLink]="['/admin/emergency']" (click)="onLinkClick()" routerLinkActive="router-link-active"  class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
-                <!-- <mdb-icon fas icon="cog"></mdb-icon>  -->
+            <!-- <a [routerLink]="['/admin/emergency']" (click)="onLinkClick()" routerLinkActive="router-link-active"  class="nav-link waves-light" routerLinkActive="active" mdbWavesEffect>
                 SOS Alerts
-                </a>
+            </a> -->
           </li>
             <!-- Dropdown -->
             <li class="nav-item dropdown" dropdown >
@@ -246,6 +254,15 @@
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/touristsRegister']" routerLinkActive="active">Tourists</a>
                     <a class="dropdown-item waves-light" (click)="onLinkClick()" mdbWavesEffect [routerLink]="['/guideRegister']" routerLinkActive="active">Guide</a>
                 </div>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link waves-light" mdbWavesEffect> -->
+                    <!-- <input type="text" class="inputStyle" mdbInput [(ngModel)]="curr" (change)="changeCurrency($event)">  -->
+                <!-- </a> -->
+                <select class="inputStyle" [(ngModel)]="curr" (change)="changeCurrency($event)" id="form7" class="browser-default custom-select" #state (change)="getAllCity(state.value)">
+                    <!-- <option value="" disabled></option> -->
+                    <option *ngFor="let item of currencyData" [value]="item.name"> {{ item?.name }}</option>
+                </select>
             </li>
             <li class="nav-item dropdown" dropdown >
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
@@ -580,7 +597,8 @@
          <button type="button" mdbBtn size="sm" class="waves-light btn-block bgrey" (click)="d('Cross click')" mdbWavesEffect>Close</button>
       </div>
       <div class="col">
-        <button type="button" mdbBtn size="sm" class="waves-light btn-block btn-danger" mdbWavesEffect>SOS</button>
+        <button type="button" mdbBtn size="sm" (click)="sosAlert()"
+        class="waves-light btn-block btn-danger" mdbWavesEffect>SOS</button>
      </div>
       <div class="col">
         <button type="button" mdbBtn size="sm" class="btn-block waves-light dpurple"

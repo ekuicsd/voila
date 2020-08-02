@@ -140,5 +140,11 @@ export class StaticDataService {
             "Professional Travellers"
         ];
     }
+
+    getCurrencyData() : any[] {
+        return [
+            {}
+        ]
+    }
     
 }

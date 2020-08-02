@@ -20,7 +20,6 @@ export class AdminService {
         return new Observable<any>( obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
-            }, error => {
             });
         });
     }
@@ -30,7 +29,33 @@ export class AdminService {
         return new Observable<any>( obs => {
             this.apiService.get(url).subscribe( res => {
                 obs.next(res);
-            }, error => {
+            });
+        });
+    }
+
+    getSosAlerts() : Observable<any> {
+        let url = '/admin/allReports';
+        return new Observable<any>( obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
+
+    getUserReportById(reportId) : Observable<any> {
+        let url = '/admin/getUserForReport/' + reportId;
+        return new Observable<any>( obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
+            });
+        });
+    }
+
+    changeStatusByreportId(reportId, status) : Observable<any> {
+        let url = '/admin/decision/report/' + reportId + '/' + status;
+        return new Observable<any>( obs => {
+            this.apiService.get(url).subscribe( res => {
+                obs.next(res);
             });
         });
     }
