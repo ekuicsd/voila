@@ -13,7 +13,7 @@
                                 >{{item.place | titlecase}}</span>
                                 <!-- <span class="time-wrapper"><span class="time">{{item.date | date : 'yyyy-mm-dd'}}</span></span> -->
                             </div>
-                            <div class="desc">{{item.date | date : 'yyyy-mm-dd'}}</div>
+                            <div class="desc">{{item.date | date : 'yyyy-MM-dd'}}</div>
                         </div>
                     </li>
                 </ul>
@@ -46,7 +46,7 @@
                        Start Date
                     </div>
                     <div>
-                        {{data?.places[0].date | date: 'yyyy-mm-dd'}}
+                        {{data?.places[0].date | date: 'yyyy-MM-dd'}}
                     </div>
                 </div>
                 <hr class="mx-4 my-1">
