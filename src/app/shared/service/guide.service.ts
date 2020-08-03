@@ -18,8 +18,13 @@ export class GuideService{
          private toastr: ToastrService) {
         if(this.userService.isAuthenticated && this.userService.getUser('guide')) {
             this.socket.emit('initial_connect', { userType: 'GUIDE', _id: JSON.parse(this.userService.getUser('guide'))._id});
+            this.onSocket();
         }
+    }
+
+    onSocket() {
         this.socket.on('new_notification_guide', (data) => {
+            console.log(data);
             this.toastr.info(data.notificationText);
         });
     }

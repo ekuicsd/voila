@@ -11,6 +11,11 @@ import { GuideService } from '../../service/guide.service';
 import { JwtService } from '../../service/jwt.service';
 import { StaticDataService } from '../../service/static-data.service';
 import * as L from 'leaflet';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import * as key from '../../rzrpay.json';
+import { WindowRef } from '../../winref';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 @Component({
   selector: 'app-deal-modal',
   templateUrl: './deal-modal.component.html',
@@ -30,13 +35,17 @@ export class DealModalComponent implements OnInit, OnChanges {
   peopleLimit = true;
   public user;
   public  mbUrl;
-  public orderIdJson;
+  public options;
+  rzp1: any;
+  public content;
 
   constructor(private toastr: ToastrService,
     private touristService: TouristsService,
     public userService: UserService,
+    private modalService: NgbModal,
     private jwtService: JwtService,
     private guideService: GuideService,
+    private winRef: WindowRef,
     public staticDataService: StaticDataService,
     private router: Router
     ) { }
@@ -139,31 +148,27 @@ export class DealModalComponent implements OnInit, OnChanges {
     }
   }
 
-  submitDealForm() {
-    Swal.fire({
-      text: "Are you sure to book deal?",
-      showCancelButton: true,
-      confirmButtonColor: '#553d67',
-      cancelButtonColor: '#757575',
-      confirmButtonText: 'Submit'
-    }).then((result) => {
-      if (result.value) {
-        if(this.dealForm.valid) {
-          this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
-            if(res.success) {
-              this.toastr.success("Booked successfully!!");
-              this.createForm();
-              this.modal2.hide(0);
-              this.router.navigateByUrl('/tourists/touristshome/bookings/now');
-            } else {
-              this.toastr.error(res.msg);
-            }
-          });
+  submitDealForm(content) {
+    this.modalService.open(content, {centered: true, scrollable: true});
+  }
+
+  submitDeal(content) {
+    if(this.dealForm.valid) {
+      this.content = content;
+      this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
+        if(res.success) {
+          this.toastr.success("Booked successfully!!");
+          this.createForm();
+          this.modalService.dismissAll(content);
+          this.modal2.hide(0);
+          this.router.navigateByUrl('/tourists/touristshome/bookings/now');
         } else {
-          this.toastr.error("Invalid Details!");
+          this.toastr.error(res.msg);
         }
-      }
-    }); 
+      });
+    } else {
+      this.toastr.error("Invalid Details!");
+    }
   }
 
   public loadScript(url: string) {
@@ -178,10 +183,7 @@ export class DealModalComponent implements OnInit, OnChanges {
     console.log(script);
   }
 
-  async responseEvent(event) {
-    // await this.postPayment(event.detail.resp.razorpay_payment_id)
-    // redirect to the order placed page
-  }
+ 
 
   public async initPay() {
     let request = {
@@ -189,60 +191,77 @@ export class DealModalComponent implements OnInit, OnChanges {
       currency: this.staticDataService.currency.name,
       receipt: this.user.email
     }
-    this.orderIdJson = await this.touristService.initPay(request, this.deal._id, this.user._id);
-    console.log(this.orderIdJson);
-    // if (!this.orderIdJson['success']) {
-    //     alert('could not get orderid');
-    //     console.log(this.orderIdJson);
-    //     return;
-    // }
-    // this.orderService.initOrder(this.cartId).subscribe( res => {
-    //   this.orderIdJson = res;
-    //   console.log(res);
-    //   if (!this.orderIdJson['success']) {
-    //     alert('could not get orderid');
-    //     console.log(this.orderIdJson);
-    //     return;
-    //   } else {
-    //     console.log(this.orderIdJson);
-    //   this.razorpayOrderId = this.orderIdJson['data']['id']
-    //   this.options = {
-    //       'key': key.test, // Enter the Key ID generated from the Dashboard
-    //       'amount': this.orderIdJson['data']['amount'], // Amount is in currency subunits. Default currency is INR.
-    //       'currency': 'INR',
-    //       'name': this.productData.productFrontData.productInfo[0].product_name,
-    //       'description': this.productData.productFrontData.productInfo[0].productDescription,
-    //       'image': '',
-    //       'order_id': this.razorpayOrderId,
-    //       'handler': function (response) {
-    //           console.log('razor pay response ', response);
-    //           const resEvent = new CustomEvent('resp', {
-    //               bubbles: true,
-    //               detail: { resp: response }
-    //           });
-    //           // alert(response.razorpay_payment_id);
-    //           window.dispatchEvent(resEvent);
-    //       },
-    //       'prefill': {
-    //           'name': this.user.name,
-    //           'email': this.user.email
-    //           // 'contact': this.user.contact
-    //       },
-    //       'notes': {
-    //           'address': this.address + ',' + this.state
-    //       },
-    //       'theme': {
-    //           'color': '#F37254'
-    //       }
-    //   }
-    //   this.rzp1 = new this.winRef.nativeWindow.Razorpay(this.options);
-    //       // console.log(this.rzp1);
-    //       this.rzp1.open();
-    //       console.log(this.rzp1);
-    //     }
-    // });
-    
+    this.touristService.initPay(request, this.deal._id, this.user._id).subscribe( res => {
+      console.log(res);
+      if(res.success) {
+        //something here!
+        // if(this.dealForm.valid) {
+          // this.content = content;
+          this.touristService.BookingDeal(this.deal._id, this.dealForm.value).subscribe( res => {
+            if(res.success) {
+              // this.toastr.success("Booked successfully!!");
+              this.createForm();
+              this.modalService.dismissAll(this.content);
+              this.modal2.hide(0);
+              // this.router.navigateByUrl('/tourists/touristshome/bookings/now');
+            } else {
+              this.toastr.error(res.msg);
+            }
+          });
+        // } else {
+        //   this.toastr.error("Invalid Details!");
+        // }
+      } else {
+        this.toastr.error(res.message);
+      }
+    });
+      this.options = {
+          'key': key.test, // Enter the Key ID generated from the Dashboard
+          'amount': this.totalPrice*100, // Amount is in currency subunits. Default currency is INR.
+          'currency': this.staticDataService.currency.name,
+          // 'name': this.productData.productFrontData.productInfo[0].product_name,
+          // 'description': this.productData.productFrontData.productInfo[0].productDescription,
+          // 'image': '',
+          // 'order_id': this.razorpayOrderId,
+          'handler': function (response) {
+              console.log('razor pay response ', response);
+              const resEvent = new CustomEvent('resp', {
+                  bubbles: true,
+                  detail: { resp: response }
+              });
+
+              // alert(response.razorpay_payment_id);
+              window.dispatchEvent(resEvent);
+          },
+          'prefill': {
+              'name': this.user.name,
+              'email': this.user.email,
+              'contact': this.user.phoneNumber
+          },
+          // 'notes': {
+          //     'address': this.address + ',' + this.state
+          // },
+          'theme': {
+              'color': '#F37254'
+          }
+      }
+      this.rzp1 = new this.winRef.nativeWindow.Razorpay(this.options);
+      // console.log(this.rzp1);
+      this.rzp1.open();
+      console.log(this.rzp1);
+      // this.submitDeal(this.content);
+
   }
 
+  // public async postPayment(id) {
+  //   this.submitDeal(this.content);
+  // }
 
+
+  // async responseEvent(event) {
+  //   await this.postPayment(event.detail.resp.razorpay_payment_id)
+  //   // redirect to the order placed page
+  // }
+
+  
 }

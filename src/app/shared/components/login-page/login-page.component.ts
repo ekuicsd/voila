@@ -6,6 +6,8 @@ import * as $ from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 import io from  'socket.io-client';
 import { environment } from 'src/environments/environment';
+import { GuideService } from '../../service/guide.service';
+import { TouristsService } from '../../service/tourists.service';
 
 @Component({
   selector: 'app-login-page',
@@ -23,6 +25,8 @@ export class LoginPageComponent implements OnInit {
   constructor(private userService: UserService,
               private toastr: ToastrService,
               private route: ActivatedRoute,
+              private guideService: GuideService,
+              private touristService: TouristsService,
                private router: Router) {  }
 
   ngOnInit() {
@@ -58,6 +62,11 @@ export class LoginPageComponent implements OnInit {
            if(res.success) {
             this.router.navigateByUrl('guide/guidehome');
             this.socket.emit('initial_connect', { userType: 'GUIDE', _id: res.guide._id});
+            this.socket.on('new_notification_guide', (data) => {
+              console.log(data);
+              this.toastr.info(data.notificationText);
+          });
+            this.guideService.onSocket();
            } else {
              this.toastr.error(res.message);
            }
@@ -78,6 +87,10 @@ export class LoginPageComponent implements OnInit {
                 this.router.navigateByUrl('/tourists/touristshome');
               }
               this.socket.emit('initial_connect', { userType: 'TOURISTS', _id: res.Tourist._id});
+              this.socket.on('new_notification_tourist', (data) => {
+                console.log(data);
+                this.toastr.info(data.notificationText);
+            });
             } else {
               this.toastr.error(res.message);
             }
