@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-timeline-page',
@@ -17,6 +18,7 @@ export class TimelinePageComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private toastr: ToastrService,
     private modalService: NgbModal,
+    private location: Location,
      private userService: UserService) { }
 
   ngOnInit() {
@@ -55,6 +57,10 @@ export class TimelinePageComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  back() {
+    this.location.back();
   }
 
 }
