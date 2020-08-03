@@ -1,11 +1,10 @@
-<div *ngIf="searchService.guidesList" class="request-card d-none d-lg-block">
+<div *ngIf="searchService.guidesList" class="request-card d-none d-md-block">
     <mdb-card class="w-auto ml-lg-4 my-3 mx-md-3" *ngFor="let guide of searchService.guidesList; let i = index">
         <div class="container1">
             <mdb-card-body class="p-3">
                 <div class="row">
                     <div class="col-md-4 col-lg-3">
-                        <img [src]="guide.picUrl ? guide.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 
-                            class="" width="100%" height="210px;" alt="">
+                        <img [src]="guide.picUrl ? guide.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" class="" width="100%" height="210px;" alt="">
                     </div>
                     <div class="col-md-4 col-lg-5">
                         <mdb-card-title class="name" style="font-size: 20px;">
@@ -36,12 +35,10 @@
                             </div>
                         </div>
                         <div class="text-center mb-2 mt-2">
-                            <button (click)="openModal(personalTour, guide)" style="background-color: #22c1c3; color: white"
-                            type="button" size="sm" class="btn">Request for Personalised Tour</button>
+                            <button (click)="openModal(personalTour, guide)" style="background-color: #22c1c3; color: white" type="button" size="sm" class="btn">Request for Personalised Tour</button>
                         </div>
                         <div *ngIf="getRating(guide).length > 0" class=" mt-1 mb-0">
-                            <i class="fa fa-star" *ngFor="let star of getRating(guide)" aria-hidden="true"></i>
-                            &nbsp; ({{guide.reviewAndRating.length}}+ Reviews)
+                            <i class="fa fa-star" *ngFor="let star of getRating(guide)" aria-hidden="true"></i> &nbsp; ({{guide.reviewAndRating.length}}+ Reviews)
                         </div>
                         <div *ngIf="getRating(guide).length <= 0" class=" mt-1 mb-0">
                             <b>New Guide</b>
@@ -114,7 +111,7 @@
                                         </h6>
                                         <p><b>{{item.tourType | titlecase}} Tour</b></p>
                                     </div>
-                                    <div  *ngIf="item.rating" class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
+                                    <div *ngIf="item.rating" class="col-sm-9" style="border-left: 1px solid rgba(128, 128, 128, 0.308);">
                                         <mdb-badge class="float-right" pill="true" info="true">Voila approved &nbsp;
                                             <mdb-icon fas icon="check-double"></mdb-icon>
                                         </mdb-badge>&nbsp;
@@ -130,9 +127,7 @@
                         <div class="row p-2 text-center" *ngIf="getDealsList(guide)">
                             <div class="col-lg-3 col-md-4" *ngFor="let deal of getDealsList(guide) | slice:0:3">
                                 <div class="view deal-card guide-card">
-                                    <img 
-                                        [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'"
-                                         width="100%" alt="" style="height:100px;">
+                                    <img [src]="'https://voilabucket2020.s3.ap-south-1.amazonaws.com/States/' + deal.state + '.jpg'" width="100%" alt="" style="height:100px;">
                                     <div class="mask rgba-purple-light white-text">
                                         <div class="text-center" style="overflow-wrap: break-word;">
                                             <h5>{{deal.places[0]?.place | titlecase}} and more</h5>
@@ -140,14 +135,11 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" 
-                                    class="white-text black my-2" [routerLink]="['/tourists/touristshome/guideProfile', guide._id]"
-                                    mdbWavesEffect>BOOK NOW!</button>
+                                    <button type="button" style=" border: 1px solid black; font-size: 15px;" class="white-text black my-2" [routerLink]="['/tourists/touristshome/guideProfile', guide._id]" mdbWavesEffect>BOOK NOW!</button>
                                 </div>
                             </div>
                             <div>
-                                <button mdbBtn type="button" [routerLink]="['/tourists/touristshome/searchResult/dealsList']" 
-                                 size="sm" color="primary" mdbWavesEffect>More Deals</button>
+                                <button mdbBtn type="button" [routerLink]="['/tourists/touristshome/searchResult/dealsList']" size="sm" color="primary" mdbWavesEffect>More Deals</button>
                             </div>
                         </div>
                         <div *ngIf="!getDealsList(guide)" class="row p-2 text-center">
@@ -161,7 +153,7 @@
     </mdb-card>
 </div>
 
-<div *ngIf="!searchService.guidesList"  class="row">
+<div *ngIf="!searchService.guidesList" class="row">
     <div class="col text-center">
         <img class="image-fluid w-25 h-75 m-auto " src="https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/flamenco-page-not-found-1.png" alt="">
         <h1>No Guides Available here!</h1>
@@ -169,22 +161,20 @@
 </div>
 
 
-<div *ngIf="searchService.guidesList"  class="row my-3 d-block d-lg-none">
+<div *ngIf="searchService.guidesList" class="row my-3 d-block d-md-none">
     <div class="col-12 col-sm-6 col-md-6  mb-4" *ngFor="let guide of searchService.guidesList">
-        <div class="view guide-card" style="position: relative;">
-            <img [src]="guide.picUrl ? guide.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 
-            width="100%" height="100%" alt="">
+        <div class="view guide-card mx-3" style="position: relative;">
+            <img [src]="guide.picUrl ? guide.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" width="100%" height="200px" alt="">
             <div class="mask mygradient white-text">
                 <div *ngIf="getRating(guide).length > 0" class="float-right mx-2 mt-1"> <i class="fa fa-star star" aria-hidden="true"></i>
                     <i class="fa fa-star star" class="color: black" *ngFor="let star of getRating(guide)" aria-hidden="true"></i>
                     <div style="font-size:12px; color: black">({{guide?.reviewAndRating.length}}+ REVIEWS)</div>
                 </div>
-                <div *ngIf="getRating(guide).length <= 0" class="float-right mx-2 mt-1"> 
-                    <div style="font-size:12px; color: black">New Guide</div>
+                <div *ngIf="getRating(guide).length <= 0" class="float-right mx-2 mt-1">
+                    <div style="font-size:14px; color: black">New Guide</div>
                 </div>
                 <div style="position:absolute; bottom:6px; left:10px; overflow-wrap: break-word; cursor: pointer;">
-                    <h4 [routerLink]="['/tourists/touristshome/guideProfile', guide._id]" 
-                    class="guide-name">{{guide?.gender}} {{guide?.name | titlecase}}</h4>
+                    <h4 [routerLink]="['/tourists/touristshome/guideProfile', guide._id]" class="guide-name">{{guide?.gender}} {{guide?.name | titlecase}}</h4>
                 </div>
                 <div style="position:absolute; bottom:30px; right:6px;" class="float-right">
                     <div class="text-center">₹{{guide?.perHeadCharge}}/head/day</div>
