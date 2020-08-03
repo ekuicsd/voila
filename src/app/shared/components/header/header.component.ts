@@ -8,6 +8,7 @@ import { TouristsService } from '../../service/tourists.service';
 import { ToastrService } from 'ngx-toastr';
 import { StaticDataService } from '../../service/static-data.service';
 import { SearchService } from '../../service/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -37,6 +38,7 @@ export class HeaderComponent implements OnInit{
     private touristService: TouristsService,
     private toastr: ToastrService,
     public searchService: SearchService,
+    private router: Router,
     public userService: UserService) {
     }
 
@@ -64,6 +66,15 @@ export class HeaderComponent implements OnInit{
     //     return this.StaticDataService.currency.name + value;
     //   }
     // }
+  }
+
+  navigateToTimelinePage(booking, content) {
+    this.modal1.hide(0);
+    if(booking.tourType === 'deal') {
+      this.router.navigateByUrl('/timeline/' + booking._id);
+    } else {
+      this.modalService.open(content, {scrollable: true, centered: true});
+    }
   }
 
   onLinkClick() {

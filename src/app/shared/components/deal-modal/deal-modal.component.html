@@ -4,10 +4,10 @@
 <div class="modal-dialog cascading-modal modal-avatar " role="document">
     <div class="modal-content">
         <div class="modal-header">
-            <img *ngIf="userService.getRole() === 'guide'"
+            <!-- <img *ngIf="userService.getRole() === 'guide'"
             [src]="user?.picUrl ? user?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 
-            style="height:100px; width:100px" alt="" class="rounded-circle img-responsive">
-            <img *ngIf="userService.getRole() !== 'guide'"
+            style="height:100px; width:100px" alt="" class="rounded-circle img-responsive"> -->
+            <img 
             [src]="deal?.guideId?.picUrl ? deal?.guideId?.picUrl : 'https://voilabucket2020.s3.ap-south-1.amazonaws.com/Assets/grayman.png'" 
             style="height:100px; width:100px" alt="" class="rounded-circle img-responsive">
         </div>

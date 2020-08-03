@@ -73,7 +73,7 @@ const routes: Routes = [
          path: 'exploreIndia/:state' , component: ExploreIndiaPagesComponent
     },
     {
-        path: 'timeline', component: TimelinePageComponent
+        path: 'timeline/:bookingId', component: TimelinePageComponent
     }  
     
     

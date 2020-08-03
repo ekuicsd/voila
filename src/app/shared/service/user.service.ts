@@ -158,4 +158,13 @@ export class UserService {
         });
     }
 
+    getBookingInfobyId(role, id): Observable<any> {
+        let url = '/' + role + '/bookingInfo/' + id;
+        return new Observable<any>(obs => {
+            this.apiService.get(url).subscribe(res => {
+                obs.next(res);
+            })
+        });
+    }
+
 }

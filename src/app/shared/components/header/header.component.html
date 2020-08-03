@@ -515,16 +515,15 @@
         <!-- [routerLink]="['/tourists/touristshome/bookings/now']" -->
         <button type="button" *ngIf="userService.getRole() === 'tourist'"
          mdbBtn size="sm"
-         class="waves-light bgrey" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
+         class="waves-light bgrey" aria-label="Close" (click)="navigateToTimelinePage(this.onGoingEvents[0], content)"  mdbWavesEffect>
          View
         </button>
         <!-- [routerLink]="['/guide/guidehome/bookings']" -->
         <button type="button" *ngIf="userService.getRole() === 'guide'"
           mdbBtn size="sm"
-         class="waves-light bgrey" aria-label="Close" (click)="openModal(content)" mdbWavesEffect>
+         class="waves-light bgrey" aria-label="Close" (click)="navigateToTimelinePage(this.onGoingEvents[0], content)"  mdbWavesEffect>
          View
         </button>
-
         <button type="button" (click)="open(rating)" *ngIf="userService.getRole() === 'tourist'"
            routerLinkActive="router-link-active"
           mdbBtn size="sm" class="relative dpurple waves-light" [disabled]="getEndDate(onGoingEvents[0])" mdbWavesEffect>
